@@ -1,21 +1,16 @@
-import Head from "next/head";
-import Link from "next/link";
-import { getAllPosts } from "../lib/data";
-import { format, parseISO } from "date-fns";
+import { getAllPosts } from "@/lib/mdx";
+import Blog from "../components/Blog";
 
 export default function Home({ posts }) {
   return (
     <div>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <div className="space-y-4">
-        {posts.map((item) => (
-          <BlogListItem key={item.slug} {...item}></BlogListItem>
-        ))}
-      </div>
+      <section className="relative min-h-screen-without-nav dark:bg-darkgrey dark:text-whitedarktheme">
+        <div className="space-y-4 p-20 mobile:p-5">
+          {posts.map((item) => (
+            <Blog key={item.slug} {...item}></Blog>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
@@ -32,20 +27,4 @@ export async function getStaticProps() {
       })),
     },
   };
-}
-
-function BlogListItem({ slug, title, date, desc }) {
-  return (
-    <div className="border border-black-100 shadow hover:shadow-md rounded-md p-4 transition duration-200 ease-in">
-      <div>
-        <Link href={`/blog/${slug}`}>
-          <a className="text-lg font-bold"> {title}</a>
-        </Link>
-      </div>
-      <div className="text-gray-600 text-xs">
-        {format(parseISO(date), "MMMM dd, yyyy")}
-      </div>
-      <div>{desc}</div>
-    </div>
-  );
 }

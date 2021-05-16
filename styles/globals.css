@@ -2,8 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+/* @layer base {
   a {
-    @apply text-blue-800 hover:text-blue-600;
+    @apply text-blue-800 hover: text-blue-600;
   }
+} */
+html {
+  --primary: #6c63ff;
 }
+
+html.dark {
+  --primary: #222831;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+nav ul li a.active:before,
+nav ul li a.active:after,
+nav ul li:hover a:before,
+nav ul li:hover a:after {
+  width: 100%;
+  opacity: 1;
+}
+
+nav ul li a:before,
+nav ul li a:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0px;
+  height: 5px;
+  margin: 5px 0 0;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  background-color: var(--primary);
+}
+
+nav ul li a.active:before,
+nav ul li a.active:after,
+nav ul li:hover a:before,
+nav ul li:hover a:after {
+  width: 100%;
+  opacity: 1;
+}
+
+/* .prose code {
+  @apply text-gray-800 dark: text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-gray-900;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  @apply text-gray-800 dark: text-gray-50;
+} */
