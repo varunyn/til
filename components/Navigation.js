@@ -6,7 +6,7 @@ const Navigation = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <nav className="fixed bg-white dark:bg-darkgrey h-16 w-full z-50 shadow-md">
+    <nav className=" sticky-nav my-0 fixed bg-white h-16 my-0 md:my-8 mx-auto  dark:bg-darkgrey  w-full  shadow-md">
       <div className="flex h-full container mx-auto justify-between items-center px-6 md:px-0">
         <a className="dark:bg-darkgrey dark:text-whitedarktheme">TIL</a>
         <ul className="flex flex-row space-x-4 items-center dark:bg-darkgrey dark:text-whitedarktheme md:relative md:left-0">

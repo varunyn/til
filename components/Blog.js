@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Blog = ({ slug, title, date, desc }) => {
   return (
-    <div className="border w-5/6 mobile:w-auto border-black-100 mx-auto justify-center shadow hover:shadow-md rounded-md p-4 dark:bg-lightgrey dark:text-whitedarktheme">
+    <div className="border mobile:w-auto border-black-100 mx-auto justify-center shadow hover:shadow-md rounded-md p-4 dark:bg-lightgrey dark:text-whitedarktheme">
       <Link href={`/blog/${slug}`}>
         <a>
           <h4 className="text-lg font-bold">{title}</h4>

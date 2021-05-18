@@ -8,7 +8,7 @@ import readingTime from "reading-time";
 export default function BlogPage(props) {
   const { title, date, content, readingTime } = props;
   return (
-    <div className="p-10 container min-h-screen-without-nav dark:bg-darkgrey dark:text-whitedarktheme">
+    <div className=" container min-h-screen-without-nav dark:bg-darkgrey dark:text-whitedarktheme">
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />

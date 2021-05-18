@@ -9,7 +9,9 @@ const Layout = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navigation />
-      <main className="pt-16">{props.children}</main>
+      <main className="justify-center bg-white dark:bg-darkgrey">
+        {props.children}
+      </main>
     </>
   );
 };
