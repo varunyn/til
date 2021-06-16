@@ -20,6 +20,9 @@ const Navigation = () => {
               <a className="relative">About</a>
             </Link>
           </li>
+          <li className="mt-2 sm:mt-0 sm:mr-6">
+            <a href="https://twitter.com/varun1_yadav" rel="me"></a>
+          </li>
         </ul>
         <button
           aria-label="Toggle Dark Mode"
