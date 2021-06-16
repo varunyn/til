@@ -7,6 +7,15 @@ const Layout = (props) => {
       <Head>
         <title>TIL - varunyadav.com</title>
         <link rel="icon" href="/favicon.ico" />
+
+        <link
+          rel="webmention"
+          href="https://webmention.io/til.varunyadav.com/webmention"
+        />
+        <link
+          rel="pingback"
+          href="https://webmention.io/til.varunyadav.com/xmlrpc"
+        />
       </Head>
       <Navigation />
       <main className="justify-center bg-white dark:bg-darkgrey">

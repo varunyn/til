@@ -4,9 +4,21 @@ import { format, parseISO } from "date-fns";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import readingTime from "reading-time";
+import { useEffect, useState } from "react";
 
 export default function BlogPage(props) {
   const { title, date, content, readingTime, desc, url, tags } = props;
+  const [mentions, setMentions] = useState([]);
+  useEffect(() => {
+    fetch(
+      "https://webmention.io/api/mentions.jf2?til.varunyadav.com&token=Rzhkot6KN8z_itqHnbi3LQ"
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        setMentions(result.children);
+      });
+  }, []);
+
   return (
     <div className=" container min-h-screen-without-nav dark:bg-darkgrey dark:text-whitedarktheme">
       <Head>
@@ -54,6 +66,18 @@ export default function BlogPage(props) {
             <MDXRemote {...content} components={content} />
           </div>
         </article>
+        {mentions.map((mention) => (
+          <div>
+            <a href={mention.author.url}>
+              <img
+                style={{ width: 100 }}
+                src={mention.author.photo}
+                alt={mention.author.name}
+              />
+            </a>
+            <div dangerouslySetInnerHTML={{ __html: mention.content.html }} />
+          </div>
+        ))}
       </main>
     </div>
   );
