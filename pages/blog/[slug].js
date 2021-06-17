@@ -5,6 +5,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import readingTime from "reading-time";
 import { useEffect, useState } from "react";
+import mdxPrism from "mdx-prism";
 
 export default function BlogPage(props) {
   const { title, date, content, readingTime, desc, url, tags } = props;
@@ -37,47 +38,49 @@ export default function BlogPage(props) {
 
       <main>
         <article className="flex flex-col justify-center items-start max-w-2xl mx-auto w-full">
-          <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
-            {title}
-          </h1>
-          <div className="inline-flex">
-            {tags.map((tag, id) => {
-              return (
-                <p
-                  className="text-sm fill-current	bg-red-400 cursor-pointer rounded border-2 border-red-500 border-opacity-50 text-gray-700 dark:text-gray-300 ml-2"
-                  key={id}
-                >
-                  #{tag}
-                </p>
-              );
-            })}
-          </div>
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2">
-            <div className="flex items-center">
-              <p className="text-sm text-gray-700 dark:text-gray-300 ml-2">
-                {format(parseISO(date), "MMMM dd, yyyy")}
-              </p>
+          <h1 className="mt-6">{title}</h1>
+          <div className="flex w-full my-6 space-x-3 sm:flex-row justify-between">
+            <div className="inline-flex">
+              {tags.map((tag, id) => {
+                return (
+                  <p
+                    className="text-sm fill-current	bg-yellow-200	 rounded border-2 border-yellow-200	 border-opacity-50 text-gray-700 dark:text-gray-300 ml-2"
+                    key={id}
+                  >
+                    {tag}
+                  </p>
+                );
+              })}
             </div>
-            <p className="text-sm text-gray-500 min-w-32 mt-2 md:mt-0">
-              {readingTime.text}
-            </p>
+            <div className="flex flex-col text-sm leading-snug">
+              <span>
+                <span>{readingTime.text}</span>
+                <span className="mx-2">–</span>
+                <time>{format(parseISO(date), "MMMM dd, yyyy")}</time>
+              </span>
+            </div>
           </div>
           <div className="prose dark:prose-dark ">
             <MDXRemote {...content} components={content} />
           </div>
         </article>
-        {mentions.map((mention) => (
-          <div>
-            <a href={mention.author.url}>
-              <img
-                style={{ width: 100 }}
-                src={mention.author.photo}
-                alt={mention.author.name}
-              />
-            </a>
-            <div dangerouslySetInnerHTML={{ __html: mention.content.html }} />
-          </div>
-        ))}
+        <div className="flex flex-col mt-8 justify-center  items-center  max-w-2xl mx-auto w-full ">
+          <h2>Webmentions</h2>
+          <ol className="border-dashed border-2 border-light-blue-300 w-full">
+            {mentions.map((mention) => (
+              <li className="m-6 ">
+                {mention.author.name}
+                <a target="_blank" href={mention.url}>
+                  {" "}
+                  mentioned this
+                </a>{" "}
+                on {format(parseISO(mention["wm-received"]), "MMMM dd, yyyy")}
+                <div className="flex-col">{mention.content}</div>
+                <hr className="mt-2" />
+              </li>
+            ))}
+          </ol>
+        </div>
       </main>
     </div>
   );
@@ -92,8 +95,10 @@ export async function getStaticProps(context) {
       remarkPlugins: [
         require("remark-toc"),
         require("remark-autolink-headings"),
+        require("remark-code-titles"),
         require("remark-slug"),
       ],
+      rehypePlugins: [mdxPrism],
     },
   });
   return {

@@ -3,6 +3,7 @@ const { spacing, fontFamily } = require("tailwindcss/defaultTheme");
 module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class", // or 'media' or 'class'
+  mode: "jit",
   variants: {
     typography: ["dark"],
   },
@@ -22,6 +23,9 @@ module.exports = {
         whitedarktheme: "#EEEEEE",
         orange: "#b55400",
         facebook: "#4267B2",
+      },
+      fontFamily: {
+        sans: ["Inter", ...fontFamily.sans],
       },
       inset: {
         timelineCircle: "calc(50% - 0.5em)",
@@ -50,13 +54,20 @@ module.exports = {
               },
               code: { color: theme("colors.blue.400") },
             },
-            "h2,h3,h4": {
+            h1: {
+              marginBottom: 0,
+              fontWeight: 900,
+            },
+            "h1, h2, h3, h4, h5, h6": {
+              color: theme("colors.black"),
               "scroll-margin-top": spacing[32],
             },
             code: { color: theme("colors.pink.500") },
             "blockquote p:first-of-type::before": false,
             "blockquote p:last-of-type::after": false,
           },
+          p: {},
+          img: null,
         },
         dark: {
           css: {
@@ -73,11 +84,12 @@ module.exports = {
               color: theme("colors.gray.300"),
             },
             h1: {
-              fontWeight: "700",
+              marginBottom: 0,
+              fontWeight: 900,
               letterSpacing: theme("letterSpacing.tight"),
               color: theme("colors.gray.100"),
             },
-            "h2,h3,h4": {
+            "h2,h3,h4,h5,h6": {
               color: theme("colors.gray.100"),
               "scroll-margin-top": spacing[32],
             },
