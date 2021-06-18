@@ -44,7 +44,7 @@ export default function BlogPage(props) {
               {tags.map((tag, id) => {
                 return (
                   <p
-                    className="text-sm fill-current	bg-yellow-200	 rounded border-2 border-yellow-200	 border-opacity-50 text-gray-700 dark:text-gray-300 ml-2"
+                    className="text-sm fill-current	bg-yellow-200	 rounded border-2 border-yellow-200	 border-opacity-50 text-gray-700 dark:text-black ml-2"
                     key={id}
                   >
                     {tag}
@@ -70,7 +70,11 @@ export default function BlogPage(props) {
             {mentions.map((mention) => (
               <li className="m-6 ">
                 {mention.author.name}
-                <a target="_blank" href={mention.url}>
+                <a
+                  target="_blank"
+                  className="webmention-anchor"
+                  href={mention.url}
+                >
                   {" "}
                   mentioned this
                 </a>{" "}

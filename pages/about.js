@@ -10,7 +10,10 @@ export default function Home() {
         </Head>
 
         <main className="p-10  mx-auto text-center container justify-center">
-          <h1>About</h1>
+          <h4>
+            Hi, everyone page is created for sharing my knowledge and using it
+            for quick search
+          </h4>
         </main>
       </section>
     </div>

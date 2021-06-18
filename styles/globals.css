@@ -13,13 +13,11 @@
     U+FEFF, U+FFFD;
 }
 
-@layer base {
-  h1 {
-    @apply text-4xl;
-  }
-  h2 {
-    @apply text-xl;
-  }
+h1 {
+  @apply text-5xl;
+}
+h2 {
+  @apply text-xl;
 }
 
 html {
@@ -34,8 +32,13 @@ html {
   scroll-behavior: smooth;
 }
 
-a {
+.webmention-anchor {
   @apply text-blue-600 hover:text-blue-800  visited:text-gray-600;
+}
+
+.blog-date {
+  margin-right: 32px;
+  min-width: 4rem;
 }
 
 nav ul li a.active:before,
