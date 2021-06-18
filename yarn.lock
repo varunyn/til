@@ -3252,6 +3252,11 @@
   "resolved" "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
 
+"next-compose-plugins@^2.2.1":
+  "integrity" "sha512-OjJ+fV15FXO2uQXQagLD4C0abYErBjyjE0I0FHpOEIB8upw0hg1ldFP6cqHTJBH1cZqy96OeR3u1dJ+Ez2D4Bg=="
+  "resolved" "https://registry.npmjs.org/next-compose-plugins/-/next-compose-plugins-2.2.1.tgz"
+  "version" "2.2.1"
+
 "next-mdx-remote@^3.0.1":
   "integrity" "sha512-sV1sM6CkdYP5aPND1+vrF3wr8TU8NJwVlcFe2rPjVHR5J/9M2bl9zlhF6AF+GOKHA7d5kUdwHoLbApEGofD8hA=="
   "resolved" "https://registry.npmjs.org/next-mdx-remote/-/next-mdx-remote-3.0.1.tgz"
