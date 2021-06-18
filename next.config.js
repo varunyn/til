@@ -4,6 +4,12 @@ module.exports = {
     webpack5: true,
     strictPostcssConfiguration: true,
   },
+  images: {
+    domains: [
+      "i.scdn.co", // Spotify Album Art
+      "pbs.twimg.com", // Twitter Profile Picture
+    ],
+  },
   webpack: (config, { dev, isServer }) => {
     // Fixes npm packages that depend on `fs` module
     if (!isServer) {

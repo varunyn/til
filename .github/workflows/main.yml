@@ -20,17 +20,19 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-        env:
-          NEXT_PUBLIC_GOOGLE_ANALYTICS: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS }}
-          NEXT_PUBLIC_WEBMENTION_TOKEN: ${{ secrets.NEXT_PUBLIC_WEBMENTION_TOKEN }}
 
       - name: Installing my packages
         run: npm ci
 
       - name: Build my App
-        run: npm run build
-      - run: npm run export
-      - run: touch ./out/.nojekyll
+        run: |
+          npm run build
+          npm run export
+          touch ./out/.nojekyll
+        env:
+          NEXT_PUBLIC_GOOGLE_ANALYTICS: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS }}
+          NEXT_PUBLIC_WEBMENTION_TOKEN: ${{ secrets.NEXT_PUBLIC_WEBMENTION_TOKEN }}
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.3
@@ -38,3 +40,7 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
           FOLDER: out # The folder the action should deploy.
+        env:
+          NEXT_PUBLIC_GOOGLE_ANALYTICS: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS }}
+          NEXT_PUBLIC_WEBMENTION_TOKEN: ${{ secrets.NEXT_PUBLIC_WEBMENTION_TOKEN }}
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}

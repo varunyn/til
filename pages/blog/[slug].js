@@ -6,9 +6,21 @@ import { MDXRemote } from "next-mdx-remote";
 import readingTime from "reading-time";
 import { useEffect, useState } from "react";
 import mdxPrism from "mdx-prism";
+import { getTweets } from "@/lib/twitter";
+import Tweet from "@/components/Tweet";
 
 export default function BlogPage(props) {
-  const { title, date, content, readingTime, desc, url, tags } = props;
+  const {
+    title,
+    date,
+    content,
+    readingTime,
+    desc,
+    url,
+    tags,
+    tweetIDs,
+    tweets,
+  } = props;
   const [mentions, setMentions] = useState([]);
   useEffect(() => {
     fetch(
@@ -19,6 +31,12 @@ export default function BlogPage(props) {
         setMentions(result.children);
       });
   }, []);
+
+  const StaticTweet = ({ id }) => {
+    const tweet = tweets.find((tweet) => tweet.id === id);
+    // return id;
+    return <Tweet {...tweet} />;
+  };
 
   return (
     <div className=" container min-h-screen-without-nav dark:bg-darkgrey dark:text-whitedarktheme">
@@ -65,7 +83,7 @@ export default function BlogPage(props) {
             </div>
           </div>
           <div className="prose dark:prose-dark ">
-            <MDXRemote {...content} components={content} />
+            <MDXRemote {...content} components={{ StaticTweet }} />
           </div>
         </article>
         <div className="flex flex-col mt-8 justify-center  items-center  max-w-2xl mx-auto w-full ">
@@ -119,6 +137,12 @@ export async function getStaticProps(context) {
       rehypePlugins: [mdxPrism],
     },
   });
+  const tweetMatches = content.match(/<StaticTweet\sid="[0-9]+"\s\/>/g);
+  const tweetIDs = tweetMatches?.map((tweet) => tweet.match(/[0-9]+/g)[0]);
+  var tweets = null;
+  if (tweetIDs != null) {
+    tweets = await getTweets(tweetIDs);
+  }
   return {
     props: {
       ...data,
@@ -126,6 +150,8 @@ export async function getStaticProps(context) {
       date: data.date.toISOString(),
       content: mdxSource,
       url: params.slug,
+      tweetIDs: tweetIDs || [],
+      tweets,
     },
   };
 }
