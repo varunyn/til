@@ -1,4 +1,6 @@
-module.exports = {
+const withOptimizedImages = require("next-optimized-images");
+
+module.exports = withOptimizedImages({
   reactStrictMode: true,
   future: {
     webpack5: true,
@@ -6,7 +8,6 @@ module.exports = {
   },
   images: {
     domains: [
-      "i.scdn.co", // Spotify Album Art
       "pbs.twimg.com", // Twitter Profile Picture
     ],
   },
@@ -21,4 +22,4 @@ module.exports = {
     }
     return config;
   },
-};
+});
