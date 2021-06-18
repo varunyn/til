@@ -12,7 +12,7 @@ export default function BlogPage(props) {
   const [mentions, setMentions] = useState([]);
   useEffect(() => {
     fetch(
-      "https://webmention.io/api/mentions.jf2?til.varunyadav.com&token=Rzhkot6KN8z_itqHnbi3LQ"
+      `https://webmention.io/api/mentions.jf2?til.varunyadav.com&token=${process.env.NEXT_PUBLIC_WEBMENTION_TOKEN}`
     )
       .then((response) => response.json())
       .then((result) => {
@@ -70,23 +70,30 @@ export default function BlogPage(props) {
         </article>
         <div className="flex flex-col mt-8 justify-center  items-center  max-w-2xl mx-auto w-full ">
           <h2>Webmentions</h2>
-          <ol className="border-dashed border-2 border-light-blue-300 w-full">
-            {mentions.map((mention) => (
-              <li className="m-6 ">
-                {mention.author.name}
-                <a
-                  target="_blank"
-                  className="webmention-anchor"
-                  href={mention.url}
-                >
-                  {" "}
-                  mentioned this
-                </a>{" "}
-                on {format(parseISO(mention["wm-received"]), "MMMM dd, yyyy")}
-                <div className="flex-col">{mention.content}</div>
-                <hr className="mt-2" />
-              </li>
-            ))}
+          <ol className="border-dashed border-2 webmention-ol border-light-blue-300 w-full">
+            {mentions.map((mention) => {
+              if (mention["wm-property"] != "like-of")
+                return (
+                  <li className="m-6 ">
+                    {mention.author.name}&nbsp;
+                    <a
+                      target="_blank"
+                      className="webmention-anchor"
+                      href={mention.url}
+                    >
+                      {mention["wm-property"] === "repost-of"
+                        ? "reposted this "
+                        : "mentioned this"}
+                    </a>
+                    &nbsp;on&nbsp;
+                    {format(parseISO(mention["wm-received"]), "MMMM dd, yyyy")}
+                    <p className="flex-col mt-1 ml-5 text-justify">
+                      {mention["content"]["text"]}
+                    </p>
+                    <hr className="mt-2" />
+                  </li>
+                );
+            })}
           </ol>
         </div>
       </main>

@@ -36,6 +36,11 @@ html {
   @apply text-blue-600 hover:text-blue-800  visited:text-gray-600;
 }
 
+.webmention-ol {
+  margin-bottom: 3rem;
+  margin-top: 5px;
+}
+
 .blog-date {
   margin-right: 32px;
   min-width: 4rem;

@@ -1,6 +1,12 @@
 {
-  "name": "blog-learning",
+  "name": "til.varunyadav.com",
+  "description": "My personal TIL website.",
   "version": "0.1.0",
+  "homepage": "https://github.com/varunyn/til",
+  "author": {
+    "name": "Varun Yadav",
+    "email": "hi@varunyadav.com"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
