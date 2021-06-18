@@ -20,6 +20,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+        env:
+          NEXT_PUBLIC_GOOGLE_ANALYTICS: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS }}
+          NEXT_PUBLIC_WEBMENTION_TOKEN: ${{ secrets.NEXT_PUBLIC_WEBMENTION_TOKEN }}
 
       - name: Installing my packages
         run: npm ci
