@@ -12,7 +12,7 @@ export default function BlogPage(props) {
   const [mentions, setMentions] = useState([]);
   useEffect(() => {
     fetch(
-      `https://webmention.io/api/mentions.jf2?til.varunyadav.com&token=${process.env.NEXT_PUBLIC_WEBMENTION_TOKEN}`
+      "https://webmention.io/api/mentions.jf2?til.varunyadav.com&token=Rzhkot6KN8z_itqHnbi3LQ"
     )
       .then((response) => response.json())
       .then((result) => {
