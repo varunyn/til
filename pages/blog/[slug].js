@@ -72,7 +72,10 @@ export default function BlogPage(props) {
           <h2>Webmentions</h2>
           <ol className="border-dashed border-2 webmention-ol border-light-blue-300 w-full">
             {mentions.map((mention) => {
-              if (mention["wm-property"] != "like-of")
+              if (
+                mention["wm-property"] != "like-of" &&
+                mention["wm-target"] === window.location.href
+              )
                 return (
                   <li className="m-6 ">
                     {mention.author.name}&nbsp;
