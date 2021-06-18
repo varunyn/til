@@ -20,6 +20,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+        env:
+          NEXT_PUBLIC_GOOGLE_ANALYTICS: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS }}
+          NEXT_PUBLIC_WEBMENTION_TOKEN: ${{ secrets.NEXT_PUBLIC_WEBMENTION_TOKEN }}
 
       - name: Installing my packages
         run: npm ci
@@ -35,6 +38,3 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
           FOLDER: out # The folder the action should deploy.
-        env:
-          NEXT_PUBLIC_GOOGLE_ANALYTICS: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS }}
-          NEXT_PUBLIC_WEBMENTION_TOKEN: ${{ secrets.NEXT_PUBLIC_WEBMENTION_TOKEN }}
