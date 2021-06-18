@@ -173,3 +173,8 @@ pre[class*="language-"] {
 .token.variable {
   @apply text-yellow-500;
 }
+
+.prose img {
+  /* Don't apply styles to next/image */
+  @apply m-0;
+}
