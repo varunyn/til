@@ -33,6 +33,10 @@ export default function BlogPage(props) {
         />
         <meta property="og:type" content="website" />
 
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@varun1_yadav" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={desc} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
