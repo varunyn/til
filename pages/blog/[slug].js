@@ -59,7 +59,7 @@ export default function BlogPage(props) {
       </Head>
 
       <main>
-        <article className="flex flex-col justify-center items-start max-w-2xl mx-auto w-full">
+        <article className="flex flex-col justify-center items-start max-w-2xl mobile:p-3 mx-auto w-full">
           <h1 className="mt-6">{title}</h1>
           <div className="flex w-full my-6 space-x-3 sm:flex-row justify-between">
             <div className="inline-flex">
