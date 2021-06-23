@@ -22,7 +22,7 @@ class MyDocument extends Document {
             }}
           />
         </Head>
-        <body>
+        <body className="text-black bg-white dark:bg-darkgrey dark:text-white">
           <Main />
           <NextScript />
         </body>

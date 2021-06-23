@@ -1,7 +1,9 @@
 import Head from "next/head";
 import Navigation from "./Navigation";
 import * as React from "react";
-const Layout = (props) => {
+import Footer from "./Footer";
+
+const Layout = ({ children }) => {
   return (
     <>
       <Head>
@@ -19,8 +21,9 @@ const Layout = (props) => {
       </Head>
       <Navigation />
       <main className="justify-center bg-white dark:bg-darkgrey">
-        {props.children}
+        {children}
       </main>
+      <Footer />
     </>
   );
 };

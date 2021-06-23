@@ -2,10 +2,8 @@ const withOptimizedImages = require("next-optimized-images");
 
 module.exports = withOptimizedImages({
   reactStrictMode: true,
-  future: {
-    webpack5: true,
-    strictPostcssConfiguration: true,
-  },
+  webpack5: true,
+  strictPostcssConfiguration: true,
   images: {
     domains: [
       "pbs.twimg.com", // Twitter Profile Picture

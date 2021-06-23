@@ -2,11 +2,12 @@ import { getAllPosts } from "@/lib/mdx";
 import Blog from "../components/Blog";
 import { useState } from "react";
 
-export default function Home({ posts }) {
+export default function Home({ allPosts }) {
   const [searchValue, setSearchValue] = useState("");
-  const filteredBlogPosts = posts.filter((frontMatter) =>
+  const filteredBlogPosts = allPosts.filter((frontMatter) =>
     frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
   );
+  // const date = posts.data.date.toISOString()
 
   return (
     <div className="flex flex-col justify-center max-w-2xl mx-auto h-full">
@@ -33,7 +34,7 @@ export default function Home({ posts }) {
           />
         </svg>
       </div>
-      <section className="relative mt-5 min-h-screen-without-nav dark:bg-darkgrey dark:text-whitedarktheme">
+      <section className="relative mt-5  dark:bg-darkgrey dark:text-whitedarktheme">
         {/* {!searchValue && (
           <div className="space-y-4 p-20 mobile:p-5">
             {posts.map((item) => (
@@ -60,12 +61,13 @@ export async function getStaticProps() {
   const allPosts = getAllPosts();
   return {
     props: {
-      posts: allPosts.map(({ data, content, slug }) => ({
-        ...data,
-        date: data.date.toISOString(),
-        content,
-        slug,
-      })),
+      allPosts,
+      // posts: allPosts.map(({ data, content, slug }) => ({
+      //   ...data,
+      //   date: data.date.toISOString(),
+      //   content,
+      //   slug,
+      // })),
     },
   };
 }
