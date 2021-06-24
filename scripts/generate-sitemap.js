@@ -1,17 +1,17 @@
-const fs = require("fs");
+const fs = require('fs');
 
-const globby = require("globby");
-const prettier = require("prettier");
+const globby = require('globby');
+const prettier = require('prettier');
 
 (async () => {
   // Ignore Next.js specific files (e.g., _app.js) and API routes.
-  const prettierConfig = await prettier.resolveConfig("./.prettierrc.js");
+  const prettierConfig = await prettier.resolveConfig('./.prettierrc.js');
   const pages = await globby([
-    "pages/*.js",
-    "data/*.mdx",
-    "!pages/_*.js",
-    "!pages/api",
-    "!pages/404.js",
+    'pages/*.js',
+    'data/*.mdx',
+    '!pages/_*.js',
+    '!pages/api',
+    '!pages/404.js'
   ]);
   const sitemap = `
         <?xml version="1.0" encoding="UTF-8"?>
@@ -19,11 +19,11 @@ const prettier = require("prettier");
             ${pages
               .map((page) => {
                 const path = page
-                  .replace("pages", "")
-                  .replace("data", "")
-                  .replace(".js", "")
-                  .replace(".mdx", "");
-                const route = path === "/index" ? "" : path;
+                  .replace('pages', '')
+                  .replace('data', '/blog')
+                  .replace('.js', '')
+                  .replace('.mdx', '');
+                const route = path === '/index' ? '' : path;
 
                 return `
                         <url>
@@ -31,14 +31,14 @@ const prettier = require("prettier");
                         </url>
                     `;
               })
-              .join("")}
+              .join('')}
         </urlset>
     `;
 
   const formatted = prettier.format(sitemap, {
     ...prettierConfig,
-    parser: "html",
+    parser: 'html'
   });
 
-  fs.writeFileSync("public/sitemap.xml", formatted);
+  fs.writeFileSync('public/sitemap.xml', formatted);
 })();
