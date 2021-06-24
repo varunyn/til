@@ -31,5 +31,5 @@ const globby = require("globby");
               .join("")}
         </urlset>
     `;
-  fs.writeFileSync("public/sitemap.xml");
+  fs.writeFileSync("public/sitemap.xml", sitemap);
 })();
