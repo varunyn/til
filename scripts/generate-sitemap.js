@@ -5,9 +5,11 @@ const globby = require("globby");
 (async () => {
   // Ignore Next.js specific files (e.g., _app.js) and API routes.
   const pages = await globby([
-    "pages/**/*{.js,.mdx}",
+    "pages/*.js",
+    "data/*.mdx",
     "!pages/_*.js",
     "!pages/api",
+    "!pages/404.js",
   ]);
   const sitemap = `
         <?xml version="1.0" encoding="UTF-8"?>
