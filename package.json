@@ -42,5 +42,14 @@
     "remark-slug": "^6.0.0",
     "remark-toc": "^7.2.0",
     "tailwindcss": "^2.2.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.3.1"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "none"
   }
 }
