@@ -6,6 +6,7 @@
 ### Categories
   - [Nextjs](#nextjs)
   - [Docker](#docker)
+  - [Chrome](#chrom)
 
 ### Nextjs
 
@@ -18,3 +19,8 @@
 ### Kubernetes
 
 - [Creating k8s deployment](https://github.com/varunyn/til/blob/main/data/k8s-deployment.mdx)
+
+
+### Chrome
+
+- [How to open URL in new tab using keyboard shortcut](https://github.com/varunyn/til/blob/main/data/open-url-with-keyboard-shortcut-in-chrome.mdx)
