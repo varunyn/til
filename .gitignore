@@ -8,6 +8,10 @@
 # testing
 /coverage
 
+.DS_Store
+public/sitemap.xml
+public/feed.xml
+
 # next.js
 /.next/
 /out/

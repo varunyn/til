@@ -17,20 +17,20 @@
   </url>
 
   <url>
+    <loc>https://til.varunyadav.com/learning-in-public</loc>
+  </url>
+
+  <url>
     <loc>https://til.varunyadav.com/k8s-deployment</loc>
   </url>
 
   <url>
-    <loc>https://til.varunyadav.com/learning-in-public</loc>
+    <loc>https://til.varunyadav.com/webmentions-in-nextjs</loc>
   </url>
 
   <url>
     <loc
       >https://til.varunyadav.com/open-url-with-keyboard-shortcut-in-chrome</loc
     >
-  </url>
-
-  <url>
-    <loc>https://til.varunyadav.com/webmentions-in-nextjs</loc>
   </url>
 </urlset>
