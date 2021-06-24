@@ -10,6 +10,9 @@ module.exports = withOptimizedImages({
     ],
   },
   webpack: (config, { dev, isServer }) => {
+    if (isServer) {
+      require("./scripts/generate-sitemap");
+    }
     // Fixes npm packages that depend on `fs` module
     if (!isServer) {
       Object.assign(config.resolve.alias, {

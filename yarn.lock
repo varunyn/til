@@ -2622,7 +2622,7 @@
   "resolved" "https://registry.npmjs.org/globals/-/globals-11.12.0.tgz"
   "version" "11.12.0"
 
-"globby@^8.0.1":
+"globby@^8.0.1", "globby@^8.0.2":
   "integrity" "sha512-yTzMmKygLp8RUpG1Ymu2VXPSJQZjNAZPD4ywgYEaG7e4tBJeUQBO8OpXrf1RCNcEs5alsoJYPAMiIHP0cmeC7w=="
   "resolved" "https://registry.npmjs.org/globby/-/globby-8.0.2.tgz"
   "version" "8.0.2"
