@@ -1,0 +1,38 @@
+
+        <?xml version="1.0" encoding="UTF-8"?>
+        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            
+                        <url>
+                            <loc>https://til.varunyadav.com/about</loc>
+                        </url>
+                    
+                        <url>
+                            <loc>https://til.varunyadav.com</loc>
+                        </url>
+                    
+                        <url>
+                            <loc>https://til.varunyadav.comdata/adding-google-analytics-in-nextjs</loc>
+                        </url>
+                    
+                        <url>
+                            <loc>https://til.varunyadav.comdata/docker-image-for-python</loc>
+                        </url>
+                    
+                        <url>
+                            <loc>https://til.varunyadav.comdata/k8s-deployment</loc>
+                        </url>
+                    
+                        <url>
+                            <loc>https://til.varunyadav.comdata/learning-in-public</loc>
+                        </url>
+                    
+                        <url>
+                            <loc>https://til.varunyadav.comdata/open-url-with-keyboard-shortcut-in-chrome</loc>
+                        </url>
+                    
+                        <url>
+                            <loc>https://til.varunyadav.comdata/webmentions-in-nextjs</loc>
+                        </url>
+                    
+        </urlset>
+    
