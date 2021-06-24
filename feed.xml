@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Varun Yadav - TIL]]></title>
+        <description><![CDATA[Varun Yadav - TIL]]></description>
+        <link>https://til.varunyadav.com</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Thu, 24 Jun 2021 19:21:47 GMT</lastBuildDate>
+        <atom:link href="https://til.varunyadav.com/feed.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Adding Google analytics]]></title>
+            <link>https://til.varunyadav.io/blog/adding-google-analytics-in-nextjs</link>
+            <guid isPermaLink="true">https://til.varunyadav.io/blog/adding-google-analytics-in-nextjs</guid>
+        </item>
+        <item>
+            <title><![CDATA[Building docker image for python app]]></title>
+            <link>https://til.varunyadav.io/blog/docker-image-for-python</link>
+            <guid isPermaLink="true">https://til.varunyadav.io/blog/docker-image-for-python</guid>
+        </item>
+        <item>
+            <title><![CDATA[Kubernetes Deployment 101]]></title>
+            <link>https://til.varunyadav.io/blog/k8s-deployment</link>
+            <guid isPermaLink="true">https://til.varunyadav.io/blog/k8s-deployment</guid>
+        </item>
+        <item>
+            <title><![CDATA[Learning in Public]]></title>
+            <link>https://til.varunyadav.io/blog/learning-in-public</link>
+            <guid isPermaLink="true">https://til.varunyadav.io/blog/learning-in-public</guid>
+        </item>
+        <item>
+            <title><![CDATA[How to open URL in new tab using keyboard shortcut]]></title>
+            <link>https://til.varunyadav.io/blog/open-url-with-keyboard-shortcut-in-chrome</link>
+            <guid isPermaLink="true">https://til.varunyadav.io/blog/open-url-with-keyboard-shortcut-in-chrome</guid>
+        </item>
+        <item>
+            <title><![CDATA[Webmentions in Nextjs]]></title>
+            <link>https://til.varunyadav.io/blog/webmentions-in-nextjs</link>
+            <guid isPermaLink="true">https://til.varunyadav.io/blog/webmentions-in-nextjs</guid>
+        </item>
+    </channel>
+</rss>
