@@ -1,6 +1,7 @@
 import { getAllPosts } from "@/lib/mdx";
 import Blog from "../components/Blog";
 import { useState } from "react";
+import Head from "next/head";
 
 export default function Home({ allPosts }) {
   const [searchValue, setSearchValue] = useState("");
@@ -11,6 +12,18 @@ export default function Home({ allPosts }) {
 
   return (
     <div className="flex flex-col justify-center max-w-2xl mx-auto h-full">
+      <Head>
+        <meta name="description" content="Today I learned" />
+        <meta property="og:title" content="TIL-Varun Yadav" />
+        <meta property="og:description" content="Today I learned" />
+        <meta property="og:url" content={`https://til.varunyadav.com`} />
+        <meta property="og:type" content="website" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@varun1_yadav" />
+        <meta name="twitter:title" content="TIL-Varun Yadav" />
+        <meta name="twitter:description" ccontent="Today I learned" />
+      </Head>
       <div className="relative mt-5">
         <input
           aria-label="Search articles"
