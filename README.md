@@ -6,7 +6,9 @@
 ### Categories
   - [Nextjs](#nextjs)
   - [Docker](#docker)
-  - [Chrome](#chrom)
+  - [Chrome](#chrome)
+  - [Kubernetes](#kubernetes)
+  - [Github](#github)
 
 ### Nextjs
 
@@ -24,3 +26,7 @@
 ### Chrome
 
 - [How to open URL in new tab using keyboard shortcut](https://github.com/varunyn/til/blob/main/data/open-url-with-keyboard-shortcut-in-chrome.mdx)
+
+### Github
+
+- [Setup dependabot in Github repo](https://github.com/varunyn/til/blob/main/data/github-dependabot.mdx)

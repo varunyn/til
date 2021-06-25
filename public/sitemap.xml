@@ -9,28 +9,32 @@
   </url>
 
   <url>
-    <loc>https://til.varunyadav.com/docker-image-for-python</loc>
+    <loc>https://til.varunyadav.com/blog/adding-google-analytics-in-nextjs</loc>
   </url>
 
   <url>
-    <loc>https://til.varunyadav.com/adding-google-analytics-in-nextjs</loc>
+    <loc>https://til.varunyadav.com/blog/docker-image-for-python</loc>
   </url>
 
   <url>
-    <loc>https://til.varunyadav.com/learning-in-public</loc>
+    <loc>https://til.varunyadav.com/blog/github-dependabot</loc>
   </url>
 
   <url>
-    <loc>https://til.varunyadav.com/k8s-deployment</loc>
-  </url>
-
-  <url>
-    <loc>https://til.varunyadav.com/webmentions-in-nextjs</loc>
+    <loc>https://til.varunyadav.com/blog/k8s-deployment</loc>
   </url>
 
   <url>
     <loc
-      >https://til.varunyadav.com/open-url-with-keyboard-shortcut-in-chrome</loc
+      >https://til.varunyadav.com/blog/open-url-with-keyboard-shortcut-in-chrome</loc
     >
+  </url>
+
+  <url>
+    <loc>https://til.varunyadav.com/blog/learning-in-public</loc>
+  </url>
+
+  <url>
+    <loc>https://til.varunyadav.com/blog/webmentions-in-nextjs</loc>
   </url>
 </urlset>
