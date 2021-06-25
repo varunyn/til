@@ -1,9 +1,10 @@
-import Head from "next/head";
-import { getPostData, getAllPostIds } from "@/lib/mdx";
-import { format, parseISO } from "date-fns";
-import { MDXRemote } from "next-mdx-remote";
-import { useEffect, useState } from "react";
-import Tweet from "@/components/Tweet";
+import Head from 'next/head';
+import { getPostData, getAllPostIds } from '@/lib/mdx';
+import { format, parseISO } from 'date-fns';
+import { MDXRemote } from 'next-mdx-remote';
+import { useEffect, useState } from 'react';
+import Tweet from '@/components/Tweet';
+import Link from 'next/link';
 
 export default function BlogPage(props) {
   const { title, date, content, readingTime, desc, slug, tags, tweets } = props;
@@ -45,17 +46,17 @@ export default function BlogPage(props) {
       </Head>
 
       <article className="flex flex-col justify-center items-start max-w-2xl mobile:p-3 mx-auto w-full">
-        <h1 className="mt-6">{title}</h1>
+        <h1 className="font-sans mt-6">{title}</h1>
         <div className="flex w-full my-6 space-x-3 sm:flex-row justify-between">
           <div className="inline-flex">
             {tags.map((tag, id) => {
               return (
-                <p
-                  className="text-sm fill-current	bg-yellow-200	 rounded border-2 border-yellow-200	 border-opacity-50 text-gray-700 dark:text-black ml-2"
-                  key={id}
-                >
-                  {tag}
-                </p>
+                <Link key={id} href={`/tags/${tag}`}>
+                  <a className="text-sm fill-current	bg-yellow-200	 rounded border-2 border-yellow-200	 border-opacity-50 text-gray-700 dark:text-black ml-2">
+                    {' '}
+                    {tag}
+                  </a>
+                </Link>
               );
             })}
           </div>
@@ -63,7 +64,7 @@ export default function BlogPage(props) {
             <span>
               <span>{readingTime.text}</span>
               <span className="mx-2">–</span>
-              <time>{format(parseISO(date), "MMMM dd, yyyy")}</time>
+              <time>{format(parseISO(date), 'MMMM dd, yyyy')}</time>
             </span>
           </div>
         </div>
@@ -76,8 +77,8 @@ export default function BlogPage(props) {
         <ol className="border-dashed border-2 webmention-ol border-light-blue-300 w-full">
           {mentions.map((mention) => {
             if (
-              mention["wm-property"] != "like-of" &&
-              mention["wm-target"] === window.location.href
+              mention['wm-property'] != 'like-of' &&
+              mention['wm-target'] === window.location.href
             )
               return (
                 <li className="m-6 ">
@@ -87,14 +88,14 @@ export default function BlogPage(props) {
                     className="webmention-anchor"
                     href={mention.url}
                   >
-                    {mention["wm-property"] === "repost-of"
-                      ? "reposted this "
-                      : "mentioned this"}
+                    {mention['wm-property'] === 'repost-of'
+                      ? 'reposted this '
+                      : 'mentioned this'}
                   </a>
                   &nbsp;on&nbsp;
-                  {format(parseISO(mention["wm-received"]), "MMMM dd, yyyy")}
+                  {format(parseISO(mention['wm-received']), 'MMMM dd, yyyy')}
                   <p className="flex-col mt-1 ml-5 text-justify">
-                    {mention["content"]["text"]}
+                    {mention['content']['text']}
                   </p>
                   <hr className="mt-2" />
                 </li>
@@ -111,8 +112,8 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      ...postData,
-    },
+      ...postData
+    }
   };
 }
 

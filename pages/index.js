@@ -1,14 +1,13 @@
-import { getAllPosts } from "@/lib/mdx";
-import Blog from "../components/Blog";
-import { useState } from "react";
-import Head from "next/head";
+import { getAllPosts } from '@/lib/mdx';
+import Blog from '../components/Blog';
+import { useState } from 'react';
+import Head from 'next/head';
 
 export default function Home({ allPosts }) {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState('');
   const filteredBlogPosts = allPosts.filter((frontMatter) =>
     frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
   );
-  // const date = posts.data.date.toISOString()
 
   return (
     <div className="flex flex-col justify-center max-w-2xl mx-auto h-full">
@@ -48,13 +47,6 @@ export default function Home({ allPosts }) {
         </svg>
       </div>
       <section className="relative mt-5  dark:bg-darkgrey dark:text-whitedarktheme">
-        {/* {!searchValue && (
-          <div className="space-y-4 p-20 mobile:p-5">
-            {posts.map((item) => (
-              <Blog key={item.slug} {...item}></Blog>
-            ))}
-          </div>
-        )} */}
         {!filteredBlogPosts.length && (
           <p className="text-gray-600 dark:text-gray-400 mb-4">
             No posts found.
@@ -74,13 +66,7 @@ export async function getStaticProps() {
   const allPosts = getAllPosts();
   return {
     props: {
-      allPosts,
-      // posts: allPosts.map(({ data, content, slug }) => ({
-      //   ...data,
-      //   date: data.date.toISOString(),
-      //   content,
-      //   slug,
-      // })),
-    },
+      allPosts
+    }
   };
 }
