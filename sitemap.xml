@@ -17,6 +17,14 @@
   </url>
 
   <url>
+    <loc>https://til.varunyadav.com/blog/awesome-github-repo</loc>
+  </url>
+
+  <url>
+    <loc>https://til.varunyadav.com/blog/awesome-k8s-resources</loc>
+  </url>
+
+  <url>
     <loc>https://til.varunyadav.com/blog/docker-image-for-python</loc>
   </url>
 
@@ -30,6 +38,10 @@
 
   <url>
     <loc>https://til.varunyadav.com/blog/learning-in-public</loc>
+  </url>
+
+  <url>
+    <loc>https://til.varunyadav.com/blog/mac-tools</loc>
   </url>
 
   <url>
