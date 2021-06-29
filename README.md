@@ -21,7 +21,7 @@
 ### Kubernetes
 
 - [Creating k8s deployment](https://github.com/varunyn/til/blob/main/data/k8s-deployment.mdx)
-
+- [Awesome Kubernetes Repos](https://github.com/varunyn/til/blob/main/data/awesome-k8s-resources.mdx)
 
 ### Chrome
 

@@ -9,7 +9,7 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <main className="p-10  mx-auto text-center container justify-center">
+        <main className="p-10  mx-auto  container justify-center">
           <h4>
             Hi, I am Varun Yadav, I'm a Cloud Engineer. You can find me on{' '}
             <a className="links" href="https://twitter.com/varun1_yadav">
@@ -25,6 +25,11 @@ export default function Home() {
             </a>{' '}
             where I’m building in the open
           </h4>
+          <h3 className="mt-6 text-2xl">Pay it forward</h3>
+          <p className="mt-1">
+            I’ve always been interested in the idea of paying forward what
+            knowledge I have—share with others what others have shared with me.{' '}
+          </p>
         </main>
       </section>
     </div>
