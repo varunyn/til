@@ -4,7 +4,7 @@
         <description><![CDATA[Varun Yadav - TIL]]></description>
         <link>https://til.varunyadav.com</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 29 Jun 2021 01:08:08 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 29 Jun 2021 22:46:58 GMT</lastBuildDate>
         <atom:link href="https://til.varunyadav.com/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[Adding Google analytics]]></title>
@@ -42,7 +42,7 @@
             <guid isPermaLink="true">https://til.varunyadav.io/blog/learning-in-public</guid>
         </item>
         <item>
-            <title><![CDATA[MacOs Tools]]></title>
+            <title><![CDATA[macOS Tools]]></title>
             <link>https://til.varunyadav.io/blog/mac-tools</link>
             <guid isPermaLink="true">https://til.varunyadav.io/blog/mac-tools</guid>
         </item>
