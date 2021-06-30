@@ -7,7 +7,17 @@ import Tweet from '@/components/Tweet';
 import Link from 'next/link';
 
 export default function BlogPage(props) {
-  const { title, date, content, readingTime, desc, slug, tags, tweets } = props;
+  const {
+    title,
+    date,
+    content,
+    readingTime,
+    desc,
+    slug,
+    tags,
+    tweets,
+    ogImage
+  } = props;
   const [mentions, setMentions] = useState([]);
   useEffect(() => {
     fetch(
@@ -37,6 +47,7 @@ export default function BlogPage(props) {
           content={`https://til.varunyadav.com/blog/${slug}`}
         />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content={ogImage} />
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@varun1_yadav" />
