@@ -3000,9 +3000,9 @@ next-compose-plugins@^2.2.1:
   version "2.2.1"
   resolved "https://registry.npmjs.org/next-compose-plugins/-/next-compose-plugins-2.2.1.tgz"
 
-next-mdx-remote@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/next-mdx-remote/-/next-mdx-remote-3.0.1.tgz"
+next-mdx-remote@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/next-mdx-remote/-/next-mdx-remote-3.0.2.tgz#7e1159b4eb8a6bdd4000c0b6e6631f94d8683f04"
   dependencies:
     "@mdx-js/mdx" "^1.6.22"
     "@mdx-js/react" "^1.6.22"
