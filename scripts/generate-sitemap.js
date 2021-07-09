@@ -20,7 +20,7 @@ const prettier = require('prettier');
               .map((page) => {
                 const path = page
                   .replace('pages', '')
-                  .replace('data', '/blog')
+                  .replace('data', '')
                   .replace('.js', '')
                   .replace('.mdx', '');
                 const route = path === '/index' ? '' : path;

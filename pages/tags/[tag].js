@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const allPosts = await getAllPosts();
+  const allPosts = await getAllPosts('blog');
   const filteredPosts = allPosts.filter(
     (post) =>
       post.draft !== true && post.tags.map((t) => t).includes(params.tag)

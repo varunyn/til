@@ -10,12 +10,12 @@ async function generate() {
     feed_url: 'https://til.varunyadav.com/feed.xml'
   });
 
-  const posts = await fs.readdir(path.join(__dirname, '..', 'data'));
+  const posts = await fs.readdir(path.join(__dirname, '..', 'data', 'blog'));
 
   await Promise.all(
     posts.map(async (name) => {
       const content = await fs.readFile(
-        path.join(__dirname, '..', 'data', name)
+        path.join(__dirname, '..', 'data', 'blog', name)
       );
       const frontmatter = matter(content);
 

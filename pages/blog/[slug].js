@@ -120,7 +120,7 @@ export default function BlogPage(props) {
 }
 
 export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.slug);
+  const postData = await getPostData('blog', params.slug);
 
   return {
     props: {
@@ -131,7 +131,7 @@ export async function getStaticProps({ params }) {
 
 // // This function gets called at build time
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
+  const paths = getAllPostIds('blog');
 
   return { paths, fallback: false };
 }
