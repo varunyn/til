@@ -15,4 +15,54 @@
   <url>
     <loc>https://til.varunyadav.com/add-prism-to-ghost</loc>
   </url>
+
+  <url>
+    <loc>https://til.varunyadav.com/blog/add-prism-to-ghost</loc>
+  </url>
+
+  <url>
+    <loc>https://til.varunyadav.com/blog/adding-google-analytics-in-nextjs</loc>
+  </url>
+
+  <url>
+    <loc>https://til.varunyadav.com/blog/awesome-github-repo</loc>
+  </url>
+
+  <url>
+    <loc>https://til.varunyadav.com/blog/awesome-k8s-resources</loc>
+  </url>
+
+  <url>
+    <loc>https://til.varunyadav.com/blog/docker-image-for-python</loc>
+  </url>
+
+  <url>
+    <loc>https://til.varunyadav.com/blog/github-dependabot</loc>
+  </url>
+
+  <url>
+    <loc>https://til.varunyadav.com/blog/gitignore-files</loc>
+  </url>
+
+  <url>
+    <loc>https://til.varunyadav.com/blog/k8s-deployment</loc>
+  </url>
+
+  <url>
+    <loc>https://til.varunyadav.com/blog/learning-in-public</loc>
+  </url>
+
+  <url>
+    <loc>https://til.varunyadav.com/blog/mac-tools</loc>
+  </url>
+
+  <url>
+    <loc
+      >https://til.varunyadav.com/blog/open-url-with-keyboard-shortcut-in-chrome</loc
+    >
+  </url>
+
+  <url>
+    <loc>https://til.varunyadav.com/blog/webmentions-in-nextjs</loc>
+  </url>
 </urlset>
