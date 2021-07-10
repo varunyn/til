@@ -49,7 +49,7 @@ export default function BlogPage(props) {
         <meta property="og:type" content="website" />
         <meta property="og:image" content={ogImage} />
 
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@varun1_yadav" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />
