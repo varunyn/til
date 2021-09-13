@@ -44,7 +44,7 @@
     "tailwindcss": "^2.2.4"
   },
   "devDependencies": {
-    "prettier": "^2.3.1",
+    "prettier": "^2.4.0",
     "rss": "^1.2.2"
   },
   "prettier": {
