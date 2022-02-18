@@ -1,16 +1,20 @@
-const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
+const {
+  spacing,
+  fontFamily
+} = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class', // or 'media' or 'class'
-  mode: 'jit',
   variants: {
     typography: ['dark']
   },
   plugins: [require('@tailwindcss/typography')],
   theme: {
     screens: {
-      mobile: { max: '640px' }
+      mobile: {
+        max: '640px'
+      }
     },
     extend: {
       colors: {
@@ -53,7 +57,9 @@ module.exports = {
               '&:hover': {
                 color: theme('colors.blue.700')
               },
-              code: { color: theme('colors.blue.400') }
+              code: {
+                color: theme('colors.blue.400')
+              }
             },
             h1: {
               marginBottom: 0,
@@ -63,7 +69,9 @@ module.exports = {
               color: theme('colors.black'),
               'scroll-margin-top': spacing[32]
             },
-            code: { color: theme('colors.pink.500') },
+            code: {
+              color: theme('colors.pink.500')
+            },
             'blockquote p:first-of-type::before': false,
             'blockquote p:last-of-type::after': false
           },
@@ -78,7 +86,9 @@ module.exports = {
               '&:hover': {
                 color: theme('colors.blue.600')
               },
-              code: { color: theme('colors.blue.400') }
+              code: {
+                color: theme('colors.blue.400')
+              }
             },
             blockquote: {
               borderLeftColor: theme('colors.gray.700'),
@@ -94,18 +104,26 @@ module.exports = {
               color: theme('colors.gray.100'),
               'scroll-margin-top': spacing[32]
             },
-            hr: { borderColor: theme('colors.gray.700') },
+            hr: {
+              borderColor: theme('colors.gray.700')
+            },
             ol: {
               li: {
-                '&:before': { color: theme('colors.gray.500') }
+                '&:before': {
+                  color: theme('colors.gray.500')
+                }
               }
             },
             ul: {
               li: {
-                '&:before': { backgroundColor: theme('colors.gray.500') }
+                '&:before': {
+                  backgroundColor: theme('colors.gray.500')
+                }
               }
             },
-            strong: { color: theme('colors.gray.300') },
+            strong: {
+              color: theme('colors.gray.300')
+            },
             thead: {
               color: theme('colors.gray.100')
             },

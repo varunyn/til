@@ -1,7 +1,16 @@
-const fs = require('fs');
+// const fs = require('fs');
 
-const globby = require('globby');
-const prettier = require('prettier');
+// const globby = require('globby');
+
+import {
+  writeFileSync
+} from 'fs';
+import {
+  globby
+} from 'globby';
+import prettier from 'prettier';
+
+// const prettier = require('prettier');
 
 (async () => {
   // Ignore Next.js specific files (e.g., _app.js) and API routes.
@@ -40,5 +49,5 @@ const prettier = require('prettier');
     parser: 'html'
   });
 
-  fs.writeFileSync('public/sitemap.xml', formatted);
+  writeFileSync('public/sitemap.xml', formatted);
 })();
