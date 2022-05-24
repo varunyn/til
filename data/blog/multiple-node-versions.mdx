@@ -1,0 +1,40 @@
+---
+title: How to use multiple node versions in Mac Os
+date: 2022-05-24
+desc:
+tags: [node, 🌿]
+---
+
+https://notiz.dev/blog/how-to-manage-multiple-node-versions-on-mac
+
+### Install via Hombrew
+
+```shell
+brew install node@<version>
+
+# latest version
+brew install node
+
+# LTS 12
+brew install node@16
+
+# 18
+brew install node@18
+```
+
+- Check current version of node
+
+```shell
+    node -v # v13.11.0
+    which node # /usr/local/bin/node => /usr/local/opt/node@<version>/bin/node
+```
+
+Add an alias to your .zshrc or .bash_profile for each installed Node version. Node is installed at `/usr/local/opt/node@<version>/bin`
+
+```bash
+alias node13='export PATH="/usr/local/opt/node@13/bin:$PATH"' alias
+node12='export PATH="/usr/local/opt/node@12/bin:$PATH"' alias node10='export
+PATH="/usr/local/opt/node@10/bin:$PATH"'
+```
+
+Now, to switch between the node versions, enter an alias node10 in your terminal. Execute node -v to verify that you are now using the correct node version.
