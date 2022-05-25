@@ -133,6 +133,14 @@ pre[class*='language-'] {
   @apply mt-0 rounded-t-none;
 }
 
+.highlight-line {
+  margin-left: -5px;
+  margin-right: -16px;
+  background-color: lightgray; /* Set highlight bg color */
+  border-left-width: 4px;
+  /* border-left-color: rgb(59, 130, 246); Set highlight accent border color */
+}
+
 .token.comment,
 .token.prolog,
 .token.doctype,
