@@ -1,0 +1,1 @@
+{"pageProps":{"posts":[{"title":"Create fake file to test file upload","date":"2023-01-12T00:00:00.000Z","desc":null,"tags":["Macos","🌿"],"content":"\n```\nmkfile 10m mytestfile.pdf\n```\n\n\nSource: \nhttps://twitter.com/1stevengrant/status/1511981651101986817?s=20\n","slug":"macos-fake-file"}],"tag":"Macos"},"__N_SSG":true}
