@@ -1,4 +1,4 @@
-import { getAllPosts } from '@/lib/mdx';
+import { getAllPosts } from '../lib/mdx';
 import Blog from '../components/Blog';
 import { useState } from 'react';
 import Head from 'next/head';
@@ -63,10 +63,11 @@ export default function Home({ allPosts }) {
 }
 
 export async function getStaticProps() {
-  const allPosts = getAllPosts('blog');
+  const allPosts = await getAllPosts('blog'); // or whatever folder you're using
+
   return {
     props: {
-      allPosts
-    }
+      allPosts,
+    },
   };
 }

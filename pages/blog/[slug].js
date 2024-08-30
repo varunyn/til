@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import Tweet from '@/components/Tweet';
 import Link from 'next/link';
 
-export default function BlogPage(props) {
+export default function BlogPage({ postData }) {
   const {
     title,
     date,
@@ -17,8 +17,10 @@ export default function BlogPage(props) {
     tags,
     tweets,
     ogImage
-  } = props;
+  } = postData;
+
   const [mentions, setMentions] = useState([]);
+
   useEffect(() => {
     fetch(
       `https://webmention.io/api/mentions.jf2?til.varunyadav.com&token=${process.env.NEXT_PUBLIC_WEBMENTION_TOKEN}`
@@ -31,12 +33,11 @@ export default function BlogPage(props) {
 
   const StaticTweet = ({ id }) => {
     const tweet = tweets.find((tweet) => tweet.id === id);
-    // return id;
     return <Tweet {...tweet} />;
   };
 
   return (
-    <div className=" container dark:bg-darkgrey dark:text-whitedarktheme">
+    <div className="container dark:bg-darkgrey dark:text-whitedarktheme">
       <Head>
         <title>{title}</title>
         <meta name="description" content={desc} />
@@ -61,16 +62,11 @@ export default function BlogPage(props) {
         <h1 className="font-sans mt-6">{title}</h1>
         <div className="flex w-full my-6 space-x-3 sm:flex-row justify-between">
           <div className="inline-flex">
-            {tags.map((tag, id) => {
-              return (
-                <Link key={id} href={`/tags/${tag}`}>
-                  <a className="text-sm fill-current	bg-yellow-200	 rounded border-2 border-yellow-200	 border-opacity-50 text-gray-700 dark:text-black ml-2">
-                    {' '}
-                    {tag}
-                  </a>
-                </Link>
-              );
-            })}
+            {tags.map((tag, id) => (
+              <Link key={id} href={`/tags/${tag}`} className="text-sm fill-current bg-yellow-200 rounded border-2 border-yellow-200 border-opacity-50 text-gray-700 dark:text-black ml-2">
+                {tag}
+              </Link>
+            ))}
           </div>
           <div className="flex flex-col text-sm leading-snug">
             <span>
@@ -84,19 +80,20 @@ export default function BlogPage(props) {
           <MDXRemote {...content} components={{ StaticTweet }} />
         </div>
       </article>
-      <div className="flex flex-col mt-8 justify-center  items-center  max-w-2xl mx-auto w-full ">
+      <div className="flex flex-col mt-8 justify-center items-center max-w-2xl mx-auto w-full">
         <h2>Webmentions</h2>
         <ol className="border-dashed border-2 webmention-ol border-light-blue-300 w-full">
-          {mentions.map((mention) => {
+          {mentions.map((mention, index) => {
             if (
-              mention['wm-property'] != 'like-of' &&
-              mention['wm-target'] === window.location.href
+              mention['wm-property'] !== 'like-of' &&
+              mention['wm-target'] === `https://til.varunyadav.com/blog/${slug}`
             )
               return (
-                <li className="m-6 ">
+                <li key={index} className="m-6">
                   {mention.author.name}&nbsp;
                   <a
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="webmention-anchor"
                     href={mention.url}
                   >
@@ -112,6 +109,7 @@ export default function BlogPage(props) {
                   <hr className="mt-2" />
                 </li>
               );
+            return null;
           })}
         </ol>
       </div>
@@ -121,17 +119,10 @@ export default function BlogPage(props) {
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData('blog', params.slug);
-
-  return {
-    props: {
-      ...postData
-    }
-  };
+  return { props: { postData } };
 }
 
-// // This function gets called at build time
 export async function getStaticPaths() {
-  const paths = getAllPostIds('blog');
-
+  const paths = await getAllPostIds('blog');
   return { paths, fallback: false };
 }

@@ -11,18 +11,18 @@ const Navigation = () => {
         <a className="dark:bg-darkgrey dark:text-whitedarktheme">TIL</a>
         <ul className="flex flex-row space-x-4 items-center dark:bg-darkgrey dark:text-whitedarktheme md:relative md:left-0">
           <li className="mt-2 sm:mt-0 sm:mr-6">
-            <Link href="/">
-              <a className="relative">Home</a>
+            <Link href="/" className="relative">
+              Home
             </Link>
           </li>
           <li className="mt-2 sm:mt-0 sm:mr-6">
-            <Link href="/tags">
-              <a className="relative">Tags</a>
+            <Link href="/tags" className="relative">
+              Tags
             </Link>
           </li>
           <li className="mt-2 sm:mt-0 sm:mr-6">
-            <Link href="/about">
-              <a className="relative">About</a>
+            <Link href="/about" className="relative">
+              About
             </Link>
           </li>
           <li className="mt-2 sm:mt-0 sm:mr-6">
