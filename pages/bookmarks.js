@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 
 export default function Bookmarks() {
   return (
@@ -11,9 +12,9 @@ export default function Bookmarks() {
 
         <main className="p-10  mx-auto  container justify-center">
           <p>
-            <a className="links" href="https://brianlovin.com/bookmarks">
-              Brian Lovin{' '}
-            </a>
+            <Link className="links" href="https://brianlovin.com/bookmarks">
+              <div>Brian Lovin</div>
+            </Link>
           </p>
         </main>
       </section>
