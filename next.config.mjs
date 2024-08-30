@@ -3,11 +3,13 @@ import remarkAutolinkHeadings from 'remark-autolink-headings';
 import withMDX from '@next/mdx';
 
 const nextConfig = {
+  output: 'export', // Add this line
   reactStrictMode: true,
   images: {
     domains: [
       'pbs.twimg.com' // Twitter Profile Picture
-    ]
+    ],
+    unoptimized: true, // Add this line for static export
   },
   webpack: (config, { dev, isServer }) => {
     config.resolve.alias = {
