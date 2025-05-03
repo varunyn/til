@@ -5,6 +5,8 @@ import { MDXRemote } from 'next-mdx-remote';
 import { useEffect, useState } from 'react';
 import Tweet from '@/components/Tweet';
 import Link from 'next/link';
+import BackToTop from '@/components/BackToTop';
+import CodeBlock from '@/components/CodeBlock';
 
 export default function BlogPage(props) {
   const {
@@ -35,8 +37,15 @@ export default function BlogPage(props) {
     return <Tweet {...tweet} />;
   };
 
+  // MDX components with code block support
+  const components = {
+    StaticTweet,
+    // Override pre tag to add copy button
+    pre: (props) => <CodeBlock {...props} />
+  };
+
   return (
-    <div className=" container dark:bg-darkgrey dark:text-whitedarktheme">
+    <div className="container dark:bg-darkgrey dark:text-whitedarktheme">
       <Head>
         <title>{title}</title>
         <meta name="description" content={desc} />
@@ -57,64 +66,88 @@ export default function BlogPage(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <article className="flex flex-col justify-center items-start max-w-2xl mobile:p-3 mx-auto w-full">
-        <h1 className="font-sans mt-6">{title}</h1>
-        <div className="flex w-full my-6 space-x-3 sm:flex-row justify-between">
-          <div className="inline-flex">
+      <article className="flex flex-col justify-center items-start max-w-2xl px-4 sm:px-0 mx-auto w-full">
+        <h1 className="font-sans mt-6 text-3xl sm:text-4xl font-bold">
+          {title}
+        </h1>
+        <div className="flex flex-col sm:flex-row w-full my-4 sm:my-6 sm:space-x-3 sm:items-center sm:justify-between">
+          <div className="flex flex-wrap gap-2 mb-2 sm:mb-0">
             {tags.map((tag, id) => {
               return (
-                <Link key={id} href={`/tags/${tag}`}>
-                  <a className="text-sm fill-current	bg-yellow-200	 rounded border-2 border-yellow-200	 border-opacity-50 text-gray-700 dark:text-black ml-2">
-                    {' '}
-                    {tag}
-                  </a>
+                <Link
+                  key={id}
+                  href={`/tags/${tag}`}
+                  className="text-xs sm:text-sm bg-yellow-200 rounded px-2 py-1 border-yellow-200 border-opacity-50 text-gray-700 dark:text-black"
+                >
+                  {tag}
                 </Link>
               );
             })}
           </div>
-          <div className="flex flex-col text-sm leading-snug">
-            <span>
+          <div className="flex text-sm leading-snug text-gray-600 dark:text-gray-400">
+            <span className="flex items-center">
               <span>{readingTime.text}</span>
               <span className="mx-2">–</span>
               <time>{format(parseISO(date), 'MMMM dd, yyyy')}</time>
             </span>
           </div>
         </div>
-        <div className="prose dark:prose-dark selection:bg-blue-200">
-          <MDXRemote {...content} components={{ StaticTweet }} />
+        <div className="prose dark:prose-dark selection:bg-blue-200 w-full max-w-none">
+          <MDXRemote {...content} components={components} />
         </div>
       </article>
-      <div className="flex flex-col mt-8 justify-center  items-center  max-w-2xl mx-auto w-full ">
-        <h2>Webmentions</h2>
-        <ol className="border-dashed border-2 webmention-ol border-light-blue-300 w-full">
-          {mentions.map((mention) => {
-            if (
-              mention['wm-property'] != 'like-of' &&
-              mention['wm-target'] === window.location.href
-            )
-              return (
-                <li className="m-6 ">
-                  {mention.author.name}&nbsp;
-                  <a
-                    target="_blank"
-                    className="webmention-anchor"
-                    href={mention.url}
+
+      <div className="flex flex-col mt-8 justify-center items-center max-w-2xl mx-auto w-full px-4 sm:px-0">
+        <h2 className="text-2xl font-bold mb-4">Webmentions</h2>
+        <ol className="border-dashed border-2 webmention-ol border-light-blue-300 w-full rounded-lg p-4">
+          {mentions.length > 0 ? (
+            mentions.map((mention) => {
+              if (
+                mention['wm-property'] != 'like-of' &&
+                mention['wm-target'] === window.location.href
+              )
+                return (
+                  <li
+                    className="my-4 pb-4 border-b border-gray-200 dark:border-gray-700 last:border-0 last:pb-0"
+                    key={mention['wm-id']}
                   >
-                    {mention['wm-property'] === 'repost-of'
-                      ? 'reposted this '
-                      : 'mentioned this'}
-                  </a>
-                  &nbsp;on&nbsp;
-                  {format(parseISO(mention['wm-received']), 'MMMM dd, yyyy')}
-                  <p className="flex-col mt-1 ml-5 text-justify">
-                    {mention['content']['text']}
-                  </p>
-                  <hr className="mt-2" />
-                </li>
-              );
-          })}
+                    <div className="flex items-center">
+                      <span className="font-medium">{mention.author.name}</span>
+                      <a
+                        target="_blank"
+                        className="webmention-anchor ml-2 text-blue-600 dark:text-blue-400 hover:underline"
+                        href={mention.url}
+                        rel="noopener noreferrer"
+                      >
+                        {mention['wm-property'] === 'repost-of'
+                          ? 'reposted this'
+                          : 'mentioned this'}
+                      </a>
+                    </div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                      {format(
+                        parseISO(mention['wm-received']),
+                        'MMMM dd, yyyy'
+                      )}
+                    </div>
+                    {mention['content'] && mention['content']['text'] && (
+                      <p className="mt-2 text-gray-800 dark:text-gray-300">
+                        {mention['content']['text']}
+                      </p>
+                    )}
+                  </li>
+                );
+              return null;
+            })
+          ) : (
+            <p className="text-center py-4 text-gray-600 dark:text-gray-400">
+              No webmentions yet.
+            </p>
+          )}
         </ol>
       </div>
+
+      <BackToTop />
     </div>
   );
 }

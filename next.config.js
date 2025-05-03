@@ -1,30 +1,58 @@
 const withOptimizedImages = require('next-optimized-images');
+const withPlugins = require('next-compose-plugins');
 
-module.exports = withOptimizedImages({
+const nextConfig = {
   reactStrictMode: true,
-  webpack5: true,
-  strictPostcssConfiguration: true,
+  transpilePackages: ['next-optimized-images'],
+  output: 'export',
   images: {
     domains: [
       'pbs.twimg.com' // Twitter Profile Picture
-    ]
+    ],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'pbs.twimg.com',
+        pathname: '/**'
+      }
+    ],
+    unoptimized: true // For static export with Next.js 15
   },
-  webpack: (config, {
-    dev,
-    isServer
-  }) => {
-    // if (isServer) {
-    //   require('./scripts/generate-sitemap.mjs');
-    //   require('./scripts/generate-rss');
-    // }
-    // Fixes npm packages that depend on `fs` module
-    if (!isServer) {
-      Object.assign(config.resolve.alias, {
-        react: 'preact/compat',
-        'react-dom/test-utils': 'preact/test-utils',
-        'react-dom': 'preact/compat'
-      });
-    }
-    return config;
-  }
-});
+  // Handle image optimization for next-optimized-images
+  optimizePackageImports: ['react-icons'],
+  // Enable optimization for external packages
+  bundlePagesRouterDependencies: true
+};
+
+module.exports = withPlugins(
+  [
+    [
+      withOptimizedImages,
+      {
+        // next-optimized-images options
+        handleImages: ['jpeg', 'png', 'svg', 'webp', 'gif'],
+        optimizeImages: true,
+        optimizeImagesInDev: false,
+        mozjpeg: {
+          quality: 80
+        },
+        optipng: {
+          optimizationLevel: 3
+        },
+        pngquant: false,
+        gifsicle: {
+          interlaced: true,
+          optimizationLevel: 3
+        },
+        svgo: {
+          // enable/disable svgo plugins here
+        },
+        webp: {
+          preset: 'default',
+          quality: 75
+        }
+      }
+    ]
+  ],
+  nextConfig
+);
