@@ -4,9 +4,9 @@ const Tag = ({ text }) => {
   return (
     <Link
       href={`/tags/${text}`}
-      className="mr-3 text-sm font-medium text-blue-500 uppercase hover:text-blue-600 dark:hover:text-blue-400"
+      className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
     >
-      {text.split(' ').join('-')}
+      {text}
     </Link>
   );
 };

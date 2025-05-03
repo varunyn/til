@@ -1,32 +1,37 @@
-import { FaDev, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaDev, FaGithub, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="px-6 mx-auto mt-10">
-      <div className="flex items-center mb-4 space-x-1.5 justify-center -ml-2 sm:ml-0 text-lg md:text-2xl">
-        <a
-          className="p-2 hover:text-indigo-600 dark:hover:text-indigo-300"
-          href="https://twitter.com/varun1_yadav"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaTwitter focusable="false" />
-          <span className="sr-only">Twitter profile</span>
-        </a>
-        <a
-          className="p-2 hover:text-indigo-600 dark:hover:text-indigo-300"
-          href="https://github.com/varunyn"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaGithub focusable="false" />
-          <span className="sr-only">GitHub profile</span>
-        </a>
-      </div>
-      <div className="text-sm text-gray-500 dark:text-gray-400 text-center">
-        <p className="inline-flex items-center space-x-1">
-          <span>Made by Varun Yadav in {new Date().getFullYear()}</span>
-        </p>
+    <footer className="py-6 px-4 sm:px-6 mt-8 border-t dark:border-gray-800">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col sm:flex-row items-center justify-between">
+          <div className="flex items-center space-x-4 mb-4 sm:mb-0">
+            <a
+              className="p-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              href="https://twitter.com/varun1_yadav"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter profile"
+            >
+              <FaTwitter className="h-5 w-5" focusable="false" />
+              <span className="sr-only">Twitter profile</span>
+            </a>
+            <a
+              className="p-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              href="https://github.com/varunyn"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub profile"
+            >
+              <FaGithub className="h-5 w-5" focusable="false" />
+              <span className="sr-only">GitHub profile</span>
+            </a>
+          </div>
+
+          <div className="text-sm text-gray-500 dark:text-gray-400">
+            <p>© {new Date().getFullYear()} · Made with ❤️ by Varun Yadav</p>
+          </div>
+        </div>
       </div>
     </footer>
   );

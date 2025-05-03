@@ -1,10 +1,10 @@
-const {
-  spacing,
-  fontFamily
-} = require('tailwindcss/defaultTheme');
+const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}'
+  ],
   darkMode: 'class', // or 'media' or 'class'
   variants: {
     typography: ['dark']
@@ -27,6 +27,17 @@ module.exports = {
         whitedarktheme: '#EEEEEE',
         orange: '#b55400',
         facebook: '#4267B2'
+      },
+      keyframes: {
+        'fade-in-out': {
+          '0%': { opacity: 0 },
+          '20%': { opacity: 1 },
+          '80%': { opacity: 1 },
+          '100%': { opacity: 0 }
+        }
+      },
+      animation: {
+        'fade-in-out': 'fade-in-out 2s ease-in-out'
       },
       fontFamily: {
         sans: ['Inter', ...fontFamily.sans],
