@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { getPostData, getAllPostIds } from '@/lib/mdx';
 import { format, parseISO } from 'date-fns';
 import { MDXRemote } from 'next-mdx-remote';
@@ -7,6 +6,7 @@ import Tweet from '@/components/Tweet';
 import Link from 'next/link';
 import BackToTop from '@/components/BackToTop';
 import CodeBlock from '@/components/CodeBlock';
+import SEO from '@/components/SEO';
 
 export default function BlogPage(props) {
   const {
@@ -44,27 +44,54 @@ export default function BlogPage(props) {
     pre: (props) => <CodeBlock {...props} />
   };
 
+  // Generate JSON-LD structured data for the blog post
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: title,
+    description: desc,
+    image: ogImage || 'https://til.varunyadav.com/og-image.png',
+    datePublished: date,
+    dateModified: date,
+    author: {
+      '@type': 'Person',
+      name: 'Varun Yadav',
+      url: 'https://varunyadav.com'
+    },
+    publisher: {
+      '@type': 'Person',
+      name: 'Varun Yadav',
+      url: 'https://varunyadav.com'
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://til.varunyadav.com/blog/${slug}`
+    },
+    keywords: tags.join(', ')
+  };
+
   return (
     <div className="container dark:bg-darkgrey dark:text-whitedarktheme">
-      <Head>
-        <title>{title}</title>
-        <meta name="description" content={desc} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={desc} />
-        <meta
-          property="og:url"
-          content={`https://til.varunyadav.com/blog/${slug}`}
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content={ogImage} />
+      <SEO
+        title={title}
+        description={desc}
+        canonicalUrl={`https://til.varunyadav.com/blog/${slug}`}
+        ogType="article"
+        ogImage={ogImage}
+      >
+        {/* Add article specific meta tags */}
+        <meta property="article:published_time" content={date} />
+        <meta property="article:author" content="Varun Yadav" />
+        {tags.map((tag) => (
+          <meta key={tag} property="article:tag" content={tag} />
+        ))}
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@varun1_yadav" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={desc} />
-        <meta name="twitter:image" content={ogImage} />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+        {/* Add JSON-LD structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        />
+      </SEO>
 
       <article className="flex flex-col justify-center items-start max-w-2xl px-4 sm:px-0 mx-auto w-full">
         <h1 className="font-sans mt-6 text-3xl sm:text-4xl font-bold">
@@ -88,7 +115,9 @@ export default function BlogPage(props) {
             <span className="flex items-center">
               <span>{readingTime.text}</span>
               <span className="mx-2">–</span>
-              <time>{format(parseISO(date), 'MMMM dd, yyyy')}</time>
+              <time dateTime={date}>
+                {format(parseISO(date), 'MMMM dd, yyyy')}
+              </time>
             </span>
           </div>
         </div>
