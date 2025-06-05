@@ -1,7 +1,7 @@
-import Head from "next/head";
-import Navigation from "./Navigation";
-import * as React from "react";
-import Footer from "./Footer";
+import Head from 'next/head';
+import Navigation from './Navigation';
+import * as React from 'react';
+import Footer from './Footer';
 
 const Layout = ({ children }) => {
   return (
@@ -20,9 +20,7 @@ const Layout = ({ children }) => {
         />
       </Head>
       <Navigation />
-      <main className="justify-center bg-white dark:bg-darkgrey">
-        {children}
-      </main>
+      <main className="min-h-screen bg-white dark:bg-darkgrey">{children}</main>
       <Footer />
     </>
   );
