@@ -1,56 +1,21 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
+import { getTimelineEntries } from '../lib/timeline';
 
-const NowPage = () => {
+const NowPage = ({ timelineEntries }) => {
   const [tooltip, setTooltip] = useState({ show: false, text: '', x: 0, y: 0 });
 
   // Sample data - you can replace this with real data later
   const profileData = {
     name: 'Varun',
-    bio: 'Writer of both code and english',
-    location: 'India',
+    bio: 'Learning new stuff and building things using AI',
+    location: 'Austin, TX',
     avatar: '/avatar.jpg' // You'll need to add your avatar image
   };
 
   const goals = [
-    { text: '10k users / 5k mrr', color: 'bg-purple-100 text-purple-800' },
-    { text: 'dunk a basketball', color: 'bg-pink-100 text-pink-800' },
-    { text: 'fix my sleep schedule', color: 'bg-blue-100 text-blue-800' },
-    { text: 'eat healthier', color: 'bg-green-100 text-green-800' },
-    { text: 'Tennis 4.0 USTA', color: 'bg-yellow-100 text-yellow-800' }
-  ];
-
-  const timelineEntries = [
-    {
-      date: '2025-01-15',
-      title: 'Working on TIL website',
-      content: [
-        'Added new /now page inspired by great design',
-        'Improved navigation and user experience',
-        'Planning to add more interactive features'
-      ],
-      tag: 'coding'
-    },
-    {
-      date: '2025-01-14',
-      title: 'Learning and building',
-      content: [
-        'Explored new React patterns',
-        'Worked on personal projects',
-        'Reading technical documentation'
-      ],
-      tag: 'learning'
-    },
-    {
-      date: '2025-01-13',
-      title: 'Health and wellness',
-      content: [
-        'Morning workout routine',
-        'Healthy meal prep for the week',
-        'Early sleep schedule maintenance'
-      ],
-      tag: 'health'
-    }
+    { text: 'Ship more 🚀', color: 'bg-blue-100 text-blue-800' },
+    { text: 'eat healthier', color: 'bg-green-100 text-green-800' }
   ];
 
   // Generate activity heatmap data (simplified)
@@ -449,5 +414,15 @@ const NowPage = () => {
     </>
   );
 };
+
+export async function getStaticProps() {
+  const timelineEntries = getTimelineEntries();
+
+  return {
+    props: {
+      timelineEntries
+    }
+  };
+}
 
 export default NowPage;
