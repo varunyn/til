@@ -5,11 +5,11 @@ import Footer from './Footer';
 
 const Layout = ({ children }) => {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Head>
         <title>TIL - varunyadav.com</title>
         <link rel="icon" href="/favicon.ico" />
-
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
           rel="webmention"
           href="https://webmention.io/til.varunyadav.com/webmention"
@@ -20,9 +20,11 @@ const Layout = ({ children }) => {
         />
       </Head>
       <Navigation />
-      <main className="min-h-screen bg-white dark:bg-darkgrey">{children}</main>
+      <main className="flex-grow bg-white dark:bg-darkgrey pt-4">
+        {children}
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

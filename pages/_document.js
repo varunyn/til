@@ -37,6 +37,34 @@ class MyDocument extends Document {
             }}
           />
           <link rel="icon" href="/favicon.ico" />
+          <link rel="canonical" href="https://til.varunyadav.com" />
+          <meta name="robots" content="index, follow" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+          <meta charSet="utf-8" />
+
+          {/* JSON-LD structured data for website */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: `
+                {
+                  "@context": "https://schema.org",
+                  "@type": "WebSite",
+                  "url": "https://til.varunyadav.com/",
+                  "name": "Today I Learned - Varun Yadav",
+                  "description": "A collection of things I've learned in software development, tech, and more.",
+                  "author": {
+                    "@type": "Person",
+                    "name": "Varun Yadav",
+                    "url": "https://varunyadav.com"
+                  }
+                }
+              `
+            }}
+          />
         </Head>
         <body className="text-black bg-white dark:bg-darkgrey dark:text-white">
           <Main />
