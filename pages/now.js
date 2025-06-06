@@ -400,7 +400,29 @@ const NowPage = ({ timelineEntries }) => {
                           key={itemIndex}
                           className="text-gray-700 dark:text-gray-300 text-sm"
                         >
-                          {item}
+                          {Array.isArray(item)
+                            ? // Render parsed content with links
+                              item.map((part, partIndex) => {
+                                if (part.type === 'link') {
+                                  return (
+                                    <a
+                                      key={partIndex}
+                                      href={part.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline"
+                                    >
+                                      {part.text}
+                                    </a>
+                                  );
+                                } else {
+                                  return (
+                                    <span key={partIndex}>{part.content}</span>
+                                  );
+                                }
+                              })
+                            : // Fallback for simple text
+                              item}
                         </p>
                       ))}
                     </div>
