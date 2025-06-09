@@ -10,7 +10,7 @@ const NowPage = ({ timelineEntries }) => {
     name: 'Varun',
     bio: 'Learning new stuff and building things using AI',
     location: 'Austin, TX',
-    avatar: '/avatar.jpg' // You'll need to add your avatar image
+    avatar: '/avatar.png' // You'll need to add your avatar image
   };
 
   const goals = [
@@ -81,9 +81,11 @@ const NowPage = ({ timelineEntries }) => {
             <div className="lg:col-span-1">
               <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
                 <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                    V
-                  </div>
+                  <img
+                    src={profileData.avatar}
+                    alt={profileData.name}
+                    className="w-16 h-16 rounded-full object-cover"
+                  />
                 </div>
 
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
