@@ -17,25 +17,24 @@ Steps to Set Up GhostMCP Locally with Cursor
 
 1. First, clone or download the project from GitHub:
 
-```
+```bash
 git clone https://github.com/MFYDev/ghost-mcp.git
 cd ghost-mcp
 ```
 
 2. Install dependencies:
 
-```
+```bash
 npm install
 ```
 
 3. In Cursor, open your MCP settings and modify the relevant section to point to the GhostMCP server script. Update the configuration like this:
 
-````json
+```json
 "command": "node",
 "args": [
   "path-to/ghost-mcp-main/build/server.js"
-],```
+],
+```
 
 Make sure to replace path-to with the actual path to your local ghost-mcp directory.
-
-````
