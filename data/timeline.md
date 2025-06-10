@@ -23,3 +23,9 @@
 **Title**: WWDC26
 
 - Watched Apple WWDC and impressed with iPadOS and other few launches. Before launch it seems like this is the year they will have big changes but then everything seems meh. Already saw lot of criticism and some love for new glass design. Let's see how it will improve by the time for public launch
+
+## 2025-06-10
+
+**Title**: Update maps.varunyadav.com
+
+- Today I updated the maps application use Open Street Maps instead of google maps and also made it little nicer by adding emojis as marker. Idea is to OSM so that I don't incur charges for Google Maps API if lot of people started using it

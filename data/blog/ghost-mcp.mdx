@@ -1,0 +1,41 @@
+---
+title: Using Ghost mcp in Cursor
+date: 2025-06-10
+desc:
+tags: [ghost, 🌿]
+---
+
+Today, while scrolling through X (formerly Twitter), I came across a post about MCP (Model Control Panel). In the replies, someone casually mentioned GhostMCP, and I thought—wait, what’s that?
+
+Curious, I did a quick Google search and found the GhostMCP GitHub repository. It turns out, GhostMCP is an open-source Model Control Panel designed to run locally, giving you a minimal UI to interact with different LLMs in a streamlined way.
+
+#### Quick Install on Cursor
+
+I tested it out quickly using Cursor (the AI-powered code editor), and it worked surprisingly well! However, I noticed the README in the GitHub repo doesn't provide local setup instructions specifically for Cursor users, so I thought I’d share the exact steps I followed to get it up and running.
+
+Steps to Set Up GhostMCP Locally with Cursor
+
+1. First, clone or download the project from GitHub:
+
+```
+git clone https://github.com/MFYDev/ghost-mcp.git
+cd ghost-mcp
+```
+
+2. Install dependencies:
+
+```
+npm install
+```
+
+3. In Cursor, open your MCP settings and modify the relevant section to point to the GhostMCP server script. Update the configuration like this:
+
+````json
+"command": "node",
+"args": [
+  "path-to/ghost-mcp-main/build/server.js"
+],```
+
+Make sure to replace path-to with the actual path to your local ghost-mcp directory.
+
+````
