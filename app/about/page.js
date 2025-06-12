@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center">
+    <div className="min-h-screen bg-gradient-to-br from-smalt-50 to-smalt-100 dark:from-gray-900 dark:to-gray-800 flex items-center">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           {/* Hero Section */}
@@ -48,7 +48,7 @@ export default function About() {
               </Link>
               <Link
                 href="https://www.linkedin.com/in/varuncs/"
-                className="flex items-center space-x-1 px-3 py-1.5 bg-blue-700 hover:bg-blue-800 text-white rounded-lg transition-colors shadow-md hover:shadow-lg text-sm"
+                className="flex items-center space-x-1 px-3 py-1.5 bg-smalt-700 hover:bg-smalt-800 text-white rounded-lg transition-colors shadow-md hover:shadow-lg text-sm"
               >
                 <FaLinkedin className="w-4 h-4" />
                 <span>LinkedIn</span>
@@ -75,7 +75,7 @@ export default function About() {
             {/* About Section */}
             <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-lg">
               <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-3 flex items-center">
-                <span className="w-1.5 h-6 bg-blue-500 rounded-full mr-2"></span>
+                <span className="w-1.5 h-6 bg-smalt-500 rounded-full mr-2"></span>
                 About Me
               </h2>
               <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-3">
@@ -84,11 +84,11 @@ export default function About() {
                 can find me sharing knowledge through blog posts and
                 contributing to open source projects.
               </p>
-              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3">
-                <h3 className="font-semibold text-blue-900 dark:text-blue-300 mb-1 text-sm">
+              <div className="bg-smalt-50 dark:bg-smalt-900/20 rounded-lg p-3">
+                <h3 className="font-semibold text-smalt-900 dark:text-smalt-300 mb-1 text-sm">
                   Pay it forward
                 </h3>
-                <p className="text-blue-800 dark:text-blue-200 text-xs">
+                <p className="text-smalt-800 dark:text-smalt-200 text-xs">
                   I believe in sharing knowledge and helping others grow. What
                   I&apos;ve learned from the community, I try to give back
                   through my writing and open source contributions.

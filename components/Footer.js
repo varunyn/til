@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="flex flex-col sm:flex-row items-center justify-between">
           <div className="flex items-center space-x-4 mb-4 sm:mb-0">
             <a
-              className="p-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="p-2 hover:text-smalt-600 dark:hover:text-smalt-400 transition-colors"
               href="https://twitter.com/varun1_yadav"
               target="_blank"
               rel="noopener noreferrer"
@@ -17,7 +17,7 @@ const Footer = () => {
               <span className="sr-only">Twitter profile</span>
             </a>
             <a
-              className="p-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="p-2 hover:text-smalt-600 dark:hover:text-smalt-400 transition-colors"
               href="https://github.com/varunyn"
               target="_blank"
               rel="noopener noreferrer"

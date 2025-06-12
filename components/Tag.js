@@ -1,25 +1,17 @@
 import { Link } from 'next-view-transitions';
 
-const Tag = ({ text, count, index = 0 }) => {
+export default function Tag({ tag, count }) {
   return (
     <Link
-      href={`/tags/${encodeURIComponent(text)}`}
-      className="inline-flex items-center gap-1 px-3 py-1 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-full transition-colors"
+      href={`/tags/${tag}`}
+      className="inline-flex items-center gap-1 px-3 py-1 text-sm font-medium text-smalt-600 dark:text-smalt-400 hover:text-smalt-800 dark:hover:text-smalt-300 bg-smalt-50 dark:bg-smalt-900/20 hover:bg-smalt-100 dark:hover:bg-smalt-900/30 rounded-full transition-colors"
     >
-      {text}
+      <span>{tag}</span>
       {count && (
-        <span
-          className="ml-1 px-1.5 py-0.5 text-xs bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-blue-200 rounded-full flip-number"
-          style={{
-            animationDelay: `${index * 0.1}s`,
-            transformOrigin: 'center'
-          }}
-        >
+        <span className="ml-1 px-1.5 py-0.5 text-xs bg-smalt-100 dark:bg-smalt-800 text-smalt-800 dark:text-smalt-200 rounded-full flip-number">
           {count}
         </span>
       )}
     </Link>
   );
-};
-
-export default Tag;
+}

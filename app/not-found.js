@@ -16,7 +16,7 @@ export default function NotFound() {
         <div className="space-x-4">
           <Link
             href="/"
-            className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors"
+            className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-smalt-600 hover:bg-smalt-700 rounded-md transition-colors"
           >
             Go Home
           </Link>

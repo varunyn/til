@@ -113,7 +113,7 @@ export default async function BlogPost({ params }) {
             </div>
           </div>
           <div
-            className="prose dark:prose-dark selection:bg-blue-200 w-full max-w-none"
+            className="prose dark:prose-dark selection:bg-smalt-200 w-full max-w-none"
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </div>

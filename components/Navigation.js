@@ -37,17 +37,17 @@ const Navigation = () => {
           <div className="hidden md:flex md:items-center md:space-x-8">
             <Link
               href="/"
-              className={`px-3 py-2 text-sm font-medium dark:text-whitedarktheme hover:text-blue-600 dark:hover:text-blue-400 ${
-                pathname === '/' ? 'text-blue-600 dark:text-blue-400' : ''
+              className={`px-3 py-2 text-sm font-medium dark:text-whitedarktheme hover:text-smalt-600 dark:hover:text-smalt-400 ${
+                pathname === '/' ? 'text-smalt-600 dark:text-smalt-400' : ''
               }`}
             >
               Home
             </Link>
             <Link
               href="/tags"
-              className={`px-3 py-2 text-sm font-medium dark:text-whitedarktheme hover:text-blue-600 dark:hover:text-blue-400 ${
+              className={`px-3 py-2 text-sm font-medium dark:text-whitedarktheme hover:text-smalt-600 dark:hover:text-smalt-400 ${
                 pathname.startsWith('/tags')
-                  ? 'text-blue-600 dark:text-blue-400'
+                  ? 'text-smalt-600 dark:text-smalt-400'
                   : ''
               }`}
             >
@@ -55,16 +55,18 @@ const Navigation = () => {
             </Link>
             <Link
               href="/about"
-              className={`px-3 py-2 text-sm font-medium dark:text-whitedarktheme hover:text-blue-600 dark:hover:text-blue-400 ${
-                pathname === '/about' ? 'text-blue-600 dark:text-blue-400' : ''
+              className={`px-3 py-2 text-sm font-medium dark:text-whitedarktheme hover:text-smalt-600 dark:hover:text-smalt-400 ${
+                pathname === '/about'
+                  ? 'text-smalt-600 dark:text-smalt-400'
+                  : ''
               }`}
             >
               About
             </Link>
             <Link
               href="/now"
-              className={`px-3 py-2 text-sm font-medium dark:text-whitedarktheme hover:text-blue-600 dark:hover:text-blue-400 ${
-                pathname === '/now' ? 'text-blue-600 dark:text-blue-400' : ''
+              className={`px-3 py-2 text-sm font-medium dark:text-whitedarktheme hover:text-smalt-600 dark:hover:text-smalt-400 ${
+                pathname === '/now' ? 'text-smalt-600 dark:text-smalt-400' : ''
               }`}
             >
               Now
@@ -194,7 +196,7 @@ const Navigation = () => {
             href="/"
             className={`block px-3 py-2 rounded-md text-base font-medium ${
               pathname === '/'
-                ? 'bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-300'
+                ? 'bg-smalt-50 dark:bg-smalt-900 text-smalt-600 dark:text-smalt-300'
                 : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
             }`}
           >
@@ -204,7 +206,7 @@ const Navigation = () => {
             href="/tags"
             className={`block px-3 py-2 rounded-md text-base font-medium ${
               pathname.startsWith('/tags')
-                ? 'bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-300'
+                ? 'bg-smalt-50 dark:bg-smalt-900 text-smalt-600 dark:text-smalt-300'
                 : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
             }`}
           >
@@ -214,7 +216,7 @@ const Navigation = () => {
             href="/about"
             className={`block px-3 py-2 rounded-md text-base font-medium ${
               pathname === '/about'
-                ? 'bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-300'
+                ? 'bg-smalt-50 dark:bg-smalt-900 text-smalt-600 dark:text-smalt-300'
                 : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
             }`}
           >
@@ -224,7 +226,7 @@ const Navigation = () => {
             href="/now"
             className={`block px-3 py-2 rounded-md text-base font-medium ${
               pathname === '/now'
-                ? 'bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-300'
+                ? 'bg-smalt-50 dark:bg-smalt-900 text-smalt-600 dark:text-smalt-300'
                 : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
             }`}
           >

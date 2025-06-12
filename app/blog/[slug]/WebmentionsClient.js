@@ -35,7 +35,7 @@ export default function WebmentionsClient({ slug }) {
                     <span className="font-medium">{mention.author.name}</span>
                     <a
                       target="_blank"
-                      className="webmention-anchor ml-2 text-blue-600 dark:text-blue-400 hover:underline"
+                      className="webmention-anchor ml-2 text-smalt-600 dark:text-smalt-400 hover:underline"
                       href={mention.url}
                       rel="noopener noreferrer"
                     >
