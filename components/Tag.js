@@ -1,6 +1,6 @@
 import { Link } from 'next-view-transitions';
 
-const Tag = ({ text, count }) => {
+const Tag = ({ text, count, index = 0 }) => {
   return (
     <Link
       href={`/tags/${encodeURIComponent(text)}`}
@@ -8,7 +8,13 @@ const Tag = ({ text, count }) => {
     >
       {text}
       {count && (
-        <span className="ml-1 px-1.5 py-0.5 text-xs bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-blue-200 rounded-full">
+        <span
+          className="ml-1 px-1.5 py-0.5 text-xs bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-blue-200 rounded-full flip-number"
+          style={{
+            animationDelay: `${index * 0.1}s`,
+            transformOrigin: 'center'
+          }}
+        >
           {count}
         </span>
       )}

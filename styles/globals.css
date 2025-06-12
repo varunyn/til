@@ -56,6 +56,50 @@
   }
 }
 
+/* Flip board effect for tag counts */
+.flip-number {
+  display: inline-block;
+  animation: flipBoard 1.5s ease-in-out;
+  transform-style: preserve-3d;
+  perspective: 200px;
+}
+
+@keyframes flipBoard {
+  0% {
+    transform: rotateX(0deg);
+  }
+  10% {
+    transform: rotateX(-90deg);
+  }
+  20% {
+    transform: rotateX(0deg);
+  }
+  30% {
+    transform: rotateX(-90deg);
+  }
+  40% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(-90deg);
+  }
+  60% {
+    transform: rotateX(0deg);
+  }
+  70% {
+    transform: rotateX(-90deg);
+  }
+  80% {
+    transform: rotateX(0deg);
+  }
+  90% {
+    transform: rotateX(-90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
 @layer base {
   @font-face {
     font-family: 'Inter';
