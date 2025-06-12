@@ -4,7 +4,7 @@ import { format, parseISO } from 'date-fns';
 import { MDXRemote } from 'next-mdx-remote';
 import { useEffect, useState } from 'react';
 import Tweet from '@/components/Tweet';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import BackToTop from '@/components/BackToTop';
 import CodeBlock from '@/components/CodeBlock';
 
@@ -74,14 +74,7 @@ export default function BlogPostClient(props) {
   };
 
   return (
-    <div
-      className="container dark:bg-darkgrey dark:text-whitedarktheme"
-      data-blog-card
-      style={{
-        '--blog-card-name': `blog-card-${slug}`,
-        viewTransitionName: `blog-card-${slug}`
-      }}
-    >
+    <div className="container dark:bg-darkgrey dark:text-whitedarktheme">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
@@ -98,62 +91,41 @@ export default function BlogPostClient(props) {
         >
           {title}
         </h1>
-        {desc && (
-          <p
-            className="text-gray-600 dark:text-gray-400 mb-4"
-            data-blog-description
-            style={{
-              '--blog-description-name': `blog-description-${slug}`,
-              viewTransitionName: `blog-description-${slug}`
-            }}
-          >
-            {desc}
-          </p>
-        )}
-        <div className="flex flex-col sm:flex-row w-full my-4 sm:my-6 sm:space-x-3 sm:items-center sm:justify-between">
-          <div className="flex flex-wrap gap-2 mb-2 sm:mb-0">
-            {tags.map((tag, id) => {
-              return (
-                <Link
-                  key={id}
-                  href={`/tags/${encodeURIComponent(tag)}`}
-                  className="text-xs sm:text-sm bg-yellow-200 rounded px-2 py-1 border-yellow-200 border-opacity-50 text-gray-700 dark:text-black"
-                >
-                  {tag}
-                </Link>
-              );
-            })}
-          </div>
-          <div className="flex text-sm leading-snug text-gray-600 dark:text-gray-400">
-            <span className="flex items-center">
-              <span>{readingTime.text}</span>
-              <span className="mx-2">–</span>
-              <time
-                dateTime={date}
-                data-blog-date
-                style={{
-                  '--blog-date-name': `blog-date-${slug}`,
-                  viewTransitionName: `blog-date-${slug}`
-                }}
-              >
-                {format(parseISO(date), 'MMMM dd, yyyy')}
-              </time>
-            </span>
-          </div>
-        </div>
-        <div
-          className="prose dark:prose-dark selection:bg-blue-200 w-full max-w-none"
-          data-blog-content
-          style={{
-            '--blog-content-name': `blog-content-${slug}`,
-            viewTransitionName: `blog-content-${slug}`
-          }}
-        >
-          {isClient ? (
-            <MDXRemote {...content} components={components} />
-          ) : (
-            <div>Loading content...</div>
+        <div className="animate-fade-in-delayed w-full">
+          {desc && (
+            <p className="text-gray-600 dark:text-gray-400 mb-4">{desc}</p>
           )}
+          <div className="flex flex-col sm:flex-row w-full my-4 sm:my-6 sm:space-x-3 sm:items-center sm:justify-between">
+            <div className="flex flex-wrap gap-2 mb-2 sm:mb-0">
+              {tags.map((tag, id) => {
+                return (
+                  <Link
+                    key={id}
+                    href={`/tags/${encodeURIComponent(tag)}`}
+                    className="text-xs sm:text-sm bg-yellow-200 rounded px-2 py-1 border-yellow-200 border-opacity-50 text-gray-700 dark:text-black"
+                  >
+                    {tag}
+                  </Link>
+                );
+              })}
+            </div>
+            <div className="flex text-sm leading-snug text-gray-600 dark:text-gray-400">
+              <span className="flex items-center">
+                <span>{readingTime.text}</span>
+                <span className="mx-2">–</span>
+                <time dateTime={date}>
+                  {format(parseISO(date), 'MMMM dd, yyyy')}
+                </time>
+              </span>
+            </div>
+          </div>
+          <div className="prose dark:prose-dark selection:bg-blue-200 w-full max-w-none">
+            {isClient ? (
+              <MDXRemote {...content} components={components} />
+            ) : (
+              <div>Loading content...</div>
+            )}
+          </div>
         </div>
       </article>
 

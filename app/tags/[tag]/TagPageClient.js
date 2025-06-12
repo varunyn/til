@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Blog from '@/components/Blog';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 
 export default function TagPageClient({ posts, tag }) {
   const [searchValue, setSearchValue] = useState('');

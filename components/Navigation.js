@@ -105,7 +105,7 @@ const Navigation = () => {
             </button>
           </div>
 
-          {/* Mobile Navigation Controls */}
+          {/* Mobile Navigation Controls - Only show on mobile */}
           <div className="flex items-center md:hidden">
             {/* Dark Mode Toggle for Mobile */}
             <button
@@ -141,7 +141,7 @@ const Navigation = () => {
               )}
             </button>
 
-            {/* Hamburger Menu Button */}
+            {/* Hamburger Menu Button - Only show on mobile */}
             <button
               type="button"
               onClick={() => setIsMenuOpen(!isMenuOpen)}

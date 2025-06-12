@@ -13,12 +13,12 @@ module.exports = {
   },
   plugins: [require('@tailwindcss/typography')],
   theme: {
-    screens: {
-      mobile: {
-        max: '640px'
-      }
-    },
     extend: {
+      screens: {
+        mobile: {
+          max: '640px'
+        }
+      },
       colors: {
         purple: '#F5EBFF',
         darkPurple: '#665ffa',
