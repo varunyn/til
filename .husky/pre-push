@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🚀 Running pre-push validation..."
+
+# Ensure the static build works (important for GitHub Pages)
+npm run build
+
+echo "✅ Build successful! Safe to push." 

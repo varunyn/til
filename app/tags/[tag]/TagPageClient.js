@@ -1,33 +1,10 @@
-import { getAllPosts } from '@/lib/mdx';
-import { getAllTags } from '@/lib/tags';
+'use client';
+
 import { useState } from 'react';
 import Blog from '@/components/Blog';
-import Head from 'next/head';
 import Link from 'next/link';
 
-export async function getStaticPaths() {
-  const tags = await getAllTags('blog');
-  return {
-    paths: Object.keys(tags).map((tag) => ({
-      params: {
-        tag
-      }
-    })),
-    fallback: false
-  };
-}
-
-export async function getStaticProps({ params }) {
-  const allPosts = await getAllPosts('blog');
-  const filteredPosts = allPosts.filter(
-    (post) =>
-      post.draft !== true && post.tags.map((t) => t).includes(params.tag)
-  );
-
-  return { props: { posts: filteredPosts, tag: params.tag } };
-}
-
-export default function Tag({ posts, tag }) {
+export default function TagPageClient({ posts, tag }) {
   const [searchValue, setSearchValue] = useState('');
   const filteredBlogPosts = posts.filter((frontMatter) =>
     frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
@@ -35,11 +12,6 @@ export default function Tag({ posts, tag }) {
 
   return (
     <div className="container mx-auto px-4 sm:px-6 max-w-4xl py-8">
-      <Head>
-        <title>#{tag} - TIL</title>
-        <meta name="description" content={`Posts tagged with ${tag}`} />
-      </Head>
-
       <div className="mb-8">
         <Link
           href="/tags"
@@ -88,7 +60,7 @@ export default function Tag({ posts, tag }) {
       ) : (
         <div className="text-center py-12">
           <p className="text-gray-600 dark:text-gray-400">
-            No posts found matching "{searchValue}"
+            No posts found matching &quot;{searchValue}&quot;
           </p>
         </div>
       )}

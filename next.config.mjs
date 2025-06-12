@@ -1,15 +1,9 @@
-import remarkToc from 'remark-toc';
-import remarkAutolinkHeadings from 'remark-autolink-headings';
-import withMDX from '@next/mdx';
-
 const nextConfig = {
-  output: 'export', // Add this line
+  output: 'export',
   reactStrictMode: true,
   images: {
-    domains: [
-      'pbs.twimg.com' // Twitter Profile Picture
-    ],
-    unoptimized: true, // Add this line for static export
+    domains: ['pbs.twimg.com'],
+    unoptimized: true
   },
   webpack: (config, { dev, isServer }) => {
     config.resolve.alias = {
@@ -23,18 +17,8 @@ const nextConfig = {
     return config;
   },
   experimental: {
-    mdxRs: true,
-  },
+    mdxRs: true
+  }
 };
 
-// MDX configuration
-const withMDXConfig = withMDX({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [remarkToc, [remarkAutolinkHeadings, {}]],
-    rehypePlugins: [],
-  },
-});
-
-// Merge MDX config with nextConfig
-export default withMDXConfig(nextConfig);
+export default nextConfig;

@@ -28,4 +28,4 @@
 
 **Title**: Update maps.varunyadav.com
 
-- Today I updated the maps application use Open Street Maps instead of google maps and also made it little nicer by adding emojis as marker. Idea is to OSM so that I don't incur charges for Google Maps API if lot of people started using it
+- Today I updated the maps application use Open Street Maps instead of google maps and also made it little nicer by adding emojis as marker. Idea is to use OSM so that I don't incur charges for Google Maps API if lot of people started using it

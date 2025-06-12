@@ -1,2 +1,18 @@
-.next
-.vercel
+# Dependencies
+node_modules/
+.next/
+out/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# VS Code files with formatting issues
+.vscode/snipsnap.code-snippets
+
+# Built files
+dist/
+build/

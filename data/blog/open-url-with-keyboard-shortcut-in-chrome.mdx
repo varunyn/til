@@ -32,18 +32,18 @@ background.js
 
 ```js
 if (window == top) {
-  window.addEventListener("keyup", doKeyPress, false);
+  window.addEventListener('keyup', doKeyPress, false);
 }
 
 var bookmarks = {},
   url;
 
-bookmarks["G"] = "https://google.com";
+bookmarks['G'] = 'https://google.com';
 
 function doKeyPress(event) {
   if (event.ctrlKey && !event.shiftKey) {
     if ((url = bookmarks[String.fromCharCode(event.keyCode)])) {
-      console.log("URL", url);
+      console.log('URL', url);
       window.open(url);
     }
   }

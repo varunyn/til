@@ -1,4 +1,5 @@
-import { getPostData, getAllPostIds } from '@/lib/mdx';
+'use client';
+
 import { format, parseISO } from 'date-fns';
 import { MDXRemote } from 'next-mdx-remote';
 import { useEffect, useState } from 'react';
@@ -6,9 +7,13 @@ import Tweet from '@/components/Tweet';
 import Link from 'next/link';
 import BackToTop from '@/components/BackToTop';
 import CodeBlock from '@/components/CodeBlock';
-import SEO from '@/components/SEO';
 
-export default function BlogPage(props) {
+export default function BlogPostClient(props) {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   const {
     title,
     date,
@@ -20,7 +25,9 @@ export default function BlogPage(props) {
     tweets,
     ogImage
   } = props;
+
   const [mentions, setMentions] = useState([]);
+
   useEffect(() => {
     fetch(
       `https://webmention.io/api/mentions.jf2?til.varunyadav.com&token=${process.env.NEXT_PUBLIC_WEBMENTION_TOKEN}`
@@ -33,18 +40,14 @@ export default function BlogPage(props) {
 
   const StaticTweet = ({ id }) => {
     const tweet = tweets.find((tweet) => tweet.id === id);
-    // return id;
     return <Tweet {...tweet} />;
   };
 
-  // MDX components with code block support
   const components = {
     StaticTweet,
-    // Override pre tag to add copy button
     pre: (props) => <CodeBlock {...props} />
   };
 
-  // Generate JSON-LD structured data for the blog post
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -71,39 +74,49 @@ export default function BlogPage(props) {
   };
 
   return (
-    <div className="container dark:bg-darkgrey dark:text-whitedarktheme">
-      <SEO
-        title={title}
-        description={desc}
-        canonicalUrl={`https://til.varunyadav.com/blog/${slug}`}
-        ogType="article"
-        ogImage={ogImage}
-      >
-        {/* Add article specific meta tags */}
-        <meta property="article:published_time" content={date} />
-        <meta property="article:author" content="Varun Yadav" />
-        {tags.map((tag) => (
-          <meta key={tag} property="article:tag" content={tag} />
-        ))}
-
-        {/* Add JSON-LD structured data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-        />
-      </SEO>
+    <div
+      className="container dark:bg-darkgrey dark:text-whitedarktheme"
+      data-blog-card
+      style={{
+        '--blog-card-name': `blog-card-${slug}`,
+        viewTransitionName: `blog-card-${slug}`
+      }}
+    >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
 
       <article className="flex flex-col justify-center items-start max-w-2xl px-4 sm:px-0 mx-auto w-full">
-        <h1 className="font-sans mt-6 text-3xl sm:text-4xl font-bold">
+        <h1
+          className="font-sans mt-6 text-3xl sm:text-4xl font-bold"
+          data-blog-title
+          style={{
+            '--blog-title-name': `blog-title-${slug}`,
+            viewTransitionName: `blog-title-${slug}`
+          }}
+        >
           {title}
         </h1>
+        {desc && (
+          <p
+            className="text-gray-600 dark:text-gray-400 mb-4"
+            data-blog-description
+            style={{
+              '--blog-description-name': `blog-description-${slug}`,
+              viewTransitionName: `blog-description-${slug}`
+            }}
+          >
+            {desc}
+          </p>
+        )}
         <div className="flex flex-col sm:flex-row w-full my-4 sm:my-6 sm:space-x-3 sm:items-center sm:justify-between">
           <div className="flex flex-wrap gap-2 mb-2 sm:mb-0">
             {tags.map((tag, id) => {
               return (
                 <Link
                   key={id}
-                  href={`/tags/${tag}`}
+                  href={`/tags/${encodeURIComponent(tag)}`}
                   className="text-xs sm:text-sm bg-yellow-200 rounded px-2 py-1 border-yellow-200 border-opacity-50 text-gray-700 dark:text-black"
                 >
                   {tag}
@@ -115,14 +128,32 @@ export default function BlogPage(props) {
             <span className="flex items-center">
               <span>{readingTime.text}</span>
               <span className="mx-2">–</span>
-              <time dateTime={date}>
+              <time
+                dateTime={date}
+                data-blog-date
+                style={{
+                  '--blog-date-name': `blog-date-${slug}`,
+                  viewTransitionName: `blog-date-${slug}`
+                }}
+              >
                 {format(parseISO(date), 'MMMM dd, yyyy')}
               </time>
             </span>
           </div>
         </div>
-        <div className="prose dark:prose-dark selection:bg-blue-200 w-full max-w-none">
-          <MDXRemote {...content} components={components} />
+        <div
+          className="prose dark:prose-dark selection:bg-blue-200 w-full max-w-none"
+          data-blog-content
+          style={{
+            '--blog-content-name': `blog-content-${slug}`,
+            viewTransitionName: `blog-content-${slug}`
+          }}
+        >
+          {isClient ? (
+            <MDXRemote {...content} components={components} />
+          ) : (
+            <div>Loading content...</div>
+          )}
         </div>
       </article>
 
@@ -175,25 +206,6 @@ export default function BlogPage(props) {
           )}
         </ol>
       </div>
-
-      <BackToTop />
     </div>
   );
-}
-
-export async function getStaticProps({ params }) {
-  const postData = await getPostData('blog', params.slug);
-
-  return {
-    props: {
-      ...postData
-    }
-  };
-}
-
-// // This function gets called at build time
-export async function getStaticPaths() {
-  const paths = getAllPostIds('blog');
-
-  return { paths, fallback: false };
 }

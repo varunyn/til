@@ -39,3 +39,16 @@ yarn-error.log*
 .vercel
 
 certificates
+
+# IDE and editor files
+.cursor
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS generated files
+Thumbs.db
+
+# npm
+package-lock.json.bak

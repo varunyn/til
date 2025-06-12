@@ -1,9 +1,9 @@
-import { getAllPosts } from '../lib/mdx';
+'use client';
+
 import Blog from '../components/Blog';
 import { useState } from 'react';
-import SEO from '../components/SEO';
 
-export default function Home({ allPosts }) {
+export default function HomeClient({ allPosts }) {
   const [searchValue, setSearchValue] = useState('');
   const filteredBlogPosts = allPosts.filter((frontMatter) =>
     frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
@@ -11,12 +11,6 @@ export default function Home({ allPosts }) {
 
   return (
     <div className="flex flex-col justify-center max-w-2xl mx-auto h-full">
-      <SEO
-        title="Today I Learned - Varun Yadav"
-        description="A collection of code snippets, solutions and things I learn day to day."
-        canonicalUrl="https://til.varunyadav.com"
-      />
-
       <div className="relative mt-5">
         <input
           aria-label="Search articles"
@@ -40,7 +34,8 @@ export default function Home({ allPosts }) {
           />
         </svg>
       </div>
-      <section className="relative mt-5  dark:bg-darkgrey dark:text-whitedarktheme">
+
+      <section className="relative mt-5 dark:bg-darkgrey dark:text-whitedarktheme">
         {!filteredBlogPosts.length && (
           <p className="text-gray-600 dark:text-gray-400 mb-4">
             No posts found.
@@ -54,14 +49,4 @@ export default function Home({ allPosts }) {
       </section>
     </div>
   );
-}
-
-export async function getStaticProps() {
-  const allPosts = await getAllPosts('blog'); // or whatever folder you're using
-
-  return {
-    props: {
-      allPosts
-    }
-  };
 }

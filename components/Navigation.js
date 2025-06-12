@@ -1,28 +1,23 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-  const router = useRouter();
+  const pathname = usePathname();
 
   // After mounting, we can safely show the UI
   useEffect(() => setMounted(true), []);
 
   // Close menu when route changes
   useEffect(() => {
-    const handleRouteChange = () => {
-      setIsMenuOpen(false);
-    };
-
-    router.events.on('routeChangeComplete', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
-  }, [router]);
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   return (
     <nav className="sticky top-0 z-50 bg-white dark:bg-darkgrey shadow-sm">
@@ -43,9 +38,7 @@ const Navigation = () => {
             <Link
               href="/"
               className={`px-3 py-2 text-sm font-medium dark:text-whitedarktheme hover:text-blue-600 dark:hover:text-blue-400 ${
-                router.pathname === '/'
-                  ? 'text-blue-600 dark:text-blue-400'
-                  : ''
+                pathname === '/' ? 'text-blue-600 dark:text-blue-400' : ''
               }`}
             >
               Home
@@ -53,7 +46,7 @@ const Navigation = () => {
             <Link
               href="/tags"
               className={`px-3 py-2 text-sm font-medium dark:text-whitedarktheme hover:text-blue-600 dark:hover:text-blue-400 ${
-                router.pathname.startsWith('/tags')
+                pathname.startsWith('/tags')
                   ? 'text-blue-600 dark:text-blue-400'
                   : ''
               }`}
@@ -63,9 +56,7 @@ const Navigation = () => {
             <Link
               href="/about"
               className={`px-3 py-2 text-sm font-medium dark:text-whitedarktheme hover:text-blue-600 dark:hover:text-blue-400 ${
-                router.pathname === '/about'
-                  ? 'text-blue-600 dark:text-blue-400'
-                  : ''
+                pathname === '/about' ? 'text-blue-600 dark:text-blue-400' : ''
               }`}
             >
               About
@@ -73,9 +64,7 @@ const Navigation = () => {
             <Link
               href="/now"
               className={`px-3 py-2 text-sm font-medium dark:text-whitedarktheme hover:text-blue-600 dark:hover:text-blue-400 ${
-                router.pathname === '/now'
-                  ? 'text-blue-600 dark:text-blue-400'
-                  : ''
+                pathname === '/now' ? 'text-blue-600 dark:text-blue-400' : ''
               }`}
             >
               Now
@@ -204,7 +193,7 @@ const Navigation = () => {
           <Link
             href="/"
             className={`block px-3 py-2 rounded-md text-base font-medium ${
-              router.pathname === '/'
+              pathname === '/'
                 ? 'bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-300'
                 : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
             }`}
@@ -214,7 +203,7 @@ const Navigation = () => {
           <Link
             href="/tags"
             className={`block px-3 py-2 rounded-md text-base font-medium ${
-              router.pathname.startsWith('/tags')
+              pathname.startsWith('/tags')
                 ? 'bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-300'
                 : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
             }`}
@@ -224,7 +213,7 @@ const Navigation = () => {
           <Link
             href="/about"
             className={`block px-3 py-2 rounded-md text-base font-medium ${
-              router.pathname === '/about'
+              pathname === '/about'
                 ? 'bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-300'
                 : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
             }`}
@@ -234,7 +223,7 @@ const Navigation = () => {
           <Link
             href="/now"
             className={`block px-3 py-2 rounded-md text-base font-medium ${
-              router.pathname === '/now'
+              pathname === '/now'
                 ? 'bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-300'
                 : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
             }`}

@@ -2,6 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+/* View Transitions CSS - Clean and Simple */
+
+/* View transition names are set directly via inline styles */
+
+/* Simple, smooth animations for view transitions */
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Simple title slide animation */
+::view-transition-old(root) {
+  animation: none;
+}
+
+::view-transition-new(root) {
+  animation: none;
+}
+
+/* Hover effects
+[data-blog-card] {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-blog-card]:hover {
+  transform: translateY(-2px);
+} */
+
+[data-blog-title] {
+  transition: color 0.2s ease;
+}
+
+/* [data-blog-card]:hover [data-blog-title] {
+  color: #3b82f6;
+} */
+
 @layer base {
   @font-face {
     font-family: 'Inter';

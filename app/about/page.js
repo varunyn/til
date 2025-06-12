@@ -1,23 +1,23 @@
 import Link from 'next/link';
-import IconCheck from '../components/IconCheck';
-import SEO from '../components/SEO';
+import IconCheck from '../../components/IconCheck';
 
-export default function Home() {
+export const metadata = {
+  title: 'About - Varun Yadav',
+  description:
+    'Learn more about Varun Yadav, a Cloud Engineer and his bucket list.',
+  canonical: 'https://til.varunyadav.com/about'
+};
+
+export default function About() {
   return (
     <div>
       <section className="relative min-h-screen-without-nav dark:bg-darkgrey dark:text-whitedarktheme">
-        <SEO
-          title="About - Varun Yadav"
-          description="Learn more about Varun Yadav, a Cloud Engineer and his bucket list."
-          canonicalUrl="https://til.varunyadav.com/about"
-        />
-
         <main
-          className="p-10  mx-auto  container justify-center w-3/5 mx-auto "
+          className="p-10 mx-auto container justify-center w-3/5 mx-auto"
           style={{ width: '60%', margin: '0 auto' }}
         >
           <h4>
-            Hi, I am Varun Yadav, I'm a Cloud Engineer. You can find me on{' '}
+            Hi, I am Varun Yadav, I&apos;m a Cloud Engineer. You can find me on{' '}
             <Link className="links" href="https://twitter.com/varun1_yadav">
               Twitter
             </Link>{' '}
@@ -29,11 +29,11 @@ export default function Home() {
             <Link className="links" href="https://github.com/varunyn">
               GitHub
             </Link>{' '}
-            where I'm building in the open
+            where I&apos;m building in the open
           </h4>
           <h3 className="mt-8 text-2xl">Pay it forward</h3>
           <p className="mt-4">
-            I've always been interested in the idea of paying forward what
+            I&apos;ve always been interested in the idea of paying forward what
             knowledge I have—share with others what others have shared with
             me.{' '}
           </p>
@@ -41,7 +41,6 @@ export default function Home() {
           <ul className="grid sm:grid-cols-1 grid-cols-2 gap-4 mt-4">
             <li className="flex items-center space-x-2">
               <div className="w-4 h-4"></div>
-
               <span>Travel to Japan</span>
             </li>
             <li className="flex items-center space-x-2">
