@@ -38,7 +38,7 @@ export default async function TagPage({ params }) {
   const allPosts = await getAllPosts('blog');
   const filteredPosts = allPosts.filter(
     (post) =>
-      post.draft !== true && post.tags.map((t) => t).includes(decodedTag)
+      post.draft !== true && post.tags?.map((t) => t).includes(decodedTag)
   );
 
   return <TagPageClient posts={filteredPosts} tag={decodedTag} />;

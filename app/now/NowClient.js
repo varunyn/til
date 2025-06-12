@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 const NowClient = ({ timelineEntries }) => {
   const [tooltip, setTooltip] = useState({ show: false, text: '', x: 0, y: 0 });
@@ -75,9 +76,11 @@ const NowClient = ({ timelineEntries }) => {
           <div className="lg:col-span-1">
             <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
               <div className="flex items-center justify-center mb-4">
-                <img
+                <Image
                   src={profileData.avatar}
                   alt={profileData.name}
+                  width={64}
+                  height={64}
                   className="w-16 h-16 rounded-full object-cover"
                 />
               </div>

@@ -63,7 +63,7 @@ export default async function BlogPost({ params }) {
       '@type': 'WebPage',
       '@id': `https://til.varunyadav.com/blog/${slug}`
     },
-    keywords: tags.join(', ')
+    keywords: tags?.join(', ') || ''
   };
 
   return (
@@ -105,7 +105,7 @@ export default async function BlogPost({ params }) {
         )}
         <div className="flex flex-col sm:flex-row w-full my-4 sm:my-6 sm:space-x-3 sm:items-center sm:justify-between">
           <div className="flex flex-wrap gap-2 mb-2 sm:mb-0">
-            {tags.map((tag, id) => {
+            {tags?.map((tag, id) => {
               return (
                 <Link
                   key={id}

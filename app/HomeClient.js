@@ -6,7 +6,7 @@ import { useState } from 'react';
 export default function HomeClient({ allPosts }) {
   const [searchValue, setSearchValue] = useState('');
   const filteredBlogPosts = allPosts.filter((frontMatter) =>
-    frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
+    frontMatter.title?.toLowerCase().includes(searchValue.toLowerCase())
   );
 
   return (

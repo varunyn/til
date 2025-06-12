@@ -19,8 +19,6 @@ const nextConfig = {
     unoptimized: true // For static export with Next.js 15
   },
   // Enable optimization for external packages
-  optimizePackageImports: ['react-icons'],
-  // Enable optimization for external packages
   bundlePagesRouterDependencies: true
 };
 
