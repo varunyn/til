@@ -30,7 +30,7 @@ export default function About() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Hi, I'm Varun Yadav
+              Hi, I&apos;m Varun Yadav
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
               Cloud Engineer passionate about building scalable solutions and
@@ -79,10 +79,10 @@ export default function About() {
                 About Me
               </h2>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                I'm a Cloud Engineer who loves building scalable solutions and
-                exploring new technologies. When I'm not coding, you can find me
-                sharing knowledge through blog posts and contributing to open
-                source projects.
+                I&apos;m a Cloud Engineer who loves building scalable solutions
+                and exploring new technologies. When I&apos;m not coding, you
+                can find me sharing knowledge through blog posts and
+                contributing to open source projects.
               </p>
               <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4">
                 <h3 className="font-semibold text-blue-900 dark:text-blue-300 mb-2">
@@ -90,8 +90,8 @@ export default function About() {
                 </h3>
                 <p className="text-blue-800 dark:text-blue-200 text-sm">
                   I believe in sharing knowledge and helping others grow. What
-                  I've learned from the community, I try to give back through my
-                  writing and open source contributions.
+                  I&apos;ve learned from the community, I try to give back
+                  through my writing and open source contributions.
                 </p>
               </div>
             </div>
