@@ -35,3 +35,9 @@
 **Title**: Updating til.varunyadav.com
 
 - It started when yesterday I saw video on view transition and I want to implement that in this project. I created this nextjs app 4 years ago and it was using page router instead of app router and view transition package is supporting app router as now. So updated whole app to current standard and spent whole day on that.
+
+## 2025-06-13
+
+**Title**: Adding privacy content to til.varunyadav.com with [c15t](c15t.com)
+
+- In this week react weekly email I saw c15t and I was like what's the timing and it's good package for privacy content which works offline for my use case. Also I learned about f5bot today to track keywords in Reddit, Hacker News, etc. Really interesting now I know how indie hackers know when their product is mentioned.
