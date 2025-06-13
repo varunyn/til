@@ -5,6 +5,7 @@ import Stagewise from '../components/Stagewise';
 import { Providers } from './providers';
 
 export const metadata = {
+  metadataBase: new URL('https://til.varunyadav.com'),
   title: 'Today I Learned - Varun Yadav',
   description:
     'A collection of code snippets, solutions and things I learn day to day.',
