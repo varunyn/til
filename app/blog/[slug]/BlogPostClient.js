@@ -139,23 +139,28 @@ export default function BlogPostClient({ post, htmlContent }) {
         <div className="max-w-4xl mx-auto">
           {/* Back Button */}
           <Link
-            href="/blog"
+            href="/"
             className="inline-flex items-center space-x-2 text-smalt-600 dark:text-smalt-400 hover:text-smalt-800 dark:hover:text-smalt-200 transition-colors mb-8 group"
           >
             <FaArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            <span>Back to Blog</span>
+            <span>Back to Home</span>
           </Link>
 
           {/* Article */}
           <article className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
             {/* Header */}
             <div className="p-8 border-b border-gray-200 dark:border-gray-700">
-              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              <h1
+                className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+                style={{
+                  viewTransitionName: `blog-title-${post.slug}`
+                }}
+              >
                 {post.title}
               </h1>
 
               {/* Meta Information */}
-              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400 animate-fade-in-delayed">
                 <div className="flex items-center space-x-2">
                   <FaCalendar className="w-4 h-4" />
                   <time dateTime={post.date}>
@@ -187,7 +192,7 @@ export default function BlogPostClient({ post, htmlContent }) {
             </div>
 
             {/* Content */}
-            <div className="p-8">
+            <div className="p-8 animate-fade-in-delayed">
               <div
                 className={`prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-a:text-smalt-600 dark:prose-a:text-smalt-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 dark:prose-strong:text-white prose-code:text-smalt-600 dark:prose-code:text-smalt-400 prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 dark:prose-pre:bg-gray-950 prose-pre:border prose-pre:border-gray-200 dark:prose-pre:border-gray-700 ${
                   isLoaded ? 'opacity-100' : 'opacity-90'
