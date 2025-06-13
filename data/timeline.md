@@ -29,3 +29,9 @@
 **Title**: Update maps.varunyadav.com
 
 - Today I updated the maps application use Open Street Maps instead of google maps and also made it little nicer by adding emojis as marker. Idea is to use OSM so that I don't incur charges for Google Maps API if lot of people started using it
+
+## 2025-06-12
+
+**Title**: Updating til.varunyadav.com
+
+- It started when yesterday I saw video on view transition and I want to implement that in this project. I created this nextjs app 4 years ago and it was using page router instead of app router and view transition package is supporting app router as now. So updated whole app to current standard and spent whole day on that.
