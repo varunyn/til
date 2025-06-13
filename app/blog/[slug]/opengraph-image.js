@@ -1,13 +1,23 @@
 import { ImageResponse } from 'next/og';
+import { getPostData } from '@/lib/mdx';
 
 export const runtime = 'edge';
 
-export async function GET(request) {
+export const alt = 'Blog Post';
+export const size = {
+  width: 1200,
+  height: 630
+};
+export const contentType = 'image/png';
+
+export default async function Image({ params }) {
+  const { slug } = params;
+
   try {
-    const { searchParams } = new URL(request.url);
-    const title = searchParams.get('title') || 'Varun Yadav';
-    const description =
-      searchParams.get('description') || 'Cloud Engineer sharing knowledge';
+    const postData = await getPostData('blog', slug);
+    const title = postData.title || 'Blog Post';
+    const description = postData.desc || '';
+    const tags = postData.tags || [];
 
     return new ImageResponse(
       (
@@ -136,16 +146,65 @@ export async function GET(request) {
             >
               📝 Blog Post
             </div>
+
+            {tags && tags.length > 0 && (
+              <div
+                style={{
+                  fontSize: '16px',
+                  color: 'rgba(255, 255, 255, 0.6)'
+                }}
+              >
+                {tags.slice(0, 3).join(' • ')}
+              </div>
+            )}
           </div>
         </div>
       ),
       {
-        width: 1200,
-        height: 630
+        ...size
       }
     );
-  } catch (e) {
-    console.error('Error generating OG image:', e);
-    return new Response('Failed to generate image', { status: 500 });
+  } catch (error) {
+    // Fallback image if post data can't be loaded
+    return new ImageResponse(
+      (
+        <div
+          style={{
+            height: '100%',
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: '#1e293b',
+            backgroundImage:
+              'linear-gradient(135deg, #1e40af 0%, #7c3aed 100%)',
+            fontFamily: 'system-ui, sans-serif'
+          }}
+        >
+          <div
+            style={{
+              fontSize: '64px',
+              fontWeight: 'bold',
+              color: 'white',
+              marginBottom: '24px'
+            }}
+          >
+            Varun Yadav
+          </div>
+          <div
+            style={{
+              fontSize: '24px',
+              color: 'rgba(255, 255, 255, 0.8)'
+            }}
+          >
+            til.varunyadav.com
+          </div>
+        </div>
+      ),
+      {
+        ...size
+      }
+    );
   }
 }
