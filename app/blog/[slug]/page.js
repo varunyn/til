@@ -1,6 +1,5 @@
 import { getPostData, getAllPostIds } from '@/lib/mdx';
-import { format, parseISO } from 'date-fns';
-import { Link } from 'next-view-transitions';
+import BlogPostClient from './BlogPostClient';
 import WebmentionsClient from './WebmentionsClient';
 import CopyButtonScript from '@/components/CopyButtonScript';
 
@@ -38,17 +37,14 @@ export default async function BlogPost({ params }) {
   const { slug } = await params;
   const postData = await getPostData('blog', slug);
 
-  const { title, date, content, readingTime, desc, tags, tweets, ogImage } =
-    postData;
-
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
-    headline: title,
-    description: desc,
-    image: ogImage || 'https://til.varunyadav.com/og-image.png',
-    datePublished: date,
-    dateModified: date,
+    headline: postData.title,
+    description: postData.desc,
+    image: postData.ogImage || 'https://til.varunyadav.com/og-image.png',
+    datePublished: postData.date,
+    dateModified: postData.date,
     author: {
       '@type': 'Person',
       name: 'Varun Yadav',
@@ -63,64 +59,18 @@ export default async function BlogPost({ params }) {
       '@type': 'WebPage',
       '@id': `https://til.varunyadav.com/blog/${slug}`
     },
-    keywords: tags?.join(', ') || ''
+    keywords: postData.tags?.join(', ') || ''
   };
 
   return (
-    <div className="container dark:bg-darkgrey dark:text-whitedarktheme">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
-
-      <article className="flex flex-col justify-center items-start max-w-2xl px-4 sm:px-0 mx-auto w-full">
-        <h1
-          className="font-sans mt-6 text-3xl sm:text-4xl font-bold"
-          data-blog-title
-          style={{
-            '--blog-title-name': `blog-title-${slug}`,
-            viewTransitionName: `blog-title-${slug}`
-          }}
-        >
-          {title}
-        </h1>
-        <div className="animate-fade-in-delayed w-full">
-          {desc && (
-            <p className="text-gray-600 dark:text-gray-400 mb-4">{desc}</p>
-          )}
-          <div className="flex flex-col sm:flex-row w-full my-4 sm:my-6 sm:space-x-3 sm:items-center sm:justify-between">
-            <div className="flex flex-wrap gap-2 mb-2 sm:mb-0">
-              {tags?.map((tag, id) => {
-                return (
-                  <Link
-                    key={id}
-                    href={`/tags/${encodeURIComponent(tag)}`}
-                    className="text-xs sm:text-sm bg-yellow-200 rounded px-2 py-1 border-yellow-200 border-opacity-50 text-gray-700 dark:text-black"
-                  >
-                    {tag}
-                  </Link>
-                );
-              })}
-            </div>
-            <div className="flex text-sm leading-snug text-gray-600 dark:text-gray-400">
-              <span className="flex items-center">
-                <span>{readingTime.text}</span>
-                <span className="mx-2">–</span>
-                <time dateTime={date}>
-                  {format(parseISO(date), 'MMMM dd, yyyy')}
-                </time>
-              </span>
-            </div>
-          </div>
-          <div
-            className="prose dark:prose-dark selection:bg-smalt-200 w-full max-w-none"
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
-        </div>
-      </article>
-
+      <BlogPostClient post={postData} htmlContent={postData.content} />
       <CopyButtonScript />
       <WebmentionsClient slug={slug} />
-    </div>
+    </>
   );
 }

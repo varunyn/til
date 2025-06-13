@@ -2,17 +2,24 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'export',
+  transpilePackages: ['react-tweet'],
   experimental: {
     viewTransition: true
   },
   images: {
     domains: [
-      'pbs.twimg.com' // Twitter Profile Picture
+      'pbs.twimg.com', // Twitter Profile Picture
+      'abs.twimg.com' // Twitter Media
     ],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'pbs.twimg.com',
+        pathname: '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'abs.twimg.com',
         pathname: '/**'
       }
     ],
