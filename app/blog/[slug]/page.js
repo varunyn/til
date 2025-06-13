@@ -14,6 +14,12 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const postData = await getPostData('blog', slug);
 
+  // Generate dynamic OG image URL
+  const ogImageUrl = new URL('/api/og', 'https://til.varunyadav.com');
+  ogImageUrl.searchParams.set('title', postData.title);
+  ogImageUrl.searchParams.set('description', postData.desc || '');
+  ogImageUrl.searchParams.set('type', 'blog');
+
   return {
     title: postData.title,
     description: postData.desc,
@@ -22,13 +28,25 @@ export async function generateMetadata({ params }) {
       description: postData.desc,
       url: `https://til.varunyadav.com/blog/${slug}`,
       type: 'article',
-      images: [postData.ogImage || 'https://til.varunyadav.com/og-image.png']
+      images: [
+        {
+          url: ogImageUrl.toString(),
+          width: 1200,
+          height: 630,
+          alt: postData.title
+        }
+      ],
+      publishedTime: postData.date,
+      authors: ['Varun Yadav'],
+      tags: postData.tags || []
     },
     twitter: {
       card: 'summary_large_image',
       title: postData.title,
       description: postData.desc,
-      images: [postData.ogImage || 'https://til.varunyadav.com/og-image.png']
+      images: [ogImageUrl.toString()],
+      creator: '@varun1_yadav',
+      site: '@varun1_yadav'
     }
   };
 }
@@ -37,12 +55,18 @@ export default async function BlogPost({ params }) {
   const { slug } = await params;
   const postData = await getPostData('blog', slug);
 
+  // Generate dynamic OG image URL for JSON-LD
+  const ogImageUrl = new URL('/api/og', 'https://til.varunyadav.com');
+  ogImageUrl.searchParams.set('title', postData.title);
+  ogImageUrl.searchParams.set('description', postData.desc || '');
+  ogImageUrl.searchParams.set('type', 'blog');
+
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: postData.title,
     description: postData.desc,
-    image: postData.ogImage || 'https://til.varunyadav.com/og-image.png',
+    image: ogImageUrl.toString(),
     datePublished: postData.date,
     dateModified: postData.date,
     author: {
