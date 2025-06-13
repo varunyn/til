@@ -6,7 +6,7 @@ export default function Analytics() {
 
   return (
     <>
-      {/* Google Analytics */}
+      {/* Google Analytics with Consent Mode */}
       {GA_ID && (
         <>
           <Script
@@ -18,6 +18,16 @@ export default function Analytics() {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
+              
+              // Set default consent to denied (GDPR compliant)
+              gtag('consent', 'default', {
+                'analytics_storage': 'denied',
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'wait_for_update': 500
+              });
+              
               gtag('config', '${GA_ID}', {
                 page_path: window.location.pathname,
               });
