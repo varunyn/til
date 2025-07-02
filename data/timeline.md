@@ -41,3 +41,9 @@
 **Title**: Adding privacy content to til.varunyadav.com with [c15t](c15t.com)
 
 - In this week react weekly email I saw c15t and I was like what's the timing and it's good package for privacy content which works offline for my use case. Also I learned about f5bot today to track keywords in Reddit, Hacker News, etc. Really interesting now I know how indie hackers know when their product is mentioned.
+
+## 2025-07-01
+
+**Title**: Working on Receipt Manager deployment
+
+- Learned about [unregistry](https://github.com/psviderski/unregistry). I had this problem last week where my Compute VM didn't have enough CPU to build docker image. Workaround solution is to build locally and then push it. So I asked Cursor to write a script which works really well and then I came across unregistry. Will give it a try because it's very simple solution. Need to check edge cases but otherwise looks straight fwd
