@@ -30,7 +30,7 @@
     "preact": "^10.19.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-icons": "^4.12.0",
+    "react-icons": "^5.5.0",
     "react-tweet": "^3.2.2",
     "reading-time": "^1.5.0",
     "rehype": "13.0.0",
