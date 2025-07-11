@@ -47,3 +47,15 @@
 **Title**: Working on Receipt Manager deployment
 
 - Learned about [unregistry](https://github.com/psviderski/unregistry). I had this problem last week where my Compute VM didn't have enough CPU to build docker image. Workaround solution is to build locally and then push it. So I asked Cursor to write a script which works really well and then I came across unregistry. Will give it a try because it's very simple solution. Need to check edge cases but otherwise looks straight fwd
+
+## 2025-07-10
+
+**Title**: Working on Receipt Manager deployment
+
+- Past few days I have made significant updates to the application, like sharing receipt, create folders and handle PDF. It's been roller coaster when adding complexity- I use Cursor for writing code and it makes lot of big changes to the application even when not needed. After long battle when all the features are working figure out it is making way to many calls in Firebase so went on another battle to reduce calls, cache data when needed. Currently I am the only user but it sure does feels good to make good app which I can see myself using on regular basis. Well today I learned about Oracle SQLcl MCP and used that to connect to Oracle ATP 23ai to create tables and ORDS. It is amazing how easy it is for database noobs like me to work on DB
+
+## 2025-07-11
+
+**Title**: Exploring MCPs and Node packages
+
+- Last night before sleep I thought of what if there is Firebase MCP and there is official [MCP](https://firebase.google.com/docs/cli/mcp-server). It will be hopefully easy now to debug when working on it. Also I came across nextjs [boilerplate](https://github.com/ixartz/Next-js-Boilerplate?tab=readme-ov-file) and I saw two packages [lefthook](https://lefthook.dev/) and [knip](https://knip.dev/) which I think will use going on in next projects. lefthook is alternative for husky and is built on Go so it's fast and uses yaml config which I find easy. knip looks for packages and code which are unused in the project so kind of like linter but I like the feature it checks for package import.
