@@ -10,83 +10,78 @@ export default function CookieBanner() {
   if (!showBanner) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg">
-      <div className="max-w-7xl mx-auto p-4 sm:p-6">
+    <div className="fixed bottom-4 right-4 z-50 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg max-w-md">
+      <div className="p-4">
         {!showDetails ? (
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="flex-1">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                🍪 We use cookies
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
-                We use cookies to enhance your browsing experience, serve
-                personalized content, and analyze our traffic. By clicking
-                &quot;Accept All&quot;, you consent to our use of cookies.{' '}
-                <a
-                  href="/privacy"
-                  className="text-smalt-600 dark:text-smalt-400 hover:underline"
-                >
-                  Learn more
-                </a>
-              </p>
+          <div className="space-y-3">
+            <div className="flex items-start gap-3">
+              <div className="flex-1">
+                <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-1">
+                  We value your privacy
+                </h3>
+                <p className="text-xs text-gray-600 dark:text-gray-300">
+                  This site uses cookies to improve your browsing experience,
+                  analyze site traffic, and show personalized content.
+                </p>
+              </div>
             </div>
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-              <button
-                onClick={() => setShowDetails(true)}
-                className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors"
-              >
-                Manage Preferences
-              </button>
+            <div className="flex gap-2">
               <button
                 onClick={rejectAll}
-                className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors"
+                className="px-3 py-1.5 text-xs font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 rounded transition-colors"
               >
                 Reject All
               </button>
               <button
                 onClick={acceptAll}
-                className="px-4 py-2 text-sm font-medium text-white bg-smalt-600 hover:bg-smalt-700 rounded-md transition-colors"
+                className="px-3 py-1.5 text-xs font-medium text-white bg-gray-900 dark:bg-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 rounded transition-colors"
               >
                 Accept All
+              </button>
+              <button
+                onClick={() => setShowDetails(true)}
+                className="px-3 py-1.5 text-xs font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 rounded transition-colors"
+              >
+                Customize
               </button>
             </div>
           </div>
         ) : (
-          <div className="space-y-4">
+          <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+              <h3 className="text-sm font-medium text-gray-900 dark:text-white">
                 Cookie Preferences
               </h3>
               <button
                 onClick={() => setShowDetails(false)}
-                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-sm"
               >
                 ✕
               </button>
             </div>
 
-            <div className="space-y-3">
-              <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-md">
+            <div className="space-y-2">
+              <div className="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-800 rounded text-xs">
                 <div>
                   <h4 className="font-medium text-gray-900 dark:text-white">
                     Functional Cookies
                   </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
-                    Essential for website functionality and user preferences.
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Essential for website functionality.
                   </p>
                 </div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">
+                <div className="text-gray-500 dark:text-gray-400">
                   Always Active
                 </div>
               </div>
 
-              <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-md">
+              <div className="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-800 rounded text-xs">
                 <div>
                   <h4 className="font-medium text-gray-900 dark:text-white">
                     Analytics Cookies
                   </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
-                    Help us understand how visitors interact with our website.
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Help us understand site usage.
                   </p>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
@@ -96,12 +91,12 @@ export default function CookieBanner() {
                     defaultChecked={false}
                     id="analytics-toggle"
                   />
-                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-smalt-300 dark:peer-focus:ring-smalt-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-smalt-600"></div>
+                  <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-gray-300 dark:peer-focus:ring-gray-600 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-gray-900"></div>
                 </label>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-2">
+            <div className="flex gap-2 pt-2">
               <button
                 onClick={() => {
                   const analyticsEnabled =
@@ -112,13 +107,13 @@ export default function CookieBanner() {
                     rejectAll();
                   }
                 }}
-                className="px-4 py-2 text-sm font-medium text-white bg-smalt-600 hover:bg-smalt-700 rounded-md transition-colors"
+                className="px-3 py-1.5 text-xs font-medium text-white bg-gray-900 dark:bg-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 rounded transition-colors"
               >
                 Save Preferences
               </button>
               <button
                 onClick={acceptAll}
-                className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors"
+                className="px-3 py-1.5 text-xs font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 rounded transition-colors"
               >
                 Accept All
               </button>
