@@ -1,104 +1,76 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
 
-/* View Transitions CSS - Clean and Simple */
+@theme {
+  /* Fonts */
+  --font-sans:
+    'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono:
+    'iA Quattro', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
 
-/* View transition names are set directly via inline styles */
+  /* Colors */
+  --color-smalt-50: #eef6ff;
+  --color-smalt-100: #d8eaff;
+  --color-smalt-200: #bad9ff;
+  --color-smalt-300: #8bc4ff;
+  --color-smalt-400: #54a2ff;
+  --color-smalt-500: #2d7dff;
+  --color-smalt-600: #165afa;
+  --color-smalt-700: #0f45e6;
+  --color-smalt-800: #1338ba;
+  --color-smalt-900: #15338e;
+  --color-smalt-950: #122159;
 
-/* Simple, smooth animations for view transitions */
-::view-transition-old(*),
-::view-transition-new(*) {
-  animation-duration: 0.4s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --color-purple: #f5ebff;
+  --color-darkPurple: #665ffa;
+  --color-lightgrey: #393e46;
+  --color-linkedIn: #0076b5;
+  --color-facebook: #4267b2; /* Updated to match last definition in config */
+  --color-darkgrey: #222831;
+  --color-whitedarktheme: #eeeeee;
+  --color-orange: #b55400;
+
+  /* Animations */
+  --animate-fade-in-out: fade-in-out 2s ease-in-out;
+
+  @keyframes fade-in-out {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* Box Shadows */
+  --shadow-checkbox: inset 0.125em 0.125em 0 0.125em rgba(0, 0, 0, 0.3);
+  --shadow-checkbox-checked: inset 0.125em 0.125em 0 0.125em rgba(0, 0, 0, 0.1);
+  --shadow-case: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-case-hover:
+    0 10px 28px rgba(0, 0, 0, 0.25), 0 8px 10px rgba(0, 0, 0, 0.22);
+  --shadow-link: inset 0 -4px 0 #6c63ff;
+  --shadow-link-hover: inset 0 -18px 0 #6c63ff;
+  --shadow-link-dark: inset 0 -4px 0 #b55400;
+  --shadow-link-dark-hover: inset 0 -18px 0 #b55400;
+
+  /* Inset */
+  --inset-timelineCircle: calc(50% - 0.5em);
+
+  /* Min Height */
+  --min-height-screen-without-nav: calc(100vh - 4rem);
 }
 
-/* Simple title slide animation */
-::view-transition-old(root) {
-  animation: none;
-}
-
-::view-transition-new(root) {
-  animation: none;
-}
-
-/* Hover effects
-[data-blog-card] {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-[data-blog-card]:hover {
-  transform: translateY(-2px);
-} */
-
-[data-blog-title] {
-  transition: color 0.2s ease;
-}
-
-/* [data-blog-card]:hover [data-blog-title] {
-  color: #3b82f6;
-} */
-
-/* Content fade-in animation after title transition */
-.animate-fade-in-delayed {
-  opacity: 0;
-  animation: fade-in-delayed 0.3s ease-out 0.5s forwards;
-}
-
-@keyframes fade-in-delayed {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Flip board effect for tag counts */
-.flip-number {
-  display: inline-block;
-  animation: flipBoard 1.5s ease-in-out;
-  transform-style: preserve-3d;
-  perspective: 200px;
-}
-
-@keyframes flipBoard {
-  0% {
-    transform: rotateX(0deg);
-  }
-  10% {
-    transform: rotateX(-90deg);
-  }
-  20% {
-    transform: rotateX(0deg);
-  }
-  30% {
-    transform: rotateX(-90deg);
-  }
-  40% {
-    transform: rotateX(0deg);
-  }
-  50% {
-    transform: rotateX(-90deg);
-  }
-  60% {
-    transform: rotateX(0deg);
-  }
-  70% {
-    transform: rotateX(-90deg);
-  }
-  80% {
-    transform: rotateX(0deg);
-  }
-  90% {
-    transform: rotateX(-90deg);
-  }
-  100% {
-    transform: rotateX(0deg);
-  }
-}
+/* Custom Utilities / Variants */
+@variant mobile (@media (max-width: 640px));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
   @font-face {
@@ -124,6 +96,63 @@
   body {
     @apply font-mono;
   }
+}
+
+/* Typography Customization */
+.prose {
+  --tw-prose-body: theme('colors.gray.700');
+  --tw-prose-headings: theme('colors.black');
+  --tw-prose-links: theme('colors.smalt.500');
+  --tw-prose-code: theme('colors.pink.500');
+  --tw-prose-quotes: theme('colors.gray.700');
+  --tw-prose-quote-borders: theme('colors.gray.200');
+  --tw-prose-captions: theme('colors.gray.500');
+  --tw-prose-hr: theme('colors.gray.200');
+  --tw-prose-th-borders: theme('colors.gray.300');
+  --tw-prose-td-borders: theme('colors.gray.200');
+}
+
+.dark .prose {
+  --tw-prose-body: theme('colors.gray.300');
+  --tw-prose-headings: theme('colors.gray.100');
+  --tw-prose-links: theme('colors.smalt.400');
+  --tw-prose-code: theme('colors.smalt.400');
+  --tw-prose-quotes: theme('colors.gray.300');
+  --tw-prose-quote-borders: theme('colors.gray.700');
+  --tw-prose-captions: theme('colors.gray.400');
+  --tw-prose-hr: theme('colors.gray.700');
+  --tw-prose-th-borders: theme('colors.gray.600');
+  --tw-prose-td-borders: theme('colors.gray.700');
+  --tw-prose-bold: theme('colors.gray.300');
+}
+
+/* Additional Typography Overrides */
+.prose a:hover {
+  color: theme('colors.smalt.700');
+}
+.dark .prose a:hover {
+  color: theme('colors.smalt.600');
+}
+.prose h1 {
+  margin-bottom: 0;
+  font-weight: 900;
+}
+.dark .prose h1 {
+  letter-spacing: theme('letterSpacing.tight');
+}
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  scroll-margin-top: theme('spacing.32');
+}
+.prose blockquote p:first-of-type::before {
+  content: none;
+}
+.prose blockquote p:last-of-type::after {
+  content: none;
 }
 
 h1 {
@@ -236,7 +265,10 @@ nav ul li:hover a:after {
 @supports not (backdrop-filter: none) {
   .sticky-nav {
     backdrop-filter: none;
-    @apply bg-opacity-100;
+    background-color: theme('colors.white');
+  }
+  .dark .sticky-nav {
+    background-color: theme('colors.darkgrey');
   }
 }
 

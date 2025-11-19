@@ -1,24 +1,27 @@
 const nextConfig = {
   output: 'export',
   reactStrictMode: true,
+  transpilePackages: ['react-tweet'],
   images: {
-    domains: ['pbs.twimg.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'pbs.twimg.com',
+        pathname: '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'abs.twimg.com',
+        pathname: '/**'
+      }
+    ],
     unoptimized: true
   },
-  webpack: (config, { dev, isServer }) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      'react/jsx-runtime.js': import.meta.resolve('react/jsx-runtime')
-    };
-    config.resolve.alias.react = 'preact/compat';
-    config.resolve.alias['react-dom/test-utils'] = 'preact/test-utils';
-    config.resolve.alias['react-dom'] = 'preact/compat';
-
-    return config;
-  },
   experimental: {
-    mdxRs: true
-  }
+    mdxRs: true,
+    viewTransition: true
+  },
+  bundlePagesRouterDependencies: true
 };
 
 export default nextConfig;

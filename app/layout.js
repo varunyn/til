@@ -1,7 +1,6 @@
 import '../styles/globals.css';
 import Layout from '../components/Layout';
 import Analytics from '../components/Analytics';
-import Stagewise from '../components/Stagewise';
 import ConsentManager from '../components/ConsentManager';
 import CookieBanner from '../components/CookieBanner';
 import { Providers } from './providers';
@@ -41,7 +40,6 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning>
         <ConsentManager>
           <Analytics />
-          <Stagewise />
           <Providers>
             <Layout>{children}</Layout>
           </Providers>

@@ -27,7 +27,7 @@
     "next-mdx-remote": "^5.0.0",
     "next-themes": "^0.2.1",
     "next-view-transitions": "^0.3.4",
-    "preact": "^10.19.6",
+    "preact": "^10.27.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^4.12.0",
@@ -48,7 +48,6 @@
     "unified": "^11.0.5"
   },
   "devDependencies": {
-    "@stagewise/toolbar-next": "^0.5.1",
     "@tailwindcss/postcss": "^4.1.17",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
