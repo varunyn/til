@@ -1,0 +1,50 @@
+1:"$Sreact.fragment"
+2:I[82647,["/_next/static/chunks/857a5db55da48a64.js","/_next/static/chunks/cf9fdfc455f39341.js","/_next/static/chunks/babe974d64487668.js"],"default"]
+4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
+5:"$Sreact.suspense"
+3:T64d,
+_Updated on 2022-05-25_
+
+### How to setup new MacBook
+
+Automation script for new mac.
+
+- https://github.com/varunyn/laptop/blob/master/README.md
+
+```shell
+curl --remote-name https://raw.githubusercontent.com/varunyn/laptop/master/mac
+sh mac 2>&1 | tee ~/laptop.log
+```
+
+### Apps
+
+- Zoom: https://zoom.us/download - Video meetings
+- Microsoft Todo: https://apps.apple.com/app/apple-store/id1274495053?mt=8 - Todo lists
+- Notion: https://www.notion.so/desktop - Notes
+- Bitwarden: https://bitwarden.com/download/ - Password manager
+- Raycast: https://www.raycast.com/
+- Velja: https://sindresorhus.com/velja - Powerful browser picker
+- Shottr: https://shottr.cc/ - For screenshots
+- Obsidian: https://obsidian.md/ - Notes
+
+### Chrome Extension
+
+- [Bypass Paywall](https://github.com/iamadamdev/bypass-paywalls-chrome)
+- [JSONVue](https://chrome.google.com/webstore/detail/jsonvue/chklaanhfefbnpoihckbnefhakgolnmc)
+- [uBlock](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm)
+
+### Setup terminal
+
+- Copy dotfile - zshrc, vscode settings : https://gist.github.com/varunyn/6f3b4b965027fe6a96e36bd431a27b0e
+- My terminal of choice is [iTerm2](https://www.iterm2.com/). I'm using the [Z shell](https://en.wikipedia.org/wiki/Z_shell) and [Oh My Zsh](https://ohmyz.sh/).
+
+### Resources
+
+- https://www.robinwieruch.de/mac-setup-web-development/
+- https://notebook.lachlanjc.com/2021-03-02_automate_setting_up_new_macs/
+- https://github.com/laurendorman/komputer-maschine/tree/master
+- https://sourabhbajaj.com/mac-setup/
+- https://www.swyx.io/new-mac-setup
+- https://freek.dev/uses
+0:{"buildId":"Wn_7FJe4sYFERmM9mY2Kr","rsc":["$","$1","c",{"children":[["$","$L2",null,{"posts":[{"title":"How to use multiple node versions in macOS","date":"2022-05-24T00:00:00.000Z","desc":null,"tags":["macOS","🌿"],"content":"\nhttps://notiz.dev/blog/how-to-manage-multiple-node-versions-on-mac\n\n### Install via Hombrew\n\n```shell\nbrew install node@<version>\n\n# latest version\nbrew install node\n\n# LTS 12\nbrew install node@16\n\n# 18\nbrew install node@18\n```\n\nCheck current version of node\n\n```shell\n    node -v # v13.11.0\n    which node # /usr/local/bin/node => /usr/local/opt/node@<version>/bin/node\n```\n\nAdd an alias to your .zshrc or .bash_profile for each installed Node version. Node is installed at `/usr/local/opt/node@<version>/bin`\n\n```bash\nalias node13='export PATH=\"/usr/local/opt/node@13/bin:$PATH\"'\nalias node12='export PATH=\"/usr/local/opt/node@12/bin:$PATH\"'\nalias node10='export PATH=\"/usr/local/opt/node@10/bin:$PATH\"'\n```\n\nNow, to switch between the node versions, enter an alias node10 in your terminal. Execute node -v to verify that you are now using the correct node version.\n","slug":"multiple-node-versions"},{"title":"macOS Tools","date":"2021-06-29T00:00:00.000Z","desc":"macOS tools I use","tags":["🌱","macOS"],"content":"$3","slug":"mac-tools"}],"tag":"macOS"}],[["$","script","script-0",{"src":"/_next/static/chunks/cf9fdfc455f39341.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/babe974d64487668.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"loading":null,"isPartial":false}
+6:null

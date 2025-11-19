@@ -1,0 +1,71 @@
+1:"$Sreact.fragment"
+2:I[64251,["/_next/static/chunks/857a5db55da48a64.js","/_next/static/chunks/030a588c7e5c4812.js","/_next/static/chunks/c2cda0f4f4e9078d.js"],"default"]
+b:I[80627,["/_next/static/chunks/857a5db55da48a64.js","/_next/static/chunks/030a588c7e5c4812.js","/_next/static/chunks/c2cda0f4f4e9078d.js"],"default"]
+c:I[33558,["/_next/static/chunks/857a5db55da48a64.js","/_next/static/chunks/030a588c7e5c4812.js","/_next/static/chunks/c2cda0f4f4e9078d.js"],"default"]
+d:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+:HL["/_next/static/chunks/42ba2c175c46b974.css","style"]
+3:T4f2,<ul>
+<li>
+<p><a href="https://kubernetes.io/docs/tutorials/">k8s Tutorial</a> - Official k8s tutorials to get started</p>
+</li>
+<li>
+<p><a href="https://kube.academy">Learn k8s from VMware</a> - K8s architecture and concepts explaination</p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=8C_SCDbUJTg&#x26;ab_channel=KodeKloud">Architecture explained</a> - Simple explanation of k8s architecture</p>
+</li>
+<li>
+<p><a href="https://github.com/dennyzhang/cheatsheet-kubernetes-A4">k8s cheat sheet</a> - List of imp and frequent used k8s command</p>
+</li>
+<li>
+<p><a href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands">kubectl-commands</a> - Official site for kubectl command</p>
+</li>
+<li>
+<p><a href="https://github.com/ramitsurana/awesome-kubernetes/">awesome-kubernetes</a> - Collection of all K8s resources</p>
+</li>
+<li>
+<p><a href="https://learnk8s.io/production-best-practices/">k8s production best practices</a> - Checklist for k8s production best practice</p>
+</li>
+<li>
+<p><a href="https://learnk8s.io/kubernetes-autoscaling-strategies">Autoscaling strategies</a></p>
+</li>
+<li>
+<p><a href="https://boxunix.com/2020/05/15/a-better-way-of-organizing-your-kubernetes-manifest-files/">How to organize files</a></p>
+</li>
+</ul>4:T4f2,<ul>
+<li>
+<p><a href="https://kubernetes.io/docs/tutorials/">k8s Tutorial</a> - Official k8s tutorials to get started</p>
+</li>
+<li>
+<p><a href="https://kube.academy">Learn k8s from VMware</a> - K8s architecture and concepts explaination</p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=8C_SCDbUJTg&#x26;ab_channel=KodeKloud">Architecture explained</a> - Simple explanation of k8s architecture</p>
+</li>
+<li>
+<p><a href="https://github.com/dennyzhang/cheatsheet-kubernetes-A4">k8s cheat sheet</a> - List of imp and frequent used k8s command</p>
+</li>
+<li>
+<p><a href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands">kubectl-commands</a> - Official site for kubectl command</p>
+</li>
+<li>
+<p><a href="https://github.com/ramitsurana/awesome-kubernetes/">awesome-kubernetes</a> - Collection of all K8s resources</p>
+</li>
+<li>
+<p><a href="https://learnk8s.io/production-best-practices/">k8s production best practices</a> - Checklist for k8s production best practice</p>
+</li>
+<li>
+<p><a href="https://learnk8s.io/kubernetes-autoscaling-strategies">Autoscaling strategies</a></p>
+</li>
+<li>
+<p><a href="https://boxunix.com/2020/05/15/a-better-way-of-organizing-your-kubernetes-manifest-files/">How to organize files</a></p>
+</li>
+</ul>0:{"buildId":"Wn_7FJe4sYFERmM9mY2Kr","rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"Awesome Kubernetes resources\",\"description\":\"Awesome github repos for kubernetes.\",\"datePublished\":\"2021-06-27T00:00:00.000Z\",\"dateModified\":\"2021-06-27T00:00:00.000Z\",\"author\":{\"@type\":\"Person\",\"name\":\"Varun Yadav\",\"url\":\"https://varunyadav.com\"},\"publisher\":{\"@type\":\"Person\",\"name\":\"Varun Yadav\",\"url\":\"https://varunyadav.com\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://til.varunyadav.com/blog/awesome-k8s-resources\"},\"keywords\":\"github, k8s, 🌿\"}"}}],["$","$L2",null,{"post":{"title":"Awesome Kubernetes resources","date":"2021-06-27T00:00:00.000Z","desc":"Awesome github repos for kubernetes.","tags":["github","k8s","🌿"],"ogImage":"https://i.microlink.io/https%3A%2F%2Fcards.microlink.io%2F%3Fpreset%3Drichhaines%26twitterHandle%3D%2540varun1_yadav%26domain%3Dtil.varunyadav.com%26headline%3DAwesome%2BKubernetes%2Bresources%26caption%3DAwesome%2Bgithub%2Brepos%2Band%2Bresources%2Bfor%2Bkubernetes.","readingTime":{"text":"1 min read","minutes":0.395,"time":23700,"words":79},"content":"$3","slug":"awesome-k8s-resources"},"htmlContent":"$4"}],"$L5","$L6"],["$L7","$L8","$L9"],"$La"]}],"loading":null,"isPartial":false}
+5:["$","$Lb",null,{}]
+6:["$","$Lc",null,{"slug":"awesome-k8s-resources"}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/42ba2c175c46b974.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/030a588c7e5c4812.js","async":true}]
+9:["$","script","script-1",{"src":"/_next/static/chunks/c2cda0f4f4e9078d.js","async":true}]
+a:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

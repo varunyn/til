@@ -1,0 +1,79 @@
+1:"$Sreact.fragment"
+2:I[64251,["/_next/static/chunks/857a5db55da48a64.js","/_next/static/chunks/030a588c7e5c4812.js","/_next/static/chunks/c2cda0f4f4e9078d.js"],"default"]
+b:I[80627,["/_next/static/chunks/857a5db55da48a64.js","/_next/static/chunks/030a588c7e5c4812.js","/_next/static/chunks/c2cda0f4f4e9078d.js"],"default"]
+c:I[33558,["/_next/static/chunks/857a5db55da48a64.js","/_next/static/chunks/030a588c7e5c4812.js","/_next/static/chunks/c2cda0f4f4e9078d.js"],"default"]
+d:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+:HL["/_next/static/chunks/42ba2c175c46b974.css","style"]
+3:T8e0,<p>This blog/repo is a Digital Garden where I store my thoughts and pieces of information which I find helpful and you may find too.</p>
+<p>There is lot of information out there and to remember all or organizing them in notes which often get lost is very difficult. That's why instead of waiting to write a perfect post or store it in my laptop it's good idea to write in public so that everyone can see the progress and can give feedback in the process.</p>
+<p>I got this inspiration from <a href="https://twitter.com/swyx">Shawn</a>. In his <a href="https://www.swyx.io/learn-in-public/">blog</a> he says</p>
+<blockquote>
+<p>Start building a persistent knowledge base that grows over time. At every step of the way: Document what you did and the problems you solved.</p>
+</blockquote>
+<p>Joel describes "digital garden" in his <a href="https://joelhooks.com/digital-garden">blog</a></p>
+<blockquote>
+<p>The phrase "digital garden" is a metaphor for thinking about writing and creating that focuses less on the resulting "showpiece" and more on the process, care, and craft it takes to get there.</p>
+</blockquote>
+<p>Following article by Maggie Appleton explains digital garden very well.</p>
+<p><a href="https://maggieappleton.com/garden-history">A Brief History &#x26; Ethos of the Digital Garden</a></p>
+<p>Few Notes from her post:</p>
+<p>- Gardens lean into this – there is no “final version” on a garden. What you publish is always open to revision and expansion.</p>
+<ul>
+<li>
+<p>You’re freed from the pressure to get everything right immediately. You can test ideas, get feedback, and revise your opinions like a good internet citizen.</p>
+</li>
+<li>
+<p>It’s <em>low friction</em>. Gardening your thoughts becomes a daily ritual that only takes a small amount of effort. Over time, big things grow.</p>
+</li>
+<li>
+<p>Some sort of indicator of ‘how’  done is article. Horticulture metaphor:</p>
+<ul>
+<li>🌱 <em>Seedlings</em> for very rough and early ideas</li>
+<li>🌿 <em>Budding</em> for work I’ve cleaned up and clarified</li>
+<li>🌳 <em>Evergreen</em> for work that is reasonably complete (though I still tend these over time).</li>
+</ul>
+</li>
+<li>
+<p>In my posts, I will use similar tags to convey how done is article.</p>
+</li>
+</ul>4:T8e0,<p>This blog/repo is a Digital Garden where I store my thoughts and pieces of information which I find helpful and you may find too.</p>
+<p>There is lot of information out there and to remember all or organizing them in notes which often get lost is very difficult. That's why instead of waiting to write a perfect post or store it in my laptop it's good idea to write in public so that everyone can see the progress and can give feedback in the process.</p>
+<p>I got this inspiration from <a href="https://twitter.com/swyx">Shawn</a>. In his <a href="https://www.swyx.io/learn-in-public/">blog</a> he says</p>
+<blockquote>
+<p>Start building a persistent knowledge base that grows over time. At every step of the way: Document what you did and the problems you solved.</p>
+</blockquote>
+<p>Joel describes "digital garden" in his <a href="https://joelhooks.com/digital-garden">blog</a></p>
+<blockquote>
+<p>The phrase "digital garden" is a metaphor for thinking about writing and creating that focuses less on the resulting "showpiece" and more on the process, care, and craft it takes to get there.</p>
+</blockquote>
+<p>Following article by Maggie Appleton explains digital garden very well.</p>
+<p><a href="https://maggieappleton.com/garden-history">A Brief History &#x26; Ethos of the Digital Garden</a></p>
+<p>Few Notes from her post:</p>
+<p>- Gardens lean into this – there is no “final version” on a garden. What you publish is always open to revision and expansion.</p>
+<ul>
+<li>
+<p>You’re freed from the pressure to get everything right immediately. You can test ideas, get feedback, and revise your opinions like a good internet citizen.</p>
+</li>
+<li>
+<p>It’s <em>low friction</em>. Gardening your thoughts becomes a daily ritual that only takes a small amount of effort. Over time, big things grow.</p>
+</li>
+<li>
+<p>Some sort of indicator of ‘how’  done is article. Horticulture metaphor:</p>
+<ul>
+<li>🌱 <em>Seedlings</em> for very rough and early ideas</li>
+<li>🌿 <em>Budding</em> for work I’ve cleaned up and clarified</li>
+<li>🌳 <em>Evergreen</em> for work that is reasonably complete (though I still tend these over time).</li>
+</ul>
+</li>
+<li>
+<p>In my posts, I will use similar tags to convey how done is article.</p>
+</li>
+</ul>0:{"buildId":"Wn_7FJe4sYFERmM9mY2Kr","rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"Learning in Public\",\"description\":\"Welcome to my first blog post\",\"datePublished\":\"2021-06-17T00:00:00.000Z\",\"dateModified\":\"2021-06-17T00:00:00.000Z\",\"author\":{\"@type\":\"Person\",\"name\":\"Varun Yadav\",\"url\":\"https://varunyadav.com\"},\"publisher\":{\"@type\":\"Person\",\"name\":\"Varun Yadav\",\"url\":\"https://varunyadav.com\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://til.varunyadav.com/blog/learning-in-public\"},\"keywords\":\"nextjs, 🌿\"}"}}],["$","$L2",null,{"post":{"title":"Learning in Public","date":"2021-06-17T00:00:00.000Z","desc":"Welcome to my first blog post","tags":["nextjs","🌿"],"readingTime":{"text":"2 min read","minutes":1.605,"time":96300,"words":321},"content":"$3","slug":"learning-in-public"},"htmlContent":"$4"}],"$L5","$L6"],["$L7","$L8","$L9"],"$La"]}],"loading":null,"isPartial":false}
+5:["$","$Lb",null,{}]
+6:["$","$Lc",null,{"slug":"learning-in-public"}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/42ba2c175c46b974.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/030a588c7e5c4812.js","async":true}]
+9:["$","script","script-1",{"src":"/_next/static/chunks/c2cda0f4f4e9078d.js","async":true}]
+a:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

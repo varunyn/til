@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[82647,["/_next/static/chunks/857a5db55da48a64.js","/_next/static/chunks/cf9fdfc455f39341.js","/_next/static/chunks/babe974d64487668.js"],"default"]
+3:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"buildId":"Wn_7FJe4sYFERmM9mY2Kr","rsc":["$","$1","c",{"children":[["$","$L2",null,{"posts":[{"title":"Create your own google maps","date":"2022-06-01T00:00:00.000Z","desc":null,"tags":["misc","🌿"],"content":"\nCreate your own itinerary in google maps and share with anyone, also it's great to embed in any website using iframe.\n\nFollowing articles, shows how to create one, add points on map, directions, photos and more. Also if you have your own map you can import that.\n\nhttps://support.google.com/mymaps/answer/3024454?hl=en&amp%3Bref_topic=3188329\n\nExample of using map in travel blogs - https://www.earthtrekkers.com/two-week-american-southwest-road-trip/\n","slug":"google-maps"}],"tag":"misc"}],[["$","script","script-0",{"src":"/_next/static/chunks/cf9fdfc455f39341.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/babe974d64487668.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+5:null

@@ -1,0 +1,40 @@
+1:"$Sreact.fragment"
+2:I[82647,["/_next/static/chunks/857a5db55da48a64.js","/_next/static/chunks/cf9fdfc455f39341.js","/_next/static/chunks/babe974d64487668.js"],"default"]
+4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
+5:"$Sreact.suspense"
+3:T538,
+Today, while scrolling through X (formerly Twitter), I came across a post about MCP (Model Context Protocol). In the replies, someone casually mentioned GhostMCP, and I thought—wait, what’s that?
+
+Curious, I did a quick Google search and found the GhostMCP GitHub repository. It turns out, GhostMCP acts as a secure bridge, allowing AI models to manage your Ghost blog’s content, users, members, tiers, offers, and newsletters via the Ghost Admin API.
+
+#### Quick Install on Cursor
+
+I tested it out quickly using Cursor (the AI-powered code editor), and it worked surprisingly well! However, I noticed the README in the GitHub repo doesn't provide local setup instructions specifically for Cursor users, so I thought I’d share the exact steps I followed to get it up and running.
+
+Steps to Set Up GhostMCP Locally with Cursor
+
+1. First, clone or download the project from GitHub:
+
+```bash
+git clone https://github.com/MFYDev/ghost-mcp.git
+cd ghost-mcp
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. In Cursor, open your MCP settings and modify the relevant section to point to the GhostMCP server script. Update the configuration like this:
+
+```json
+"command": "node",
+"args": [
+  "path-to/ghost-mcp-main/build/server.js"
+],
+```
+
+Make sure to replace path-to with the actual path to your local ghost-mcp directory.
+0:{"buildId":"Wn_7FJe4sYFERmM9mY2Kr","rsc":["$","$1","c",{"children":[["$","$L2",null,{"posts":[{"title":"Using Ghost mcp in Cursor","date":"2025-06-10T00:00:00.000Z","desc":null,"tags":["ghost","🌿"],"content":"$3","slug":"ghost-mcp"},{"title":"Using prismjs in ghost","date":"2021-07-06T00:00:00.000Z","desc":null,"tags":["ghost","🌿"],"content":"\nhttps://www.pixelite.co.nz/article/add-prismjs-to-ghost/\n","slug":"add-prism-to-ghost"}],"tag":"ghost"}],[["$","script","script-0",{"src":"/_next/static/chunks/cf9fdfc455f39341.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/babe974d64487668.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"loading":null,"isPartial":false}
+6:null

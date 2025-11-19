@@ -1,0 +1,39 @@
+1:"$Sreact.fragment"
+2:I[64251,["/_next/static/chunks/857a5db55da48a64.js","/_next/static/chunks/030a588c7e5c4812.js","/_next/static/chunks/c2cda0f4f4e9078d.js"],"default"]
+b:I[80627,["/_next/static/chunks/857a5db55da48a64.js","/_next/static/chunks/030a588c7e5c4812.js","/_next/static/chunks/c2cda0f4f4e9078d.js"],"default"]
+c:I[33558,["/_next/static/chunks/857a5db55da48a64.js","/_next/static/chunks/030a588c7e5c4812.js","/_next/static/chunks/c2cda0f4f4e9078d.js"],"default"]
+d:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+:HL["/_next/static/chunks/42ba2c175c46b974.css","style"]
+3:T4ff,<ul>
+<li><a href="https://github.com/trimstray/the-book-of-secret-knowledge">The book of Secret knowledge</a> - Is collection of all the tech tools,how-tos plus inspiring list/blogs/videos</li>
+<li><a href="https://github.com/madebygps/self-taught-guide-to-cloud-computing">Learn the fundamentals of Cloud Computing</a></li>
+<li><a href="https://github.com/100DaysOfCloud/100DaysOfCloudIdeas">100 Days of Cloud</a></li>
+<li><a href="https://github.com/veggiemonk/awesome-docker">Awesome Docker</a></li>
+<li><a href="https://github.com/mhadidg/software-architecture-books">Software Architect books</a></li>
+<li><a href="https://github.com/enaqx/awesome-react">Awesome React</a></li>
+<li><a href="https://github.com/unicodeveloper/awesome-nextjs">Awesome Nextjs</a></li>
+<li><a href="https://github.com/shuaibiyy/awesome-terraform">Awesome Terraform</a></li>
+<li><a href="https://wesbos.com/javascript">Learn JS</a> - Awesome guide on javascript by wesbos</li>
+<li><a href="https://github.com/public-apis/public-apis">Public APIs</a> - List of Public REST APIs to use for project</li>
+<li><a href="https://github.com/JoseDeFreitas/awesome-youtubers">Awesome Youtubers</a> - List of YouTubers that teach about technology. Tutorials about web development, computer science</li>
+</ul>4:T4ff,<ul>
+<li><a href="https://github.com/trimstray/the-book-of-secret-knowledge">The book of Secret knowledge</a> - Is collection of all the tech tools,how-tos plus inspiring list/blogs/videos</li>
+<li><a href="https://github.com/madebygps/self-taught-guide-to-cloud-computing">Learn the fundamentals of Cloud Computing</a></li>
+<li><a href="https://github.com/100DaysOfCloud/100DaysOfCloudIdeas">100 Days of Cloud</a></li>
+<li><a href="https://github.com/veggiemonk/awesome-docker">Awesome Docker</a></li>
+<li><a href="https://github.com/mhadidg/software-architecture-books">Software Architect books</a></li>
+<li><a href="https://github.com/enaqx/awesome-react">Awesome React</a></li>
+<li><a href="https://github.com/unicodeveloper/awesome-nextjs">Awesome Nextjs</a></li>
+<li><a href="https://github.com/shuaibiyy/awesome-terraform">Awesome Terraform</a></li>
+<li><a href="https://wesbos.com/javascript">Learn JS</a> - Awesome guide on javascript by wesbos</li>
+<li><a href="https://github.com/public-apis/public-apis">Public APIs</a> - List of Public REST APIs to use for project</li>
+<li><a href="https://github.com/JoseDeFreitas/awesome-youtubers">Awesome Youtubers</a> - List of YouTubers that teach about technology. Tutorials about web development, computer science</li>
+</ul>0:{"buildId":"Wn_7FJe4sYFERmM9mY2Kr","rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"Awesome Github Repos\",\"description\":\"Awesome github repos to find all the resources to learn something new.\",\"datePublished\":\"2021-06-28T00:00:00.000Z\",\"dateModified\":\"2021-06-28T00:00:00.000Z\",\"author\":{\"@type\":\"Person\",\"name\":\"Varun Yadav\",\"url\":\"https://varunyadav.com\"},\"publisher\":{\"@type\":\"Person\",\"name\":\"Varun Yadav\",\"url\":\"https://varunyadav.com\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://til.varunyadav.com/blog/awesome-github-repo\"},\"keywords\":\"github, 🌿\"}"}}],["$","$L2",null,{"post":{"title":"Awesome Github Repos","date":"2021-06-28T00:00:00.000Z","desc":"Awesome github repos to find all the resources to learn something new.","tags":["github","🌿"],"readingTime":{"text":"1 min read","minutes":0.425,"time":25500,"words":85},"content":"$3","slug":"awesome-github-repo"},"htmlContent":"$4"}],"$L5","$L6"],["$L7","$L8","$L9"],"$La"]}],"loading":null,"isPartial":false}
+5:["$","$Lb",null,{}]
+6:["$","$Lc",null,{"slug":"awesome-github-repo"}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/42ba2c175c46b974.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/030a588c7e5c4812.js","async":true}]
+9:["$","script","script-1",{"src":"/_next/static/chunks/c2cda0f4f4e9078d.js","async":true}]
+a:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

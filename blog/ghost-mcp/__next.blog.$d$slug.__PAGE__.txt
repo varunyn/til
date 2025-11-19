@@ -1,0 +1,63 @@
+1:"$Sreact.fragment"
+2:I[64251,["/_next/static/chunks/857a5db55da48a64.js","/_next/static/chunks/030a588c7e5c4812.js","/_next/static/chunks/c2cda0f4f4e9078d.js"],"default"]
+b:I[80627,["/_next/static/chunks/857a5db55da48a64.js","/_next/static/chunks/030a588c7e5c4812.js","/_next/static/chunks/c2cda0f4f4e9078d.js"],"default"]
+c:I[33558,["/_next/static/chunks/857a5db55da48a64.js","/_next/static/chunks/030a588c7e5c4812.js","/_next/static/chunks/c2cda0f4f4e9078d.js"],"default"]
+d:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+:HL["/_next/static/chunks/42ba2c175c46b974.css","style"]
+3:T12b0,<p>Today, while scrolling through X (formerly Twitter), I came across a post about MCP (Model Context Protocol). In the replies, someone casually mentioned GhostMCP, and I thought—wait, what’s that?</p>
+<p>Curious, I did a quick Google search and found the GhostMCP GitHub repository. It turns out, GhostMCP acts as a secure bridge, allowing AI models to manage your Ghost blog’s content, users, members, tiers, offers, and newsletters via the Ghost Admin API.</p>
+<h4 id="quick-install-on-cursor">Quick Install on Cursor</h4>
+<p>I tested it out quickly using Cursor (the AI-powered code editor), and it worked surprisingly well! However, I noticed the README in the GitHub repo doesn't provide local setup instructions specifically for Cursor users, so I thought I’d share the exact steps I followed to get it up and running.</p>
+<p>Steps to Set Up GhostMCP Locally with Cursor</p>
+<ol>
+<li>First, clone or download the project from GitHub:</li>
+</ol>
+<div class="relative group"><pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token function">git</span> clone https://github.com/MFYDev/ghost-mcp.git
+</span><span class="code-line"><span class="token builtin class-name">cd</span> ghost-mcp
+</span></code></pre><button class="copy-button absolute top-2 right-2 bg-gray-700 hover:bg-gray-600 text-white dark:bg-gray-800 dark:hover:bg-gray-700 rounded p-2 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Copy code to clipboard" title="Copy code"><div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"></path><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"></path></svg><span class="ml-1 text-sm hidden sm:inline">Copy</span></div></button></div>
+<ol start="2">
+<li>Install dependencies:</li>
+</ol>
+<div class="relative group"><pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token function">npm</span> <span class="token function">install</span>
+</span></code></pre><button class="copy-button absolute top-2 right-2 bg-gray-700 hover:bg-gray-600 text-white dark:bg-gray-800 dark:hover:bg-gray-700 rounded p-2 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Copy code to clipboard" title="Copy code"><div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"></path><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"></path></svg><span class="ml-1 text-sm hidden sm:inline">Copy</span></div></button></div>
+<ol start="3">
+<li>In Cursor, open your MCP settings and modify the relevant section to point to the GhostMCP server script. Update the configuration like this:</li>
+</ol>
+<div class="relative group"><pre class="language-json"><code class="language-json code-highlight"><span class="code-line"><span class="token property">"command"</span><span class="token operator">:</span> <span class="token string">"node"</span><span class="token punctuation">,</span>
+</span><span class="code-line"><span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+</span><span class="code-line">  <span class="token string">"path-to/ghost-mcp-main/build/server.js"</span>
+</span><span class="code-line"><span class="token punctuation">]</span><span class="token punctuation">,</span>
+</span></code></pre><button class="copy-button absolute top-2 right-2 bg-gray-700 hover:bg-gray-600 text-white dark:bg-gray-800 dark:hover:bg-gray-700 rounded p-2 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Copy code to clipboard" title="Copy code"><div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"></path><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"></path></svg><span class="ml-1 text-sm hidden sm:inline">Copy</span></div></button></div>
+<p>Make sure to replace path-to with the actual path to your local ghost-mcp directory.</p>4:T12b0,<p>Today, while scrolling through X (formerly Twitter), I came across a post about MCP (Model Context Protocol). In the replies, someone casually mentioned GhostMCP, and I thought—wait, what’s that?</p>
+<p>Curious, I did a quick Google search and found the GhostMCP GitHub repository. It turns out, GhostMCP acts as a secure bridge, allowing AI models to manage your Ghost blog’s content, users, members, tiers, offers, and newsletters via the Ghost Admin API.</p>
+<h4 id="quick-install-on-cursor">Quick Install on Cursor</h4>
+<p>I tested it out quickly using Cursor (the AI-powered code editor), and it worked surprisingly well! However, I noticed the README in the GitHub repo doesn't provide local setup instructions specifically for Cursor users, so I thought I’d share the exact steps I followed to get it up and running.</p>
+<p>Steps to Set Up GhostMCP Locally with Cursor</p>
+<ol>
+<li>First, clone or download the project from GitHub:</li>
+</ol>
+<div class="relative group"><pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token function">git</span> clone https://github.com/MFYDev/ghost-mcp.git
+</span><span class="code-line"><span class="token builtin class-name">cd</span> ghost-mcp
+</span></code></pre><button class="copy-button absolute top-2 right-2 bg-gray-700 hover:bg-gray-600 text-white dark:bg-gray-800 dark:hover:bg-gray-700 rounded p-2 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Copy code to clipboard" title="Copy code"><div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"></path><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"></path></svg><span class="ml-1 text-sm hidden sm:inline">Copy</span></div></button></div>
+<ol start="2">
+<li>Install dependencies:</li>
+</ol>
+<div class="relative group"><pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token function">npm</span> <span class="token function">install</span>
+</span></code></pre><button class="copy-button absolute top-2 right-2 bg-gray-700 hover:bg-gray-600 text-white dark:bg-gray-800 dark:hover:bg-gray-700 rounded p-2 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Copy code to clipboard" title="Copy code"><div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"></path><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"></path></svg><span class="ml-1 text-sm hidden sm:inline">Copy</span></div></button></div>
+<ol start="3">
+<li>In Cursor, open your MCP settings and modify the relevant section to point to the GhostMCP server script. Update the configuration like this:</li>
+</ol>
+<div class="relative group"><pre class="language-json"><code class="language-json code-highlight"><span class="code-line"><span class="token property">"command"</span><span class="token operator">:</span> <span class="token string">"node"</span><span class="token punctuation">,</span>
+</span><span class="code-line"><span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+</span><span class="code-line">  <span class="token string">"path-to/ghost-mcp-main/build/server.js"</span>
+</span><span class="code-line"><span class="token punctuation">]</span><span class="token punctuation">,</span>
+</span></code></pre><button class="copy-button absolute top-2 right-2 bg-gray-700 hover:bg-gray-600 text-white dark:bg-gray-800 dark:hover:bg-gray-700 rounded p-2 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Copy code to clipboard" title="Copy code"><div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"></path><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"></path></svg><span class="ml-1 text-sm hidden sm:inline">Copy</span></div></button></div>
+<p>Make sure to replace path-to with the actual path to your local ghost-mcp directory.</p>0:{"buildId":"Wn_7FJe4sYFERmM9mY2Kr","rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"Using Ghost mcp in Cursor\",\"description\":null,\"datePublished\":\"2025-06-10T00:00:00.000Z\",\"dateModified\":\"2025-06-10T00:00:00.000Z\",\"author\":{\"@type\":\"Person\",\"name\":\"Varun Yadav\",\"url\":\"https://varunyadav.com\"},\"publisher\":{\"@type\":\"Person\",\"name\":\"Varun Yadav\",\"url\":\"https://varunyadav.com\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://til.varunyadav.com/blog/ghost-mcp\"},\"keywords\":\"ghost, 🌿\"}"}}],["$","$L2",null,{"post":{"title":"Using Ghost mcp in Cursor","date":"2025-06-10T00:00:00.000Z","desc":null,"tags":["ghost","🌿"],"readingTime":{"text":"2 min read","minutes":1.015,"time":60900,"words":203},"content":"$3","slug":"ghost-mcp"},"htmlContent":"$4"}],"$L5","$L6"],["$L7","$L8","$L9"],"$La"]}],"loading":null,"isPartial":false}
+5:["$","$Lb",null,{}]
+6:["$","$Lc",null,{"slug":"ghost-mcp"}]
+7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/42ba2c175c46b974.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/030a588c7e5c4812.js","async":true}]
+9:["$","script","script-1",{"src":"/_next/static/chunks/c2cda0f4f4e9078d.js","async":true}]
+a:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null
