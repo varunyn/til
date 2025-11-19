@@ -6,11 +6,18 @@ const Blog = ({ slug, title, date, desc }) => {
   return (
     <Link
       href={`/blog/${slug}`}
-      className="block transition-all duration-200 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-md hover:border-gray-300 dark:hover:border-gray-600"
+      className="group block transition-all duration-300 bg-white dark:bg-gray-800/50 rounded-2xl border border-gray-100 dark:border-gray-800 hover:shadow-lg hover:-translate-y-1 hover:border-gray-200 dark:hover:border-gray-700 overflow-hidden"
     >
-      <div className="p-4 sm:p-5">
+      <div className="p-6">
+        <div className="flex items-center justify-between mb-3">
+          {date && (
+            <time className="text-sm font-medium text-gray-500 dark:text-gray-400">
+              {format(parseISO(date), 'MMMM dd, yyyy')}
+            </time>
+          )}
+        </div>
         <h2
-          className="text-lg sm:text-xl font-medium text-gray-900 dark:text-gray-100 mb-1"
+          className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3 group-hover:text-smalt-600 dark:group-hover:text-smalt-400 transition-colors"
           data-blog-title
           style={{
             '--blog-title-name': `blog-title-${slug}`,
@@ -19,16 +26,27 @@ const Blog = ({ slug, title, date, desc }) => {
         >
           {title}
         </h2>
-        {date && (
-          <p className="text-sm text-gray-600 dark:text-gray-400">
-            {format(parseISO(date), 'MMMM dd, yyyy')}
-          </p>
-        )}
         {desc && (
-          <p className="mt-2 text-gray-700 dark:text-gray-300 line-clamp-2">
+          <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-2">
             {desc}
           </p>
         )}
+        <div className="mt-4 flex items-center text-sm font-medium text-smalt-600 dark:text-smalt-400 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-2 group-hover:translate-x-0">
+          Read more
+          <svg
+            className="ml-1 w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+          </svg>
+        </div>
       </div>
     </Link>
   );
