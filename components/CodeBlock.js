@@ -88,7 +88,7 @@ export default function CodeBlock({ children, className, ...props }) {
   };
 
   // Try to use clipboard API, with multiple fallbacks for different browsers
-  const copyToClipboard = async () => {
+  const _copyToClipboard = async () => {
     try {
       const text = extractCodeContent();
       if (!text) return;

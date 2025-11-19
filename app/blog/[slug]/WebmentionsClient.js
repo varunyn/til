@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { format, parseISO } from 'date-fns';
 
-export default function WebmentionsClient({ slug }) {
+export default function WebmentionsClient({ slug: _slug }) {
   const [mentions, setMentions] = useState([]);
 
   useEffect(() => {

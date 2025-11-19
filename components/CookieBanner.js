@@ -4,7 +4,13 @@ import { useConsent } from './ConsentManager';
 import { useState } from 'react';
 
 export default function CookieBanner() {
-  const { showBanner, acceptAll, rejectAll, setShowBanner } = useConsent();
+  const {
+    consent: _consent,
+    showBanner,
+    acceptAll,
+    rejectAll,
+    setShowBanner: _setShowBanner
+  } = useConsent();
   const [showDetails, setShowDetails] = useState(false);
 
   if (!showBanner) return null;

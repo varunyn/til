@@ -1,5 +1,4 @@
 import { getAllPosts } from '../lib/mdx';
-import Blog from '../components/Blog';
 import HomeClient from './HomeClient';
 
 export const metadata = {

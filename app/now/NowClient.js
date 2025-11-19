@@ -60,7 +60,7 @@ const NowClient = ({ timelineEntries }) => {
     return data;
   };
 
-  const heatmapData = generateHeatmapData();
+  const _heatmapData = generateHeatmapData();
 
   // Helper function to check if a date has data using timelineEntries
   const hasDataForDate = (date) => {
