@@ -21,7 +21,7 @@
     "date-fns": "^2.30.0",
     "eslint-config-next": "^16.0.3",
     "gray-matter": "^4.0.3",
-    "next": "^16.0.3",
+    "next": "^16.0.7",
     "next-themes": "^0.2.1",
     "next-view-transitions": "^0.3.4",
     "react": "^19.1.0",
@@ -50,7 +50,7 @@
     "globals": "^16.5.0",
     "husky": "^9.1.7",
     "postcss": "^8.4.33",
-    "prettier": "^3.2.4",
+    "prettier": "^3.7.4",
     "rss": "^1.2.2",
     "tailwindcss": "^4.1.17"
   },
