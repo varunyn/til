@@ -54,6 +54,12 @@
     "rss": "^1.2.2",
     "tailwindcss": "^4.1.17"
   },
+  "overrides": {
+    "next-view-transitions": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
+  },
   "prettier": {
     "arrowParens": "always",
     "singleQuote": true,
