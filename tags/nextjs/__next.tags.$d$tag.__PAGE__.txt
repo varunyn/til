@@ -2,7 +2,7 @@
 2:I[82647,["/_next/static/chunks/041e7ae8a9cd02bf.js","/_next/static/chunks/cf9fdfc455f39341.js","/_next/static/chunks/babe974d64487668.js"],"default"]
 4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
 5:"$Sreact.suspense"
-3:T7c6,
+3:T7c5,
 This blog/repo is a Digital Garden where I store my thoughts and pieces of information which I find helpful and you may find too.
 
 There is lot of information out there and to remember all or organizing them in notes which often get lost is very difficult. That's why instead of waiting to write a perfect post or store it in my laptop it's good idea to write in public so that everyone can see the progress and can give feedback in the process.
@@ -28,11 +28,10 @@ Few Notes from her post:
 - It’s _low friction_. Gardening your thoughts becomes a daily ritual that only takes a small amount of effort. Over time, big things grow.
 
 - Some sort of indicator of ‘how’  done is article. Horticulture metaphor:
-
   - 🌱 _Seedlings_ for very rough and early ideas
   - 🌿 _Budding_ for work I’ve cleaned up and clarified
   - 🌳 _Evergreen_ for work that is reasonably complete (though I still tend these over time).
 
 - In my posts, I will use similar tags to convey how done is article.
-0:{"buildId":"TQQTibMswi7ODQqEvQvMb","rsc":["$","$1","c",{"children":[["$","$L2",null,{"posts":[{"title":"Adding Google analytics","date":"2021-06-17T00:00:00.000Z","desc":"How to add Google analytics in nextjs","tags":["nextjs","google analytics","🌿"],"content":"\nhttps://mariestarck.com/add-google-analytics-to-your-next-js-application-in-5-easy-steps/\n\n- [Remove internal traffic from analytics](https://www.optimizesmart.com/how-to-block-internal-traffic-in-ga4/)\n","slug":"adding-google-analytics-in-nextjs"},{"title":"Learning in Public","date":"2021-06-17T00:00:00.000Z","desc":"Welcome to my first blog post","tags":["nextjs","🌿"],"content":"$3","slug":"learning-in-public"},{"title":"Webmentions in Nextjs","date":"2021-06-17T00:00:00.000Z","desc":"How to use webmentions in nextjs","tags":["nextjs"],"content":"\nArticles on impementing webmentions in nextjs:\n\n- https://aboutmonica.com/blog/getting-started-with-webmention-next-js\n- https://www.swyx.io/clientside-webmentions/\n","slug":"webmentions-in-nextjs"}],"tag":"nextjs"}],[["$","script","script-0",{"src":"/_next/static/chunks/cf9fdfc455f39341.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/babe974d64487668.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"Vwqm2C989pETsRdeKf7jR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"posts":[{"title":"Adding Google analytics","date":"2021-06-17T00:00:00.000Z","desc":"How to add Google analytics in nextjs","tags":["nextjs","google analytics","🌿"],"content":"\nhttps://mariestarck.com/add-google-analytics-to-your-next-js-application-in-5-easy-steps/\n\n- [Remove internal traffic from analytics](https://www.optimizesmart.com/how-to-block-internal-traffic-in-ga4/)\n","slug":"adding-google-analytics-in-nextjs"},{"title":"Learning in Public","date":"2021-06-17T00:00:00.000Z","desc":"Welcome to my first blog post","tags":["nextjs","🌿"],"content":"$3","slug":"learning-in-public"},{"title":"Webmentions in Nextjs","date":"2021-06-17T00:00:00.000Z","desc":"How to use webmentions in nextjs","tags":["nextjs"],"content":"\nArticles on impementing webmentions in nextjs:\n\n- https://aboutmonica.com/blog/getting-started-with-webmention-next-js\n- https://www.swyx.io/clientside-webmentions/\n","slug":"webmentions-in-nextjs"}],"tag":"nextjs"}],[["$","script","script-0",{"src":"/_next/static/chunks/cf9fdfc455f39341.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/babe974d64487668.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"loading":null,"isPartial":false}
 6:null
