@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[82647,["/_next/static/chunks/857a5db55da48a64.js","/_next/static/chunks/cf9fdfc455f39341.js","/_next/static/chunks/babe974d64487668.js"],"default"]
+2:I[82647,["/_next/static/chunks/041e7ae8a9cd02bf.js","/_next/static/chunks/cf9fdfc455f39341.js","/_next/static/chunks/babe974d64487668.js"],"default"]
 4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
 5:"$Sreact.suspense"
 3:T491,
@@ -51,5 +51,5 @@ function doKeyPress(event) {
 - Within chrome, type `chrome://extensions` in the address bar and activate developer mode on the top right (switch).
 - Click on the Load unpacked button that appeared and select your folder containing the files.
 - Now press `ctrl+g` on keyboard and it will open google in new tab.
-0:{"buildId":"Wn_7FJe4sYFERmM9mY2Kr","rsc":["$","$1","c",{"children":[["$","$L2",null,{"posts":[{"title":"How to open URL in new tab using keyboard shortcut","date":"2021-06-23T00:00:00.000Z","desc":"How to open URL in new tab using keyboard shortcut","tags":["chrome","🌿"],"content":"$3","slug":"open-url-with-keyboard-shortcut-in-chrome"}],"tag":"chrome"}],[["$","script","script-0",{"src":"/_next/static/chunks/cf9fdfc455f39341.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/babe974d64487668.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"lEhmIjHELtFteNUJO8tsb","rsc":["$","$1","c",{"children":[["$","$L2",null,{"posts":[{"title":"How to open URL in new tab using keyboard shortcut","date":"2021-06-23T00:00:00.000Z","desc":"How to open URL in new tab using keyboard shortcut","tags":["chrome","🌿"],"content":"$3","slug":"open-url-with-keyboard-shortcut-in-chrome"}],"tag":"chrome"}],[["$","script","script-0",{"src":"/_next/static/chunks/cf9fdfc455f39341.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/babe974d64487668.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"loading":null,"isPartial":false}
 6:null
