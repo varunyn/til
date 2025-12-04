@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Varun Yadav - TIL</title>
+        <link>https://til.varunyadav.com/</link>
+        <description>My personal TIL website.</description>
+        <lastBuildDate>Thu, 04 Dec 2025 01:49:23 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>Feed for Node.js</generator>
+        <language>en</language>
+        <image>
+            <title>Varun Yadav - TIL</title>
+            <url>https://til.varunyadav.com/image.png</url>
+            <link>https://til.varunyadav.com/</link>
+        </image>
+        <copyright>All rights reserved 2025, Varun Yadav</copyright>
+        <item>
+            <title><![CDATA[Using prismjs in ghost]]></title>
+            <link>https://til.varunyadav.com/blog/add-prism-to-ghost</link>
+            <guid isPermaLink="false">https://til.varunyadav.com/blog/add-prism-to-ghost</guid>
+            <pubDate>Invalid Date</pubDate>
+            <author>hi@varunyadav.com (Varun Yadav)</author>
+        </item>
+        <item>
+            <title><![CDATA[Adding Google analytics]]></title>
+            <link>https://til.varunyadav.com/blog/adding-google-analytics-in-nextjs</link>
+            <guid isPermaLink="false">https://til.varunyadav.com/blog/adding-google-analytics-in-nextjs</guid>
+            <pubDate>Invalid Date</pubDate>
+            <author>hi@varunyadav.com (Varun Yadav)</author>
+        </item>
+        <item>
+            <title><![CDATA[Awesome Github Repos]]></title>
+            <link>https://til.varunyadav.com/blog/awesome-github-repo</link>
+            <guid isPermaLink="false">https://til.varunyadav.com/blog/awesome-github-repo</guid>
+            <pubDate>Invalid Date</pubDate>
+            <author>hi@varunyadav.com (Varun Yadav)</author>
+        </item>
+        <item>
+            <title><![CDATA[Awesome Kubernetes resources]]></title>
+            <link>https://til.varunyadav.com/blog/awesome-k8s-resources</link>
+            <guid isPermaLink="false">https://til.varunyadav.com/blog/awesome-k8s-resources</guid>
+            <pubDate>Invalid Date</pubDate>
+            <author>hi@varunyadav.com (Varun Yadav)</author>
+        </item>
+        <item>
+            <title><![CDATA[Building docker image for python app]]></title>
+            <link>https://til.varunyadav.com/blog/docker-image-for-python</link>
+            <guid isPermaLink="false">https://til.varunyadav.com/blog/docker-image-for-python</guid>
+            <pubDate>Invalid Date</pubDate>
+            <author>hi@varunyadav.com (Varun Yadav)</author>
+        </item>
+        <item>
+            <title><![CDATA[Using Ghost mcp in Cursor]]></title>
+            <link>https://til.varunyadav.com/blog/ghost-mcp</link>
+            <guid isPermaLink="false">https://til.varunyadav.com/blog/ghost-mcp</guid>
+            <pubDate>Invalid Date</pubDate>
+            <author>hi@varunyadav.com (Varun Yadav)</author>
+        </item>
+        <item>
+            <title><![CDATA[Setup dependabot in Github repo]]></title>
+            <link>https://til.varunyadav.com/blog/github-dependabot</link>
+            <guid isPermaLink="false">https://til.varunyadav.com/blog/github-dependabot</guid>
+            <pubDate>Invalid Date</pubDate>
+            <author>hi@varunyadav.com (Varun Yadav)</author>
+        </item>
+        <item>
+            <title><![CDATA[Gitignore files]]></title>
+            <link>https://til.varunyadav.com/blog/gitignore-files</link>
+            <guid isPermaLink="false">https://til.varunyadav.com/blog/gitignore-files</guid>
+            <pubDate>Invalid Date</pubDate>
+            <author>hi@varunyadav.com (Varun Yadav)</author>
+        </item>
+        <item>
+            <title><![CDATA[Create your own google maps]]></title>
+            <link>https://til.varunyadav.com/blog/google-maps</link>
+            <guid isPermaLink="false">https://til.varunyadav.com/blog/google-maps</guid>
+            <pubDate>Invalid Date</pubDate>
+            <author>hi@varunyadav.com (Varun Yadav)</author>
+        </item>
+        <item>
+            <title><![CDATA[Kubernetes Deployment 101]]></title>
+            <link>https://til.varunyadav.com/blog/k8s-deployment</link>
+            <guid isPermaLink="false">https://til.varunyadav.com/blog/k8s-deployment</guid>
+            <pubDate>Invalid Date</pubDate>
+            <author>hi@varunyadav.com (Varun Yadav)</author>
+        </item>
+        <item>
+            <title><![CDATA[Using Keyboard Shortcut Mac/iPhone]]></title>
+            <link>https://til.varunyadav.com/blog/keyboard-shortcut</link>
+            <guid isPermaLink="false">https://til.varunyadav.com/blog/keyboard-shortcut</guid>
+            <pubDate>Invalid Date</pubDate>
+            <author>hi@varunyadav.com (Varun Yadav)</author>
+        </item>
+        <item>
+            <title><![CDATA[Learning in Public]]></title>
+            <link>https://til.varunyadav.com/blog/learning-in-public</link>
+            <guid isPermaLink="false">https://til.varunyadav.com/blog/learning-in-public</guid>
+            <pubDate>Invalid Date</pubDate>
+            <author>hi@varunyadav.com (Varun Yadav)</author>
+        </item>
+        <item>
+            <title><![CDATA[macOS Tools]]></title>
+            <link>https://til.varunyadav.com/blog/mac-tools</link>
+            <guid isPermaLink="false">https://til.varunyadav.com/blog/mac-tools</guid>
+            <pubDate>Invalid Date</pubDate>
+            <author>hi@varunyadav.com (Varun Yadav)</author>
+        </item>
+        <item>
+            <title><![CDATA[Create fake file to test file upload]]></title>
+            <link>https://til.varunyadav.com/blog/macos-fake-file</link>
+            <guid isPermaLink="false">https://til.varunyadav.com/blog/macos-fake-file</guid>
+            <pubDate>Invalid Date</pubDate>
+            <author>hi@varunyadav.com (Varun Yadav)</author>
+        </item>
+        <item>
+            <title><![CDATA[How to use multiple node versions in macOS]]></title>
+            <link>https://til.varunyadav.com/blog/multiple-node-versions</link>
+            <guid isPermaLink="false">https://til.varunyadav.com/blog/multiple-node-versions</guid>
+            <pubDate>Invalid Date</pubDate>
+            <author>hi@varunyadav.com (Varun Yadav)</author>
+        </item>
+        <item>
+            <title><![CDATA[How to open URL in new tab using keyboard shortcut]]></title>
+            <link>https://til.varunyadav.com/blog/open-url-with-keyboard-shortcut-in-chrome</link>
+            <guid isPermaLink="false">https://til.varunyadav.com/blog/open-url-with-keyboard-shortcut-in-chrome</guid>
+            <pubDate>Invalid Date</pubDate>
+            <author>hi@varunyadav.com (Varun Yadav)</author>
+        </item>
+        <item>
+            <title><![CDATA[Webmentions in Nextjs]]></title>
+            <link>https://til.varunyadav.com/blog/webmentions-in-nextjs</link>
+            <guid isPermaLink="false">https://til.varunyadav.com/blog/webmentions-in-nextjs</guid>
+            <pubDate>Invalid Date</pubDate>
+            <author>hi@varunyadav.com (Varun Yadav)</author>
+        </item>
+    </channel>
+</rss>
