@@ -1,13 +1,28 @@
 const { promises: fs } = require('fs');
 const path = require('path');
-const RSS = require('rss');
+const { Feed } = require('feed');
 const matter = require('gray-matter');
 
 async function generate() {
-  const feed = new RSS({
+  const feed = new Feed({
     title: 'Varun Yadav - TIL',
-    site_url: 'https://til.varunyadav.com',
-    feed_url: 'https://til.varunyadav.com/feed.xml'
+    description: 'My personal TIL website.',
+    id: 'https://til.varunyadav.com/',
+    link: 'https://til.varunyadav.com/',
+    language: 'en',
+    image: 'https://til.varunyadav.com/image.png',
+    favicon: 'https://til.varunyadav.com/favicon.ico',
+    copyright: `All rights reserved ${new Date().getFullYear()}, Varun Yadav`,
+    updated: new Date(),
+    generator: 'Feed for Node.js',
+    feedLinks: {
+      rss2: 'https://til.varunyadav.com/feed.xml'
+    },
+    author: {
+      name: 'Varun Yadav',
+      email: 'hi@varunyadav.com',
+      link: 'https://varunyadav.com'
+    }
   });
 
   const posts = await fs.readdir(path.join(__dirname, '..', 'data', 'blog'));
@@ -19,16 +34,25 @@ async function generate() {
       );
       const frontmatter = matter(content);
 
-      feed.item({
+      feed.addItem({
         title: frontmatter.data.title,
-        url: 'https://til.varunyadav.io/blog/' + name.replace(/\.mdx?/, ''),
-        date: frontmatter.data.publishedAt,
-        description: frontmatter.data.summary
+        id: 'https://til.varunyadav.com/blog/' + name.replace(/\.mdx?/, ''),
+        link: 'https://til.varunyadav.com/blog/' + name.replace(/\.mdx?/, ''),
+        description: frontmatter.data.summary,
+        content: frontmatter.data.summary,
+        author: [
+          {
+            name: 'Varun Yadav',
+            email: 'hi@varunyadav.com',
+            link: 'https://varunyadav.com'
+          }
+        ],
+        date: new Date(frontmatter.data.publishedAt)
       });
     })
   );
 
-  await fs.writeFile('./public/feed.xml', feed.xml({ indent: true }));
+  await fs.writeFile('./public/feed.xml', feed.rss2());
 }
 
 generate();

@@ -20,6 +20,7 @@
   "dependencies": {
     "date-fns": "^2.30.0",
     "eslint-config-next": "^16.0.3",
+    "feed": "^5.1.0",
     "gray-matter": "^4.0.3",
     "next": "^16.0.7",
     "next-themes": "^0.2.1",
@@ -28,7 +29,6 @@
     "react-dom": "^19.1.0",
     "react-icons": "^4.12.0",
     "react-tweet": "^3.2.2",
-    "reading-time": "^1.5.0",
     "rehype-prism-plus": "^2.0.0",
     "rehype-slug": "^6.0.0",
     "rehype-stringify": "^10.0.1",
@@ -51,7 +51,6 @@
     "husky": "^9.1.7",
     "postcss": "^8.4.33",
     "prettier": "^3.7.4",
-    "rss": "^1.2.2",
     "tailwindcss": "^4.1.17"
   },
   "overrides": {
