@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "next dev --turbo",
     "dev-https": "next dev --experimental-https",
-    "build": "next build",
+    "build": "node scripts/generate-rss.js && next build",
     "start": "next start",
     "format": "prettier --write .",
     "lint": "eslint .",
