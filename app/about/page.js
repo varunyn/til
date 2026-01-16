@@ -1,6 +1,11 @@
 import { Link } from 'next-view-transitions';
 import Image from 'next/image';
-import { FaXTwitter, FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa6';
+import {
+  FaSquareXTwitter,
+  FaLinkedin,
+  FaGithub,
+  FaEnvelope
+} from 'react-icons/fa6';
 import IconCheck from '../../components/IconCheck';
 
 export const metadata = {
@@ -43,7 +48,7 @@ export default function About() {
                 href="https://twitter.com/varun1_yadav"
                 className="flex items-center space-x-1 px-3 py-1.5 bg-black hover:bg-gray-800 text-white rounded-lg transition-colors shadow-md hover:shadow-lg text-sm"
               >
-                <FaXTwitter className="w-4 h-4" />
+                <FaSquareXTwitter className="w-4 h-4" />
                 <span>X</span>
               </Link>
               <Link

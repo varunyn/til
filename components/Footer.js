@@ -1,4 +1,5 @@
-import { FaGithub, FaTwitter } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
+import { FaSquareXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
@@ -11,10 +12,10 @@ const Footer = () => {
               href="https://twitter.com/varun1_yadav"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Twitter profile"
+              aria-label="X profile"
             >
-              <FaTwitter className="h-5 w-5" focusable="false" />
-              <span className="sr-only">Twitter profile</span>
+              <FaSquareXTwitter className="h-5 w-5" focusable="false" />
+              <span className="sr-only">X profile</span>
             </a>
             <a
               className="p-2 hover:text-smalt-600 dark:hover:text-smalt-400 transition-colors"
