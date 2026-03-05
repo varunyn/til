@@ -4,8 +4,27 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'next-view-transitions';
 import { useTheme } from 'next-themes';
 import { usePathname } from 'next/navigation';
+import { FaGithub } from 'react-icons/fa';
+import { FaSquareXTwitter, FaRss } from 'react-icons/fa6';
+import Search from './Search';
 
-const Navigation = () => {
+const SOCIAL_LINKS = [
+  {
+    name: 'X',
+    href: 'https://twitter.com/varun1_yadav',
+    icon: FaSquareXTwitter,
+    label: 'X profile'
+  },
+  {
+    name: 'GitHub',
+    href: 'https://github.com/varunyn',
+    icon: FaGithub,
+    label: 'GitHub profile'
+  },
+  { name: 'RSS', href: '/feed.xml', icon: FaRss, label: 'RSS feed' }
+];
+
+const Navigation = ({ searchPosts = [] }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
@@ -20,7 +39,7 @@ const Navigation = () => {
   }, [pathname]);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white dark:bg-darkgrey shadow-sm">
+    <nav className="sticky top-0 z-50 bg-white/80 dark:bg-darkgrey/80 backdrop-blur-md shadow-sm border-b border-gray-200/50 dark:border-gray-700/50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo/Site Title */}
@@ -34,7 +53,8 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:space-x-8">
+          <div className="hidden md:flex md:items-center md:space-x-6">
+            <Search posts={searchPosts} />
             <Link
               href="/"
               className={`px-3 py-2 text-sm font-medium dark:text-whitedarktheme hover:text-smalt-600 dark:hover:text-smalt-400 ${
@@ -71,6 +91,27 @@ const Navigation = () => {
             >
               Now
             </Link>
+
+            {/* Social links */}
+            <div
+              className="flex items-center gap-1 ml-2 pl-4 border-l border-gray-200 dark:border-gray-700"
+              aria-label="Connect"
+            >
+              {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={
+                    href.startsWith('http') ? 'noopener noreferrer' : undefined
+                  }
+                  className="p-2 rounded-md hover:text-smalt-600 dark:hover:text-smalt-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  aria-label={label}
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              ))}
+            </div>
 
             {/* Dark Mode Toggle */}
             <button
@@ -192,6 +233,9 @@ const Navigation = () => {
       {/* Mobile Menu */}
       <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t dark:border-gray-700">
+          <div className="px-3 py-2">
+            <Search posts={searchPosts} />
+          </div>
           <Link
             href="/"
             className={`block px-3 py-2 rounded-md text-base font-medium ${
@@ -232,6 +276,28 @@ const Navigation = () => {
           >
             Now
           </Link>
+
+          <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-2">
+            <p className="px-3 text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
+              Connect
+            </p>
+            <div className="flex gap-2 px-3">
+              {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={
+                    href.startsWith('http') ? 'noopener noreferrer' : undefined
+                  }
+                  className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition-colors"
+                  aria-label={label}
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </nav>

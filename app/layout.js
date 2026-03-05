@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import { getAllPosts } from '../lib/mdx';
 import Layout from '../components/Layout';
 import Analytics from '../components/Analytics';
 import ConsentManager from '../components/ConsentManager';
@@ -10,6 +11,7 @@ export const metadata = {
   title: 'Today I Learned - Varun Yadav',
   description:
     'A collection of code snippets, solutions and things I learn day to day.',
+  referrer: 'strict-origin-when-cross-origin',
   icons: {
     icon: '/favicon.ico'
   },
@@ -24,10 +26,19 @@ export const viewport = {
   initialScale: 1.0
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const allPosts = getAllPosts('blog');
+  const searchPosts = allPosts.map(({ title, slug }) => ({ title, slug }));
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="RSS Feed"
+          href="/feed.xml"
+        />
         <link
           rel="webmention"
           href="https://webmention.io/til.varunyadav.com/webmention"
@@ -41,7 +52,7 @@ export default function RootLayout({ children }) {
         <ConsentManager>
           <Analytics />
           <Providers>
-            <Layout>{children}</Layout>
+            <Layout searchPosts={searchPosts}>{children}</Layout>
           </Providers>
           <CookieBanner />
         </ConsentManager>
