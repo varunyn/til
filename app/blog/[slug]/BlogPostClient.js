@@ -1,29 +1,31 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Link } from 'next-view-transitions';
 import { FaCalendar, FaTags, FaArrowLeft } from 'react-icons/fa6';
 import { Tweet } from 'react-tweet';
+
+const TWEET_PLACEHOLDER_REGEX =
+  /<div class="tweet-placeholder[^>]*data-tweet-id="([^"]+)"[^>]*>.*?<\/div>/g;
 
 export default function BlogPostClient({ post, htmlContent }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [tweets, setTweets] = useState([]);
   const [processedContent, setProcessedContent] = useState('');
+  const [tocItems, setTocItems] = useState([]);
+  const contentRef = useRef(null);
 
   useEffect(() => {
-    // Extract tweet IDs and their positions from the content
-    const tweetRegex =
-      /<div class="tweet-placeholder[^>]*data-tweet-id="([^"]+)"[^>]*>.*?<\/div>/g;
     const extractedTweets = [];
     let match;
     let contentWithPlaceholders = htmlContent;
     let placeholderIndex = 0;
 
-    while ((match = tweetRegex.exec(htmlContent)) !== null) {
+    const regex = new RegExp(TWEET_PLACEHOLDER_REGEX.source, 'g');
+    while ((match = regex.exec(htmlContent)) !== null) {
       const tweetId = match[1];
       extractedTweets.push({ id: tweetId, index: placeholderIndex });
 
-      // Replace the tweet placeholder with a simple marker
       contentWithPlaceholders = contentWithPlaceholders.replace(
         match[0],
         `<div class="tweet-marker" data-tweet-index="${placeholderIndex}"></div>`
@@ -78,6 +80,23 @@ export default function BlogPostClient({ post, htmlContent }) {
       });
     }
   }, [tweets, isLoaded]);
+
+  // Build table of contents from headings (rehype-slug adds id to h2/h3)
+  useEffect(() => {
+    if (!isLoaded || !contentRef.current) return;
+    const timer = setTimeout(() => {
+      const el = contentRef.current;
+      if (!el) return;
+      const headings = el.querySelectorAll('h2[id], h3[id]');
+      const items = Array.from(headings).map((h) => ({
+        id: h.id,
+        text: h.textContent?.trim() || '',
+        depth: h.tagName === 'H2' ? 2 : 3
+      }));
+      setTocItems(items);
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [isLoaded]);
 
   // Initialize copy button functionality
   useEffect(() => {
@@ -134,7 +153,7 @@ export default function BlogPostClient({ post, htmlContent }) {
   }, [isLoaded]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-smalt-50 to-smalt-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="max-w-4xl mx-auto">
           {/* Back Button */}
@@ -172,6 +191,8 @@ export default function BlogPostClient({ post, htmlContent }) {
                   </time>
                 </div>
 
+                {post.readingTime?.text && <span>{post.readingTime.text}</span>}
+
                 {post.tags && post.tags.length > 0 && (
                   <div className="flex items-center space-x-2">
                     <FaTags className="w-4 h-4" />
@@ -191,8 +212,32 @@ export default function BlogPostClient({ post, htmlContent }) {
               </div>
             </div>
 
+            {/* On this page */}
+            {tocItems.length > 1 && (
+              <div className="px-8 pb-4 border-b border-gray-200 dark:border-gray-700">
+                <h3 className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">
+                  On this page
+                </h3>
+                <ul className="space-y-2 text-sm list-none pl-2 border-l-2 border-gray-200 dark:border-gray-700">
+                  {tocItems.map((item) => (
+                    <li
+                      key={item.id}
+                      className={item.depth === 3 ? 'pl-3' : ''}
+                    >
+                      <a
+                        href={`#${item.id}`}
+                        className="text-gray-600 dark:text-gray-400 hover:text-smalt-600 dark:hover:text-smalt-400 -ml-[2px]"
+                      >
+                        {item.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             {/* Content */}
-            <div className="p-8 animate-fade-in-delayed">
+            <div className="p-8 animate-fade-in-delayed" ref={contentRef}>
               <div
                 className={`prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-a:text-smalt-600 dark:prose-a:text-smalt-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 dark:prose-strong:text-white prose-code:text-smalt-600 dark:prose-code:text-smalt-400 prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-gray-900 dark:prose-pre:bg-gray-950 prose-pre:border prose-pre:border-gray-200 dark:prose-pre:border-gray-700 ${
                   isLoaded ? 'opacity-100' : 'opacity-90'

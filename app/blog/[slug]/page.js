@@ -40,6 +40,7 @@ export default async function BlogPost({ params }) {
   const { slug } = await params;
   const postData = await getPostData('blog', slug);
 
+  const baseUrl = 'https://til.varunyadav.com';
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -59,9 +60,24 @@ export default async function BlogPost({ params }) {
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://til.varunyadav.com/blog/${slug}`
+      '@id': `${baseUrl}/blog/${slug}`
     },
     keywords: postData.tags?.join(', ') || ''
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${baseUrl}/` },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: postData.title,
+        item: `${baseUrl}/blog/${slug}`
+      }
+    ]
   };
 
   return (
@@ -69,6 +85,10 @@ export default async function BlogPost({ params }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <BlogPostClient post={postData} htmlContent={postData.content} />
       <CopyButtonScript />
