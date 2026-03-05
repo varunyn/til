@@ -51,7 +51,7 @@ export default async function sitemap() {
   }));
 
   // Get all tags
-  const tagsData = await getAllTags('blog');
+  const tagsData = getAllTags('blog');
   const tags = Object.keys(tagsData);
   const tagPages = tags.map((tag) => ({
     url: `${baseUrl}/tags/${encodeURIComponent(tag)}`,

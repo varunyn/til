@@ -6,8 +6,8 @@ export const metadata = {
   description: 'Browse posts by tags'
 };
 
-export default async function TagsPage() {
-  const tags = await getAllTags('blog');
+export default function TagsPage() {
+  const tags = getAllTags('blog');
 
   return (
     <div className="container mx-auto px-4 sm:px-6 max-w-4xl py-8">
