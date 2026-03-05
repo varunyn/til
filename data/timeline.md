@@ -59,3 +59,15 @@
 **Title**: Exploring MCPs and Node packages
 
 - Last night before sleep I thought of what if there is Firebase MCP and there is official [MCP](https://firebase.google.com/docs/cli/mcp-server). It will be hopefully easy now to debug when working on it. Also I came across nextjs [boilerplate](https://github.com/ixartz/Next-js-Boilerplate?tab=readme-ov-file) and I saw two packages [lefthook](https://lefthook.dev/) and [knip](https://knip.dev/) which I think will use going on in next projects. lefthook is alternative for husky and is built on Go so it's fast and uses yaml config which I find easy. knip looks for packages and code which are unused in the project so kind of like linter but I like the feature it checks for package import.
+
+## 2026-01-15
+
+**Title**: Using Cursor and AI to enhance openwebUI
+
+- I have been using Openweb ui for asking questions about the code and fixing few bugs. But I was missing capabilities like connecting to MCP server. In particular I wanted to obsidian mcp to chat with my notes and also use firecrawl which I have selfhosted so that I can ask to summarize any URL. So with the help of AI I created tool that can be the added to the Open web ui and finally I don't have to leave the chat UI to communicate with other tools. I think in future I want to do more personalization. I will try to write blog posts so that I can repeat the same process to create more openwebui tools
+
+## 2026-01-16
+
+**Title**: Created symlink between md file in Nextjs and obsidian
+
+- It was task to update the markdown file everyday by opening the nextjs app and then updating the markdown file so I figured out it would be easy to create symlink and update the file from Obsidian. I am writing this from Obsidian :)

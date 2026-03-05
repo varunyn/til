@@ -13,7 +13,7 @@ export const metadata = {
     'A collection of code snippets, solutions and things I learn day to day.',
   referrer: 'strict-origin-when-cross-origin',
   icons: {
-    icon: '/favicon.ico'
+    icon: '/favicon.png'
   },
   other: {
     webmention: 'https://webmention.io/til.varunyadav.com/webmention',
