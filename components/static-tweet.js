@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { Tweet } from 'react-tweet';
+import { Tweet } from "react-tweet";
 
 export default function StaticTweet({ id }) {
   return (

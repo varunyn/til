@@ -13,9 +13,11 @@
     "dev-https": "next dev --experimental-https",
     "build": "node scripts/generate-rss.js && next build",
     "start": "next start",
-    "format": "prettier --write .",
+    "format": "ultracite fix",
     "lint": "eslint .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "check": "ultracite check",
+    "fix": "ultracite fix"
   },
   "dependencies": {
     "date-fns": "^4.1.0",
@@ -39,6 +41,7 @@
     "unified": "^11.0.5"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.4.5",
     "@eslint/eslintrc": "^3.3.1",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/postcss": "^4.1.17",
@@ -50,19 +53,13 @@
     "globals": "^16.5.0",
     "husky": "^9.1.7",
     "postcss": "^8.4.33",
-    "prettier": "^3.7.4",
-    "tailwindcss": "^4.1.17"
+    "tailwindcss": "^4.1.17",
+    "ultracite": "^7.2.5"
   },
   "overrides": {
     "next-view-transitions": {
       "react": "$react",
       "react-dom": "$react-dom"
     }
-  },
-  "prettier": {
-    "arrowParens": "always",
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "none"
   }
 }

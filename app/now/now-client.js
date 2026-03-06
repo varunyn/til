@@ -1,39 +1,39 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
+import Image from "next/image";
+import { useState } from "react";
 
 const NowClient = ({ timelineEntries }) => {
-  const [tooltip, setTooltip] = useState({ show: false, text: '', x: 0, y: 0 });
+  const [tooltip, setTooltip] = useState({ show: false, text: "", x: 0, y: 0 });
 
   // Sample data - you can replace this with real data later
   const profileData = {
-    name: 'Varun',
-    bio: 'Learning new stuff and building things using AI',
-    location: 'Austin, TX',
-    avatar: '/avatar.png' // You'll need to add your avatar image
+    name: "Varun",
+    bio: "Learning new stuff and building things using AI",
+    location: "Austin, TX",
+    avatar: "/avatar.png", // You'll need to add your avatar image
   };
 
   const goals = [
-    { text: 'Ship more 🚀', color: 'bg-blue-100 text-blue-800' },
-    { text: 'eat healthier', color: 'bg-green-100 text-green-800' }
+    { text: "Ship more 🚀", color: "bg-blue-100 text-blue-800" },
+    { text: "eat healthier", color: "bg-green-100 text-green-800" },
   ];
 
   // Generate activity heatmap data (simplified)
   const generateHeatmapData = () => {
     const months = [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec'
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
     ];
     const data = [];
 
@@ -47,12 +47,12 @@ const NowClient = ({ timelineEntries }) => {
           day,
           activity:
             activity > 0.7
-              ? 'high'
+              ? "high"
               : activity > 0.4
-                ? 'medium'
+                ? "medium"
                 : activity > 0.1
-                  ? 'low'
-                  : 'none'
+                  ? "low"
+                  : "none",
         });
       }
     });
@@ -64,50 +64,50 @@ const NowClient = ({ timelineEntries }) => {
 
   // Helper function to check if a date has data using timelineEntries
   const hasDataForDate = (date) => {
-    const dateString = date.toISOString().split('T')[0]; // Format: YYYY-MM-DD
+    const dateString = date.toISOString().split("T")[0]; // Format: YYYY-MM-DD
     return timelineEntries.some((entry) => entry.date === dateString);
   };
 
   return (
     <div className="min-h-screen py-8">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {/* Left Column - Profile */}
           <div className="lg:col-span-1">
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
-              <div className="flex items-center justify-center mb-4">
+            <div className="rounded-lg bg-white p-6 shadow-sm dark:bg-gray-800">
+              <div className="mb-4 flex items-center justify-center">
                 <Image
-                  src={profileData.avatar}
                   alt={profileData.name}
-                  width={64}
+                  className="h-16 w-16 rounded-full object-cover"
                   height={64}
-                  className="w-16 h-16 rounded-full object-cover"
+                  src={profileData.avatar}
+                  width={64}
                 />
               </div>
 
-              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
+              <h2 className="mb-1 font-bold text-gray-900 text-xl dark:text-white">
                 {profileData.name}
               </h2>
-              <p className="text-gray-600 dark:text-gray-400 mb-2">
+              <p className="mb-2 text-gray-600 dark:text-gray-400">
                 {profileData.username}
               </p>
 
-              <p className="text-gray-700 dark:text-gray-300 mb-2">
+              <p className="mb-2 text-gray-700 dark:text-gray-300">
                 {profileData.bio}
               </p>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">
+              <p className="text-gray-600 text-sm dark:text-gray-400">
                 📍 {profileData.location}
               </p>
 
               <div className="mt-6">
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
+                <h3 className="mb-3 font-semibold text-gray-900 dark:text-white">
                   Working towards
                 </h3>
                 <div className="space-y-2">
                   {goals.map((goal, index) => (
                     <span
+                      className={`inline-block rounded-full px-3 py-1 font-medium text-xs ${goal.color} mr-2 mb-2`}
                       key={index}
-                      className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${goal.color} mr-2 mb-2`}
                     >
                       {goal.text}
                     </span>
@@ -118,95 +118,95 @@ const NowClient = ({ timelineEntries }) => {
           </div>
 
           {/* Right Column - Activity & Timeline */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="space-y-6 lg:col-span-2">
             {/* Activity Heatmap */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
+            <div className="rounded-lg bg-white p-6 shadow-sm dark:bg-gray-800">
               <div className="overflow-x-auto">
                 {/* Month labels positioned exactly like the SVG */}
                 <div className="relative mb-4 ml-8 h-4">
                   <span
-                    className="absolute text-xs text-gray-500 dark:text-gray-400"
-                    style={{ left: '0px' }}
+                    className="absolute text-gray-500 text-xs dark:text-gray-400"
+                    style={{ left: "0px" }}
                   >
                     Jan
                   </span>
                   <span
-                    className="absolute text-xs text-gray-500 dark:text-gray-400"
-                    style={{ left: '80px' }}
+                    className="absolute text-gray-500 text-xs dark:text-gray-400"
+                    style={{ left: "80px" }}
                   >
                     Feb
                   </span>
                   <span
-                    className="absolute text-xs text-gray-500 dark:text-gray-400"
-                    style={{ left: '144px' }}
+                    className="absolute text-gray-500 text-xs dark:text-gray-400"
+                    style={{ left: "144px" }}
                   >
                     Mar
                   </span>
                   <span
-                    className="absolute text-xs text-gray-500 dark:text-gray-400"
-                    style={{ left: '224px' }}
+                    className="absolute text-gray-500 text-xs dark:text-gray-400"
+                    style={{ left: "224px" }}
                   >
                     Apr
                   </span>
                   <span
-                    className="absolute text-xs text-gray-500 dark:text-gray-400"
-                    style={{ left: '288px' }}
+                    className="absolute text-gray-500 text-xs dark:text-gray-400"
+                    style={{ left: "288px" }}
                   >
                     May
                   </span>
                   <span
-                    className="absolute text-xs text-gray-500 dark:text-gray-400"
-                    style={{ left: '352px' }}
+                    className="absolute text-gray-500 text-xs dark:text-gray-400"
+                    style={{ left: "352px" }}
                   >
                     Jun
                   </span>
                   <span
-                    className="absolute text-xs text-gray-500 dark:text-gray-400"
-                    style={{ left: '432px' }}
+                    className="absolute text-gray-500 text-xs dark:text-gray-400"
+                    style={{ left: "432px" }}
                   >
                     Jul
                   </span>
                   <span
-                    className="absolute text-xs text-gray-500 dark:text-gray-400"
-                    style={{ left: '496px' }}
+                    className="absolute text-gray-500 text-xs dark:text-gray-400"
+                    style={{ left: "496px" }}
                   >
                     Aug
                   </span>
                   <span
-                    className="absolute text-xs text-gray-500 dark:text-gray-400"
-                    style={{ left: '576px' }}
+                    className="absolute text-gray-500 text-xs dark:text-gray-400"
+                    style={{ left: "576px" }}
                   >
                     Sep
                   </span>
                   <span
-                    className="absolute text-xs text-gray-500 dark:text-gray-400"
-                    style={{ left: '640px' }}
+                    className="absolute text-gray-500 text-xs dark:text-gray-400"
+                    style={{ left: "640px" }}
                   >
                     Oct
                   </span>
                   <span
-                    className="absolute text-xs text-gray-500 dark:text-gray-400"
-                    style={{ left: '704px' }}
+                    className="absolute text-gray-500 text-xs dark:text-gray-400"
+                    style={{ left: "704px" }}
                   >
                     Nov
                   </span>
                   <span
-                    className="absolute text-xs text-gray-500 dark:text-gray-400"
-                    style={{ left: '784px' }}
+                    className="absolute text-gray-500 text-xs dark:text-gray-400"
+                    style={{ left: "784px" }}
                   >
                     Dec
                   </span>
                 </div>
 
                 {/* Heatmap grid matching SVG structure exactly */}
-                <div className="flex items-start relative">
+                <div className="relative flex items-start">
                   {/* Activity squares grid - exactly like SVG with 16px spacing */}
-                  <div className="flex" style={{ gap: '4px' }}>
+                  <div className="flex" style={{ gap: "4px" }}>
                     {Array.from({ length: 54 }, (_, weekIndex) => (
                       <div
-                        key={weekIndex}
                         className="flex flex-col"
-                        style={{ gap: '4px' }}
+                        key={weekIndex}
+                        style={{ gap: "4px" }}
                       >
                         {Array.from({ length: 7 }, (_, dayIndex) => {
                           // First week starts on Wednesday (Jan 1, 2025 is a Wednesday)
@@ -218,12 +218,10 @@ const NowClient = ({ timelineEntries }) => {
                           const shouldShowSquare =
                             (isFirstWeek && dayIndex >= 3) ||
                             (isLastWeek && dayIndex === 0) ||
-                            (!isFirstWeek && !isLastWeek);
+                            !(isFirstWeek || isLastWeek);
 
                           if (!shouldShowSquare) {
-                            return (
-                              <div key={dayIndex} className="w-3 h-3"></div>
-                            );
+                            return <div className="h-3 w-3" key={dayIndex} />;
                           }
 
                           // Calculate the actual date
@@ -243,27 +241,27 @@ const NowClient = ({ timelineEntries }) => {
                           currentDate.setDate(startDate.getDate() + dayOffset);
 
                           const dayNames = [
-                            'Sunday',
-                            'Monday',
-                            'Tuesday',
-                            'Wednesday',
-                            'Thursday',
-                            'Friday',
-                            'Saturday'
+                            "Sunday",
+                            "Monday",
+                            "Tuesday",
+                            "Wednesday",
+                            "Thursday",
+                            "Friday",
+                            "Saturday",
                           ];
                           const monthNames = [
-                            'Jan',
-                            'Feb',
-                            'Mar',
-                            'Apr',
-                            'May',
-                            'Jun',
-                            'Jul',
-                            'Aug',
-                            'Sep',
-                            'Oct',
-                            'Nov',
-                            'Dec'
+                            "Jan",
+                            "Feb",
+                            "Mar",
+                            "Apr",
+                            "May",
+                            "Jun",
+                            "Jul",
+                            "Aug",
+                            "Sep",
+                            "Oct",
+                            "Nov",
+                            "Dec",
                           ];
 
                           const dayName = dayNames[currentDate.getDay()];
@@ -272,10 +270,10 @@ const NowClient = ({ timelineEntries }) => {
                           const tooltipText = `${dayName}, ${dateStr}`;
 
                           // Check if this date has actual data
-                          let bgColor = '#f0f0f0'; // Light gray for no data
+                          let bgColor = "#f0f0f0"; // Light gray for no data
 
                           if (hasDataForDate(currentDate)) {
-                            bgColor = '#52525b'; // Dark gray for days with actual data
+                            bgColor = "#52525b"; // Dark gray for days with actual data
                           }
 
                           const handleMouseEnter = (e) => {
@@ -284,18 +282,18 @@ const NowClient = ({ timelineEntries }) => {
                               show: true,
                               text: tooltipText,
                               x: rect.left + rect.width / 2,
-                              y: rect.top - 10
+                              y: rect.top - 10,
                             });
                           };
 
                           const handleMouseLeave = () => {
-                            setTooltip({ show: false, text: '', x: 0, y: 0 });
+                            setTooltip({ show: false, text: "", x: 0, y: 0 });
                           };
 
                           const handleClick = () => {
                             const dateString = currentDate
                               .toISOString()
-                              .split('T')[0];
+                              .split("T")[0];
                             const timelineEntry = timelineEntries.find(
                               (entry) => entry.date === dateString
                             );
@@ -307,18 +305,18 @@ const NowClient = ({ timelineEntries }) => {
                               );
                               if (timelineElement) {
                                 timelineElement.scrollIntoView({
-                                  behavior: 'smooth',
-                                  block: 'center'
+                                  behavior: "smooth",
+                                  block: "center",
                                 });
                                 // Add a brief highlight effect
                                 timelineElement.classList.add(
-                                  'ring-2',
-                                  'ring-blue-500'
+                                  "ring-2",
+                                  "ring-blue-500"
                                 );
                                 setTimeout(() => {
                                   timelineElement.classList.remove(
-                                    'ring-2',
-                                    'ring-blue-500'
+                                    "ring-2",
+                                    "ring-blue-500"
                                   );
                                 }, 2000);
                               }
@@ -327,24 +325,24 @@ const NowClient = ({ timelineEntries }) => {
 
                           return (
                             <div
-                              key={dayIndex}
-                              className={`w-3 h-3 rounded-sm transition-all ${
+                              className={`h-3 w-3 rounded-sm transition-all ${
                                 hasDataForDate(currentDate)
-                                  ? 'cursor-pointer hover:ring-2 hover:ring-blue-400'
-                                  : 'cursor-default hover:ring-1 hover:ring-gray-400'
+                                  ? "cursor-pointer hover:ring-2 hover:ring-blue-400"
+                                  : "cursor-default hover:ring-1 hover:ring-gray-400"
                               }`}
-                              style={{
-                                backgroundColor: bgColor,
-                                border: '0.5px solid rgba(0, 0, 0, 0.08)'
-                              }}
-                              onMouseEnter={handleMouseEnter}
-                              onMouseLeave={handleMouseLeave}
+                              key={dayIndex}
                               onClick={
                                 hasDataForDate(currentDate)
                                   ? handleClick
                                   : undefined
                               }
-                            ></div>
+                              onMouseEnter={handleMouseEnter}
+                              onMouseLeave={handleMouseLeave}
+                              style={{
+                                backgroundColor: bgColor,
+                                border: "0.5px solid rgba(0, 0, 0, 0.08)",
+                              }}
+                            />
                           );
                         })}
                       </div>
@@ -354,11 +352,11 @@ const NowClient = ({ timelineEntries }) => {
                   {/* Custom Tooltip */}
                   {tooltip.show && (
                     <div
-                      className="fixed z-50 px-2 py-1 text-xs text-white bg-gray-900 rounded shadow-lg pointer-events-none"
+                      className="pointer-events-none fixed z-50 rounded bg-gray-900 px-2 py-1 text-white text-xs shadow-lg"
                       style={{
                         left: tooltip.x,
                         top: tooltip.y,
-                        transform: 'translateX(-50%) translateY(-100%)'
+                        transform: "translateX(-50%) translateY(-100%)",
                       }}
                     >
                       {tooltip.text}
@@ -372,50 +370,49 @@ const NowClient = ({ timelineEntries }) => {
             <div className="space-y-6">
               {timelineEntries.map((entry, index) => (
                 <div
-                  key={index}
+                  className="rounded-lg bg-white p-6 shadow-sm transition-all dark:bg-gray-800"
                   id={`timeline-${entry.date}`}
-                  className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm transition-all"
+                  key={index}
                 >
-                  <div className="flex items-center space-x-3 mb-3">
-                    <div className="w-3 h-3 bg-gray-400 rounded-full"></div>
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                  <div className="mb-3 flex items-center space-x-3">
+                    <div className="h-3 w-3 rounded-full bg-gray-400" />
+                    <span className="text-gray-500 text-sm dark:text-gray-400">
                       {entry.date}
                     </span>
-                    <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs">
+                    <span className="rounded bg-blue-100 px-2 py-1 text-blue-800 text-xs dark:bg-blue-900 dark:text-blue-200">
                       {entry.tag}
                     </span>
                   </div>
 
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+                  <h3 className="mb-2 font-semibold text-gray-900 dark:text-white">
                     {entry.title}
                   </h3>
 
                   <div className="space-y-1">
                     {entry.content.map((item, itemIndex) => (
                       <p
+                        className="text-gray-700 text-sm dark:text-gray-300"
                         key={itemIndex}
-                        className="text-gray-700 dark:text-gray-300 text-sm"
                       >
                         {Array.isArray(item)
                           ? // Render parsed content with links
                             item.map((part, partIndex) => {
-                              if (part.type === 'link') {
+                              if (part.type === "link") {
                                 return (
                                   <a
-                                    key={partIndex}
+                                    className="text-blue-600 underline hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
                                     href={part.url}
-                                    target="_blank"
+                                    key={partIndex}
                                     rel="noopener noreferrer"
-                                    className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline"
+                                    target="_blank"
                                   >
                                     {part.text}
                                   </a>
                                 );
-                              } else {
-                                return (
-                                  <span key={partIndex}>{part.content}</span>
-                                );
                               }
+                              return (
+                                <span key={partIndex}>{part.content}</span>
+                              );
                             })
                           : // Fallback for simple text
                             item}

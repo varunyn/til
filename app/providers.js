@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { ThemeProvider } from 'next-themes';
-import { ViewTransitions } from 'next-view-transitions';
+import { ThemeProvider } from "next-themes";
+import { ViewTransitions } from "next-view-transitions";
 
 export function Providers({ children }) {
   return (
@@ -9,8 +9,8 @@ export function Providers({ children }) {
       <ThemeProvider
         attribute="class"
         defaultTheme="light"
-        enableSystem={false}
         disableTransitionOnChange={false}
+        enableSystem={false}
         storageKey="theme"
         suppressHydrationWarning
       >

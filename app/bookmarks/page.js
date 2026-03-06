@@ -1,39 +1,39 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export const metadata = {
-  title: 'Bookmarks - Varun Yadav',
-  description: 'My bookmarks and useful resources.',
+  title: "Bookmarks - Varun Yadav",
+  description: "My bookmarks and useful resources.",
   openGraph: {
-    title: 'Bookmarks - Varun Yadav',
-    description: 'My bookmarks and useful resources.',
-    url: 'https://til.varunyadav.com/bookmarks',
-    type: 'website'
+    title: "Bookmarks - Varun Yadav",
+    description: "My bookmarks and useful resources.",
+    url: "https://til.varunyadav.com/bookmarks",
+    type: "website",
   },
   twitter: {
-    card: 'summary',
-    title: 'Bookmarks - Varun Yadav',
-    description: 'My bookmarks and useful resources.'
-  }
+    card: "summary",
+    title: "Bookmarks - Varun Yadav",
+    description: "My bookmarks and useful resources.",
+  },
 };
 
 export default function Bookmarks() {
   return (
     <section className="relative min-h-screen-without-nav dark:bg-darkgrey dark:text-whitedarktheme">
-      <main className="p-10 mx-auto container justify-center">
-        <h1 className="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">
+      <main className="container mx-auto justify-center p-10">
+        <h1 className="mb-8 font-bold text-3xl text-gray-900 dark:text-gray-100">
           Bookmarks
         </h1>
         <div className="space-y-4">
           <Link
-            className="links block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-md transition-shadow"
+            className="links block rounded-lg border border-gray-200 p-4 transition-shadow hover:shadow-md dark:border-gray-700"
             href="https://brianlovin.com/bookmarks"
-            target="_blank"
             rel="noopener noreferrer"
+            target="_blank"
           >
-            <div className="font-medium text-blue-600 dark:text-blue-400 hover:underline">
+            <div className="font-medium text-blue-600 hover:underline dark:text-blue-400">
               Brian Lovin&apos;s Bookmarks
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+            <p className="mt-1 text-gray-600 text-sm dark:text-gray-400">
               A curated collection of useful resources and tools
             </p>
           </Link>

@@ -1,22 +1,22 @@
-import Tag from '@/components/Tag';
-import { getAllTags } from '@/lib/tags';
+import Tag from "@/components/tag";
+import { getAllTags } from "@/lib/tags";
 
 export const metadata = {
-  title: 'Tags - TIL',
-  description: 'Browse posts by tags'
+  title: "Tags - TIL",
+  description: "Browse posts by tags",
 };
 
 export default function TagsPage() {
-  const tags = getAllTags('blog');
+  const tags = getAllTags("blog");
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 max-w-4xl py-8">
-      <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-gray-900 dark:text-gray-100">
+    <div className="container mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <h1 className="mb-8 font-bold text-3xl text-gray-900 sm:text-4xl dark:text-gray-100">
         Tags
       </h1>
       <div className="flex flex-wrap gap-2">
         {Object.entries(tags).map(([tag, count]) => (
-          <Tag key={tag} tag={tag} count={count} />
+          <Tag count={count} key={tag} tag={tag} />
         ))}
       </div>
     </div>

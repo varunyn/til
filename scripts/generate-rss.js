@@ -1,58 +1,62 @@
-const { promises: fs } = require('fs');
-const path = require('path');
-const { Feed } = require('feed');
-const matter = require('gray-matter');
+const { promises: fs } = require("node:fs");
+const path = require("node:path");
+const { Feed } = require("feed");
+const matter = require("gray-matter");
+
+const EXT_REGEX = /\.mdx?/;
 
 async function generate() {
   const feed = new Feed({
-    title: 'Varun Yadav - TIL',
-    description: 'My personal TIL website.',
-    id: 'https://til.varunyadav.com/',
-    link: 'https://til.varunyadav.com/',
-    language: 'en',
-    image: 'https://til.varunyadav.com/image.png',
-    favicon: 'https://til.varunyadav.com/favicon.ico',
+    title: "Varun Yadav - TIL",
+    description: "My personal TIL website.",
+    id: "https://til.varunyadav.com/",
+    link: "https://til.varunyadav.com/",
+    language: "en",
+    image: "https://til.varunyadav.com/image.png",
+    favicon: "https://til.varunyadav.com/favicon.ico",
     copyright: `All rights reserved ${new Date().getFullYear()}, Varun Yadav`,
     updated: new Date(),
-    generator: 'Feed for Node.js',
+    generator: "Feed for Node.js",
     feedLinks: {
-      rss2: 'https://til.varunyadav.com/feed.xml'
+      rss2: "https://til.varunyadav.com/feed.xml",
     },
     author: {
-      name: 'Varun Yadav',
-      email: 'hi@varunyadav.com',
-      link: 'https://varunyadav.com'
-    }
+      name: "Varun Yadav",
+      email: "hi@varunyadav.com",
+      link: "https://varunyadav.com",
+    },
   });
 
-  const posts = await fs.readdir(path.join(__dirname, '..', 'data', 'blog'));
+  const posts = await fs.readdir(
+    path.join(import.meta.dirname, "..", "data", "blog")
+  );
 
   await Promise.all(
     posts.map(async (name) => {
       const content = await fs.readFile(
-        path.join(__dirname, '..', 'data', 'blog', name)
+        path.join(import.meta.dirname, "..", "data", "blog", name)
       );
       const frontmatter = matter(content);
 
       feed.addItem({
         title: frontmatter.data.title,
-        id: 'https://til.varunyadav.com/blog/' + name.replace(/\.mdx?/, ''),
-        link: 'https://til.varunyadav.com/blog/' + name.replace(/\.mdx?/, ''),
+        id: `https://til.varunyadav.com/blog/${name.replace(EXT_REGEX, "")}`,
+        link: `https://til.varunyadav.com/blog/${name.replace(EXT_REGEX, "")}`,
         description: frontmatter.data.summary,
         content: frontmatter.data.summary,
         author: [
           {
-            name: 'Varun Yadav',
-            email: 'hi@varunyadav.com',
-            link: 'https://varunyadav.com'
-          }
+            name: "Varun Yadav",
+            email: "hi@varunyadav.com",
+            link: "https://varunyadav.com",
+          },
         ],
-        date: new Date(frontmatter.data.publishedAt)
+        date: new Date(frontmatter.data.publishedAt),
       });
     })
   );
 
-  await fs.writeFile('./public/feed.xml', feed.rss2());
+  await fs.writeFile("./public/feed.xml", feed.rss2());
 }
 
 generate();

@@ -1,14 +1,14 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 @theme {
   /* Fonts */
   --font-sans:
-    'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-mono:
-    'iA Quattro', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace;
+    "iA Quattro", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 
   /* Colors */
   --color-smalt-50: #eef6ff;
@@ -35,21 +35,6 @@
   /* Animations */
   --animate-fade-in-out: fade-in-out 2s ease-in-out;
 
-  @keyframes fade-in-out {
-    0% {
-      opacity: 0;
-    }
-    20% {
-      opacity: 1;
-    }
-    80% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-
   /* Box Shadows */
   --shadow-checkbox: inset 0.125em 0.125em 0 0.125em rgba(0, 0, 0, 0.3);
   --shadow-checkbox-checked: inset 0.125em 0.125em 0 0.125em rgba(0, 0, 0, 0.1);
@@ -66,10 +51,27 @@
 
   /* Min Height */
   --min-height-screen-without-nav: calc(100vh - 4rem);
+
+  @keyframes fade-in-out {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 }
 
 /* Custom Utilities / Variants */
-@variant mobile (@media (max-width: 640px));
+@variant mobile 
+(
+@media (max-width: 640px));
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
@@ -100,45 +102,45 @@
 
 /* Typography Customization */
 .prose {
-  --tw-prose-body: theme('colors.gray.700');
-  --tw-prose-headings: theme('colors.black');
-  --tw-prose-links: theme('colors.smalt.500');
-  --tw-prose-code: theme('colors.pink.500');
-  --tw-prose-quotes: theme('colors.gray.700');
-  --tw-prose-quote-borders: theme('colors.gray.200');
-  --tw-prose-captions: theme('colors.gray.500');
-  --tw-prose-hr: theme('colors.gray.200');
-  --tw-prose-th-borders: theme('colors.gray.300');
-  --tw-prose-td-borders: theme('colors.gray.200');
+  --tw-prose-body: theme("colors.gray.700");
+  --tw-prose-headings: theme("colors.black");
+  --tw-prose-links: theme("colors.smalt.500");
+  --tw-prose-code: theme("colors.pink.500");
+  --tw-prose-quotes: theme("colors.gray.700");
+  --tw-prose-quote-borders: theme("colors.gray.200");
+  --tw-prose-captions: theme("colors.gray.500");
+  --tw-prose-hr: theme("colors.gray.200");
+  --tw-prose-th-borders: theme("colors.gray.300");
+  --tw-prose-td-borders: theme("colors.gray.200");
 }
 
 .dark .prose {
-  --tw-prose-body: theme('colors.gray.300');
-  --tw-prose-headings: theme('colors.gray.100');
-  --tw-prose-links: theme('colors.smalt.400');
-  --tw-prose-code: theme('colors.smalt.400');
-  --tw-prose-quotes: theme('colors.gray.300');
-  --tw-prose-quote-borders: theme('colors.gray.700');
-  --tw-prose-captions: theme('colors.gray.400');
-  --tw-prose-hr: theme('colors.gray.700');
-  --tw-prose-th-borders: theme('colors.gray.600');
-  --tw-prose-td-borders: theme('colors.gray.700');
-  --tw-prose-bold: theme('colors.gray.300');
+  --tw-prose-body: theme("colors.gray.300");
+  --tw-prose-headings: theme("colors.gray.100");
+  --tw-prose-links: theme("colors.smalt.400");
+  --tw-prose-code: theme("colors.smalt.400");
+  --tw-prose-quotes: theme("colors.gray.300");
+  --tw-prose-quote-borders: theme("colors.gray.700");
+  --tw-prose-captions: theme("colors.gray.400");
+  --tw-prose-hr: theme("colors.gray.700");
+  --tw-prose-th-borders: theme("colors.gray.600");
+  --tw-prose-td-borders: theme("colors.gray.700");
+  --tw-prose-bold: theme("colors.gray.300");
 }
 
 /* Additional Typography Overrides */
 .prose a:hover {
-  color: theme('colors.smalt.700');
+  color: theme("colors.smalt.700");
 }
 .dark .prose a:hover {
-  color: theme('colors.smalt.600');
+  color: theme("colors.smalt.600");
 }
 .prose h1 {
   margin-bottom: 0;
   font-weight: 900;
 }
 .dark .prose h1 {
-  letter-spacing: theme('letterSpacing.tight');
+  letter-spacing: theme("letterSpacing.tight");
 }
 .prose h1,
 .prose h2,
@@ -146,7 +148,7 @@
 .prose h4,
 .prose h5,
 .prose h6 {
-  scroll-margin-top: theme('spacing.32');
+  scroll-margin-top: theme("spacing.32");
 }
 .prose blockquote p:first-of-type::before {
   content: none;
@@ -175,17 +177,17 @@ html {
 }
 
 .webmention-anchor {
-  @apply text-blue-600 hover:text-blue-800  visited:text-gray-600;
+  @apply text-blue-600 hover:text-blue-800 visited:text-gray-600;
 }
 
 .webmention-ol {
-  margin-bottom: 3rem;
   margin-top: 5px;
+  margin-bottom: 3rem;
 }
 
 .blog-date {
-  margin-right: 32px;
   min-width: 4rem;
+  margin-right: 32px;
 }
 
 nav ul li a.active:before,
@@ -234,16 +236,16 @@ nav ul li:hover a:after {
 
 nav ul li a:before,
 nav ul li a:after {
-  content: '';
   position: absolute;
-  left: 0;
   bottom: -5px;
+  left: 0;
   width: 0px;
   height: 5px;
   margin: 5px 0 0;
-  transition: all 0.3s ease-in-out;
-  opacity: 0;
+  content: "";
   background-color: var(--primary);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
 }
 
 nav ul li a.active:before,
@@ -256,24 +258,24 @@ nav ul li:hover a:after {
 
 .sticky-nav {
   position: sticky;
-  z-index: 10;
   top: 0;
+  z-index: 10;
   backdrop-filter: saturate(180%) blur(20px);
   transition: background-color 0.1 ease-in-out;
 }
 
 @supports not (backdrop-filter: none) {
   .sticky-nav {
+    background-color: theme("colors.white");
     backdrop-filter: none;
-    background-color: theme('colors.white');
   }
   .dark .sticky-nav {
-    background-color: theme('colors.darkgrey');
+    background-color: theme("colors.darkgrey");
   }
 }
 
-code[class*='language-'],
-pre[class*='language-'] {
+code[class*="language-"],
+pre[class*="language-"] {
   @apply text-gray-800 dark:text-gray-50;
 }
 /* 
@@ -282,7 +284,7 @@ pre[class*='language-'] {
 } */
 
 .remark-code-title {
-  @apply px-5 py-3  text-sm font-bold text-gray-800 bg-gray-200 border border-b-0 border-gray-200 rounded-t dark:text-gray-200 dark:border-gray-700 dark:bg-gray-800;
+  @apply px-5 py-3 text-sm font-bold text-gray-800 bg-gray-200 border border-b-0 border-gray-200 rounded-t dark:text-gray-200 dark:border-gray-700 dark:bg-gray-800;
 }
 
 .remark-code-title + pre {
@@ -290,8 +292,8 @@ pre[class*='language-'] {
 }
 
 .highlight-line {
-  margin-left: -5px;
   margin-right: -16px;
+  margin-left: -5px;
   background-color: lightgray; /* Set highlight bg color */
   border-left-width: 4px;
   /* border-left-color: rgb(59, 130, 246); Set highlight accent border color */
@@ -360,13 +362,13 @@ pre[class*='language-'] {
 /* For autolink-headings */
 
 .prose .anchor {
-  @apply absolute invisible;
-
-  margin-left: -1em;
-  padding-right: 0.5em;
   width: 80%;
   max-width: 700px;
+  padding-right: 0.5em;
+
+  margin-left: -1em;
   cursor: pointer;
+  @apply absolute invisible;
 }
 
 .anchor:hover {
@@ -374,8 +376,8 @@ pre[class*='language-'] {
 }
 
 .prose .anchor:after {
+  content: "#";
   @apply text-gray-300 dark:text-gray-700;
-  content: '#';
 }
 
 .prose *:hover > .anchor {
@@ -385,11 +387,11 @@ pre[class*='language-'] {
 .prose a,
 .links,
 .links p {
-  text-decoration: underline;
-  color: #3b82f6;
-  background-color: transparent;
-  padding-left: 0;
   padding-right: 0;
+  padding-left: 0;
+  color: #3b82f6;
+  text-decoration: underline;
+  background-color: transparent;
   transition: color 0.2s ease;
 }
 

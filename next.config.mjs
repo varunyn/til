@@ -1,27 +1,27 @@
 const nextConfig = {
-  output: 'export',
+  output: "export",
   reactStrictMode: true,
-  transpilePackages: ['react-tweet'],
+  transpilePackages: ["react-tweet"],
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'pbs.twimg.com',
-        pathname: '/**'
+        protocol: "https",
+        hostname: "pbs.twimg.com",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'abs.twimg.com',
-        pathname: '/**'
-      }
+        protocol: "https",
+        hostname: "abs.twimg.com",
+        pathname: "/**",
+      },
     ],
-    unoptimized: true
+    unoptimized: true,
   },
   experimental: {
     mdxRs: true,
-    viewTransition: true
+    viewTransition: true,
   },
-  bundlePagesRouterDependencies: true
+  bundlePagesRouterDependencies: true,
 };
 
 export default nextConfig;

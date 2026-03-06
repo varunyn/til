@@ -1,13 +1,19 @@
-'use client';
+"use client";
 
-import { createContext, useContext, useEffect, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 const ConsentContext = createContext();
 
 export const useConsent = () => {
   const context = useContext(ConsentContext);
   if (!context) {
-    throw new Error('useConsent must be used within ConsentManager');
+    throw new Error("useConsent must be used within ConsentManager");
   }
   return context;
 };
@@ -16,41 +22,37 @@ export default function ConsentManager({ children }) {
   const [consent, setConsent] = useState(null);
   const [showBanner, setShowBanner] = useState(false);
 
-  // Load consent from localStorage on mount
-  useEffect(() => {
-    const savedConsent = localStorage.getItem('cookie-consent');
-    if (savedConsent) {
-      const consentData = JSON.parse(savedConsent);
-      setConsent(consentData);
-
-      // Update Google Analytics consent
-      updateGoogleAnalyticsConsent(consentData);
-    } else {
-      // Show banner if no consent has been given
-      setShowBanner(true);
+  const updateGoogleAnalyticsConsent = useCallback((consentData) => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("consent", "update", {
+        analytics_storage: consentData.analytics ? "granted" : "denied",
+        ad_storage: consentData.analytics ? "granted" : "denied",
+        ad_user_data: consentData.analytics ? "granted" : "denied",
+        ad_personalization: consentData.analytics ? "granted" : "denied",
+      });
     }
   }, []);
 
-  const updateGoogleAnalyticsConsent = (consentData) => {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('consent', 'update', {
-        analytics_storage: consentData.analytics ? 'granted' : 'denied',
-        ad_storage: consentData.analytics ? 'granted' : 'denied',
-        ad_user_data: consentData.analytics ? 'granted' : 'denied',
-        ad_personalization: consentData.analytics ? 'granted' : 'denied'
-      });
+  useEffect(() => {
+    const savedConsent = localStorage.getItem("cookie-consent");
+    if (savedConsent) {
+      const consentData = JSON.parse(savedConsent);
+      setConsent(consentData);
+      updateGoogleAnalyticsConsent(consentData);
+    } else {
+      setShowBanner(true);
     }
-  };
+  }, [updateGoogleAnalyticsConsent]);
 
   const acceptAll = () => {
     const newConsent = {
       analytics: true,
       functional: true,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     };
 
     setConsent(newConsent);
-    localStorage.setItem('cookie-consent', JSON.stringify(newConsent));
+    localStorage.setItem("cookie-consent", JSON.stringify(newConsent));
     setShowBanner(false);
     updateGoogleAnalyticsConsent(newConsent);
   };
@@ -59,11 +61,11 @@ export default function ConsentManager({ children }) {
     const newConsent = {
       analytics: false,
       functional: true, // Always required
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     };
 
     setConsent(newConsent);
-    localStorage.setItem('cookie-consent', JSON.stringify(newConsent));
+    localStorage.setItem("cookie-consent", JSON.stringify(newConsent));
     setShowBanner(false);
     updateGoogleAnalyticsConsent(newConsent);
   };
@@ -72,11 +74,11 @@ export default function ConsentManager({ children }) {
     const consentData = {
       ...newConsent,
       functional: true, // Always required
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     };
 
     setConsent(consentData);
-    localStorage.setItem('cookie-consent', JSON.stringify(consentData));
+    localStorage.setItem("cookie-consent", JSON.stringify(consentData));
     updateGoogleAnalyticsConsent(consentData);
   };
 
@@ -86,7 +88,7 @@ export default function ConsentManager({ children }) {
     acceptAll,
     rejectAll,
     updateConsent,
-    setShowBanner
+    setShowBanner,
   };
 
   return (

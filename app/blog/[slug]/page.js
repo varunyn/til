@@ -1,18 +1,18 @@
-import { getPostData, getAllPostIds } from '@/lib/mdx';
-import BlogPostClient from './BlogPostClient';
-import WebmentionsClient from './WebmentionsClient';
-import CopyButtonScript from '@/components/CopyButtonScript';
+import CopyButtonScript from "@/components/copy-button-script";
+import { getAllPostIds, getPostData } from "@/lib/mdx";
+import BlogPostClient from "./blog-post-client";
+import WebmentionsClient from "./webmentions-client";
 
 export async function generateStaticParams() {
-  const posts = getAllPostIds('blog');
+  const posts = getAllPostIds("blog");
   return posts.map((post) => ({
-    slug: post.params.slug
+    slug: post.params.slug,
   }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const postData = await getPostData('blog', slug);
+  const postData = await getPostData("blog", slug);
 
   return {
     title: postData.title,
@@ -21,76 +21,76 @@ export async function generateMetadata({ params }) {
       title: postData.title,
       description: postData.desc,
       url: `https://til.varunyadav.com/blog/${slug}`,
-      type: 'article',
+      type: "article",
       publishedTime: postData.date,
-      authors: ['Varun Yadav'],
-      tags: postData.tags || []
+      authors: ["Varun Yadav"],
+      tags: postData.tags || [],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: postData.title,
       description: postData.desc,
-      creator: '@varun1_yadav',
-      site: '@varun1_yadav'
-    }
+      creator: "@varun1_yadav",
+      site: "@varun1_yadav",
+    },
   };
 }
 
 export default async function BlogPost({ params }) {
   const { slug } = await params;
-  const postData = await getPostData('blog', slug);
+  const postData = await getPostData("blog", slug);
 
-  const baseUrl = 'https://til.varunyadav.com';
+  const baseUrl = "https://til.varunyadav.com";
   const articleJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
     headline: postData.title,
     description: postData.desc,
     datePublished: postData.date,
     dateModified: postData.date,
     author: {
-      '@type': 'Person',
-      name: 'Varun Yadav',
-      url: 'https://varunyadav.com'
+      "@type": "Person",
+      name: "Varun Yadav",
+      url: "https://varunyadav.com",
     },
     publisher: {
-      '@type': 'Person',
-      name: 'Varun Yadav',
-      url: 'https://varunyadav.com'
+      "@type": "Person",
+      name: "Varun Yadav",
+      url: "https://varunyadav.com",
     },
     mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `${baseUrl}/blog/${slug}`
+      "@type": "WebPage",
+      "@id": `${baseUrl}/blog/${slug}`,
     },
-    keywords: postData.tags?.join(', ') || ''
+    keywords: postData.tags?.join(", ") || "",
   };
 
   const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${baseUrl}/` },
+      { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${baseUrl}/` },
       {
-        '@type': 'ListItem',
+        "@type": "ListItem",
         position: 3,
         name: postData.title,
-        item: `${baseUrl}/blog/${slug}`
-      }
-    ]
+        item: `${baseUrl}/blog/${slug}`,
+      },
+    ],
   };
 
   return (
     <>
       <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        type="application/ld+json"
       />
       <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        type="application/ld+json"
       />
-      <BlogPostClient post={postData} htmlContent={postData.content} />
+      <BlogPostClient htmlContent={postData.content} post={postData} />
       <CopyButtonScript />
       <WebmentionsClient slug={slug} />
     </>

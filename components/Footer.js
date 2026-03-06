@@ -1,35 +1,35 @@
-import { FaGithub } from 'react-icons/fa';
-import { FaSquareXTwitter } from 'react-icons/fa6';
+import { FaGithub } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="py-6 px-4 sm:px-6 mt-8 border-t dark:border-gray-800">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col sm:flex-row items-center justify-between">
-          <div className="flex items-center space-x-4 mb-4 sm:mb-0">
+    <footer className="mt-8 border-t px-4 py-6 sm:px-6 dark:border-gray-800">
+      <div className="mx-auto max-w-6xl">
+        <div className="flex flex-col items-center justify-between sm:flex-row">
+          <div className="mb-4 flex items-center space-x-4 sm:mb-0">
             <a
-              className="p-2 hover:text-smalt-600 dark:hover:text-smalt-400 transition-colors"
-              href="https://twitter.com/varun1_yadav"
-              target="_blank"
-              rel="noopener noreferrer"
               aria-label="X profile"
+              className="p-2 transition-colors hover:text-smalt-600 dark:hover:text-smalt-400"
+              href="https://twitter.com/varun1_yadav"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <FaSquareXTwitter className="h-5 w-5" focusable="false" />
               <span className="sr-only">X profile</span>
             </a>
             <a
-              className="p-2 hover:text-smalt-600 dark:hover:text-smalt-400 transition-colors"
-              href="https://github.com/varunyn"
-              target="_blank"
-              rel="noopener noreferrer"
               aria-label="GitHub profile"
+              className="p-2 transition-colors hover:text-smalt-600 dark:hover:text-smalt-400"
+              href="https://github.com/varunyn"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <FaGithub className="h-5 w-5" focusable="false" />
               <span className="sr-only">GitHub profile</span>
             </a>
           </div>
 
-          <div className="text-sm text-gray-500 dark:text-gray-400">
+          <div className="text-gray-500 text-sm dark:text-gray-400">
             <p>© {new Date().getFullYear()} · Made with ❤️ by Varun Yadav</p>
           </div>
         </div>

@@ -1,49 +1,49 @@
-import React from 'react';
-import { format, parseISO } from 'date-fns';
-import { Link } from 'next-view-transitions';
+import { format, parseISO } from "date-fns";
+import { Link } from "next-view-transitions";
 
 const Blog = ({ slug, title, date, desc }) => {
   return (
     <Link
+      className="group block overflow-hidden rounded-2xl border border-gray-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-gray-200 hover:shadow-lg dark:border-gray-800 dark:bg-gray-800/50 dark:hover:border-gray-700"
       href={`/blog/${slug}`}
-      className="group block transition-all duration-300 bg-white dark:bg-gray-800/50 rounded-2xl border border-gray-100 dark:border-gray-800 hover:shadow-lg hover:-translate-y-1 hover:border-gray-200 dark:hover:border-gray-700 overflow-hidden"
     >
       <div className="p-6">
-        <div className="flex items-center justify-between mb-3">
+        <div className="mb-3 flex items-center justify-between">
           {date && (
-            <time className="text-sm font-medium text-gray-500 dark:text-gray-400">
-              {format(parseISO(date), 'MMMM dd, yyyy')}
+            <time className="font-medium text-gray-500 text-sm dark:text-gray-400">
+              {format(parseISO(date), "MMMM dd, yyyy")}
             </time>
           )}
         </div>
         <h2
-          className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3 group-hover:text-smalt-600 dark:group-hover:text-smalt-400 transition-colors"
+          className="mb-3 font-bold text-gray-900 text-xl transition-colors group-hover:text-smalt-600 sm:text-2xl dark:text-gray-100 dark:group-hover:text-smalt-400"
           data-blog-title
           style={{
-            '--blog-title-name': `blog-title-${slug}`,
-            viewTransitionName: `blog-title-${slug}`
+            "--blog-title-name": `blog-title-${slug}`,
+            viewTransitionName: `blog-title-${slug}`,
           }}
         >
           {title}
         </h2>
         {desc && (
-          <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-2">
+          <p className="line-clamp-2 text-base text-gray-600 leading-relaxed dark:text-gray-400">
             {desc}
           </p>
         )}
-        <div className="mt-4 flex items-center text-sm font-medium text-smalt-600 dark:text-smalt-400 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-2 group-hover:translate-x-0">
+        <div className="mt-4 flex translate-x-2 transform items-center font-medium text-sm text-smalt-600 opacity-0 transition-opacity group-hover:translate-x-0 group-hover:opacity-100 dark:text-smalt-400">
           Read more
           <svg
-            className="ml-1 w-4 h-4"
+            aria-hidden
+            className="ml-1 h-4 w-4"
             fill="none"
-            viewBox="0 0 24 24"
             stroke="currentColor"
+            viewBox="0 0 24 24"
           >
             <path
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
             />
           </svg>
         </div>

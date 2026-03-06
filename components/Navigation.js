@@ -1,27 +1,27 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import { Link } from 'next-view-transitions';
-import { useTheme } from 'next-themes';
-import { usePathname } from 'next/navigation';
-import { FaGithub } from 'react-icons/fa';
-import { FaSquareXTwitter, FaRss } from 'react-icons/fa6';
-import Search from './Search';
+import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
+import { Link } from "next-view-transitions";
+import { useEffect, useState } from "react";
+import { FaGithub } from "react-icons/fa";
+import { FaRss, FaSquareXTwitter } from "react-icons/fa6";
+import Search from "./search";
 
 const SOCIAL_LINKS = [
   {
-    name: 'X',
-    href: 'https://twitter.com/varun1_yadav',
+    name: "X",
+    href: "https://twitter.com/varun1_yadav",
     icon: FaSquareXTwitter,
-    label: 'X profile'
+    label: "X profile",
   },
   {
-    name: 'GitHub',
-    href: 'https://github.com/varunyn',
+    name: "GitHub",
+    href: "https://github.com/varunyn",
     icon: FaGithub,
-    label: 'GitHub profile'
+    label: "GitHub profile",
   },
-  { name: 'RSS', href: '/feed.xml', icon: FaRss, label: 'RSS feed' }
+  { name: "RSS", href: "/feed.xml", icon: FaRss, label: "RSS feed" },
 ];
 
 const Navigation = ({ searchPosts = [] }) => {
@@ -36,17 +36,17 @@ const Navigation = ({ searchPosts = [] }) => {
   // Close menu when route changes
   useEffect(() => {
     setIsMenuOpen(false);
-  }, [pathname]);
+  }, []);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/80 dark:bg-darkgrey/80 backdrop-blur-md shadow-sm border-b border-gray-200/50 dark:border-gray-700/50">
+    <nav className="sticky top-0 z-50 border-gray-200/50 border-b bg-white/80 shadow-sm backdrop-blur-md dark:border-gray-700/50 dark:bg-darkgrey/80">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex h-16 items-center justify-between">
           {/* Logo/Site Title */}
           <div className="flex-shrink-0">
             <Link
+              className="font-bold text-xl dark:text-whitedarktheme"
               href="/"
-              className="text-xl font-bold dark:text-whitedarktheme"
             >
               TIL
             </Link>
@@ -56,91 +56,91 @@ const Navigation = ({ searchPosts = [] }) => {
           <div className="hidden md:flex md:items-center md:space-x-6">
             <Search posts={searchPosts} />
             <Link
-              href="/"
-              className={`px-3 py-2 text-sm font-medium dark:text-whitedarktheme hover:text-smalt-600 dark:hover:text-smalt-400 ${
-                pathname === '/' ? 'text-smalt-600 dark:text-smalt-400' : ''
+              className={`px-3 py-2 font-medium text-sm hover:text-smalt-600 dark:text-whitedarktheme dark:hover:text-smalt-400 ${
+                pathname === "/" ? "text-smalt-600 dark:text-smalt-400" : ""
               }`}
+              href="/"
             >
               Home
             </Link>
             <Link
-              href="/tags"
-              className={`px-3 py-2 text-sm font-medium dark:text-whitedarktheme hover:text-smalt-600 dark:hover:text-smalt-400 ${
-                pathname.startsWith('/tags')
-                  ? 'text-smalt-600 dark:text-smalt-400'
-                  : ''
+              className={`px-3 py-2 font-medium text-sm hover:text-smalt-600 dark:text-whitedarktheme dark:hover:text-smalt-400 ${
+                pathname.startsWith("/tags")
+                  ? "text-smalt-600 dark:text-smalt-400"
+                  : ""
               }`}
+              href="/tags"
             >
               Tags
             </Link>
             <Link
-              href="/about"
-              className={`px-3 py-2 text-sm font-medium dark:text-whitedarktheme hover:text-smalt-600 dark:hover:text-smalt-400 ${
-                pathname === '/about'
-                  ? 'text-smalt-600 dark:text-smalt-400'
-                  : ''
+              className={`px-3 py-2 font-medium text-sm hover:text-smalt-600 dark:text-whitedarktheme dark:hover:text-smalt-400 ${
+                pathname === "/about"
+                  ? "text-smalt-600 dark:text-smalt-400"
+                  : ""
               }`}
+              href="/about"
             >
               About
             </Link>
             <Link
-              href="/now"
-              className={`px-3 py-2 text-sm font-medium dark:text-whitedarktheme hover:text-smalt-600 dark:hover:text-smalt-400 ${
-                pathname === '/now' ? 'text-smalt-600 dark:text-smalt-400' : ''
+              className={`px-3 py-2 font-medium text-sm hover:text-smalt-600 dark:text-whitedarktheme dark:hover:text-smalt-400 ${
+                pathname === "/now" ? "text-smalt-600 dark:text-smalt-400" : ""
               }`}
+              href="/now"
             >
               Now
             </Link>
 
             {/* Social links */}
-            <div
-              className="flex items-center gap-1 ml-2 pl-4 border-l border-gray-200 dark:border-gray-700"
+            <nav
               aria-label="Connect"
+              className="ml-2 flex items-center gap-1 border-gray-200 border-l pl-4 dark:border-gray-700"
             >
               {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
                 <a
-                  key={label}
-                  href={href}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel={
-                    href.startsWith('http') ? 'noopener noreferrer' : undefined
-                  }
-                  className="p-2 rounded-md hover:text-smalt-600 dark:hover:text-smalt-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                   aria-label={label}
+                  className="rounded-md p-2 transition-colors hover:bg-gray-100 hover:text-smalt-600 dark:hover:bg-gray-800 dark:hover:text-smalt-400"
+                  href={href}
+                  key={label}
+                  rel={
+                    href.startsWith("http") ? "noopener noreferrer" : undefined
+                  }
+                  target={href.startsWith("http") ? "_blank" : undefined}
                 >
                   <Icon className="h-5 w-5" />
                 </a>
               ))}
-            </div>
+            </nav>
 
             {/* Dark Mode Toggle */}
             <button
               aria-label="Toggle Dark Mode"
+              className="rounded-full p-2 focus:outline-none"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               type="button"
-              className="p-2 rounded-full focus:outline-none"
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             >
               {mounted && (
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                  className="h-5 w-5 text-gray-800 dark:text-gray-200"
                   fill="currentColor"
                   stroke="currentColor"
-                  className="h-5 w-5 text-gray-800 dark:text-gray-200"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  {theme === 'dark' ? (
+                  {theme === "dark" ? (
                     <path
+                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
                     />
                   ) : (
                     <path
+                      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
                     />
                   )}
                 </svg>
@@ -153,31 +153,31 @@ const Navigation = ({ searchPosts = [] }) => {
             {/* Dark Mode Toggle for Mobile */}
             <button
               aria-label="Toggle Dark Mode"
+              className="mr-2 rounded-full p-2 focus:outline-none"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               type="button"
-              className="p-2 mr-2 rounded-full focus:outline-none"
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             >
               {mounted && (
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                  className="h-5 w-5 text-gray-800 dark:text-gray-200"
                   fill="currentColor"
                   stroke="currentColor"
-                  className="h-5 w-5 text-gray-800 dark:text-gray-200"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  {theme === 'dark' ? (
+                  {theme === "dark" ? (
                     <path
+                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
                     />
                   ) : (
                     <path
+                      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
                     />
                   )}
                 </svg>
@@ -186,42 +186,42 @@ const Navigation = ({ searchPosts = [] }) => {
 
             {/* Hamburger Menu Button - Only show on mobile */}
             <button
-              type="button"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-black hover:bg-gray-100 dark:hover:text-white dark:hover:bg-gray-700 focus:outline-none"
               aria-expanded={isMenuOpen}
+              className="inline-flex items-center justify-center rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-black focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              type="button"
             >
               <span className="sr-only">Open main menu</span>
               {isMenuOpen ? (
                 <svg
-                  className="block h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
                   aria-hidden="true"
+                  className="block h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
+                    d="M6 18L18 6M6 6l12 12"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
                   />
                 </svg>
               ) : (
                 <svg
-                  className="block h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
                   aria-hidden="true"
+                  className="block h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
+                    d="M4 6h16M4 12h16M4 18h16"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"
                   />
                 </svg>
               )}
@@ -231,67 +231,67 @@ const Navigation = ({ searchPosts = [] }) => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t dark:border-gray-700">
+      <div className={`md:hidden ${isMenuOpen ? "block" : "hidden"}`}>
+        <div className="space-y-1 border-t px-2 pt-2 pb-3 sm:px-3 dark:border-gray-700">
           <div className="px-3 py-2">
             <Search posts={searchPosts} />
           </div>
           <Link
-            href="/"
-            className={`block px-3 py-2 rounded-md text-base font-medium ${
-              pathname === '/'
-                ? 'bg-smalt-50 dark:bg-smalt-900 text-smalt-600 dark:text-smalt-300'
-                : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+            className={`block rounded-md px-3 py-2 font-medium text-base ${
+              pathname === "/"
+                ? "bg-smalt-50 text-smalt-600 dark:bg-smalt-900 dark:text-smalt-300"
+                : "text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
             }`}
+            href="/"
           >
             Home
           </Link>
           <Link
-            href="/tags"
-            className={`block px-3 py-2 rounded-md text-base font-medium ${
-              pathname.startsWith('/tags')
-                ? 'bg-smalt-50 dark:bg-smalt-900 text-smalt-600 dark:text-smalt-300'
-                : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+            className={`block rounded-md px-3 py-2 font-medium text-base ${
+              pathname.startsWith("/tags")
+                ? "bg-smalt-50 text-smalt-600 dark:bg-smalt-900 dark:text-smalt-300"
+                : "text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
             }`}
+            href="/tags"
           >
             Tags
           </Link>
           <Link
-            href="/about"
-            className={`block px-3 py-2 rounded-md text-base font-medium ${
-              pathname === '/about'
-                ? 'bg-smalt-50 dark:bg-smalt-900 text-smalt-600 dark:text-smalt-300'
-                : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+            className={`block rounded-md px-3 py-2 font-medium text-base ${
+              pathname === "/about"
+                ? "bg-smalt-50 text-smalt-600 dark:bg-smalt-900 dark:text-smalt-300"
+                : "text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
             }`}
+            href="/about"
           >
             About
           </Link>
           <Link
-            href="/now"
-            className={`block px-3 py-2 rounded-md text-base font-medium ${
-              pathname === '/now'
-                ? 'bg-smalt-50 dark:bg-smalt-900 text-smalt-600 dark:text-smalt-300'
-                : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+            className={`block rounded-md px-3 py-2 font-medium text-base ${
+              pathname === "/now"
+                ? "bg-smalt-50 text-smalt-600 dark:bg-smalt-900 dark:text-smalt-300"
+                : "text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
             }`}
+            href="/now"
           >
             Now
           </Link>
 
-          <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-2">
-            <p className="px-3 text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
+          <div className="mt-2 border-gray-200 border-t pt-4 dark:border-gray-700">
+            <p className="mb-2 px-3 font-medium text-gray-500 text-sm dark:text-gray-400">
               Connect
             </p>
             <div className="flex gap-2 px-3">
               {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
                 <a
-                  key={label}
-                  href={href}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel={
-                    href.startsWith('http') ? 'noopener noreferrer' : undefined
-                  }
-                  className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition-colors"
                   aria-label={label}
+                  className="rounded-md p-2 text-gray-700 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                  href={href}
+                  key={label}
+                  rel={
+                    href.startsWith("http") ? "noopener noreferrer" : undefined
+                  }
+                  target={href.startsWith("http") ? "_blank" : undefined}
                 >
                   <Icon className="h-5 w-5" />
                 </a>

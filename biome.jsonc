@@ -1,0 +1,68 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": ["ultracite/biome/core", "ultracite/biome/next"],
+  "files": {
+    "includes": ["!styles/globals.css"]
+  },
+  "overrides": [
+    {
+      "includes": [
+        "app/blog/\\[slug\\]/page.js",
+        "app/blog/\\[slug\\]/blog-post-client.js"
+      ],
+      "linter": {
+        "rules": {
+          "security": {
+            "noDangerouslySetInnerHtml": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["components/code-block.js"],
+      "linter": {
+        "rules": {
+          "complexity": { "noExcessiveCognitiveComplexity": "off" },
+          "a11y": { "noSvgWithoutTitle": "off" }
+        }
+      }
+    },
+    {
+      "includes": [
+        "components/back-to-top.js",
+        "components/blog.js",
+        "components/icon-check.js",
+        "components/navigation.js",
+        "components/search.js"
+      ],
+      "linter": {
+        "rules": { "a11y": { "noSvgWithoutTitle": "off" } }
+      }
+    },
+    {
+      "includes": ["app/now/now-client.js"],
+      "linter": {
+        "rules": {
+          "complexity": { "noExcessiveCognitiveComplexity": "off" },
+          "style": { "noNestedTernary": "off" },
+          "suspicious": { "noArrayIndexKey": "off" },
+          "a11y": {
+            "noNoninteractiveElementInteractions": "off",
+            "noStaticElementInteractions": "off",
+            "useKeyWithClickEvents": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["lib/timeline.js", "lib/mdx.js", "lib/markdown.js"],
+      "linter": {
+        "rules": {
+          "complexity": { "noExcessiveCognitiveComplexity": "off" },
+          "style": { "noNestedTernary": "off" },
+          "performance": { "useTopLevelRegex": "off" }
+        }
+      }
+    }
+  ]
+}

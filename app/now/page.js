@@ -1,10 +1,10 @@
-import NowClient from './NowClient';
-import { getTimelineEntries } from '../../lib/timeline';
+import { getTimelineEntries } from "../../lib/timeline";
+import NowClient from "./now-client";
 
 export const metadata = {
-  title: 'Now - Varun Yadav',
-  description: 'What Varun Yadav is up to now.',
-  canonical: 'https://til.varunyadav.com/now'
+  title: "Now - Varun Yadav",
+  description: "What Varun Yadav is up to now.",
+  canonical: "https://til.varunyadav.com/now",
 };
 
 export default async function Now() {

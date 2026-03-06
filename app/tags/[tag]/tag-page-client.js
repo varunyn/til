@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import Blog from '@/components/Blog';
-import { Link } from 'next-view-transitions';
+import { Link } from "next-view-transitions";
+import Blog from "@/components/blog";
 
 export default function TagPageClient({ posts, tag }) {
   return (
-    <div className="container mx-auto px-4 sm:px-6 max-w-4xl py-8">
+    <div className="container mx-auto max-w-4xl px-4 py-8 sm:px-6">
       <div className="mb-8">
         <Link
+          className="mb-4 inline-block text-smalt-600 hover:underline dark:text-smalt-400"
           href="/tags"
-          className="text-smalt-600 dark:text-smalt-400 hover:underline mb-4 inline-block"
         >
           &larr; All Tags
         </Link>
-        <h1 className="text-3xl sm:text-4xl font-bold mt-2 text-gray-900 dark:text-gray-100">
+        <h1 className="mt-2 font-bold text-3xl text-gray-900 sm:text-4xl dark:text-gray-100">
           #{tag}
         </h1>
-        <p className="text-gray-600 dark:text-gray-400 mt-2">
-          {posts.length} post{posts.length !== 1 ? 's' : ''}
+        <p className="mt-2 text-gray-600 dark:text-gray-400">
+          {posts.length} post{posts.length !== 1 ? "s" : ""}
         </p>
       </div>
 
@@ -28,7 +28,7 @@ export default function TagPageClient({ posts, tag }) {
           ))}
         </div>
       ) : (
-        <div className="text-center py-12">
+        <div className="py-12 text-center">
           <p className="text-gray-600 dark:text-gray-400">
             No posts in this tag.
           </p>
