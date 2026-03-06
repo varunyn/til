@@ -93,41 +93,38 @@ export default function CodeBlock({ children, className, ...props }) {
     }
   };
 
-  // Try to use clipboard API, with multiple fallbacks for different browsers
-  const _copyToClipboard = async () => {
+  const handleCopy = async () => {
+    const text = extractCodeContent();
+    if (!text.trim()) {
+      return;
+    }
+
+    let success = false;
+
     try {
-      const text = extractCodeContent();
-      if (!text) {
-        return;
-      }
-
-      let success = false;
-
       // Method 1: Modern Clipboard API
       if (navigator.clipboard && window.isSecureContext) {
         try {
           await navigator.clipboard.writeText(text);
           success = true;
-        } catch (err) {
-          console.log("Clipboard API failed, trying fallback", err);
+        } catch {
+          // Fall through to fallbacks
         }
       }
 
-      // Method 2: execCommand fallback
+      // Method 2: execCommand fallback (hidden textarea)
       if (!success && textAreaRef.current) {
         const textarea = textAreaRef.current;
         textarea.value = text;
         textarea.select();
-
         try {
-          document.execCommand("copy");
-          success = true;
-        } catch (err) {
-          console.log("execCommand failed", err);
+          success = document.execCommand("copy");
+        } catch {
+          // Fall through
         }
       }
 
-      // Method 3: Manual textarea manipulation (for older browsers)
+      // Method 3: Temporary textarea for older browsers / iOS
       if (!success) {
         const textarea = document.createElement("textarea");
         textarea.value = text;
@@ -147,40 +144,21 @@ export default function CodeBlock({ children, className, ...props }) {
         }
 
         try {
-          document.execCommand("copy");
-          success = true;
-        } catch (err) {
-          console.log("Final fallback failed", err);
+          success = document.execCommand("copy");
+        } catch {
+          // Ignore
         }
-
         document.body.removeChild(textarea);
       }
 
-      // Show success UI regardless (provide good UX even if it failed)
-      setCopied(true);
-      setShowToast(true);
-
-      // Reset states
-      setTimeout(() => {
-        setCopied(false);
-      }, 2000);
-
-      setTimeout(() => {
-        setShowToast(false);
-      }, 2000);
-    } catch (err) {
-      console.error("Failed to copy text: ", err);
-    }
-  };
-
-  const handleCopy = async () => {
-    const code = children?.props?.children || children;
-    const textToCopy = typeof code === "string" ? code : code?.toString() || "";
-
-    try {
-      await navigator.clipboard.writeText(textToCopy.trim());
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      if (success) {
+        setCopied(true);
+        setShowToast(true);
+        setTimeout(() => {
+          setCopied(false);
+          setShowToast(false);
+        }, 2000);
+      }
     } catch (err) {
       console.error("Failed to copy code:", err);
     }
@@ -189,54 +167,62 @@ export default function CodeBlock({ children, className, ...props }) {
   return (
     <div className="group relative">
       <pre className={className} {...props}>
-        <code className="code-highlight">{children}</code>
+        <code className="code-highlight" ref={codeRef}>
+          {children}
+        </code>
       </pre>
       <button
         aria-label="Copy code to clipboard"
-        className="absolute top-2 right-2 rounded bg-gray-700 p-2 text-white transition-opacity hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:hover:bg-gray-700"
+        className="absolute top-2 right-2 flex min-h-[44px] min-w-[44px] items-center justify-center rounded bg-gray-700 p-2 text-white transition-opacity hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:hover:bg-gray-700"
         onClick={handleCopy}
         ref={buttonRef}
         title={copied ? "Copied!" : "Copy code"}
         type="button"
       >
-        <div className="flex items-center">
+        <span className="flex items-center gap-1.5">
           {copied ? (
-            <svg
-              aria-hidden
-              className="h-5 w-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                clipRule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                fillRule="evenodd"
-              />
-            </svg>
+            <>
+              <svg
+                aria-hidden
+                className="h-5 w-5 shrink-0"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clipRule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  fillRule="evenodd"
+                />
+              </svg>
+              <span className="text-sm">Copied</span>
+            </>
           ) : (
-            <svg
-              aria-hidden
-              className="h-5 w-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" />
-              <path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" />
-            </svg>
+            <>
+              <svg
+                aria-hidden
+                className="h-5 w-5 shrink-0"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" />
+                <path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" />
+              </svg>
+              <span className="text-sm">Copy</span>
+            </>
           )}
-          <span className="ml-1 hidden text-sm sm:inline">
-            {copied ? "Copied!" : "Copy"}
-          </span>
-        </div>
+        </span>
       </button>
 
-      {/* Toast notification - only visible on mobile */}
+      {/* Toast so "Copied" is visible on small screens where button label can be tight */}
       {showToast && (
-        <div className="absolute top-2 right-16 animate-fade-in-out rounded-md bg-green-600 px-3 py-1 font-medium text-sm text-white shadow-md sm:hidden">
-          Copied!
-        </div>
+        <output
+          aria-live="polite"
+          className="absolute top-2 right-16 animate-fade-in-out rounded-md bg-green-600 px-3 py-1.5 font-medium text-sm text-white shadow-md"
+        >
+          Copied
+        </output>
       )}
     </div>
   );

@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="mb-4 flex items-center space-x-4 sm:mb-0">
             <a
               aria-label="X profile"
-              className="p-2 transition-colors hover:text-smalt-600 dark:hover:text-smalt-400"
+              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center p-2 transition-colors hover:text-smalt-600 focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2 dark:hover:text-smalt-400"
               href="https://twitter.com/varun1_yadav"
               rel="noopener noreferrer"
               target="_blank"
@@ -19,7 +19,7 @@ const Footer = () => {
             </a>
             <a
               aria-label="GitHub profile"
-              className="p-2 transition-colors hover:text-smalt-600 dark:hover:text-smalt-400"
+              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center p-2 transition-colors hover:text-smalt-600 focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2 dark:hover:text-smalt-400"
               href="https://github.com/varunyn"
               rel="noopener noreferrer"
               target="_blank"

@@ -269,12 +269,10 @@ const NowClient = ({ timelineEntries }) => {
                           const dateStr = `${monthName} ${currentDate.getDate()}, ${currentDate.getFullYear()}`;
                           const tooltipText = `${dayName}, ${dateStr}`;
 
-                          // Check if this date has actual data
-                          let bgColor = "#f0f0f0"; // Light gray for no data
-
-                          if (hasDataForDate(currentDate)) {
-                            bgColor = "#52525b"; // Dark gray for days with actual data
-                          }
+                          const hasData = hasDataForDate(currentDate);
+                          const cellClasses = hasData
+                            ? "bg-gray-600 border border-gray-500/30 dark:bg-gray-500 dark:border-gray-400/30"
+                            : "bg-gray-200 border border-gray-300/20 dark:bg-gray-600 dark:border-gray-500/20";
 
                           const handleMouseEnter = (e) => {
                             const rect = e.target.getBoundingClientRect();
@@ -325,23 +323,15 @@ const NowClient = ({ timelineEntries }) => {
 
                           return (
                             <div
-                              className={`h-3 w-3 rounded-sm transition-all ${
-                                hasDataForDate(currentDate)
+                              className={`h-3 w-3 rounded-sm transition-all ${cellClasses} ${
+                                hasData
                                   ? "cursor-pointer hover:ring-2 hover:ring-blue-400"
                                   : "cursor-default hover:ring-1 hover:ring-gray-400"
                               }`}
                               key={dayIndex}
-                              onClick={
-                                hasDataForDate(currentDate)
-                                  ? handleClick
-                                  : undefined
-                              }
+                              onClick={hasData ? handleClick : undefined}
                               onMouseEnter={handleMouseEnter}
                               onMouseLeave={handleMouseLeave}
-                              style={{
-                                backgroundColor: bgColor,
-                                border: "0.5px solid rgba(0, 0, 0, 0.08)",
-                              }}
                             />
                           );
                         })}

@@ -45,28 +45,28 @@ export default function About() {
             {/* Social Links */}
             <div className="mb-6 flex flex-wrap justify-center gap-3">
               <Link
-                className="flex items-center space-x-1 rounded-lg bg-black px-3 py-1.5 text-sm text-white shadow-md transition-colors hover:bg-gray-800 hover:shadow-lg"
+                className="inline-flex min-h-[44px] items-center space-x-1 rounded-lg bg-black px-4 py-2.5 text-sm text-white shadow-md transition-colors hover:bg-gray-800 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2"
                 href="https://twitter.com/varun1_yadav"
               >
                 <FaSquareXTwitter className="h-4 w-4" />
                 <span>X</span>
               </Link>
               <Link
-                className="flex items-center space-x-1 rounded-lg bg-smalt-700 px-3 py-1.5 text-sm text-white shadow-md transition-colors hover:bg-smalt-800 hover:shadow-lg"
+                className="inline-flex min-h-[44px] items-center space-x-1 rounded-lg bg-smalt-700 px-4 py-2.5 text-sm text-white shadow-md transition-colors hover:bg-smalt-800 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2"
                 href="https://www.linkedin.com/in/varuncs/"
               >
                 <FaLinkedin className="h-4 w-4" />
                 <span>LinkedIn</span>
               </Link>
               <Link
-                className="flex items-center space-x-1 rounded-lg bg-gray-800 px-3 py-1.5 text-sm text-white shadow-md transition-colors hover:bg-gray-900 hover:shadow-lg"
+                className="inline-flex min-h-[44px] items-center space-x-1 rounded-lg bg-gray-800 px-4 py-2.5 text-sm text-white shadow-md transition-colors hover:bg-gray-900 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2"
                 href="https://github.com/varunyn"
               >
                 <FaGithub className="h-4 w-4" />
                 <span>GitHub</span>
               </Link>
               <Link
-                className="flex items-center space-x-1 rounded-lg bg-green-600 px-3 py-1.5 text-sm text-white shadow-md transition-colors hover:bg-green-700 hover:shadow-lg"
+                className="inline-flex min-h-[44px] items-center space-x-1 rounded-lg bg-green-600 px-4 py-2.5 text-sm text-white shadow-md transition-colors hover:bg-green-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2"
                 href="mailto:hi@varunyadav.com"
               >
                 <FaEnvelope className="h-4 w-4" />

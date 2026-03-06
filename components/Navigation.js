@@ -100,7 +100,7 @@ const Navigation = ({ searchPosts = [] }) => {
               {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
                 <a
                   aria-label={label}
-                  className="rounded-md p-2 transition-colors hover:bg-gray-100 hover:text-smalt-600 dark:hover:bg-gray-800 dark:hover:text-smalt-400"
+                  className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md p-2 transition-colors hover:bg-gray-100 hover:text-smalt-600 focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2 dark:hover:bg-gray-800 dark:hover:text-smalt-400"
                   href={href}
                   key={label}
                   rel={
@@ -116,7 +116,7 @@ const Navigation = ({ searchPosts = [] }) => {
             {/* Dark Mode Toggle */}
             <button
               aria-label="Toggle Dark Mode"
-              className="rounded-full p-2 focus:outline-none"
+              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               type="button"
             >
@@ -153,7 +153,7 @@ const Navigation = ({ searchPosts = [] }) => {
             {/* Dark Mode Toggle for Mobile */}
             <button
               aria-label="Toggle Dark Mode"
-              className="mr-2 rounded-full p-2 focus:outline-none"
+              className="mr-2 inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               type="button"
             >
@@ -187,7 +187,7 @@ const Navigation = ({ searchPosts = [] }) => {
             {/* Hamburger Menu Button - Only show on mobile */}
             <button
               aria-expanded={isMenuOpen}
-              className="inline-flex items-center justify-center rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-black focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-black focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               type="button"
             >
@@ -285,7 +285,7 @@ const Navigation = ({ searchPosts = [] }) => {
               {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
                 <a
                   aria-label={label}
-                  className="rounded-md p-2 text-gray-700 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                  className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md p-2 text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2 dark:text-gray-300 dark:hover:bg-gray-800"
                   href={href}
                   key={label}
                   rel={
