@@ -1,8 +1,10 @@
-const { promises: fs } = require("node:fs");
-const path = require("node:path");
-const { Feed } = require("feed");
-const matter = require("gray-matter");
+import { promises as fs } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { Feed } from "feed";
+import matter from "gray-matter";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const EXT_REGEX = /\.mdx?/;
 
 async function generate() {
@@ -27,15 +29,15 @@ async function generate() {
     },
   });
 
-  const posts = await fs.readdir(
-    path.join(import.meta.dirname, "..", "data", "blog")
-  );
+  const blogDir = path.join(__dirname, "..", "data", "blog");
+  const entries = await fs.readdir(blogDir, { withFileTypes: true });
+  const posts = entries
+    .filter((e) => e.isFile() && e.name.endsWith(".mdx"))
+    .map((e) => e.name);
 
   await Promise.all(
     posts.map(async (name) => {
-      const content = await fs.readFile(
-        path.join(import.meta.dirname, "..", "data", "blog", name)
-      );
+      const content = await fs.readFile(path.join(blogDir, name), "utf8");
       const frontmatter = matter(content);
 
       feed.addItem({
