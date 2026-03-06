@@ -1,10 +1,9 @@
 1:"$Sreact.fragment"
-2:I[64251,["/_next/static/chunks/44ad015b01eca725.js","/_next/static/chunks/e26b3c93cb2df2b2.js","/_next/static/chunks/81d66b1941703c1d.js","/_next/static/chunks/ba89dd08916c27b0.js","/_next/static/chunks/d33145fb1b08144d.js"],"default"]
-b:I[80627,["/_next/static/chunks/44ad015b01eca725.js","/_next/static/chunks/e26b3c93cb2df2b2.js","/_next/static/chunks/81d66b1941703c1d.js","/_next/static/chunks/ba89dd08916c27b0.js","/_next/static/chunks/d33145fb1b08144d.js"],"default"]
-c:I[33558,["/_next/static/chunks/44ad015b01eca725.js","/_next/static/chunks/e26b3c93cb2df2b2.js","/_next/static/chunks/81d66b1941703c1d.js","/_next/static/chunks/ba89dd08916c27b0.js","/_next/static/chunks/d33145fb1b08144d.js"],"default"]
-d:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
-e:"$Sreact.suspense"
-:HL["/_next/static/chunks/42ba2c175c46b974.css","style"]
+2:I[94497,["/_next/static/chunks/44ad015b01eca725.js","/_next/static/chunks/e26b3c93cb2df2b2.js","/_next/static/chunks/3d597ac6ec3e783c.js","/_next/static/chunks/afe634757f5d8cab.js"],"default"]
+9:I[29538,["/_next/static/chunks/44ad015b01eca725.js","/_next/static/chunks/e26b3c93cb2df2b2.js","/_next/static/chunks/3d597ac6ec3e783c.js","/_next/static/chunks/afe634757f5d8cab.js"],"default"]
+a:I[73478,["/_next/static/chunks/44ad015b01eca725.js","/_next/static/chunks/e26b3c93cb2df2b2.js","/_next/static/chunks/3d597ac6ec3e783c.js","/_next/static/chunks/afe634757f5d8cab.js"],"default"]
+b:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
 3:T22d9,<ul>
 <li>We can do this by creating our own chrome extension with shortcuts for the URLs that we want to open.</li>
 <li>Create manifest.json and background.js files in same folder.</li>
@@ -93,11 +92,9 @@ e:"$Sreact.suspense"
 <li>Within chrome, type <code>chrome://extensions</code> in the address bar and activate developer mode on the top right (switch).</li>
 <li>Click on the Load unpacked button that appeared and select your folder containing the files.</li>
 <li>Now press <code>ctrl+g</code> on keyboard and it will open google in new tab.</li>
-</ul>0:{"buildId":"VS52ounmvOLDjhV0qHYyC","rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"How to open URL in new tab using keyboard shortcut\",\"description\":\"How to open URL in new tab using keyboard shortcut\",\"datePublished\":\"2021-06-23T00:00:00.000Z\",\"dateModified\":\"2021-06-23T00:00:00.000Z\",\"author\":{\"@type\":\"Person\",\"name\":\"Varun Yadav\",\"url\":\"https://varunyadav.com\"},\"publisher\":{\"@type\":\"Person\",\"name\":\"Varun Yadav\",\"url\":\"https://varunyadav.com\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://til.varunyadav.com/blog/open-url-with-keyboard-shortcut-in-chrome\"},\"keywords\":\"chrome, 🌿\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://til.varunyadav.com\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://til.varunyadav.com/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"How to open URL in new tab using keyboard shortcut\",\"item\":\"https://til.varunyadav.com/blog/open-url-with-keyboard-shortcut-in-chrome\"}]}"}}],["$","$L2",null,{"post":{"title":"How to open URL in new tab using keyboard shortcut","date":"2021-06-23T00:00:00.000Z","desc":"How to open URL in new tab using keyboard shortcut","tags":["chrome","🌿"],"readingTime":{"text":"1 min read","minutes":1,"time":60000,"words":149},"content":"$3","slug":"open-url-with-keyboard-shortcut-in-chrome"},"htmlContent":"$4"}],"$L5","$L6"],["$L7","$L8","$L9"],"$La"]}],"loading":null,"isPartial":false}
-5:["$","$Lb",null,{}]
-6:["$","$Lc",null,{"slug":"open-url-with-keyboard-shortcut-in-chrome"}]
-7:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/42ba2c175c46b974.css","precedence":"next"}]
-8:["$","script","script-0",{"src":"/_next/static/chunks/ba89dd08916c27b0.js","async":true}]
-9:["$","script","script-1",{"src":"/_next/static/chunks/d33145fb1b08144d.js","async":true}]
-a:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
-f:null
+</ul>0:{"buildId":"egK3voS7NRLJdF5EFfIrR","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"How to open URL in new tab using keyboard shortcut\",\"description\":\"How to open URL in new tab using keyboard shortcut\",\"datePublished\":\"2021-06-23T00:00:00.000Z\",\"dateModified\":\"2021-06-23T00:00:00.000Z\",\"author\":{\"@type\":\"Person\",\"name\":\"Varun Yadav\",\"url\":\"https://varunyadav.com\"},\"publisher\":{\"@type\":\"Person\",\"name\":\"Varun Yadav\",\"url\":\"https://varunyadav.com\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://til.varunyadav.com/blog/open-url-with-keyboard-shortcut-in-chrome\"},\"keywords\":\"chrome, 🌿\"}"},"type":"application/ld+json"}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://til.varunyadav.com\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://til.varunyadav.com/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"How to open URL in new tab using keyboard shortcut\",\"item\":\"https://til.varunyadav.com/blog/open-url-with-keyboard-shortcut-in-chrome\"}]}"},"type":"application/ld+json"}],["$","$L2",null,{"htmlContent":"$3","post":{"title":"How to open URL in new tab using keyboard shortcut","date":"2021-06-23T00:00:00.000Z","desc":"How to open URL in new tab using keyboard shortcut","tags":["chrome","🌿"],"readingTime":{"text":"1 min read","minutes":1,"time":60000,"words":149},"content":"$4","slug":"open-url-with-keyboard-shortcut-in-chrome"}}],"$L5","$L6"],["$L7"],"$L8"]}],"loading":null,"isPartial":false}
+5:["$","$L9",null,{}]
+6:["$","$La",null,{"slug":"open-url-with-keyboard-shortcut-in-chrome"}]
+7:["$","script","script-0",{"src":"/_next/static/chunks/afe634757f5d8cab.js","async":true}]
+8:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

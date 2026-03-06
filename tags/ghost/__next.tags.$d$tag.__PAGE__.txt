@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[82647,["/_next/static/chunks/44ad015b01eca725.js","/_next/static/chunks/e26b3c93cb2df2b2.js","/_next/static/chunks/81d66b1941703c1d.js","/_next/static/chunks/3a058444f8788277.js","/_next/static/chunks/607aa0e1c1234544.js"],"default"]
+2:I[81751,["/_next/static/chunks/44ad015b01eca725.js","/_next/static/chunks/e26b3c93cb2df2b2.js","/_next/static/chunks/3d597ac6ec3e783c.js","/_next/static/chunks/8d27779dd9928d51.js","/_next/static/chunks/b5673a2b3e11a094.js"],"default"]
 4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
 5:"$Sreact.suspense"
 3:T538,
@@ -36,5 +36,5 @@ npm install
 ```
 
 Make sure to replace path-to with the actual path to your local ghost-mcp directory.
-0:{"buildId":"VS52ounmvOLDjhV0qHYyC","rsc":["$","$1","c",{"children":[["$","$L2",null,{"posts":[{"title":"Using Ghost mcp in Cursor","date":"2025-06-10T00:00:00.000Z","desc":null,"tags":["ghost","🌿"],"content":"$3","slug":"ghost-mcp"},{"title":"Using prismjs in ghost","date":"2021-07-06T00:00:00.000Z","desc":null,"tags":["ghost","🌿"],"content":"\nhttps://www.pixelite.co.nz/article/add-prismjs-to-ghost/\n","slug":"add-prism-to-ghost"}],"tag":"ghost"}],[["$","script","script-0",{"src":"/_next/static/chunks/3a058444f8788277.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/607aa0e1c1234544.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"egK3voS7NRLJdF5EFfIrR","rsc":["$","$1","c",{"children":[["$","$L2",null,{"posts":[{"title":"Using Ghost mcp in Cursor","date":"2025-06-10T00:00:00.000Z","desc":null,"tags":["ghost","🌿"],"content":"$3","slug":"ghost-mcp"},{"title":"Using prismjs in ghost","date":"2021-07-06T00:00:00.000Z","desc":null,"tags":["ghost","🌿"],"content":"\nhttps://www.pixelite.co.nz/article/add-prismjs-to-ghost/\n","slug":"add-prism-to-ghost"}],"tag":"ghost"}],[["$","script","script-0",{"src":"/_next/static/chunks/8d27779dd9928d51.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/b5673a2b3e11a094.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"loading":null,"isPartial":false}
 6:null
