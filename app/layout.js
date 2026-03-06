@@ -34,6 +34,13 @@ export default async function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <link
+          as="font"
+          crossOrigin="anonymous"
+          href="/fonts/inter-var-latin.woff2"
+          rel="preload"
+          type="font/woff2"
+        />
+        <link
           href="/feed.xml"
           rel="alternate"
           title="RSS Feed"

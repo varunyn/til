@@ -3,7 +3,6 @@
 import { Link } from "next-view-transitions";
 import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaCalendar, FaTags } from "react-icons/fa6";
-import { Tweet } from "react-tweet";
 import { copyToClipboard } from "@/lib/clipboard";
 
 const TWEET_PLACEHOLDER_REGEX =
@@ -70,8 +69,8 @@ export default function BlogPostClient({ post, htmlContent }) {
         if (container && !container.dataset.rendered) {
           container.dataset.rendered = "true";
 
-          import("react-dom/client")
-            .then(({ createRoot }) => {
+          Promise.all([import("react-dom/client"), import("react-tweet")])
+            .then(([{ createRoot }, { Tweet }]) => {
               const root = createRoot(container);
               root.render(<Tweet id={tweet.id} />);
             })

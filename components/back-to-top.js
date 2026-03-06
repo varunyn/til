@@ -1,18 +1,28 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export default function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const rafId = useRef(null);
 
   const toggleVisibility = useCallback(() => {
-    setIsVisible(window.pageYOffset > 300);
+    if (rafId.current != null) {
+      cancelAnimationFrame(rafId.current);
+    }
+    rafId.current = requestAnimationFrame(() => {
+      rafId.current = null;
+      setIsVisible(window.scrollY > 300);
+    });
   }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
     return () => {
       window.removeEventListener("scroll", toggleVisibility);
+      if (rafId.current != null) {
+        cancelAnimationFrame(rafId.current);
+      }
     };
   }, [toggleVisibility]);
 
