@@ -58,9 +58,12 @@ export default function BlogPostClient({ post, htmlContent }) {
     return { __html: finalContent };
   };
 
-  // Render tweets after content is mounted
+  // Render tweets after content is mounted (defer so container is in DOM after innerHTML update)
   useEffect(() => {
-    if (tweets.length > 0 && isLoaded) {
+    if (tweets.length === 0 || !isLoaded) {
+      return;
+    }
+    const raf = requestAnimationFrame(() => {
       for (const tweet of tweets) {
         const container = document.querySelector(
           `.tweet-container-${tweet.index}`
@@ -79,7 +82,8 @@ export default function BlogPostClient({ post, htmlContent }) {
             });
         }
       }
-    }
+    });
+    return () => cancelAnimationFrame(raf);
   }, [tweets, isLoaded]);
 
   // Build table of contents from headings (rehype-slug adds id to h2/h3)
