@@ -1,10 +1,10 @@
 1:"$Sreact.fragment"
-2:I[94497,["/_next/static/chunks/44ad015b01eca725.js","/_next/static/chunks/e26b3c93cb2df2b2.js","/_next/static/chunks/3d597ac6ec3e783c.js","/_next/static/chunks/26b0503ab128c5d8.js"],"default"]
-9:I[29538,["/_next/static/chunks/44ad015b01eca725.js","/_next/static/chunks/e26b3c93cb2df2b2.js","/_next/static/chunks/3d597ac6ec3e783c.js","/_next/static/chunks/26b0503ab128c5d8.js"],"default"]
-a:I[73478,["/_next/static/chunks/44ad015b01eca725.js","/_next/static/chunks/e26b3c93cb2df2b2.js","/_next/static/chunks/3d597ac6ec3e783c.js","/_next/static/chunks/26b0503ab128c5d8.js"],"default"]
+2:I[94497,["/_next/static/chunks/44ad015b01eca725.js","/_next/static/chunks/e26b3c93cb2df2b2.js","/_next/static/chunks/a19fe9899b4fdfc0.js","/_next/static/chunks/32fb513d2d33d48b.js"],"default"]
+9:I[29538,["/_next/static/chunks/44ad015b01eca725.js","/_next/static/chunks/e26b3c93cb2df2b2.js","/_next/static/chunks/a19fe9899b4fdfc0.js","/_next/static/chunks/32fb513d2d33d48b.js"],"default"]
+a:I[73478,["/_next/static/chunks/44ad015b01eca725.js","/_next/static/chunks/e26b3c93cb2df2b2.js","/_next/static/chunks/a19fe9899b4fdfc0.js","/_next/static/chunks/32fb513d2d33d48b.js"],"default"]
 b:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
 c:"$Sreact.suspense"
-3:Tff5,<p><em>Updated on 2022-05-25</em></p>
+3:Tff7,<p><em>Updated on 2022-05-25</em></p>
 <h3 id="how-to-setup-new-macbook">How to setup new MacBook</h3>
 <p>Automation script for new mac.</p>
 <ul>
@@ -12,7 +12,7 @@ c:"$Sreact.suspense"
 </ul>
 <div class="relative group"><pre class="language-shell"><code class="language-shell code-highlight"><span class="code-line"><span class="token function">curl</span> --remote-name https://raw.githubusercontent.com/varunyn/laptop/master/mac
 </span><span class="code-line"><span class="token function">sh</span> mac <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&#x26;1</span> <span class="token operator">|</span> <span class="token function">tee</span> ~/laptop.log
-</span></code></pre><button class="copy-button absolute top-2 right-2 bg-gray-700 hover:bg-gray-600 text-white dark:bg-gray-800 dark:hover:bg-gray-700 rounded p-2 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Copy code to clipboard" title="Copy code"><div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"></path><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"></path></svg><span class="ml-1 text-sm hidden sm:inline">Copy</span></div></button></div>
+</span></code></pre><button class="copy-button absolute top-2 right-2 bg-gray-700 hover:bg-gray-600 text-white dark:bg-gray-800 dark:hover:bg-gray-700 rounded p-2 transition-opacity focus:outline-none focus:ring-2 focus:ring-sorbus-500" aria-label="Copy code to clipboard" title="Copy code"><div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"></path><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"></path></svg><span class="ml-1 text-sm hidden sm:inline">Copy</span></div></button></div>
 <h3 id="apps">Apps</h3>
 <ul>
 <li>Zoom: <a href="https://zoom.us/download">https://zoom.us/download</a> - Video meetings</li>
@@ -43,7 +43,7 @@ c:"$Sreact.suspense"
 <li><a href="https://sourabhbajaj.com/mac-setup/">https://sourabhbajaj.com/mac-setup/</a></li>
 <li><a href="https://www.swyx.io/new-mac-setup">https://www.swyx.io/new-mac-setup</a></li>
 <li><a href="https://freek.dev/uses">https://freek.dev/uses</a></li>
-</ul>4:Tff5,<p><em>Updated on 2022-05-25</em></p>
+</ul>4:Tff7,<p><em>Updated on 2022-05-25</em></p>
 <h3 id="how-to-setup-new-macbook">How to setup new MacBook</h3>
 <p>Automation script for new mac.</p>
 <ul>
@@ -51,7 +51,7 @@ c:"$Sreact.suspense"
 </ul>
 <div class="relative group"><pre class="language-shell"><code class="language-shell code-highlight"><span class="code-line"><span class="token function">curl</span> --remote-name https://raw.githubusercontent.com/varunyn/laptop/master/mac
 </span><span class="code-line"><span class="token function">sh</span> mac <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&#x26;1</span> <span class="token operator">|</span> <span class="token function">tee</span> ~/laptop.log
-</span></code></pre><button class="copy-button absolute top-2 right-2 bg-gray-700 hover:bg-gray-600 text-white dark:bg-gray-800 dark:hover:bg-gray-700 rounded p-2 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Copy code to clipboard" title="Copy code"><div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"></path><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"></path></svg><span class="ml-1 text-sm hidden sm:inline">Copy</span></div></button></div>
+</span></code></pre><button class="copy-button absolute top-2 right-2 bg-gray-700 hover:bg-gray-600 text-white dark:bg-gray-800 dark:hover:bg-gray-700 rounded p-2 transition-opacity focus:outline-none focus:ring-2 focus:ring-sorbus-500" aria-label="Copy code to clipboard" title="Copy code"><div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z"></path><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z"></path></svg><span class="ml-1 text-sm hidden sm:inline">Copy</span></div></button></div>
 <h3 id="apps">Apps</h3>
 <ul>
 <li>Zoom: <a href="https://zoom.us/download">https://zoom.us/download</a> - Video meetings</li>
@@ -82,9 +82,9 @@ c:"$Sreact.suspense"
 <li><a href="https://sourabhbajaj.com/mac-setup/">https://sourabhbajaj.com/mac-setup/</a></li>
 <li><a href="https://www.swyx.io/new-mac-setup">https://www.swyx.io/new-mac-setup</a></li>
 <li><a href="https://freek.dev/uses">https://freek.dev/uses</a></li>
-</ul>0:{"buildId":"8tlLeqtvXGuVeBcIibMCE","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"macOS Tools\",\"description\":\"macOS tools I use\",\"datePublished\":\"2021-06-29T00:00:00.000Z\",\"dateModified\":\"2021-06-29T00:00:00.000Z\",\"author\":{\"@type\":\"Person\",\"name\":\"Varun Yadav\",\"url\":\"https://varunyadav.com\"},\"publisher\":{\"@type\":\"Person\",\"name\":\"Varun Yadav\",\"url\":\"https://varunyadav.com\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://til.varunyadav.com/blog/mac-tools\"},\"keywords\":\"🌱, macOS\"}"},"type":"application/ld+json"}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://til.varunyadav.com\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://til.varunyadav.com/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"macOS Tools\",\"item\":\"https://til.varunyadav.com/blog/mac-tools\"}]}"},"type":"application/ld+json"}],["$","$L2",null,{"htmlContent":"$3","post":{"title":"macOS Tools","date":"2021-06-29T00:00:00.000Z","desc":"macOS tools I use","tags":["🌱","macOS"],"readingTime":{"text":"1 min read","minutes":1,"time":60000,"words":126},"content":"$4","slug":"mac-tools"}}],"$L5","$L6"],["$L7"],"$L8"]}],"loading":null,"isPartial":false}
+</ul>0:{"buildId":"bnZPERVydJemzLcsgDoN1","rsc":["$","$1","c",{"children":[[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"macOS Tools\",\"description\":\"macOS tools I use\",\"datePublished\":\"2021-06-29T00:00:00.000Z\",\"dateModified\":\"2021-06-29T00:00:00.000Z\",\"author\":{\"@type\":\"Person\",\"name\":\"Varun Yadav\",\"url\":\"https://varunyadav.com\"},\"publisher\":{\"@type\":\"Person\",\"name\":\"Varun Yadav\",\"url\":\"https://varunyadav.com\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://til.varunyadav.com/blog/mac-tools\"},\"keywords\":\"🌱, macOS\"}"},"type":"application/ld+json"}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://til.varunyadav.com\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://til.varunyadav.com/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"macOS Tools\",\"item\":\"https://til.varunyadav.com/blog/mac-tools\"}]}"},"type":"application/ld+json"}],["$","$L2",null,{"htmlContent":"$3","post":{"title":"macOS Tools","date":"2021-06-29T00:00:00.000Z","desc":"macOS tools I use","tags":["🌱","macOS"],"readingTime":{"text":"1 min read","minutes":1,"time":60000,"words":126},"content":"$4","slug":"mac-tools"}}],"$L5","$L6"],["$L7"],"$L8"]}],"loading":null,"isPartial":false}
 5:["$","$L9",null,{}]
 6:["$","$La",null,{"slug":"mac-tools"}]
-7:["$","script","script-0",{"src":"/_next/static/chunks/26b0503ab128c5d8.js","async":true}]
+7:["$","script","script-0",{"src":"/_next/static/chunks/32fb513d2d33d48b.js","async":true}]
 8:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
 d:null
