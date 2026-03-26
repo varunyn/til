@@ -19,15 +19,6 @@
       }
     },
     {
-      "includes": ["components/code-block.js"],
-      "linter": {
-        "rules": {
-          "complexity": { "noExcessiveCognitiveComplexity": "off" },
-          "a11y": { "noSvgWithoutTitle": "off" }
-        }
-      }
-    },
-    {
       "includes": [
         "components/back-to-top.js",
         "components/blog.js",
