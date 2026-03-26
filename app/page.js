@@ -8,8 +8,8 @@ export const metadata = {
   canonical: "https://til.varunyadav.com",
 };
 
-export default async function Home() {
-  const allPosts = await getAllPosts("blog");
+export default function Home() {
+  const allPosts = getAllPosts("blog");
 
   return <HomeClient allPosts={allPosts} />;
 }

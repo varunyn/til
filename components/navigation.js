@@ -39,7 +39,7 @@ const Navigation = ({ searchPosts = [] }) => {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-50 border-gray-200/50 border-b bg-white/80 shadow-sm backdrop-blur-md dark:border-gray-700/50 dark:bg-darkgrey/80">
+    <nav className="sticky top-0 z-50 border-gray-200/50 border-b bg-page-bg/90 shadow-sm backdrop-blur-md dark:border-gray-700/50 dark:bg-darkgrey/90">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo/Site Title */}
@@ -56,17 +56,17 @@ const Navigation = ({ searchPosts = [] }) => {
           <div className="hidden md:flex md:items-center md:space-x-6">
             <Search posts={searchPosts} />
             <Link
-              className={`px-3 py-2 font-medium text-sm hover:text-smalt-600 dark:text-whitedarktheme dark:hover:text-smalt-400 ${
-                pathname === "/" ? "text-smalt-600 dark:text-smalt-400" : ""
+              className={`px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
+                pathname === "/" ? "text-sorbus-600 dark:text-sorbus-400" : ""
               }`}
               href="/"
             >
               Home
             </Link>
             <Link
-              className={`px-3 py-2 font-medium text-sm hover:text-smalt-600 dark:text-whitedarktheme dark:hover:text-smalt-400 ${
+              className={`px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
                 pathname.startsWith("/tags")
-                  ? "text-smalt-600 dark:text-smalt-400"
+                  ? "text-sorbus-600 dark:text-sorbus-400"
                   : ""
               }`}
               href="/tags"
@@ -74,9 +74,9 @@ const Navigation = ({ searchPosts = [] }) => {
               Tags
             </Link>
             <Link
-              className={`px-3 py-2 font-medium text-sm hover:text-smalt-600 dark:text-whitedarktheme dark:hover:text-smalt-400 ${
+              className={`px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
                 pathname === "/about"
-                  ? "text-smalt-600 dark:text-smalt-400"
+                  ? "text-sorbus-600 dark:text-sorbus-400"
                   : ""
               }`}
               href="/about"
@@ -84,8 +84,10 @@ const Navigation = ({ searchPosts = [] }) => {
               About
             </Link>
             <Link
-              className={`px-3 py-2 font-medium text-sm hover:text-smalt-600 dark:text-whitedarktheme dark:hover:text-smalt-400 ${
-                pathname === "/now" ? "text-smalt-600 dark:text-smalt-400" : ""
+              className={`px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
+                pathname === "/now"
+                  ? "text-sorbus-600 dark:text-sorbus-400"
+                  : ""
               }`}
               href="/now"
             >
@@ -100,7 +102,7 @@ const Navigation = ({ searchPosts = [] }) => {
               {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
                 <a
                   aria-label={label}
-                  className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md p-2 transition-colors hover:bg-gray-100 hover:text-smalt-600 focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2 dark:hover:bg-gray-800 dark:hover:text-smalt-400"
+                  className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md p-2 transition-colors hover:bg-gray-100 hover:text-sorbus-600 focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2 dark:hover:bg-gray-800 dark:hover:text-sorbus-400"
                   href={href}
                   key={label}
                   rel={
@@ -116,7 +118,7 @@ const Navigation = ({ searchPosts = [] }) => {
             {/* Dark Mode Toggle */}
             <button
               aria-label="Toggle Dark Mode"
-              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2"
+              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               type="button"
             >
@@ -155,7 +157,7 @@ const Navigation = ({ searchPosts = [] }) => {
             {/* Dark Mode Toggle for Mobile */}
             <button
               aria-label="Toggle Dark Mode"
-              className="mr-2 inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2"
+              className="mr-2 inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               type="button"
             >
@@ -191,7 +193,7 @@ const Navigation = ({ searchPosts = [] }) => {
             {/* Hamburger Menu Button - Only show on mobile */}
             <button
               aria-expanded={isMenuOpen}
-              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-black focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-black focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               type="button"
             >
@@ -243,7 +245,7 @@ const Navigation = ({ searchPosts = [] }) => {
           <Link
             className={`block rounded-md px-3 py-2 font-medium text-base ${
               pathname === "/"
-                ? "bg-smalt-50 text-smalt-600 dark:bg-smalt-900 dark:text-smalt-300"
+                ? "bg-sorbus-50 text-sorbus-600 dark:bg-sorbus-900 dark:text-sorbus-300"
                 : "text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
             }`}
             href="/"
@@ -253,7 +255,7 @@ const Navigation = ({ searchPosts = [] }) => {
           <Link
             className={`block rounded-md px-3 py-2 font-medium text-base ${
               pathname.startsWith("/tags")
-                ? "bg-smalt-50 text-smalt-600 dark:bg-smalt-900 dark:text-smalt-300"
+                ? "bg-sorbus-50 text-sorbus-600 dark:bg-sorbus-900 dark:text-sorbus-300"
                 : "text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
             }`}
             href="/tags"
@@ -263,7 +265,7 @@ const Navigation = ({ searchPosts = [] }) => {
           <Link
             className={`block rounded-md px-3 py-2 font-medium text-base ${
               pathname === "/about"
-                ? "bg-smalt-50 text-smalt-600 dark:bg-smalt-900 dark:text-smalt-300"
+                ? "bg-sorbus-50 text-sorbus-600 dark:bg-sorbus-900 dark:text-sorbus-300"
                 : "text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
             }`}
             href="/about"
@@ -273,7 +275,7 @@ const Navigation = ({ searchPosts = [] }) => {
           <Link
             className={`block rounded-md px-3 py-2 font-medium text-base ${
               pathname === "/now"
-                ? "bg-smalt-50 text-smalt-600 dark:bg-smalt-900 dark:text-smalt-300"
+                ? "bg-sorbus-50 text-sorbus-600 dark:bg-sorbus-900 dark:text-sorbus-300"
                 : "text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
             }`}
             href="/now"
@@ -289,7 +291,7 @@ const Navigation = ({ searchPosts = [] }) => {
               {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
                 <a
                   aria-label={label}
-                  className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md p-2 text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2 dark:text-gray-300 dark:hover:bg-gray-800"
+                  className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md p-2 text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2 dark:text-gray-300 dark:hover:bg-gray-800"
                   href={href}
                   key={label}
                   rel={

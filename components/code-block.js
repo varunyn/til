@@ -173,7 +173,7 @@ export default function CodeBlock({ children, className, ...props }) {
       </pre>
       <button
         aria-label="Copy code to clipboard"
-        className="absolute top-2 right-2 flex min-h-[44px] min-w-[44px] items-center justify-center rounded bg-gray-700 p-2 text-white transition-opacity hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:hover:bg-gray-700"
+        className="absolute top-2 right-2 flex min-h-[44px] min-w-[44px] items-center justify-center rounded bg-gray-700 p-2 text-white transition-opacity hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-sorbus-500 dark:bg-gray-800 dark:hover:bg-gray-700"
         onClick={handleCopy}
         ref={buttonRef}
         title={copied ? "Copied!" : "Copy code"}

@@ -88,7 +88,7 @@ export default function Search({ posts = [] }) {
       <button
         aria-expanded={open}
         aria-haspopup="dialog"
-        className="flex min-h-[44px] w-full max-w-[14rem] items-center justify-start gap-2 rounded-xl border border-gray-200 bg-white/50 px-3 py-2.5 text-gray-500 text-sm placeholder-gray-500 shadow-sm backdrop-blur-sm transition-all duration-200 hover:border-gray-300 focus:border-smalt-500 focus:outline-none focus:ring-2 focus:ring-smalt-500 dark:border-gray-700 dark:bg-gray-800/50 dark:text-gray-400 dark:hover:border-gray-600"
+        className="flex min-h-[44px] w-full max-w-[14rem] items-center justify-start gap-2 rounded-xl border border-gray-200 bg-white/50 px-3 py-2.5 text-gray-500 text-sm placeholder-gray-500 shadow-sm backdrop-blur-sm transition-all duration-200 hover:border-gray-300 focus:border-sorbus-500 focus:outline-none focus:ring-2 focus:ring-sorbus-500 dark:border-gray-700 dark:bg-gray-800/50 dark:text-gray-400 dark:hover:border-gray-600"
         onClick={() => setOpen(true)}
         ref={triggerRef}
         type="button"

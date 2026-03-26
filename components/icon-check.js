@@ -2,7 +2,7 @@ function IconCheck() {
   return (
     <svg
       aria-hidden
-      className="h-4 w-4 text-green-500"
+      className="h-4 w-4 text-sorbus-600 dark:text-sorbus-400"
       fill="currentColor"
       viewBox="0 0 20 20"
     >

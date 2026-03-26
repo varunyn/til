@@ -2,26 +2,41 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  /* Fonts */
+  /* Sans/UI via next/font DM Sans (--font-heading); body uses --font-serif */
   --font-sans:
-    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    var(--font-heading), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif:
+    var(--font-body), ui-serif, Georgia, "Times New Roman", serif;
   --font-mono:
     "iA Quattro", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
 
-  /* Colors */
-  --color-smalt-50: #eef6ff;
-  --color-smalt-100: #d8eaff;
-  --color-smalt-200: #bad9ff;
-  --color-smalt-300: #8bc4ff;
-  --color-smalt-400: #54a2ff;
-  --color-smalt-500: #2d7dff;
-  --color-smalt-600: #165afa;
-  --color-smalt-700: #0f45e6;
-  --color-smalt-800: #1338ba;
-  --color-smalt-900: #15338e;
-  --color-smalt-950: #122159;
+  /* Sorbus (orange) — primary accent */
+  --color-sorbus-50: #fff7ed;
+  --color-sorbus-100: #ffeed5;
+  --color-sorbus-200: #fed8aa;
+  --color-sorbus-300: #fdbc74;
+  --color-sorbus-400: #fb953c;
+  --color-sorbus-500: #fa8128;
+  --color-sorbus-600: #eb5b0b;
+  --color-sorbus-700: #c2440c;
+  --color-sorbus-800: #9a3612;
+  --color-sorbus-900: #7c2e12;
+  --color-sorbus-950: #431507;
+
+  /* Legacy: `smalt-*` aliases → Sorbus (older class names in forks/snippets) */
+  --color-smalt-50: #fff7ed;
+  --color-smalt-100: #ffeed5;
+  --color-smalt-200: #fed8aa;
+  --color-smalt-300: #fdbc74;
+  --color-smalt-400: #fb953c;
+  --color-smalt-500: #fa8128;
+  --color-smalt-600: #eb5b0b;
+  --color-smalt-700: #c2440c;
+  --color-smalt-800: #9a3612;
+  --color-smalt-900: #7c2e12;
+  --color-smalt-950: #431507;
 
   --color-purple: #f5ebff;
   --color-darkPurple: #665ffa;
@@ -30,7 +45,11 @@
   --color-facebook: #4267b2; /* Updated to match last definition in config */
   --color-darkgrey: #222831;
   --color-whitedarktheme: #eeeeee;
-  --color-orange: #b55400;
+  --color-orange: #c2440c;
+
+  /* Page canvas — aligned with editorial “notes” pages (e.g. off-white, not pure #fff) */
+  --color-page-bg: #f1f2f3;
+  --color-page-fg: #202124;
 
   /* Animations */
   --animate-fade-in-out: fade-in-out 2s ease-in-out;
@@ -41,10 +60,10 @@
   --shadow-case: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   --shadow-case-hover:
     0 10px 28px rgba(0, 0, 0, 0.25), 0 8px 10px rgba(0, 0, 0, 0.22);
-  --shadow-link: inset 0 -4px 0 #6c63ff;
-  --shadow-link-hover: inset 0 -18px 0 #6c63ff;
-  --shadow-link-dark: inset 0 -4px 0 #b55400;
-  --shadow-link-dark-hover: inset 0 -18px 0 #b55400;
+  --shadow-link: inset 0 -4px 0 #fa8128;
+  --shadow-link-hover: inset 0 -18px 0 #eb5b0b;
+  --shadow-link-dark: inset 0 -4px 0 #c2440c;
+  --shadow-link-dark-hover: inset 0 -18px 0 #9a3612;
 
   /* Inset */
   --inset-timelineCircle: calc(50% - 0.5em);
@@ -74,29 +93,62 @@
 @media (max-width: 640px));
 @custom-variant dark (&:where(.dark, .dark *));
 
-@layer base {
-  @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: optional;
-    src: url(/fonts/inter-var-latin.woff2) format('woff2');
-    unicode-range:
-      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-      U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-      U+FEFF, U+FFFD;
-  }
+:root {
+  color-scheme: light;
+}
 
+html.dark {
+  color-scheme: dark;
+}
+
+@layer base {
   @font-face {
     font-family: 'iA Quattro';
     font-style: normal;
     font-weight: 100 900;
-    font-display: optional;
+    font-display: swap;
     src: url(/fonts/iAWriterQuattroS-Regular.woff2) format('woff2');
   }
 
   body {
-    @apply font-mono;
+    background-color: var(--color-page-bg);
+    color: var(--color-page-fg);
+    font-family: var(--font-serif);
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+
+  html.dark body {
+    background-color: theme("colors.darkgrey");
+    color: theme("colors.whitedarktheme");
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  nav,
+  footer {
+    font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(--font-mono), ui-monospace, monospace;
   }
 }
 
@@ -104,7 +156,7 @@
 .prose {
   --tw-prose-body: theme("colors.gray.700");
   --tw-prose-headings: theme("colors.black");
-  --tw-prose-links: theme("colors.smalt.500");
+  --tw-prose-links: theme("colors.sorbus.500");
   --tw-prose-code: theme("colors.pink.500");
   --tw-prose-quotes: theme("colors.gray.700");
   --tw-prose-quote-borders: theme("colors.gray.200");
@@ -117,8 +169,8 @@
 .dark .prose {
   --tw-prose-body: theme("colors.gray.300");
   --tw-prose-headings: theme("colors.gray.100");
-  --tw-prose-links: theme("colors.smalt.400");
-  --tw-prose-code: theme("colors.smalt.400");
+  --tw-prose-links: theme("colors.sorbus.400");
+  --tw-prose-code: theme("colors.sorbus.400");
   --tw-prose-quotes: theme("colors.gray.300");
   --tw-prose-quote-borders: theme("colors.gray.700");
   --tw-prose-captions: theme("colors.gray.400");
@@ -130,10 +182,10 @@
 
 /* Additional Typography Overrides */
 .prose a:hover {
-  color: theme("colors.smalt.700");
+  color: theme("colors.sorbus.700");
 }
 .dark .prose a:hover {
-  color: theme("colors.smalt.600");
+  color: theme("colors.sorbus.600");
 }
 .prose h1 {
   margin-bottom: 0;
@@ -165,19 +217,25 @@ h2 {
 }
 
 html {
-  --primary: #6c63ff;
+  --primary: #eb5b0b;
 }
 
 html.dark {
   --primary: #222831;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 .webmention-anchor {
-  @apply text-blue-600 hover:text-blue-800 visited:text-gray-600;
+  @apply text-sorbus-600 hover:text-sorbus-800 visited:text-gray-600;
+}
+
+.dark .webmention-anchor {
+  @apply text-sorbus-400 hover:text-sorbus-300;
 }
 
 .webmention-ol {
@@ -266,12 +324,12 @@ nav ul li:hover a:after {
   top: 0;
   z-index: 10;
   backdrop-filter: saturate(180%) blur(20px);
-  transition: background-color 0.1 ease-in-out;
+  transition: background-color 0.15s ease-out;
 }
 
 @supports not (backdrop-filter: none) {
   .sticky-nav {
-    background-color: theme("colors.white");
+    background-color: var(--color-page-bg);
     backdrop-filter: none;
   }
   .dark .sticky-nav {
@@ -345,7 +403,7 @@ pre[class*="language-"] {
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  @apply text-blue-500;
+  @apply text-sorbus-600 dark:text-sorbus-400;
 }
 
 .token.function,
@@ -392,7 +450,7 @@ pre[class*="language-"] {
 .prose a,
 .links,
 .links p {
-  @apply px-0 py-0 text-smalt-500 underline transition-colors duration-200 hover:text-smalt-600;
+  @apply px-0 py-0 text-sorbus-500 underline transition-colors duration-200 hover:text-sorbus-600;
   background-color: transparent;
 }
 
@@ -400,5 +458,5 @@ pre[class*="language-"] {
 .dark .prose a,
 .dark .links,
 .dark .links p {
-  @apply text-smalt-400 hover:text-smalt-300;
+  @apply text-sorbus-400 hover:text-sorbus-300;
 }

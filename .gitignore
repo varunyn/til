@@ -21,6 +21,7 @@ public/feed.xml
 
 # misc
 .DS_Store
+data/.scratch/
 *.pem
 
 # debug

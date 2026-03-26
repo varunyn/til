@@ -18,7 +18,7 @@ export default function CookieBanner() {
   }
 
   return (
-    <div className="fixed right-4 bottom-4 z-50 max-w-md rounded-lg border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-900">
+    <div className="fixed right-4 bottom-4 z-50 max-w-md rounded-lg border border-gray-200 border-t-2 border-t-sorbus-500 bg-white shadow-lg dark:border-gray-700 dark:border-t-sorbus-500 dark:bg-gray-900">
       <div className="p-4">
         {showDetails ? (
           <div className="space-y-3">
@@ -73,7 +73,7 @@ export default function CookieBanner() {
 
             <div className="flex gap-2 pt-2">
               <button
-                className="rounded bg-gray-900 px-3 py-1.5 font-medium text-white text-xs transition-colors hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+                className="rounded bg-sorbus-600 px-3 py-1.5 font-medium text-white text-xs transition-colors hover:bg-sorbus-700 dark:bg-sorbus-500 dark:hover:bg-sorbus-600"
                 onClick={() => {
                   const analyticsEnabled =
                     document.getElementById("analytics-toggle").checked;
@@ -118,7 +118,7 @@ export default function CookieBanner() {
                 Reject All
               </button>
               <button
-                className="rounded bg-gray-900 px-3 py-1.5 font-medium text-white text-xs transition-colors hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+                className="rounded bg-sorbus-600 px-3 py-1.5 font-medium text-white text-xs transition-colors hover:bg-sorbus-700 dark:bg-sorbus-500 dark:hover:bg-sorbus-600"
                 onClick={acceptAll}
                 type="button"
               >

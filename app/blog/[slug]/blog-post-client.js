@@ -169,7 +169,7 @@ export default function BlogPostClient({ post, htmlContent }) {
         <div className="mx-auto max-w-4xl">
           {/* Back Button */}
           <Link
-            className="group mb-8 inline-flex items-center space-x-2 text-smalt-600 transition-colors hover:text-smalt-800 dark:text-smalt-400 dark:hover:text-smalt-200"
+            className="group mb-8 inline-flex items-center space-x-2 text-sorbus-600 transition-colors hover:text-sorbus-800 dark:text-sorbus-400 dark:hover:text-sorbus-200"
             href="/"
           >
             <FaArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
@@ -210,7 +210,7 @@ export default function BlogPostClient({ post, htmlContent }) {
                     <div className="flex flex-wrap gap-2">
                       {post.tags.map((tag) => (
                         <Link
-                          className="rounded-md bg-smalt-100 px-2 py-1 font-medium text-smalt-800 text-xs transition-colors hover:bg-smalt-200 dark:bg-smalt-900 dark:text-smalt-200 dark:hover:bg-smalt-800"
+                          className="rounded-md bg-sorbus-100 px-2 py-1 font-medium text-sorbus-800 text-xs transition-colors hover:bg-sorbus-200 dark:bg-sorbus-900 dark:text-sorbus-200 dark:hover:bg-sorbus-800"
                           href={`/tags/${encodeURIComponent(tag)}`}
                           key={tag}
                         >
@@ -236,7 +236,7 @@ export default function BlogPostClient({ post, htmlContent }) {
                       key={item.id}
                     >
                       <a
-                        className="-ml-[2px] text-gray-600 hover:text-smalt-600 dark:text-gray-400 dark:hover:text-smalt-400"
+                        className="-ml-[2px] text-gray-600 hover:text-sorbus-600 dark:text-gray-400 dark:hover:text-sorbus-400"
                         href={`#${item.id}`}
                       >
                         {item.text}
@@ -250,7 +250,7 @@ export default function BlogPostClient({ post, htmlContent }) {
             {/* Content */}
             <div className="animate-fade-in-delayed p-8" ref={contentRef}>
               <div
-                className={`prose prose-lg dark:prose-invert max-w-none prose-code:rounded prose-pre:border prose-pre:border-gray-200 prose-code:bg-gray-100 prose-pre:bg-gray-900 prose-code:px-1 prose-code:py-0.5 prose-a:text-smalt-600 prose-code:text-smalt-600 prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-a:no-underline prose-code:before:content-none prose-code:after:content-none hover:prose-a:underline dark:prose-pre:border-gray-700 dark:prose-code:bg-gray-800 dark:prose-pre:bg-gray-950 dark:prose-a:text-smalt-400 dark:prose-code:text-smalt-400 dark:prose-headings:text-white dark:prose-p:text-gray-300 dark:prose-strong:text-white ${
+                className={`prose prose-lg dark:prose-invert max-w-none prose-code:rounded prose-pre:border prose-pre:border-gray-200 prose-code:bg-gray-100 prose-pre:bg-gray-900 prose-code:px-1 prose-code:py-0.5 prose-a:text-sorbus-600 prose-code:text-sorbus-600 prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-a:no-underline prose-code:before:content-none prose-code:after:content-none hover:prose-a:underline dark:prose-pre:border-gray-700 dark:prose-code:bg-gray-800 dark:prose-pre:bg-gray-950 dark:prose-a:text-sorbus-400 dark:prose-code:text-sorbus-400 dark:prose-headings:text-white dark:prose-p:text-gray-300 dark:prose-strong:text-white ${
                   isLoaded ? "opacity-100" : "opacity-90"
                 } transition-opacity duration-300`}
                 dangerouslySetInnerHTML={renderContentWithTweets()}

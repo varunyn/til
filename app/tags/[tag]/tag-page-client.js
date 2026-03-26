@@ -8,7 +8,7 @@ export default function TagPageClient({ posts, tag }) {
     <div className="container mx-auto max-w-4xl px-4 py-8 sm:px-6">
       <div className="mb-8">
         <Link
-          className="mb-4 inline-block text-smalt-600 hover:underline dark:text-smalt-400"
+          className="mb-4 inline-block text-sorbus-600 hover:underline dark:text-sorbus-400"
           href="/tags"
         >
           &larr; All Tags

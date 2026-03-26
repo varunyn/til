@@ -19,7 +19,7 @@ export default function WebmentionsClient({ slug: _slug }) {
   return (
     <div className="mx-auto mt-8 flex w-full max-w-2xl flex-col items-center justify-center px-4 sm:px-0">
       <h2 className="mb-4 font-bold text-2xl">Webmentions</h2>
-      <ol className="webmention-ol w-full rounded-lg border-2 border-light-blue-300 border-dashed p-4">
+      <ol className="webmention-ol w-full rounded-lg border-2 border-sorbus-300 border-dashed p-4 dark:border-sorbus-700">
         {mentions.length > 0 ? (
           mentions.map((mention) => {
             if (
@@ -34,7 +34,7 @@ export default function WebmentionsClient({ slug: _slug }) {
                   <div className="flex items-center">
                     <span className="font-medium">{mention.author.name}</span>
                     <a
-                      className="webmention-anchor ml-2 text-smalt-600 hover:underline dark:text-smalt-400"
+                      className="webmention-anchor ml-2 text-sorbus-600 hover:underline dark:text-sorbus-400"
                       href={mention.url}
                       rel="noopener noreferrer"
                       target="_blank"

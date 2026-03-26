@@ -4,6 +4,7 @@ import ConsentManager from "../components/consent-manager";
 import CookieBanner from "../components/cookie-banner";
 import Layout from "../components/layout";
 import { getAllPosts } from "../lib/mdx";
+import { fontBody, fontHeading } from "./fonts";
 import { Providers } from "./providers";
 
 export const metadata = {
@@ -24,6 +25,11 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1.0,
+  viewportFit: "cover",
+  themeColor: [
+    { color: "#f1f2f3", media: "(prefers-color-scheme: light)" },
+    { color: "#222831", media: "(prefers-color-scheme: dark)" },
+  ],
 };
 
 export default async function RootLayout({ children }) {
@@ -31,15 +37,12 @@ export default async function RootLayout({ children }) {
   const searchPosts = allPosts.map(({ title, slug }) => ({ title, slug }));
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      className={`${fontHeading.variable} ${fontBody.variable}`}
+      lang="en"
+      suppressHydrationWarning
+    >
       <head>
-        <link
-          as="font"
-          crossOrigin="anonymous"
-          href="/fonts/inter-var-latin.woff2"
-          rel="preload"
-          type="font/woff2"
-        />
         <link
           href="/feed.xml"
           rel="alternate"

@@ -16,7 +16,7 @@ const Blog = ({ slug, title, date, desc }) => {
           )}
         </div>
         <h2
-          className="mb-3 font-bold text-gray-900 text-xl transition-colors group-hover:text-smalt-600 sm:text-2xl dark:text-gray-100 dark:group-hover:text-smalt-400"
+          className="mb-3 font-bold text-gray-900 text-xl transition-colors group-hover:text-sorbus-600 sm:text-2xl dark:text-gray-100 dark:group-hover:text-sorbus-400"
           data-blog-title
           style={{
             "--blog-title-name": `blog-title-${slug}`,
@@ -30,7 +30,7 @@ const Blog = ({ slug, title, date, desc }) => {
             {desc}
           </p>
         )}
-        <div className="mt-4 flex translate-x-2 transform items-center font-medium text-sm text-smalt-600 opacity-0 transition-opacity group-hover:translate-x-0 group-hover:opacity-100 dark:text-smalt-400">
+        <div className="mt-4 flex translate-x-2 transform items-center font-medium text-sm text-sorbus-600 opacity-0 transition-opacity group-hover:translate-x-0 group-hover:opacity-100 dark:text-sorbus-400">
           Read more
           <svg
             aria-hidden

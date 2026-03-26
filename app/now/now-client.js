@@ -15,7 +15,7 @@ const NowClient = ({ timelineEntries }) => {
   };
 
   const goals = [
-    { text: "Ship more 🚀", color: "bg-blue-100 text-blue-800" },
+    { text: "Ship more 🚀", color: "bg-sorbus-100 text-sorbus-900" },
     { text: "eat healthier", color: "bg-green-100 text-green-800" },
   ];
 
@@ -309,12 +309,12 @@ const NowClient = ({ timelineEntries }) => {
                                 // Add a brief highlight effect
                                 timelineElement.classList.add(
                                   "ring-2",
-                                  "ring-blue-500"
+                                  "ring-sorbus-500"
                                 );
                                 setTimeout(() => {
                                   timelineElement.classList.remove(
                                     "ring-2",
-                                    "ring-blue-500"
+                                    "ring-sorbus-500"
                                   );
                                 }, 2000);
                               }
@@ -325,7 +325,7 @@ const NowClient = ({ timelineEntries }) => {
                             <div
                               className={`h-3 w-3 rounded-sm transition-all ${cellClasses} ${
                                 hasData
-                                  ? "cursor-pointer hover:ring-2 hover:ring-blue-400"
+                                  ? "cursor-pointer hover:ring-2 hover:ring-sorbus-400"
                                   : "cursor-default hover:ring-1 hover:ring-gray-400"
                               }`}
                               key={dayIndex}
@@ -369,7 +369,7 @@ const NowClient = ({ timelineEntries }) => {
                     <span className="text-gray-500 text-sm dark:text-gray-400">
                       {entry.date}
                     </span>
-                    <span className="rounded bg-blue-100 px-2 py-1 text-blue-800 text-xs dark:bg-blue-900 dark:text-blue-200">
+                    <span className="rounded bg-sorbus-100 px-2 py-1 text-sorbus-900 text-xs dark:bg-sorbus-900/40 dark:text-sorbus-200">
                       {entry.tag}
                     </span>
                   </div>
@@ -390,7 +390,7 @@ const NowClient = ({ timelineEntries }) => {
                               if (part.type === "link") {
                                 return (
                                   <a
-                                    className="text-blue-600 underline hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                                    className="text-sorbus-600 underline hover:text-sorbus-800 dark:text-sorbus-400 dark:hover:text-sorbus-300"
                                     href={part.url}
                                     key={partIndex}
                                     rel="noopener noreferrer"

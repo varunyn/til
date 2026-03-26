@@ -30,7 +30,7 @@ export default function Bookmarks() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            <div className="font-medium text-blue-600 hover:underline dark:text-blue-400">
+            <div className="font-medium text-sorbus-600 hover:underline dark:text-sorbus-400">
               Brian Lovin&apos;s Bookmarks
             </div>
             <p className="mt-1 text-gray-600 text-sm dark:text-gray-400">

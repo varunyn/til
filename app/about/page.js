@@ -45,28 +45,28 @@ export default function About() {
             {/* Social Links */}
             <div className="mb-6 flex flex-wrap justify-center gap-3">
               <Link
-                className="inline-flex min-h-[44px] items-center space-x-1 rounded-lg bg-black px-4 py-2.5 text-sm text-white shadow-md transition-colors hover:bg-gray-800 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2"
+                className="inline-flex min-h-[44px] items-center space-x-1 rounded-lg bg-black px-4 py-2.5 text-sm text-white shadow-md transition-colors hover:bg-gray-800 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2"
                 href="https://twitter.com/varun1_yadav"
               >
                 <FaSquareXTwitter className="h-4 w-4" />
                 <span>X</span>
               </Link>
               <Link
-                className="inline-flex min-h-[44px] items-center space-x-1 rounded-lg bg-smalt-700 px-4 py-2.5 text-sm text-white shadow-md transition-colors hover:bg-smalt-800 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2"
+                className="inline-flex min-h-[44px] items-center space-x-1 rounded-lg bg-sorbus-700 px-4 py-2.5 text-sm text-white shadow-md transition-colors hover:bg-sorbus-800 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2"
                 href="https://www.linkedin.com/in/varuncs/"
               >
                 <FaLinkedin className="h-4 w-4" />
                 <span>LinkedIn</span>
               </Link>
               <Link
-                className="inline-flex min-h-[44px] items-center space-x-1 rounded-lg bg-gray-800 px-4 py-2.5 text-sm text-white shadow-md transition-colors hover:bg-gray-900 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2"
+                className="inline-flex min-h-[44px] items-center space-x-1 rounded-lg bg-gray-800 px-4 py-2.5 text-sm text-white shadow-md transition-colors hover:bg-gray-900 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2"
                 href="https://github.com/varunyn"
               >
                 <FaGithub className="h-4 w-4" />
                 <span>GitHub</span>
               </Link>
               <Link
-                className="inline-flex min-h-[44px] items-center space-x-1 rounded-lg bg-green-600 px-4 py-2.5 text-sm text-white shadow-md transition-colors hover:bg-green-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-smalt-500 focus:ring-offset-2"
+                className="inline-flex min-h-[44px] items-center space-x-1 rounded-lg bg-green-600 px-4 py-2.5 text-sm text-white shadow-md transition-colors hover:bg-green-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2"
                 href="mailto:hi@varunyadav.com"
               >
                 <FaEnvelope className="h-4 w-4" />
@@ -80,7 +80,7 @@ export default function About() {
             {/* About Section */}
             <div className="rounded-xl bg-white p-5 shadow-lg dark:bg-gray-800">
               <h2 className="mb-3 flex items-center font-bold text-gray-900 text-lg dark:text-white">
-                <span className="mr-2 h-6 w-1.5 rounded-full bg-smalt-500" />
+                <span className="mr-2 h-6 w-1.5 rounded-full bg-sorbus-500" />
                 About Me
               </h2>
               <p className="mb-3 text-gray-600 text-sm leading-relaxed dark:text-gray-300">
@@ -89,11 +89,11 @@ export default function About() {
                 can find me sharing knowledge through blog posts and
                 contributing to open source projects.
               </p>
-              <div className="rounded-lg bg-smalt-50 p-3 dark:bg-smalt-900/20">
-                <h3 className="mb-1 font-semibold text-sm text-smalt-900 dark:text-smalt-300">
+              <div className="rounded-lg bg-sorbus-50 p-3 dark:bg-sorbus-900/20">
+                <h3 className="mb-1 font-semibold text-sm text-sorbus-900 dark:text-sorbus-300">
                   Pay it forward
                 </h3>
-                <p className="text-smalt-800 text-xs dark:text-smalt-200">
+                <p className="text-sorbus-800 text-xs dark:text-sorbus-200">
                   I believe in sharing knowledge and helping others grow. What
                   I&apos;ve learned from the community, I try to give back
                   through my writing and open source contributions.

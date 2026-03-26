@@ -76,7 +76,7 @@ export default function PrivacyPage() {
             If you have any questions about this Privacy Policy, please contact
             us at{" "}
             <a
-              className="text-smalt-600 hover:underline dark:text-smalt-400"
+              className="text-sorbus-600 hover:underline dark:text-sorbus-400"
               href="mailto:hi@varunyadav.com"
             >
               hi@varunyadav.com
