@@ -27,8 +27,11 @@ const SOCIAL_LINKS = [
 const Navigation = ({ searchPosts = [] }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const pathname = usePathname();
+  const nextTheme = resolvedTheme === "dark" ? "light" : "dark";
+  const nextThemeLabel =
+    resolvedTheme === "dark" ? "Switch to light mode" : "Switch to dark mode";
 
   // After mounting, we can safely show the UI
   useEffect(() => setMounted(true), []);
@@ -117,9 +120,9 @@ const Navigation = ({ searchPosts = [] }) => {
 
             {/* Dark Mode Toggle */}
             <button
-              aria-label="Toggle Dark Mode"
-              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              aria-label={nextThemeLabel}
+              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2 dark:bg-gray-800/60 dark:hover:bg-gray-700/70"
+              onClick={() => setTheme(nextTheme)}
               type="button"
             >
               {mounted && (
@@ -131,8 +134,8 @@ const Navigation = ({ searchPosts = [] }) => {
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <title>Theme</title>
-                  {theme === "dark" ? (
+                  <title>{nextThemeLabel}</title>
+                  {resolvedTheme === "dark" ? (
                     <path
                       d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
                       strokeLinecap="round"
@@ -156,9 +159,9 @@ const Navigation = ({ searchPosts = [] }) => {
           <div className="flex items-center md:hidden">
             {/* Dark Mode Toggle for Mobile */}
             <button
-              aria-label="Toggle Dark Mode"
-              className="mr-2 inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              aria-label={nextThemeLabel}
+              className="mr-2 inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2 dark:bg-gray-800/60 dark:hover:bg-gray-700/70"
+              onClick={() => setTheme(nextTheme)}
               type="button"
             >
               {mounted && (
@@ -170,8 +173,8 @@ const Navigation = ({ searchPosts = [] }) => {
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <title>Theme</title>
-                  {theme === "dark" ? (
+                  <title>{nextThemeLabel}</title>
+                  {resolvedTheme === "dark" ? (
                     <path
                       d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
                       strokeLinecap="round"

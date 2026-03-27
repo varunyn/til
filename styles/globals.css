@@ -44,7 +44,7 @@
   --color-linkedIn: #0076b5;
   --color-facebook: #4267b2; /* Updated to match last definition in config */
   --color-darkgrey: #222831;
-  --color-whitedarktheme: #eeeeee;
+  --color-whitedarktheme: #e0e0e0;
   --color-orange: #c2440c;
 
   /* Page canvas — aligned with editorial “notes” pages (e.g. off-white, not pure #fff) */
@@ -169,7 +169,7 @@ html.dark {
 .dark .prose {
   --tw-prose-body: theme("colors.gray.300");
   --tw-prose-headings: theme("colors.gray.100");
-  --tw-prose-links: theme("colors.sorbus.400");
+  --tw-prose-links: theme("colors.sorbus.300");
   --tw-prose-code: theme("colors.sorbus.400");
   --tw-prose-quotes: theme("colors.gray.300");
   --tw-prose-quote-borders: theme("colors.gray.700");
@@ -185,7 +185,7 @@ html.dark {
   color: theme("colors.sorbus.700");
 }
 .dark .prose a:hover {
-  color: theme("colors.sorbus.600");
+  color: theme("colors.sorbus.200");
 }
 .prose h1 {
   margin-bottom: 0;
@@ -458,5 +458,5 @@ pre[class*="language-"] {
 .dark .prose a,
 .dark .links,
 .dark .links p {
-  @apply text-sorbus-400 hover:text-sorbus-300;
+  @apply text-sorbus-300 hover:text-sorbus-200;
 }

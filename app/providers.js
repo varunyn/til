@@ -8,9 +8,9 @@ export function Providers({ children }) {
     <ViewTransitions>
       <ThemeProvider
         attribute="class"
-        defaultTheme="light"
+        defaultTheme="system"
         disableTransitionOnChange={false}
-        enableSystem={false}
+        enableSystem
         storageKey="theme"
         suppressHydrationWarning
       >
