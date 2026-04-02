@@ -28,6 +28,12 @@ export default function sitemap() {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/uses`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.75,
+    },
+    {
       url: `${baseUrl}/tags`,
       lastModified: currentDate,
       changeFrequency: "weekly",

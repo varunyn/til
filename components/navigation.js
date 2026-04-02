@@ -42,7 +42,10 @@ const Navigation = ({ searchPosts = [] }) => {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-50 border-gray-200/50 border-b bg-page-bg/90 shadow-sm backdrop-blur-md dark:border-gray-700/50 dark:bg-darkgrey/90">
+    <nav
+      className="sticky top-0 z-50 border-gray-200/50 border-b bg-page-bg/90 shadow-sm backdrop-blur-md dark:border-gray-700/50 dark:bg-darkgrey/90"
+      style={{ viewTransitionName: "persistent-nav" }}
+    >
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo/Site Title */}

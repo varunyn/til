@@ -43,6 +43,7 @@ certificates
 
 # IDE and editor files
 .cursor
+.agents/
 .vscode/
 *.swp
 *.swo
