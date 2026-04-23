@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "next dev --turbo",
     "dev-https": "next dev --experimental-https",
-    "build": "node scripts/generate-rss.mjs && next build",
+    "build": "node scripts/generate-rss.mjs && next build && node scripts/generate-markdown-sidecars.mjs",
     "start": "next start",
     "format": "ultracite fix",
     "lint": "ultracite check",

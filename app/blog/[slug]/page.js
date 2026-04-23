@@ -17,6 +17,12 @@ export async function generateMetadata({ params }) {
   return {
     title: postData.title,
     description: postData.desc,
+    alternates: {
+      canonical: `https://til.varunyadav.com/blog/${slug}`,
+      types: {
+        "text/markdown": `https://til.varunyadav.com/blog/${slug}.md`,
+      },
+    },
     openGraph: {
       title: postData.title,
       description: postData.desc,
