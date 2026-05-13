@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
-2:I[81751,["/_next/static/chunks/44ad015b01eca725.js","/_next/static/chunks/e26b3c93cb2df2b2.js","/_next/static/chunks/5e74775169e5a0fa.js","/_next/static/chunks/b5c044b83c80d325.js"],"default"]
-3:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
+2:I[81751,["/_next/static/chunks/0w6fo8ntf1m2~.js","/_next/static/chunks/0_ctuhi.h7g~k.js","/_next/static/chunks/0d.f3z2q~xq-y.js","/_next/static/chunks/151ytzxk3wosa.js"],"default"]
+3:I[97367,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
-0:{"buildId":"m8fY_17C23Vl-5hJdQn9b","rsc":["$","$1","c",{"children":[["$","$L2",null,{"posts":[{"title":"Create fake file to test file upload","date":"2023-01-12T00:00:00.000Z","desc":null,"tags":["Macos","🌿"],"content":"\n```\nmkfile 10m mytestfile.pdf\n```\n\nSource:\nhttps://twitter.com/1stevengrant/status/1511981651101986817?s=20\n","slug":"macos-fake-file"}],"tag":"Macos"}],[["$","script","script-0",{"src":"/_next/static/chunks/b5c044b83c80d325.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"posts":[{"title":"Create fake file to test file upload","date":"2023-01-12T00:00:00.000Z","desc":null,"tags":["Macos","🌿"],"content":"\n```\nmkfile 10m mytestfile.pdf\n```\n\nSource:\nhttps://twitter.com/1stevengrant/status/1511981651101986817?s=20\n","slug":"macos-fake-file"}],"tag":"Macos"}],[["$","script","script-0",{"src":"/_next/static/chunks/151ytzxk3wosa.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"4K8tdNGMvIhuKa5wFq8yX"}
 5:null

@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
-2:I[81751,["/_next/static/chunks/44ad015b01eca725.js","/_next/static/chunks/e26b3c93cb2df2b2.js","/_next/static/chunks/5e74775169e5a0fa.js","/_next/static/chunks/b5c044b83c80d325.js"],"default"]
-4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
+2:I[81751,["/_next/static/chunks/0w6fo8ntf1m2~.js","/_next/static/chunks/0_ctuhi.h7g~k.js","/_next/static/chunks/0d.f3z2q~xq-y.js","/_next/static/chunks/151ytzxk3wosa.js"],"default"]
+4:I[97367,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
 5:"$Sreact.suspense"
 3:T538,
 Today, while scrolling through X (formerly Twitter), I came across a post about MCP (Model Context Protocol). In the replies, someone casually mentioned GhostMCP, and I thought—wait, what’s that?
@@ -36,5 +36,5 @@ npm install
 ```
 
 Make sure to replace path-to with the actual path to your local ghost-mcp directory.
-0:{"buildId":"m8fY_17C23Vl-5hJdQn9b","rsc":["$","$1","c",{"children":[["$","$L2",null,{"posts":[{"title":"Using Ghost mcp in Cursor","date":"2025-06-10T00:00:00.000Z","desc":null,"tags":["ghost","🌿"],"content":"$3","slug":"ghost-mcp"},{"title":"Using prismjs in ghost","date":"2021-07-06T00:00:00.000Z","desc":null,"tags":["ghost","🌿"],"content":"\nhttps://www.pixelite.co.nz/article/add-prismjs-to-ghost/\n","slug":"add-prism-to-ghost"}],"tag":"ghost"}],[["$","script","script-0",{"src":"/_next/static/chunks/b5c044b83c80d325.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"loading":null,"isPartial":false}
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"posts":[{"title":"Using Ghost mcp in Cursor","date":"2025-06-10T00:00:00.000Z","desc":null,"tags":["ghost","🌿"],"content":"$3","slug":"ghost-mcp"},{"title":"Using prismjs in ghost","date":"2021-07-06T00:00:00.000Z","desc":null,"tags":["ghost","🌿"],"content":"\nhttps://www.pixelite.co.nz/article/add-prismjs-to-ghost/\n","slug":"add-prism-to-ghost"}],"tag":"ghost"}],[["$","script","script-0",{"src":"/_next/static/chunks/151ytzxk3wosa.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"4K8tdNGMvIhuKa5wFq8yX"}
 6:null
