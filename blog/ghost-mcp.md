@@ -1,0 +1,42 @@
+---
+title: Using Ghost mcp in Cursor
+date: 2025-06-10T00:00:00.000Z
+desc: null
+tags:
+  - ghost
+  - "\U0001F33F"
+---
+
+Today, while scrolling through X (formerly Twitter), I came across a post about MCP (Model Context Protocol). In the replies, someone casually mentioned GhostMCP, and I thought—wait, what’s that?
+
+Curious, I did a quick Google search and found the GhostMCP GitHub repository. It turns out, GhostMCP acts as a secure bridge, allowing AI models to manage your Ghost blog’s content, users, members, tiers, offers, and newsletters via the Ghost Admin API.
+
+#### Quick Install on Cursor
+
+I tested it out quickly using Cursor (the AI-powered code editor), and it worked surprisingly well! However, I noticed the README in the GitHub repo doesn't provide local setup instructions specifically for Cursor users, so I thought I’d share the exact steps I followed to get it up and running.
+
+Steps to Set Up GhostMCP Locally with Cursor
+
+1. First, clone or download the project from GitHub:
+
+```bash
+git clone https://github.com/MFYDev/ghost-mcp.git
+cd ghost-mcp
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. In Cursor, open your MCP settings and modify the relevant section to point to the GhostMCP server script. Update the configuration like this:
+
+```json
+"command": "node",
+"args": [
+  "path-to/ghost-mcp-main/build/server.js"
+],
+```
+
+Make sure to replace path-to with the actual path to your local ghost-mcp directory.

@@ -1,0 +1,33 @@
+---
+title: Setup dependabot in Github repo
+date: 2021-06-24T00:00:00.000Z
+desc: Using dependabot to keep packages upto date in Github repo
+tags:
+  - github
+  - "\U0001F33F"
+---
+
+Use dependabot and github actions to update packages in your project.
+
+To setup dependabot, first go to Settings > Security & Analysis > Dependabot security updates
+
+<img src="/static/images/github-dependabot/1.png" />
+
+Next go to Insights > Dependency graph > Dependabot
+
+<img src="/static/images/github-dependabot/2.png" />
+
+dependabot.yaml file for scanning npm packages. [Document](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates) for setting up dependabot.yaml file
+
+```shell
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+```
+
+### Resources
+
+- https://phuctm97.com/blog/how-to-use-dependabot

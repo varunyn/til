@@ -1,0 +1,20 @@
+---
+title: Awesome Github Repos
+date: 2021-06-28T00:00:00.000Z
+desc: Awesome github repos to find all the resources to learn something new.
+tags:
+  - github
+  - "\U0001F33F"
+---
+
+- [The book of Secret knowledge](https://github.com/trimstray/the-book-of-secret-knowledge) - Is collection of all the tech tools,how-tos plus inspiring list/blogs/videos
+- [Learn the fundamentals of Cloud Computing](https://github.com/madebygps/self-taught-guide-to-cloud-computing)
+- [100 Days of Cloud](https://github.com/100DaysOfCloud/100DaysOfCloudIdeas)
+- [Awesome Docker](https://github.com/veggiemonk/awesome-docker)
+- [Software Architect books](https://github.com/mhadidg/software-architecture-books)
+- [Awesome React](https://github.com/enaqx/awesome-react)
+- [Awesome Nextjs](https://github.com/unicodeveloper/awesome-nextjs)
+- [Awesome Terraform](https://github.com/shuaibiyy/awesome-terraform)
+- [Learn JS](https://wesbos.com/javascript) - Awesome guide on javascript by wesbos
+- [Public APIs](https://github.com/public-apis/public-apis) - List of Public REST APIs to use for project
+- [Awesome Youtubers](https://github.com/JoseDeFreitas/awesome-youtubers) - List of YouTubers that teach about technology. Tutorials about web development, computer science

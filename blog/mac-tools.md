@@ -1,0 +1,52 @@
+---
+title: macOS Tools
+date: 2021-06-29T00:00:00.000Z
+desc: macOS tools I use
+tags:
+  - "\U0001F331"
+  - macOS
+---
+
+_Updated on 2022-05-25_
+
+### How to setup new MacBook
+
+Automation script for new mac.
+
+- https://github.com/varunyn/laptop/blob/master/README.md
+
+```shell
+curl --remote-name https://raw.githubusercontent.com/varunyn/laptop/master/mac
+sh mac 2>&1 | tee ~/laptop.log
+```
+
+### Apps
+
+- Zoom: https://zoom.us/download - Video meetings
+- Microsoft Todo: https://apps.apple.com/app/apple-store/id1274495053?mt=8 - Todo lists
+- Notion: https://www.notion.so/desktop - Notes
+- Bitwarden: https://bitwarden.com/download/ - Password manager
+- Raycast: https://www.raycast.com/
+- Velja: https://sindresorhus.com/velja - Powerful browser picker
+- Shottr: https://shottr.cc/ - For screenshots
+- Obsidian: https://obsidian.md/ - Notes
+
+### Chrome Extension
+
+- [Bypass Paywall](https://github.com/iamadamdev/bypass-paywalls-chrome)
+- [JSONVue](https://chrome.google.com/webstore/detail/jsonvue/chklaanhfefbnpoihckbnefhakgolnmc)
+- [uBlock](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm)
+
+### Setup terminal
+
+- Copy dotfile - zshrc, vscode settings : https://gist.github.com/varunyn/6f3b4b965027fe6a96e36bd431a27b0e
+- My terminal of choice is [iTerm2](https://www.iterm2.com/). I'm using the [Z shell](https://en.wikipedia.org/wiki/Z_shell) and [Oh My Zsh](https://ohmyz.sh/).
+
+### Resources
+
+- https://www.robinwieruch.de/mac-setup-web-development/
+- https://notebook.lachlanjc.com/2021-03-02_automate_setting_up_new_macs/
+- https://github.com/laurendorman/komputer-maschine/tree/master
+- https://sourabhbajaj.com/mac-setup/
+- https://www.swyx.io/new-mac-setup
+- https://freek.dev/uses

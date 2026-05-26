@@ -1,0 +1,57 @@
+---
+title: How to open URL in new tab using keyboard shortcut
+date: 2021-06-23T00:00:00.000Z
+desc: How to open URL in new tab using keyboard shortcut
+tags:
+  - chrome
+  - "\U0001F33F"
+---
+
+- We can do this by creating our own chrome extension with shortcuts for the URLs that we want to open.
+- Create manifest.json and background.js files in same folder.
+
+manifest.json
+
+```json
+{
+  "name": "Bookmark Shortcuts",
+  "version": "1.0",
+  "description": "Custom shortcuts for URLs",
+  "permissions": ["tabs"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "all_frames": true,
+      "js": ["background.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "manifest_version": 3
+}
+```
+
+background.js
+
+```js
+if (window == top) {
+  window.addEventListener('keyup', doKeyPress, false);
+}
+
+var bookmarks = {},
+  url;
+
+bookmarks['G'] = 'https://google.com';
+
+function doKeyPress(event) {
+  if (event.ctrlKey && !event.shiftKey) {
+    if ((url = bookmarks[String.fromCharCode(event.keyCode)])) {
+      console.log('URL', url);
+      window.open(url);
+    }
+  }
+}
+```
+
+- Within chrome, type `chrome://extensions` in the address bar and activate developer mode on the top right (switch).
+- Click on the Load unpacked button that appeared and select your folder containing the files.
+- Now press `ctrl+g` on keyboard and it will open google in new tab.

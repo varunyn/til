@@ -1,0 +1,12 @@
+---
+title: Webmentions in Nextjs
+date: 2021-06-17T00:00:00.000Z
+desc: How to use webmentions in nextjs
+tags:
+  - nextjs
+---
+
+Articles on impementing webmentions in nextjs:
+
+- https://aboutmonica.com/blog/getting-started-with-webmention-next-js
+- https://www.swyx.io/clientside-webmentions/

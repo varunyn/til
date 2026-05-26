@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
-2:I[81751,["/_next/static/chunks/0w6fo8ntf1m2~.js","/_next/static/chunks/0_ctuhi.h7g~k.js","/_next/static/chunks/0d.f3z2q~xq-y.js","/_next/static/chunks/151ytzxk3wosa.js"],"default"]
+2:I[81751,["/_next/static/chunks/0w6fo8ntf1m2~.js","/_next/static/chunks/0_ctuhi.h7g~k.js","/_next/static/chunks/0jud3worzlvfw.js","/_next/static/chunks/151ytzxk3wosa.js"],"default"]
 3:I[97367,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"posts":[{"title":"Create fake file to test file upload","date":"2023-01-12T00:00:00.000Z","desc":null,"tags":["Macos","🌿"],"content":"\n```\nmkfile 10m mytestfile.pdf\n```\n\nSource:\nhttps://twitter.com/1stevengrant/status/1511981651101986817?s=20\n","slug":"macos-fake-file"}],"tag":"Macos"}],[["$","script","script-0",{"src":"/_next/static/chunks/151ytzxk3wosa.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"9c9V9MbtXbfC4d6seuUrE"}
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"posts":[{"title":"Create fake file to test file upload","date":"2023-01-12T00:00:00.000Z","desc":null,"tags":["Macos","🌿"],"content":"\n```\nmkfile 10m mytestfile.pdf\n```\n\nSource:\nhttps://twitter.com/1stevengrant/status/1511981651101986817?s=20\n","slug":"macos-fake-file"}],"tag":"Macos"}],[["$","script","script-0",{"src":"/_next/static/chunks/151ytzxk3wosa.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"fhEKVLE9Ei8DHFV5OTtEH"}
 5:null
