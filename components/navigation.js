@@ -32,6 +32,8 @@ const Navigation = ({ searchPosts = [] }) => {
   const nextTheme = resolvedTheme === "dark" ? "light" : "dark";
   const nextThemeLabel =
     resolvedTheme === "dark" ? "Switch to light mode" : "Switch to dark mode";
+  // Avoid hydration mismatch: resolvedTheme is undefined until client hydration.
+  const themeToggleAriaLabel = mounted ? nextThemeLabel : "Toggle color theme";
 
   // After mounting, we can safely show the UI
   useEffect(() => setMounted(true), []);
@@ -123,7 +125,7 @@ const Navigation = ({ searchPosts = [] }) => {
 
             {/* Dark Mode Toggle */}
             <button
-              aria-label={nextThemeLabel}
+              aria-label={themeToggleAriaLabel}
               className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2 dark:bg-gray-800/60 dark:hover:bg-gray-700/70"
               onClick={() => setTheme(nextTheme)}
               type="button"
@@ -162,7 +164,7 @@ const Navigation = ({ searchPosts = [] }) => {
           <div className="flex items-center md:hidden">
             {/* Dark Mode Toggle for Mobile */}
             <button
-              aria-label={nextThemeLabel}
+              aria-label={themeToggleAriaLabel}
               className="mr-2 inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2 dark:bg-gray-800/60 dark:hover:bg-gray-700/70"
               onClick={() => setTheme(nextTheme)}
               type="button"
