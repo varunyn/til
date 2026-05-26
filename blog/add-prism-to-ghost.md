@@ -1,7 +1,9 @@
 ---
 title: Using prismjs in ghost
 date: 2021-07-06T00:00:00.000Z
-desc: null
+desc: >-
+  A quick reference for adding PrismJS syntax highlighting to a Ghost blog
+  theme.
 tags:
   - ghost
   - "\U0001F33F"

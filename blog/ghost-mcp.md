@@ -1,7 +1,9 @@
 ---
 title: Using Ghost mcp in Cursor
 date: 2025-06-10T00:00:00.000Z
-desc: null
+desc: >-
+  Notes on setting up GhostMCP locally so Cursor can manage Ghost blog content
+  through the Admin API.
 tags:
   - ghost
   - "\U0001F33F"

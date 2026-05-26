@@ -1,7 +1,7 @@
 ---
 title: How to use multiple node versions in macOS
 date: 2022-05-24T00:00:00.000Z
-desc: null
+desc: Notes on installing and switching between multiple Node.js versions on macOS.
 tags:
   - macOS
   - "\U0001F33F"

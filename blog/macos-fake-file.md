@@ -1,9 +1,9 @@
 ---
 title: Create fake file to test file upload
 date: 2023-01-12T00:00:00.000Z
-desc: null
+desc: How to create a fake file on macOS with mkfile for testing file uploads.
 tags:
-  - Macos
+  - macOS
   - "\U0001F33F"
 ---
 

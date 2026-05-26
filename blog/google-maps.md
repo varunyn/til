@@ -1,7 +1,9 @@
 ---
 title: Create your own google maps
 date: 2022-06-01T00:00:00.000Z
-desc: null
+desc: >-
+  A short note on creating custom Google My Maps itineraries and sharing or
+  embedding them.
 tags:
   - misc
   - "\U0001F33F"

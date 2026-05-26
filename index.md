@@ -8,13 +8,13 @@ Markdown copies of each note live at `/blog/<slug>.md` (generated at build time 
 
 ## Posts
 
-- [Using Ghost mcp in Cursor](https://til.varunyadav.com/blog/ghost-mcp.md)
-- [Create fake file to test file upload](https://til.varunyadav.com/blog/macos-fake-file.md)
-- [Using Keyboard Shortcut Mac/iPhone](https://til.varunyadav.com/blog/keyboard-shortcut.md)
-- [Create your own google maps](https://til.varunyadav.com/blog/google-maps.md)
-- [How to use multiple node versions in macOS](https://til.varunyadav.com/blog/multiple-node-versions.md)
+- [Using Ghost mcp in Cursor](https://til.varunyadav.com/blog/ghost-mcp.md) — Notes on setting up GhostMCP locally so Cursor can manage Ghost blog content through the Admin API.
+- [Create fake file to test file upload](https://til.varunyadav.com/blog/macos-fake-file.md) — How to create a fake file on macOS with mkfile for testing file uploads.
+- [Using Keyboard Shortcut Mac/iPhone](https://til.varunyadav.com/blog/keyboard-shortcut.md) — A personal shortcut reference for text replacements on macOS and iPhone.
+- [Create your own google maps](https://til.varunyadav.com/blog/google-maps.md) — A short note on creating custom Google My Maps itineraries and sharing or embedding them.
+- [How to use multiple node versions in macOS](https://til.varunyadav.com/blog/multiple-node-versions.md) — Notes on installing and switching between multiple Node.js versions on macOS.
 - [Gitignore files](https://til.varunyadav.com/blog/gitignore-files.md) — Gitignore files
-- [Using prismjs in ghost](https://til.varunyadav.com/blog/add-prism-to-ghost.md)
+- [Using prismjs in ghost](https://til.varunyadav.com/blog/add-prism-to-ghost.md) — A quick reference for adding PrismJS syntax highlighting to a Ghost blog theme.
 - [macOS Tools](https://til.varunyadav.com/blog/mac-tools.md) — macOS tools I use
 - [Awesome Github Repos](https://til.varunyadav.com/blog/awesome-github-repo.md) — Awesome github repos to find all the resources to learn something new.
 - [Awesome Kubernetes resources](https://til.varunyadav.com/blog/awesome-k8s-resources.md) — Awesome github repos for kubernetes.
