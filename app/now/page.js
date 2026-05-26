@@ -4,7 +4,9 @@ import NowClient from "./now-client";
 export const metadata = {
   title: "Now - Varun Yadav",
   description: "What Varun Yadav is up to now.",
-  canonical: "https://til.varunyadav.com/now",
+  alternates: {
+    canonical: "https://til.varunyadav.com/now",
+  },
 };
 
 export default async function Now() {

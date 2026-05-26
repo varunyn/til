@@ -3,6 +3,8 @@ import { getAllPosts } from "@/lib/mdx";
 import { getAllTags } from "@/lib/tags";
 import TagPageClient from "./tag-page-client";
 
+const BASE_URL = "https://til.varunyadav.com";
+
 // Disable dynamic params to only allow pre-generated routes
 export const dynamicParams = false;
 
@@ -20,7 +22,10 @@ export async function generateMetadata({ params }) {
   const decodedTag = decodeURIComponent(tag);
   return {
     title: `#${decodedTag} - TIL`,
-    description: `Posts tagged with ${decodedTag}`,
+    description: `Technical notes and links tagged with ${decodedTag} from Varun Yadav's TIL archive.`,
+    alternates: {
+      canonical: `${BASE_URL}/tags/${encodeURIComponent(decodedTag)}`,
+    },
   };
 }
 

@@ -2,11 +2,20 @@
 
 import { Link } from "next-view-transitions";
 import { useEffect, useRef, useState } from "react";
-import { FaArrowLeft, FaCalendar, FaTags } from "react-icons/fa6";
+import { FaArrowLeft, FaCalendar, FaTags, FaUser } from "react-icons/fa6";
 import { copyToClipboard } from "@/lib/clipboard";
 
 const TWEET_PLACEHOLDER_REGEX =
   /<div class="tweet-placeholder[^>]*data-tweet-id="([^"]+)"[^>]*>.*?<\/div>/g;
+
+function formatPostDate(date) {
+  return new Intl.DateTimeFormat("en-US", {
+    day: "numeric",
+    month: "long",
+    timeZone: "UTC",
+    year: "numeric",
+  }).format(new Date(date));
+}
 
 export default function BlogPostClient({ post, htmlContent }) {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -192,15 +201,30 @@ export default function BlogPostClient({ post, htmlContent }) {
               {/* Meta Information */}
               <div className="flex animate-fade-in-delayed flex-wrap items-center gap-4 text-gray-600 text-sm dark:text-gray-400">
                 <div className="flex items-center space-x-2">
-                  <FaCalendar className="h-4 w-4" />
-                  <time dateTime={post.date}>
-                    {new Date(post.date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </time>
+                  <FaUser className="h-4 w-4" />
+                  <span>
+                    By{" "}
+                    <Link
+                      className="font-medium text-sorbus-600 hover:underline dark:text-sorbus-400"
+                      href="/about"
+                    >
+                      Varun Yadav
+                    </Link>
+                  </span>
                 </div>
+                <div className="flex items-center space-x-2">
+                  <FaCalendar className="h-4 w-4" />
+                  <time dateTime={post.date}>{formatPostDate(post.date)}</time>
+                </div>
+
+                {post.updated && (
+                  <span>
+                    Updated{" "}
+                    <time dateTime={post.updated}>
+                      {formatPostDate(post.updated)}
+                    </time>
+                  </span>
+                )}
 
                 {post.readingTime?.text && <span>{post.readingTime.text}</span>}
 

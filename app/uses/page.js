@@ -25,16 +25,17 @@ export default function UsesPage() {
         <header>
           <h1 className="font-heading">Stuff I use</h1>
           <p className="lead text-balance">
-            A short intro about why you share this list — inspiration from sites
-            like{" "}
+            Hardware, software, and everyday tools I rely on for development,
+            writing, homelab projects, and keeping useful notes close at hand.
+            Inspired by sites like{" "}
             <a
               href="https://usesthis.com/"
               rel="noopener noreferrer"
               target="_blank"
             >
               Uses This
-            </a>{" "}
-            and similar. Replace this paragraph with your own voice.
+            </a>
+            .
           </p>
         </header>
 

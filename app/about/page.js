@@ -12,7 +12,9 @@ export const metadata = {
   title: "About - Varun Yadav",
   description:
     "Learn more about Varun Yadav, a Cloud Engineer and his bucket list.",
-  canonical: "https://til.varunyadav.com/about",
+  alternates: {
+    canonical: "https://til.varunyadav.com/about",
+  },
 };
 
 const CONTRIBUTION_LEVEL_REGEX = /\d$/u;

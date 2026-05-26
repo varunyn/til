@@ -49,6 +49,8 @@ export default async function RootLayout({ children }) {
           title="RSS Feed"
           type="application/rss+xml"
         />
+        <link href="/llms.txt" rel="alternate" type="text/plain" />
+        <link href="/index.md" rel="alternate" type="text/markdown" />
         <link
           href="https://webmention.io/til.varunyadav.com/webmention"
           rel="webmention"

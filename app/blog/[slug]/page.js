@@ -3,6 +3,24 @@ import { getAllPostIds, getPostData } from "@/lib/mdx";
 import BlogPostClient from "./blog-post-client";
 import WebmentionsClient from "./webmentions-client";
 
+const BASE_URL = "https://til.varunyadav.com";
+const AUTHOR = {
+  "@type": "Person",
+  name: "Varun Yadav",
+  url: "https://varunyadav.com",
+  sameAs: [
+    "https://github.com/varunyn",
+    "https://twitter.com/varun1_yadav",
+    "https://www.linkedin.com/in/varuncs/",
+  ],
+};
+
+function getPostDescription(postData) {
+  return (
+    postData.desc || `A technical note by Varun Yadav about ${postData.title}.`
+  );
+}
+
 export async function generateStaticParams() {
   const posts = getAllPostIds("blog");
   return posts.map((post) => ({
@@ -13,20 +31,21 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const postData = await getPostData("blog", slug);
+  const description = getPostDescription(postData);
 
   return {
     title: postData.title,
-    description: postData.desc,
+    description,
     alternates: {
-      canonical: `https://til.varunyadav.com/blog/${slug}`,
+      canonical: `${BASE_URL}/blog/${slug}`,
       types: {
-        "text/markdown": `https://til.varunyadav.com/blog/${slug}.md`,
+        "text/markdown": `${BASE_URL}/blog/${slug}.md`,
       },
     },
     openGraph: {
       title: postData.title,
-      description: postData.desc,
-      url: `https://til.varunyadav.com/blog/${slug}`,
+      description,
+      url: `${BASE_URL}/blog/${slug}`,
       type: "article",
       publishedTime: postData.date,
       authors: ["Varun Yadav"],
@@ -35,7 +54,7 @@ export async function generateMetadata({ params }) {
     twitter: {
       card: "summary_large_image",
       title: postData.title,
-      description: postData.desc,
+      description,
       creator: "@varun1_yadav",
       site: "@varun1_yadav",
     },
@@ -45,43 +64,43 @@ export async function generateMetadata({ params }) {
 export default async function BlogPost({ params }) {
   const { slug } = await params;
   const postData = await getPostData("blog", slug);
+  const description = getPostDescription(postData);
 
-  const baseUrl = "https://til.varunyadav.com";
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: postData.title,
-    description: postData.desc,
+    description,
+    url: `${BASE_URL}/blog/${slug}`,
+    inLanguage: "en",
+    isAccessibleForFree: true,
     datePublished: postData.date,
-    dateModified: postData.date,
-    author: {
-      "@type": "Person",
-      name: "Varun Yadav",
-      url: "https://varunyadav.com",
-    },
-    publisher: {
-      "@type": "Person",
-      name: "Varun Yadav",
-      url: "https://varunyadav.com",
-    },
+    dateModified: postData.updated || postData.date,
+    author: AUTHOR,
+    publisher: AUTHOR,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${baseUrl}/blog/${slug}`,
+      "@id": `${BASE_URL}/blog/${slug}`,
     },
     keywords: postData.tags?.join(", ") || "",
+    articleSection: postData.tags || [],
+    wordCount: postData.readingTime?.words,
+    timeRequired: postData.readingTime?.minutes
+      ? `PT${postData.readingTime.minutes}M`
+      : undefined,
   };
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
-      { "@type": "ListItem", position: 2, name: "Blog", item: `${baseUrl}/` },
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${BASE_URL}/` },
       {
         "@type": "ListItem",
         position: 3,
         name: postData.title,
-        item: `${baseUrl}/blog/${slug}`,
+        item: `${BASE_URL}/blog/${slug}`,
       },
     ],
   };

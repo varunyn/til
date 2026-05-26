@@ -3,7 +3,10 @@ import { getAllTags } from "@/lib/tags";
 
 export const metadata = {
   title: "Tags - TIL",
-  description: "Browse posts by tags",
+  description: "Browse Varun Yadav's TIL notes by topic and technology tag.",
+  alternates: {
+    canonical: "https://til.varunyadav.com/tags",
+  },
 };
 
 export default function TagsPage() {

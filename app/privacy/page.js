@@ -1,6 +1,13 @@
 export const metadata = {
   title: "Privacy Policy - Today I Learned",
   description: "Privacy policy for til.varunyadav.com",
+  alternates: {
+    canonical: "https://til.varunyadav.com/privacy",
+  },
+  robots: {
+    follow: true,
+    index: false,
+  },
 };
 
 export default function PrivacyPage() {
