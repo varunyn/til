@@ -1,5 +1,6 @@
 import { getAllPosts } from "../lib/mdx";
 import { getAllTags } from "../lib/tags";
+import { getAllProjects } from "../lib/work";
 
 export const dynamic = "force-static";
 
@@ -40,6 +41,12 @@ export default function sitemap() {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/work`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/bookmarks`,
       lastModified: currentDate,
       changeFrequency: "weekly",
@@ -66,5 +73,13 @@ export default function sitemap() {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...blogPages, ...tagPages];
+  const projects = getAllProjects();
+  const workPages = projects.map((project) => ({
+    url: `${baseUrl}/work/${project.slug}`,
+    lastModified: currentDate,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...blogPages, ...tagPages, ...workPages];
 }
