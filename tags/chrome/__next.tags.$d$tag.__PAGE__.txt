@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
-2:I[81751,["/_next/static/chunks/0w6fo8ntf1m2~.js","/_next/static/chunks/0cqou41t.m544.js","/_next/static/chunks/0jud3worzlvfw.js","/_next/static/chunks/151ytzxk3wosa.js"],"default"]
-4:I[97367,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+2:I[81751,["/_next/static/chunks/2so2gowaf6r5l.js","/_next/static/chunks/2lwwk07j0isys.js","/_next/static/chunks/0dhue2e-m12at.js","/_next/static/chunks/3wlc_nj5khok9.js"],"default"]
+4:I[97367,["/_next/static/chunks/05-c3ty_6dwfk.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
 5:"$Sreact.suspense"
 3:T491,
 - We can do this by creating our own chrome extension with shortcuts for the URLs that we want to open.
@@ -51,5 +51,5 @@ function doKeyPress(event) {
 - Within chrome, type `chrome://extensions` in the address bar and activate developer mode on the top right (switch).
 - Click on the Load unpacked button that appeared and select your folder containing the files.
 - Now press `ctrl+g` on keyboard and it will open google in new tab.
-0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"posts":[{"title":"How to open URL in new tab using keyboard shortcut","date":"2021-06-23T00:00:00.000Z","desc":"How to open URL in new tab using keyboard shortcut","tags":["chrome","🌿"],"updated":null,"content":"$3","slug":"open-url-with-keyboard-shortcut-in-chrome"}],"tag":"chrome"}],[["$","script","script-0",{"src":"/_next/static/chunks/151ytzxk3wosa.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"7fN6by-ihloSK-OCN14uA"}
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"posts":[{"title":"How to open URL in new tab using keyboard shortcut","date":"2021-06-23T00:00:00.000Z","desc":"How to open URL in new tab using keyboard shortcut","tags":["chrome","🌿"],"updated":null,"content":"$3","slug":"open-url-with-keyboard-shortcut-in-chrome"}],"tag":"chrome"}],[["$","script","script-0",{"src":"/_next/static/chunks/3wlc_nj5khok9.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"6V5raMQa298t5k5iKrRG-"}
 6:null
