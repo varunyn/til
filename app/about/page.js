@@ -1,16 +1,13 @@
 import Image from "next/image";
 import { Link } from "next-view-transitions";
 import {
-  FaArrowUpRightFromSquare,
   FaEnvelope,
   FaGithub,
   FaLinkedin,
   FaSquareXTwitter,
-  FaYoutube,
 } from "react-icons/fa6";
 import IconCheck from "../../components/icon-check";
-import ProjectCard from "../../components/project-card";
-import { getAllProjects } from "../../lib/work";
+import TravelGlobe from "../../components/travel-globe";
 
 export const metadata = {
   title: "About - Varun Yadav",
@@ -188,75 +185,7 @@ const socialLinks = [
   },
 ];
 
-const technicalFocus = [
-  "OCI",
-  "Oracle Integration",
-  "Visual Builder",
-  "API Gateway",
-  "Automation",
-  "AI Apps",
-];
-
-const workVideos = [
-  {
-    title:
-      "AI-Powered Invoice Validation and Processing with Oracle Integration Cloud and Private Agent Factory",
-    href: "https://www.youtube.com/watch?v=cV_A2T6NJPU",
-    topic: "Oracle Integration Cloud",
-  },
-  {
-    title: "Creating Custom Events in Visual Builder Cloud Service",
-    href: "https://youtube.com/watch?v=5BTZg5bIz7o",
-    topic: "Visual Builder",
-  },
-  {
-    title: "Shredding and Querying in Visual Builder with the Offline Toolkit",
-    href: "https://youtube.com/watch?v=p6xwiKpkEpg",
-    topic: "Offline Toolkit",
-  },
-  {
-    title:
-      "How to Upload, Download, and Preview Object Storage Files in Oracle Visual Builder Cloud Service",
-    href: "https://youtube.com/watch?v=_YZguCWmQws",
-    topic: "Object Storage",
-  },
-  {
-    title:
-      "Build an OCI AI Speech-to-Text App Using Visual Builder and Functions",
-    href: "https://youtube.com/watch?v=9-KiORugqGc",
-    topic: "OCI AI",
-  },
-  {
-    title:
-      "How to Send Push Notifications to VBCS PWA with Node.js and API Gateway",
-    href: "https://youtube.com/watch?v=f7H1STOH-cM",
-    topic: "PWA",
-  },
-  {
-    title: "How to Create Usage Plans for Oracle API Gateway",
-    href: "https://youtube.com/watch?v=6oArcvNz1qY",
-    topic: "API Gateway",
-  },
-  {
-    title: "How to Implement 2 Legged OAuth in API Gateway",
-    href: "https://youtube.com/watch?v=-DD_2FzGQPs",
-    topic: "OAuth",
-  },
-  {
-    title: "Deploy and Get Started with Oracle Private Agent Factory on OCI",
-    href: "https://youtube.com/watch?v=cg0mg4mWEZc",
-    topic: "Private Agent Factory",
-  },
-  {
-    title: "How to Build a Visual Builder Form with Process Automation",
-    href: "https://youtube.com/watch?v=m1tyBqmLIQo",
-    topic: "Process Automation",
-  },
-];
-
 export default function About() {
-  const featuredProjects = getAllProjects().slice(0, 3);
-
   return (
     <div className="py-10 sm:py-14 lg:py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -317,36 +246,8 @@ export default function About() {
             </div>
           </div>
 
-          {/* Content Grid */}
-          <div className="grid items-start gap-4 md:grid-cols-2">
-            {/* About Section */}
-            <div className="h-full rounded-lg border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-              <h2 className="mb-3 flex items-center gap-2 font-bold text-gray-900 text-lg dark:text-white">
-                <span className="h-2.5 w-2.5 rounded-full bg-sorbus-500" />
-                About Me
-              </h2>
-              <p className="mb-3 text-gray-600 text-sm leading-relaxed dark:text-gray-300">
-                I&apos;m a Cloud Engineer who loves building scalable solutions
-                and exploring new technologies. When I&apos;m not coding, you
-                can find me sharing knowledge through blog posts and
-                contributing to open source projects.
-              </p>
-              <p className="border-gray-200 border-t pt-3 text-gray-600 text-sm leading-relaxed dark:border-gray-700 dark:text-gray-300">
-                What I&apos;ve learned from the community, I try to give back
-                through writing, open source contributions, and technical
-                walkthroughs.
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {technicalFocus.map((item) => (
-                  <span
-                    className="rounded-md bg-sorbus-50 px-2.5 py-1 font-medium text-sorbus-800 text-xs dark:bg-sorbus-950/40 dark:text-sorbus-200"
-                    key={item}
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
+          <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,24rem)]">
+            <TravelGlobe />
             {/* Bucket List Section */}
             <div className="h-full rounded-lg border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-800">
               <h2 className="mb-3 flex items-center gap-2 font-bold text-gray-900 text-lg dark:text-white">
@@ -378,82 +279,6 @@ export default function About() {
                     See Northern Lights
                   </span>
                 </div>
-              </div>
-            </div>
-            {/* Selected Work Section */}
-            {featuredProjects.length ? (
-              <div className="pt-4 md:col-span-2">
-                <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-                  <div>
-                    <h2 className="flex items-center gap-2 font-bold text-gray-900 text-xl dark:text-white">
-                      <span className="h-2.5 w-2.5 rounded-full bg-sorbus-500" />
-                      What I&apos;ve shipped
-                    </h2>
-                    <p className="mt-2 max-w-2xl text-gray-600 text-sm leading-relaxed dark:text-gray-300">
-                      Selected cloud apps, integration patterns, and technical
-                      demos with detail pages.
-                    </p>
-                  </div>
-                  <Link
-                    className="inline-flex min-h-11 w-fit touch-manipulation items-center rounded-md border border-gray-200 bg-white/70 px-3.5 py-2 font-medium text-gray-700 text-sm transition-[background-color,border-color,color] duration-200 ease-out [-webkit-tap-highlight-color:transparent] hover:border-sorbus-200 hover:bg-sorbus-50 hover:text-sorbus-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sorbus-500 focus-visible:ring-offset-2 focus-visible:ring-offset-page-bg dark:border-gray-700 dark:bg-gray-800/70 dark:text-gray-200 dark:focus-visible:ring-sorbus-400 dark:focus-visible:ring-offset-darkgrey dark:hover:border-sorbus-800 dark:hover:bg-sorbus-950/35 dark:hover:text-sorbus-200"
-                    href="/work"
-                  >
-                    View all work
-                  </Link>
-                </div>
-                <div className="grid gap-3 lg:grid-cols-3">
-                  {featuredProjects.map((project) => (
-                    <ProjectCard compact key={project.slug} project={project} />
-                  ))}
-                </div>
-              </div>
-            ) : null}
-            {/* Videos Section */}
-            <div className="pt-4 md:col-span-2">
-              <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                  <h2 className="flex items-center gap-2 font-bold text-gray-900 text-xl dark:text-white">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-red-100 text-red-700 dark:bg-red-950/50 dark:text-red-200">
-                      <FaYoutube aria-hidden="true" className="h-3.5 w-3.5" />
-                    </span>
-                    Work Videos
-                  </h2>
-                  <p className="mt-2 max-w-2xl text-gray-600 text-sm leading-relaxed dark:text-gray-300">
-                    Technical demos and walkthroughs I have published over the
-                    years.
-                  </p>
-                </div>
-                <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-red-50 px-3 py-1 font-semibold text-red-700 text-xs dark:bg-red-950/40 dark:text-red-200">
-                  <FaYoutube aria-hidden="true" className="h-3.5 w-3.5" />
-                  {workVideos.length} videos
-                </span>
-              </div>
-              <div className="grid gap-3 lg:grid-cols-2">
-                {workVideos.map(({ href, title, topic }) => (
-                  <Link
-                    className="group/video flex min-h-[88px] items-start gap-3 rounded-lg border border-gray-200 bg-white p-3.5 shadow-sm transition-[background-color,border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-red-200 hover:bg-red-50/30 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 dark:border-gray-700 dark:bg-gray-800 dark:hover:border-red-900 dark:hover:bg-gray-900"
-                    href={href}
-                    key={href}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-100 text-red-700 dark:bg-red-950/50 dark:text-red-200">
-                      <FaYoutube aria-hidden="true" className="h-4 w-4" />
-                    </span>
-                    <span className="min-w-0 flex-1">
-                      <span className="block font-semibold text-gray-900 text-sm leading-snug dark:text-gray-100">
-                        {title}
-                      </span>
-                      <span className="mt-2 inline-flex items-center gap-1.5 text-gray-500 text-xs dark:text-gray-400">
-                        {topic}
-                        <FaArrowUpRightFromSquare
-                          aria-hidden="true"
-                          className="h-3 w-3 transition-transform group-hover/video:translate-x-0.5 group-hover/video:-translate-y-0.5"
-                        />
-                      </span>
-                    </span>
-                  </Link>
-                ))}
               </div>
             </div>
           </div>

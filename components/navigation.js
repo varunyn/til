@@ -83,16 +83,6 @@ const Navigation = ({ searchPosts = [] }) => {
             </Link>
             <Link
               className={`px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
-                pathname.startsWith("/work")
-                  ? "text-sorbus-600 dark:text-sorbus-400"
-                  : ""
-              }`}
-              href="/work"
-            >
-              Work
-            </Link>
-            <Link
-              className={`px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
                 pathname === "/about"
                   ? "text-sorbus-600 dark:text-sorbus-400"
                   : ""
@@ -279,16 +269,6 @@ const Navigation = ({ searchPosts = [] }) => {
             href="/tags"
           >
             Tags
-          </Link>
-          <Link
-            className={`block rounded-md px-3 py-2 font-medium text-base ${
-              pathname.startsWith("/work")
-                ? "bg-sorbus-50 text-sorbus-600 dark:bg-sorbus-900 dark:text-sorbus-300"
-                : "text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
-            }`}
-            href="/work"
-          >
-            Work
           </Link>
           <Link
             className={`block rounded-md px-3 py-2 font-medium text-base ${
