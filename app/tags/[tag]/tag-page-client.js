@@ -17,7 +17,7 @@ export default function TagPageClient({ posts, tag }) {
           #{tag}
         </h1>
         <p className="mt-2 text-gray-600 dark:text-gray-400">
-          {posts.length} post{posts.length !== 1 ? "s" : ""}
+          {posts.length} post{posts.length === 1 ? "" : "s"}
         </p>
       </div>
 
