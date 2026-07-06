@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useConsent } from "./consent-manager";
 
 export default function CookieBanner() {
@@ -12,6 +12,24 @@ export default function CookieBanner() {
     setShowBanner: _setShowBanner,
   } = useConsent();
   const [showDetails, setShowDetails] = useState(false);
+  const closeDetails = useCallback(() => {
+    setShowDetails(false);
+  }, []);
+  const openDetails = useCallback(() => {
+    setShowDetails(true);
+  }, []);
+  const savePreferences = useCallback(() => {
+    const analyticsToggle = document.getElementById("analytics-toggle");
+    const analyticsEnabled =
+      analyticsToggle instanceof HTMLInputElement && analyticsToggle.checked;
+
+    if (analyticsEnabled) {
+      acceptAll();
+      return;
+    }
+
+    rejectAll();
+  }, [acceptAll, rejectAll]);
 
   if (!showBanner) {
     return null;
@@ -28,7 +46,7 @@ export default function CookieBanner() {
               </h3>
               <button
                 className="text-gray-500 text-sm hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-                onClick={() => setShowDetails(false)}
+                onClick={closeDetails}
                 type="button"
               >
                 ✕
@@ -74,15 +92,7 @@ export default function CookieBanner() {
             <div className="flex gap-2 pt-2">
               <button
                 className="rounded bg-sorbus-600 px-3 py-1.5 font-medium text-white text-xs transition-colors hover:bg-sorbus-700 dark:bg-sorbus-500 dark:hover:bg-sorbus-600"
-                onClick={() => {
-                  const analyticsEnabled =
-                    document.getElementById("analytics-toggle").checked;
-                  if (analyticsEnabled) {
-                    acceptAll();
-                  } else {
-                    rejectAll();
-                  }
-                }}
+                onClick={savePreferences}
                 type="button"
               >
                 Save Preferences
@@ -126,7 +136,7 @@ export default function CookieBanner() {
               </button>
               <button
                 className="rounded border border-gray-300 bg-white px-3 py-1.5 font-medium text-gray-700 text-xs transition-colors hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-                onClick={() => setShowDetails(true)}
+                onClick={openDetails}
                 type="button"
               >
                 Customize

@@ -25,10 +25,10 @@ export default function ConsentManager({ children }) {
   const updateGoogleAnalyticsConsent = useCallback((consentData) => {
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("consent", "update", {
-        analytics_storage: consentData.analytics ? "granted" : "denied",
+        ad_personalization: consentData.analytics ? "granted" : "denied",
         ad_storage: consentData.analytics ? "granted" : "denied",
         ad_user_data: consentData.analytics ? "granted" : "denied",
-        ad_personalization: consentData.analytics ? "granted" : "denied",
+        analytics_storage: consentData.analytics ? "granted" : "denied",
       });
     }
   }, []);
@@ -83,12 +83,12 @@ export default function ConsentManager({ children }) {
   };
 
   const value = {
-    consent,
-    showBanner,
     acceptAll,
+    consent,
     rejectAll,
-    updateConsent,
     setShowBanner,
+    showBanner,
+    updateConsent,
   };
 
   return (

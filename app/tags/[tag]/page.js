@@ -21,11 +21,11 @@ export async function generateMetadata({ params }) {
   // Decode the tag for display
   const decodedTag = decodeURIComponent(tag);
   return {
-    title: `#${decodedTag} - TIL`,
-    description: `Technical notes and links tagged with ${decodedTag} from Varun Yadav's TIL archive.`,
     alternates: {
       canonical: `${BASE_URL}/tags/${encodeURIComponent(decodedTag)}`,
     },
+    description: `Technical notes and links tagged with ${decodedTag} from Varun Yadav's TIL archive.`,
+    title: `#${decodedTag} - TIL`,
   };
 }
 

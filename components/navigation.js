@@ -3,25 +3,25 @@
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { Link } from "next-view-transitions";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FaRss, FaSquareXTwitter } from "react-icons/fa6";
 import Search from "./search";
 
 const SOCIAL_LINKS = [
   {
-    name: "X",
     href: "https://twitter.com/varun1_yadav",
     icon: FaSquareXTwitter,
     label: "X profile",
+    name: "X",
   },
   {
-    name: "GitHub",
     href: "https://github.com/varunyn",
     icon: FaGithub,
     label: "GitHub profile",
+    name: "GitHub",
   },
-  { name: "RSS", href: "/feed.xml", icon: FaRss, label: "RSS feed" },
+  { href: "/feed.xml", icon: FaRss, label: "RSS feed", name: "RSS" },
 ];
 
 const Navigation = ({ searchPosts = [] }) => {
@@ -34,6 +34,12 @@ const Navigation = ({ searchPosts = [] }) => {
     resolvedTheme === "dark" ? "Switch to light mode" : "Switch to dark mode";
   // Avoid hydration mismatch: resolvedTheme is undefined until client hydration.
   const themeToggleAriaLabel = mounted ? nextThemeLabel : "Toggle color theme";
+  const toggleTheme = useCallback(() => {
+    setTheme(nextTheme);
+  }, [nextTheme, setTheme]);
+  const toggleMenu = useCallback(() => {
+    setIsMenuOpen((currentValue) => !currentValue);
+  }, []);
 
   // After mounting, we can safely show the UI
   useEffect(() => setMounted(true), []);
@@ -127,7 +133,7 @@ const Navigation = ({ searchPosts = [] }) => {
             <button
               aria-label={themeToggleAriaLabel}
               className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2 dark:bg-gray-800/60 dark:hover:bg-gray-700/70"
-              onClick={() => setTheme(nextTheme)}
+              onClick={toggleTheme}
               type="button"
             >
               {mounted && (
@@ -166,7 +172,7 @@ const Navigation = ({ searchPosts = [] }) => {
             <button
               aria-label={themeToggleAriaLabel}
               className="mr-2 inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2 dark:bg-gray-800/60 dark:hover:bg-gray-700/70"
-              onClick={() => setTheme(nextTheme)}
+              onClick={toggleTheme}
               type="button"
             >
               {mounted && (
@@ -202,7 +208,7 @@ const Navigation = ({ searchPosts = [] }) => {
             <button
               aria-expanded={isMenuOpen}
               className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-black focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={toggleMenu}
               type="button"
             >
               <span className="sr-only">Open main menu</span>

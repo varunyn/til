@@ -4,18 +4,18 @@ import createGlobe from "cobe";
 import { useEffect, useRef } from "react";
 
 const visitedCountries = [
-  { id: "india", name: "India", location: [20.59, 78.96] },
-  { id: "united-states", name: "United States", location: [39.83, -98.58] },
-  { id: "japan", name: "Japan", location: [36.2, 138.25] },
+  { id: "india", location: [20.59, 78.96], name: "India" },
+  { id: "united-states", location: [39.83, -98.58], name: "United States" },
+  { id: "japan", location: [36.2, 138.25], name: "Japan" },
   {
     id: "united-arab-emirates",
-    name: "UAE",
     location: [23.42, 53.85],
+    name: "UAE",
   },
-  { id: "mexico", name: "Mexico", location: [23.63, -102.55] },
-  { id: "thailand", name: "Thailand", location: [15.87, 100.99] },
-  { id: "new-zealand", name: "New Zealand", location: [-40.9, 174.89] },
-  { id: "egypt", name: "Egypt", location: [26.82, 30.8] },
+  { id: "mexico", location: [23.63, -102.55], name: "Mexico" },
+  { id: "thailand", location: [15.87, 100.99], name: "Thailand" },
+  { id: "new-zealand", location: [-40.9, 174.89], name: "New Zealand" },
+  { id: "egypt", location: [26.82, 30.8], name: "Egypt" },
 ];
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
@@ -56,20 +56,15 @@ export default function TravelGlobe() {
       canvas.style.height = `${size}px`;
 
       globe = createGlobe(canvas, {
-        devicePixelRatio: pixelRatio,
-        width: size * pixelRatio,
-        height: size * pixelRatio,
-        phi,
-        theta,
-        dark: document.documentElement.classList.contains("dark") ? 1 : 0,
-        diffuse: 1.25,
-        mapSamples: 12_000,
-        mapBrightness: 5.4,
         baseColor: [0.95, 0.97, 1],
-        markerColor: [0.94, 0.32, 0.12],
+        dark: document.documentElement.classList.contains("dark") ? 1 : 0,
+        devicePixelRatio: pixelRatio,
+        diffuse: 1.25,
         glowColor: [0.95, 0.97, 1],
-        opacity: 0.98,
-        scale: 1,
+        height: size * pixelRatio,
+        mapBrightness: 5.4,
+        mapSamples: 12_000,
+        markerColor: [0.94, 0.32, 0.12],
         markers: visitedCountries.map((country) => ({
           id: country.id,
           location: country.location,
@@ -90,6 +85,11 @@ export default function TravelGlobe() {
             phi += 0.0022;
           }
         },
+        opacity: 0.98,
+        phi,
+        scale: 1,
+        theta,
+        width: size * pixelRatio,
       });
     };
 

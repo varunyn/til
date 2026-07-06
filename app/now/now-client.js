@@ -3,20 +3,22 @@
 import Image from "next/image";
 import { useState } from "react";
 
+const DAY_SLOTS = [0, 1, 2, 3, 4, 5, 6];
+
 const NowClient = ({ timelineEntries }) => {
   const [tooltip, setTooltip] = useState({ show: false, text: "", x: 0, y: 0 });
 
   // Sample data - you can replace this with real data later
   const profileData = {
-    name: "Varun",
+    avatar: "/avatar.png", // You'll need to add your avatar image
     bio: "Learning new stuff and building things using AI",
     location: "Austin, TX",
-    avatar: "/avatar.png", // You'll need to add your avatar image
+    name: "Varun",
   };
 
   const goals = [
-    { text: "Ship more 🚀", color: "bg-sorbus-100 text-sorbus-900" },
-    { text: "eat healthier", color: "bg-green-100 text-green-800" },
+    { color: "bg-sorbus-100 text-sorbus-900", text: "Ship more 🚀" },
+    { color: "bg-green-100 text-green-800", text: "eat healthier" },
   ];
 
   // Generate activity heatmap data (simplified)
@@ -40,11 +42,9 @@ const NowClient = ({ timelineEntries }) => {
     months.forEach((month, monthIndex) => {
       const daysInMonth =
         monthIndex === 1 ? 28 : monthIndex % 2 === 0 ? 31 : 30;
-      for (let day = 1; day <= daysInMonth; day++) {
+      for (let day = 1; day <= daysInMonth; day += 1) {
         const activity = Math.random();
         data.push({
-          month,
-          day,
           activity:
             activity > 0.7
               ? "high"
@@ -53,6 +53,8 @@ const NowClient = ({ timelineEntries }) => {
                 : activity > 0.1
                   ? "low"
                   : "none",
+          day,
+          month,
         });
       }
     });
@@ -64,7 +66,7 @@ const NowClient = ({ timelineEntries }) => {
 
   // Helper function to check if a date has data using timelineEntries
   const hasDataForDate = (date) => {
-    const dateString = date.toISOString().split("T")[0]; // Format: YYYY-MM-DD
+    const [dateString] = date.toISOString().split("T"); // Format: YYYY-MM-DD
     return timelineEntries.some((entry) => entry.date === dateString);
   };
 
@@ -208,33 +210,35 @@ const NowClient = ({ timelineEntries }) => {
                         key={weekIndex}
                         style={{ gap: "4px" }}
                       >
-                        {Array.from({ length: 7 }, (_, dayIndex) => {
+                        {DAY_SLOTS.map((daySlotIndex) => {
                           // First week starts on Wednesday (Jan 1, 2025 is a Wednesday)
                           const isFirstWeek = weekIndex === 0;
                           const isLastWeek = weekIndex === 53;
 
-                          // First week: only show Wed, Thu, Fri, Sat (dayIndex 3-6)
-                          // Last week: only show Sun (dayIndex 0) for Dec 31
+                          // First week: only show Wed, Thu, Fri, Sat (daySlotIndex 3-6)
+                          // Last week: only show Sun (daySlotIndex 0) for Dec 31
                           const shouldShowSquare =
-                            (isFirstWeek && dayIndex >= 3) ||
-                            (isLastWeek && dayIndex === 0) ||
+                            (isFirstWeek && daySlotIndex >= 3) ||
+                            (isLastWeek && daySlotIndex === 0) ||
                             !(isFirstWeek || isLastWeek);
 
                           if (!shouldShowSquare) {
-                            return <div className="h-3 w-3" key={dayIndex} />;
+                            return (
+                              <div className="h-3 w-3" key={daySlotIndex} />
+                            );
                           }
 
                           // Calculate the actual date
                           const startDate = new Date(2025, 0, 1); // January 1, 2025 (Wednesday)
-                          // For first week, dayIndex 3 = Wednesday (Jan 1), dayIndex 4 = Thursday (Jan 2), etc.
-                          // For subsequent weeks, dayIndex 0 = Sunday, dayIndex 1 = Monday, etc.
+                          // For first week, daySlotIndex 3 = Wednesday (Jan 1), daySlotIndex 4 = Thursday (Jan 2), etc.
+                          // For subsequent weeks, daySlotIndex 0 = Sunday, daySlotIndex 1 = Monday, etc.
                           let dayOffset;
                           if (isFirstWeek) {
-                            dayOffset = dayIndex - 3; // Jan 1 is at dayIndex 3 (Wednesday)
+                            dayOffset = daySlotIndex - 3; // Jan 1 is at daySlotIndex 3 (Wednesday)
                           } else if (isLastWeek) {
                             dayOffset = 364; // Dec 31, 2025 (365th day, 0-indexed = 364)
                           } else {
-                            dayOffset = (weekIndex - 1) * 7 + dayIndex + 4; // +4 because first week only has 4 days
+                            dayOffset = (weekIndex - 1) * 7 + daySlotIndex + 4; // +4 because first week only has 4 days
                           }
 
                           const currentDate = new Date(startDate);
@@ -289,9 +293,9 @@ const NowClient = ({ timelineEntries }) => {
                           };
 
                           const handleClick = () => {
-                            const dateString = currentDate
+                            const [dateString] = currentDate
                               .toISOString()
-                              .split("T")[0];
+                              .split("T");
                             const timelineEntry = timelineEntries.find(
                               (entry) => entry.date === dateString
                             );
@@ -328,7 +332,7 @@ const NowClient = ({ timelineEntries }) => {
                                   ? "cursor-pointer hover:ring-2 hover:ring-sorbus-400"
                                   : "cursor-default hover:ring-1 hover:ring-gray-400"
                               }`}
-                              key={dayIndex}
+                              key={daySlotIndex}
                               onClick={hasData ? handleClick : undefined}
                               onMouseEnter={handleMouseEnter}
                               onMouseLeave={handleMouseLeave}

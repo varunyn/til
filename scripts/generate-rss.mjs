@@ -15,24 +15,24 @@ function toValidDate(value) {
 
 async function generate() {
   const feed = new Feed({
-    title: "Varun Yadav - TIL",
-    description: "My personal TIL website.",
-    id: `${SITE_URL}/`,
-    link: `${SITE_URL}/`,
-    language: "en",
-    image: `${SITE_URL}/avatar.png`,
-    favicon: `${SITE_URL}/favicon.ico`,
+    author: {
+      email: "hi@varunyadav.com",
+      link: "https://varunyadav.com",
+      name: "Varun Yadav",
+    },
     copyright: `All rights reserved ${new Date().getFullYear()}, Varun Yadav`,
-    updated: new Date(),
-    generator: "Feed for Node.js",
+    description: "My personal TIL website.",
+    favicon: `${SITE_URL}/favicon.ico`,
     feedLinks: {
       rss2: `${SITE_URL}/feed.xml`,
     },
-    author: {
-      name: "Varun Yadav",
-      email: "hi@varunyadav.com",
-      link: "https://varunyadav.com",
-    },
+    generator: "Feed for Node.js",
+    id: `${SITE_URL}/`,
+    image: `${SITE_URL}/avatar.png`,
+    language: "en",
+    link: `${SITE_URL}/`,
+    title: "Varun Yadav - TIL",
+    updated: new Date(),
   });
 
   const blogDir = path.join(__dirname, "..", "data", "blog");
@@ -41,7 +41,7 @@ async function generate() {
     entries
       .filter((e) => e.isFile() && e.name.endsWith(".mdx"))
       .map(async (entry) => {
-        const name = entry.name;
+        const { name } = entry;
         const content = await fs.readFile(path.join(blogDir, name), "utf8");
         const frontmatter = matter(content);
         const slug = name.replace(EXT_REGEX, "");
@@ -64,19 +64,19 @@ async function generate() {
 
   for (const post of posts) {
     feed.addItem({
-      title: post.title,
-      id: `${SITE_URL}/blog/${post.slug}`,
-      link: `${SITE_URL}/blog/${post.slug}`,
-      description: post.description,
-      content: post.description,
       author: [
         {
-          name: "Varun Yadav",
           email: "hi@varunyadav.com",
           link: "https://varunyadav.com",
+          name: "Varun Yadav",
         },
       ],
+      content: post.description,
       date: post.date,
+      description: post.description,
+      id: `${SITE_URL}/blog/${post.slug}`,
+      link: `${SITE_URL}/blog/${post.slug}`,
+      title: post.title,
     });
   }
 

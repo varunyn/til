@@ -8,33 +8,33 @@ import { fontBody, fontHeading } from "./fonts";
 import { Providers } from "./providers";
 
 export const metadata = {
-  metadataBase: new URL("https://til.varunyadav.com"),
-  title: "Today I Learned - Varun Yadav",
   description:
     "A collection of code snippets, solutions and things I learn day to day.",
-  referrer: "strict-origin-when-cross-origin",
   icons: {
     icon: "/favicon.png",
   },
+  metadataBase: new URL("https://til.varunyadav.com"),
   other: {
-    webmention: "https://webmention.io/til.varunyadav.com/webmention",
     pingback: "https://webmention.io/til.varunyadav.com/xmlrpc",
+    webmention: "https://webmention.io/til.varunyadav.com/webmention",
   },
+  referrer: "strict-origin-when-cross-origin",
+  title: "Today I Learned - Varun Yadav",
 };
 
 export const viewport = {
-  width: "device-width",
   initialScale: 1.0,
-  viewportFit: "cover",
   themeColor: [
     { color: "#f1f2f3", media: "(prefers-color-scheme: light)" },
     { color: "#222831", media: "(prefers-color-scheme: dark)" },
   ],
+  viewportFit: "cover",
+  width: "device-width",
 };
 
 export default async function RootLayout({ children }) {
   const allPosts = getAllPosts("blog");
-  const searchPosts = allPosts.map(({ title, slug }) => ({ title, slug }));
+  const searchPosts = allPosts.map(({ title, slug }) => ({ slug, title }));
 
   return (
     <html

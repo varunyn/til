@@ -4,32 +4,32 @@ import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const nextConfig = {
-  output: "export",
-  reactStrictMode: true,
-  turbopack: {
-    root: __dirname,
-  },
-  transpilePackages: ["react-tweet"],
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "pbs.twimg.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "abs.twimg.com",
-        pathname: "/**",
-      },
-    ],
-    unoptimized: true,
-  },
+  bundlePagesRouterDependencies: true,
   experimental: {
     mdxRs: true,
     viewTransition: true,
   },
-  bundlePagesRouterDependencies: true,
+  images: {
+    remotePatterns: [
+      {
+        hostname: "pbs.twimg.com",
+        pathname: "/**",
+        protocol: "https",
+      },
+      {
+        hostname: "abs.twimg.com",
+        pathname: "/**",
+        protocol: "https",
+      },
+    ],
+    unoptimized: true,
+  },
+  output: "export",
+  reactStrictMode: true,
+  transpilePackages: ["react-tweet"],
+  turbopack: {
+    root: __dirname,
+  },
 };
 
 export default nextConfig;

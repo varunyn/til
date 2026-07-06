@@ -10,12 +10,12 @@ const SECTIONS = [
 ];
 
 export const metadata = {
-  title: "Uses - Varun Yadav",
-  description:
-    "Hardware, software, and everyday tools I rely on — a living snapshot.",
   alternates: {
     canonical: "https://til.varunyadav.com/uses",
   },
+  description:
+    "Hardware, software, and everyday tools I rely on — a living snapshot.",
+  title: "Uses - Varun Yadav",
 };
 
 export default function UsesPage() {

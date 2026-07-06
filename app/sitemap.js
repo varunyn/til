@@ -10,60 +10,60 @@ export default function sitemap() {
   // Static pages
   const staticPages = [
     {
-      url: baseUrl,
-      lastModified: currentDate,
       changeFrequency: "daily",
+      lastModified: currentDate,
       priority: 1.0,
+      url: baseUrl,
     },
     {
-      url: `${baseUrl}/about`,
-      lastModified: currentDate,
       changeFrequency: "monthly",
+      lastModified: currentDate,
       priority: 0.9,
+      url: `${baseUrl}/about`,
     },
     {
+      changeFrequency: "weekly",
+      lastModified: currentDate,
+      priority: 0.8,
       url: `${baseUrl}/now`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.8,
     },
     {
-      url: `${baseUrl}/uses`,
-      lastModified: currentDate,
       changeFrequency: "monthly",
+      lastModified: currentDate,
       priority: 0.75,
+      url: `${baseUrl}/uses`,
     },
     {
-      url: `${baseUrl}/tags`,
-      lastModified: currentDate,
       changeFrequency: "weekly",
+      lastModified: currentDate,
       priority: 0.8,
+      url: `${baseUrl}/tags`,
     },
     {
-      url: `${baseUrl}/bookmarks`,
-      lastModified: currentDate,
       changeFrequency: "weekly",
+      lastModified: currentDate,
       priority: 0.7,
+      url: `${baseUrl}/bookmarks`,
     },
   ];
 
   // Get all blog posts
   const posts = getAllPosts("blog");
   const blogPages = posts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: post.date ? new Date(post.date) : currentDate,
     changeFrequency: "monthly",
+    lastModified: post.date ? new Date(post.date) : currentDate,
     priority: 0.8,
+    url: `${baseUrl}/blog/${post.slug}`,
   }));
 
   // Get all tags
   const tagsData = getAllTags("blog");
   const tags = Object.keys(tagsData);
   const tagPages = tags.map((tag) => ({
-    url: `${baseUrl}/tags/${encodeURIComponent(tag)}`,
-    lastModified: currentDate,
     changeFrequency: "weekly",
+    lastModified: currentDate,
     priority: 0.6,
+    url: `${baseUrl}/tags/${encodeURIComponent(tag)}`,
   }));
 
   return [...staticPages, ...blogPages, ...tagPages];

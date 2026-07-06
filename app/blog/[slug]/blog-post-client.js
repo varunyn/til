@@ -33,14 +33,14 @@ export default function BlogPostClient({ post, htmlContent }) {
     const regex = new RegExp(TWEET_PLACEHOLDER_REGEX.source, "g");
     match = regex.exec(htmlContent);
     while (match !== null) {
-      const tweetId = match[1];
+      const [, tweetId] = match;
       extractedTweets.push({ id: tweetId, index: placeholderIndex });
 
       contentWithPlaceholders = contentWithPlaceholders.replace(
         match[0],
         `<div class="tweet-marker" data-tweet-index="${placeholderIndex}"></div>`
       );
-      placeholderIndex++;
+      placeholderIndex += 1;
       match = regex.exec(htmlContent);
     }
 
@@ -107,9 +107,9 @@ export default function BlogPostClient({ post, htmlContent }) {
       }
       const headings = el.querySelectorAll("h2[id], h3[id]");
       const items = Array.from(headings).map((h) => ({
+        depth: h.tagName === "H2" ? 2 : 3,
         id: h.id,
         text: h.textContent?.trim() || "",
-        depth: h.tagName === "H2" ? 2 : 3,
       }));
       setTocItems(items);
     }, 0);

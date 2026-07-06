@@ -10,12 +10,12 @@ import IconCheck from "../../components/icon-check";
 import TravelGlobe from "../../components/travel-globe";
 
 export const metadata = {
-  title: "About - Varun Yadav",
-  description:
-    "Learn more about Varun Yadav, a Cloud Engineer focused on cloud, automation, and practical technical demos.",
   alternates: {
     canonical: "https://til.varunyadav.com/about",
   },
+  description:
+    "Learn more about Varun Yadav, a Cloud Engineer focused on cloud, automation, and practical technical demos.",
+  title: "About - Varun Yadav",
 };
 
 const CONTRIBUTION_LEVEL_REGEX = /\d$/u;
@@ -70,28 +70,22 @@ const githubContributionGrid = [
 const getContributionLevel = (cell) =>
   Number(cell.match(CONTRIBUTION_LEVEL_REGEX)?.[0] ?? 0);
 
-const getContributionClassName = (cell) => {
-  const level = getContributionLevel(cell);
-
-  switch (level) {
-    case 4:
-      return "bg-emerald-600 dark:bg-emerald-400";
-    case 3:
-      return "bg-emerald-500 dark:bg-emerald-500";
-    case 2:
-      return "bg-emerald-300 dark:bg-emerald-700";
-    case 1:
-      return "bg-emerald-200 dark:bg-emerald-800";
-    default:
-      return "bg-gray-200 dark:bg-gray-700";
-  }
+const CONTRIBUTION_CLASS_NAMES = {
+  1: "bg-emerald-200 dark:bg-emerald-800",
+  2: "bg-emerald-300 dark:bg-emerald-700",
+  3: "bg-emerald-500 dark:bg-emerald-500",
+  4: "bg-emerald-600 dark:bg-emerald-400",
 };
+
+const getContributionClassName = (cell) =>
+  CONTRIBUTION_CLASS_NAMES[getContributionLevel(cell)] ??
+  "bg-gray-200 dark:bg-gray-700";
 
 const socialLinks = [
   {
-    label: "X",
     href: "https://twitter.com/varun1_yadav",
     Icon: FaSquareXTwitter,
+    label: "X",
     preview: (
       <div className="w-[17rem] p-4 text-left">
         <div className="mb-3 flex items-start justify-between">
@@ -120,9 +114,9 @@ const socialLinks = [
     ),
   },
   {
-    label: "LinkedIn",
     href: "https://www.linkedin.com/in/varuncs/",
     Icon: FaLinkedin,
+    label: "LinkedIn",
     preview: (
       <div className="w-[17rem] p-4 text-left">
         <p className="font-bold text-gray-950 text-lg dark:text-white">
@@ -143,9 +137,9 @@ const socialLinks = [
     ),
   },
   {
-    label: "GitHub",
     href: "https://github.com/varunyn",
     Icon: FaGithub,
+    label: "GitHub",
     preview: (
       <div className="w-[18rem] p-4 text-left">
         <div className="mb-3 flex items-center justify-between">
@@ -179,9 +173,9 @@ const socialLinks = [
     ),
   },
   {
-    label: "Email",
     href: "mailto:hi@varunyadav.com",
     Icon: FaEnvelope,
+    label: "Email",
   },
 ];
 

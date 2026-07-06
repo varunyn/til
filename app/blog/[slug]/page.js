@@ -7,12 +7,12 @@ const BASE_URL = "https://til.varunyadav.com";
 const AUTHOR = {
   "@type": "Person",
   name: "Varun Yadav",
-  url: "https://varunyadav.com",
   sameAs: [
     "https://github.com/varunyn",
     "https://twitter.com/varun1_yadav",
     "https://www.linkedin.com/in/varuncs/",
   ],
+  url: "https://varunyadav.com",
 };
 
 function getPostDescription(postData) {
@@ -34,29 +34,29 @@ export async function generateMetadata({ params }) {
   const description = getPostDescription(postData);
 
   return {
-    title: postData.title,
-    description,
     alternates: {
       canonical: `${BASE_URL}/blog/${slug}`,
       types: {
         "text/markdown": `${BASE_URL}/blog/${slug}.md`,
       },
     },
+    description,
     openGraph: {
-      title: postData.title,
-      description,
-      url: `${BASE_URL}/blog/${slug}`,
-      type: "article",
-      publishedTime: postData.date,
       authors: ["Varun Yadav"],
+      description,
+      publishedTime: postData.date,
       tags: postData.tags || [],
+      title: postData.title,
+      type: "article",
+      url: `${BASE_URL}/blog/${slug}`,
     },
+    title: postData.title,
     twitter: {
       card: "summary_large_image",
-      title: postData.title,
-      description,
       creator: "@varun1_yadav",
+      description,
       site: "@varun1_yadav",
+      title: postData.title,
     },
   };
 }
@@ -69,38 +69,38 @@ export default async function BlogPost({ params }) {
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: postData.title,
+    articleSection: postData.tags || [],
+    author: AUTHOR,
+    dateModified: postData.updated || postData.date,
+    datePublished: postData.date,
     description,
-    url: `${BASE_URL}/blog/${slug}`,
+    headline: postData.title,
     inLanguage: "en",
     isAccessibleForFree: true,
-    datePublished: postData.date,
-    dateModified: postData.updated || postData.date,
-    author: AUTHOR,
-    publisher: AUTHOR,
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${BASE_URL}/blog/${slug}`,
-    },
     keywords: postData.tags?.join(", ") || "",
-    articleSection: postData.tags || [],
-    wordCount: postData.readingTime?.words,
+    mainEntityOfPage: {
+      "@id": `${BASE_URL}/blog/${slug}`,
+      "@type": "WebPage",
+    },
+    publisher: AUTHOR,
     timeRequired: postData.readingTime?.minutes
       ? `PT${postData.readingTime.minutes}M`
       : undefined,
+    url: `${BASE_URL}/blog/${slug}`,
+    wordCount: postData.readingTime?.words,
   };
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
-      { "@type": "ListItem", position: 2, name: "Blog", item: `${BASE_URL}/` },
+      { "@type": "ListItem", item: BASE_URL, name: "Home", position: 1 },
+      { "@type": "ListItem", item: `${BASE_URL}/`, name: "Blog", position: 2 },
       {
         "@type": "ListItem",
-        position: 3,
-        name: postData.title,
         item: `${BASE_URL}/blog/${slug}`,
+        name: postData.title,
+        position: 3,
       },
     ],
   };

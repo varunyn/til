@@ -44,10 +44,10 @@ async function main() {
       }
 
       return {
+        date,
+        desc: typeof data.desc === "string" ? data.desc : "",
         slug,
         title: typeof data.title === "string" ? data.title : slug,
-        desc: typeof data.desc === "string" ? data.desc : "",
-        date,
       };
     })
   );

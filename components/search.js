@@ -36,6 +36,12 @@ export default function Search({ posts = [] }) {
     setQuery("");
     triggerRef.current?.focus();
   }, []);
+  const openSearch = useCallback(() => {
+    setOpen(true);
+  }, []);
+  const handleQueryChange = useCallback((event) => {
+    setQuery(event.target.value);
+  }, []);
 
   useEffect(() => {
     const handleKeydown = (e) => {
@@ -57,7 +63,7 @@ export default function Search({ posts = [] }) {
     }
     const dialog = dialogRef.current;
     const focusable = Array.from(dialog.querySelectorAll(FOCUSABLE));
-    const first = focusable[0];
+    const [first] = focusable;
     const last = focusable.at(-1);
     first?.focus();
 
@@ -89,7 +95,7 @@ export default function Search({ posts = [] }) {
         aria-expanded={open}
         aria-haspopup="dialog"
         className="flex min-h-[44px] w-full max-w-[14rem] items-center justify-start gap-2 rounded-xl border border-gray-200 bg-white/50 px-3 py-2.5 text-gray-500 text-sm placeholder-gray-500 shadow-sm backdrop-blur-sm transition-all duration-200 hover:border-gray-300 focus:border-sorbus-500 focus:outline-none focus:ring-2 focus:ring-sorbus-500 dark:border-gray-700 dark:bg-gray-800/50 dark:text-gray-400 dark:hover:border-gray-600"
-        onClick={() => setOpen(true)}
+        onClick={openSearch}
         ref={triggerRef}
         type="button"
       >
@@ -121,7 +127,7 @@ export default function Search({ posts = [] }) {
                 aria-label="Search articles"
                 autoFocus
                 className="flex-1 bg-transparent py-2 text-gray-900 text-sm placeholder-gray-500 focus:outline-none dark:text-gray-100"
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={handleQueryChange}
                 placeholder="Type to search..."
                 type="text"
                 value={query}

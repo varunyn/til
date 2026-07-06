@@ -7,7 +7,7 @@ export default function BackToTop() {
   const rafId = useRef(null);
 
   const toggleVisibility = useCallback(() => {
-    if (rafId.current != null) {
+    if (rafId.current !== null) {
       cancelAnimationFrame(rafId.current);
     }
     rafId.current = requestAnimationFrame(() => {
@@ -20,7 +20,7 @@ export default function BackToTop() {
     window.addEventListener("scroll", toggleVisibility, { passive: true });
     return () => {
       window.removeEventListener("scroll", toggleVisibility);
-      if (rafId.current != null) {
+      if (rafId.current !== null) {
         cancelAnimationFrame(rafId.current);
       }
     };
@@ -29,8 +29,8 @@ export default function BackToTop() {
   // Scroll to top handler
   const scrollToTop = () => {
     window.scrollTo({
-      top: 0,
       behavior: "smooth",
+      top: 0,
     });
   };
 

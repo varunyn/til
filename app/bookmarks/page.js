@@ -1,21 +1,21 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Bookmarks - Varun Yadav",
-  description: "My bookmarks and useful resources.",
   alternates: {
     canonical: "https://til.varunyadav.com/bookmarks",
   },
+  description: "My bookmarks and useful resources.",
   openGraph: {
-    title: "Bookmarks - Varun Yadav",
     description: "My bookmarks and useful resources.",
-    url: "https://til.varunyadav.com/bookmarks",
+    title: "Bookmarks - Varun Yadav",
     type: "website",
+    url: "https://til.varunyadav.com/bookmarks",
   },
+  title: "Bookmarks - Varun Yadav",
   twitter: {
     card: "summary",
-    title: "Bookmarks - Varun Yadav",
     description: "My bookmarks and useful resources.",
+    title: "Bookmarks - Varun Yadav",
   },
 };
 
