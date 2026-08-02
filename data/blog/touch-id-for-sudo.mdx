@@ -1,0 +1,83 @@
+---
+title: Use Touch ID for sudo on macOS
+date: 2026-08-02
+desc: Authenticate sudo commands with Touch ID on macOS using the update-safe sudo_local configuration.
+tags: [macOS, sudo, Touch ID, 🌱]
+---
+
+On macOS 14 Sonoma and later, you can authenticate `sudo` commands with Touch ID instead of typing your password every time. Your password remains available as a fallback.
+
+This requires a Mac with Touch ID and an administrator account. It takes about a minute and does not require a reboot.
+
+### Check that sudo supports `sudo_local`
+
+Apple includes a drop-in file for local sudo configuration. First, check whether the system's sudo configuration includes it:
+
+```shell
+cat /etc/pam.d/sudo
+```
+
+You should see this line near the top:
+
+```text
+auth       include        sudo_local
+```
+
+If the line is missing, this setup is not available on your version of macOS.
+
+### Enable Touch ID
+
+Apple provides a template with the Touch ID line commented out:
+
+```shell
+cat /etc/pam.d/sudo_local.template
+```
+
+Create the local configuration by uncommenting that line:
+
+```shell
+sudo sed 's/^#auth/auth/' /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+```
+
+Check the resulting file:
+
+```shell
+cat /etc/pam.d/sudo_local
+```
+
+It should contain exactly one uncommented line:
+
+```text
+auth       sufficient     pam_tid.so
+```
+
+The `sufficient` setting lets a successful Touch ID check finish authentication. If Touch ID fails or is dismissed, sudo falls back to asking for your password.
+
+### Test it
+
+Clear sudo's credential cache and run a harmless command:
+
+```shell
+sudo -k; sudo true && echo ok
+```
+
+Touch the sensor when prompted. The command should print `ok`. Apple Watch authentication also works if wrist detection is enabled in System Settings.
+
+### Using sudo inside tmux or screen
+
+Terminal multiplexers may need `pam-reattach` so Touch ID can access the GUI session. Install it with Homebrew:
+
+```shell
+brew install pam-reattach
+```
+
+Then put the reattach module before `pam_tid.so` in `/etc/pam.d/sudo_local`:
+
+```text
+auth       optional       /opt/homebrew/lib/pam/pam_reattach.so
+auth       sufficient     pam_tid.so
+```
+
+On an Intel Mac, use `/usr/local/lib/pam/pam_reattach.so` instead.
+
+Source: [Touch ID for sudo on macOS](https://x.com/OmarShahine/status/2083750651482554421)
