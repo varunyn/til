@@ -47,7 +47,7 @@ const Navigation = ({ searchPosts = [] }) => {
   // Close menu when route changes
   useEffect(() => {
     setIsMenuOpen(false);
-  }, []);
+  }, [pathname]);
 
   return (
     <nav
@@ -70,7 +70,7 @@ const Navigation = ({ searchPosts = [] }) => {
           <div className="hidden md:flex md:items-center md:space-x-6">
             <Search posts={searchPosts} />
             <Link
-              className={`px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
+              className={`inline-flex min-h-11 items-center px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
                 pathname === "/" ? "text-sorbus-600 dark:text-sorbus-400" : ""
               }`}
               href="/"
@@ -78,7 +78,7 @@ const Navigation = ({ searchPosts = [] }) => {
               Home
             </Link>
             <Link
-              className={`px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
+              className={`inline-flex min-h-11 items-center px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
                 pathname.startsWith("/tags")
                   ? "text-sorbus-600 dark:text-sorbus-400"
                   : ""
@@ -88,7 +88,7 @@ const Navigation = ({ searchPosts = [] }) => {
               Tags
             </Link>
             <Link
-              className={`px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
+              className={`inline-flex min-h-11 items-center px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
                 pathname === "/about"
                   ? "text-sorbus-600 dark:text-sorbus-400"
                   : ""
@@ -98,7 +98,7 @@ const Navigation = ({ searchPosts = [] }) => {
               About
             </Link>
             <Link
-              className={`px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
+              className={`inline-flex min-h-11 items-center px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
                 pathname === "/now"
                   ? "text-sorbus-600 dark:text-sorbus-400"
                   : ""
@@ -206,12 +206,16 @@ const Navigation = ({ searchPosts = [] }) => {
 
             {/* Hamburger Menu Button - Only show on mobile */}
             <button
+              aria-controls="mobile-navigation"
               aria-expanded={isMenuOpen}
+              aria-label={isMenuOpen ? "Close main menu" : "Open main menu"}
               className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-black focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               onClick={toggleMenu}
               type="button"
             >
-              <span className="sr-only">Open main menu</span>
+              <span className="sr-only">
+                {isMenuOpen ? "Close main menu" : "Open main menu"}
+              </span>
               {isMenuOpen ? (
                 <svg
                   aria-hidden="true"
@@ -251,13 +255,16 @@ const Navigation = ({ searchPosts = [] }) => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden ${isMenuOpen ? "block" : "hidden"}`}>
+      <div
+        className={`md:hidden ${isMenuOpen ? "block" : "hidden"}`}
+        id="mobile-navigation"
+      >
         <div className="space-y-1 border-t px-2 pt-2 pb-3 sm:px-3 dark:border-gray-700">
           <div className="px-3 py-2">
             <Search posts={searchPosts} />
           </div>
           <Link
-            className={`block rounded-md px-3 py-2 font-medium text-base ${
+            className={`block min-h-11 rounded-md px-3 py-2 font-medium text-base ${
               pathname === "/"
                 ? "bg-sorbus-50 text-sorbus-600 dark:bg-sorbus-900 dark:text-sorbus-300"
                 : "text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
@@ -267,7 +274,7 @@ const Navigation = ({ searchPosts = [] }) => {
             Home
           </Link>
           <Link
-            className={`block rounded-md px-3 py-2 font-medium text-base ${
+            className={`block min-h-11 rounded-md px-3 py-2 font-medium text-base ${
               pathname.startsWith("/tags")
                 ? "bg-sorbus-50 text-sorbus-600 dark:bg-sorbus-900 dark:text-sorbus-300"
                 : "text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
@@ -277,7 +284,7 @@ const Navigation = ({ searchPosts = [] }) => {
             Tags
           </Link>
           <Link
-            className={`block rounded-md px-3 py-2 font-medium text-base ${
+            className={`block min-h-11 rounded-md px-3 py-2 font-medium text-base ${
               pathname === "/about"
                 ? "bg-sorbus-50 text-sorbus-600 dark:bg-sorbus-900 dark:text-sorbus-300"
                 : "text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
@@ -287,7 +294,7 @@ const Navigation = ({ searchPosts = [] }) => {
             About
           </Link>
           <Link
-            className={`block rounded-md px-3 py-2 font-medium text-base ${
+            className={`block min-h-11 rounded-md px-3 py-2 font-medium text-base ${
               pathname === "/now"
                 ? "bg-sorbus-50 text-sorbus-600 dark:bg-sorbus-900 dark:text-sorbus-300"
                 : "text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
