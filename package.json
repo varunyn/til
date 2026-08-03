@@ -1,23 +1,29 @@
 {
   "name": "til.varunyadav.com",
-  "description": "My personal TIL website.",
   "version": "0.1.0",
+  "private": true,
+  "description": "My personal TIL website.",
   "homepage": "https://github.com/varunyn/til",
   "author": {
     "name": "Varun Yadav",
     "email": "hi@varunyadav.com"
   },
-  "private": true,
   "scripts": {
+    "build": "node scripts/generate-rss.mjs && next build && node scripts/generate-markdown-sidecars.mjs",
+    "check": "ultracite check",
     "dev": "next dev --turbo",
     "dev-https": "next dev --experimental-https",
-    "build": "node scripts/generate-rss.mjs && next build && node scripts/generate-markdown-sidecars.mjs",
-    "start": "next start",
+    "fix": "ultracite fix",
     "format": "ultracite fix",
     "lint": "ultracite check",
     "prepare": "husky",
-    "check": "ultracite check",
-    "fix": "ultracite fix"
+    "start": "next start"
+  },
+  "overrides": {
+    "next-view-transitions": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
   },
   "dependencies": {
     "cobe": "^2.0.1",
@@ -47,11 +53,5 @@
     "postcss": "^8.5.15",
     "tailwindcss": "^4.1.17",
     "ultracite": "^7.9.2"
-  },
-  "overrides": {
-    "next-view-transitions": {
-      "react": "$react",
-      "react-dom": "$react-dom"
-    }
   }
 }
