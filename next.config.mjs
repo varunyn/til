@@ -7,7 +7,6 @@ const nextConfig = {
   bundlePagesRouterDependencies: true,
   experimental: {
     mdxRs: true,
-    viewTransition: true,
   },
   images: {
     remotePatterns: [
