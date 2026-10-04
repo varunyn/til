@@ -32,11 +32,15 @@ export default function TravelGlobe() {
       return;
     }
 
-    const prefersReducedMotion = window.matchMedia(
+    const motionPreference = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
-    ).matches;
+    );
     let globe;
     let frameId;
+    let isVisible = false;
+    let previousSize = 0;
+    let previousPixelRatio = 0;
+    let previousFrameTime;
     let phi = 0.18;
     let theta = 0.24;
     let isDragging = false;
@@ -47,6 +51,15 @@ export default function TravelGlobe() {
     const buildGlobe = () => {
       const size = Math.min(wrapper.clientWidth, 420);
       const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+
+      if (
+        size === 0 ||
+        (size === previousSize && pixelRatio === previousPixelRatio)
+      ) {
+        return;
+      }
+      previousSize = size;
+      previousPixelRatio = pixelRatio;
 
       if (globe) {
         globe.destroy();
@@ -70,21 +83,6 @@ export default function TravelGlobe() {
           location: country.location,
           size: 0.055,
         })),
-        onRender: (state) => {
-          state.phi = phi;
-          state.theta = theta;
-
-          if (isDragging || prefersReducedMotion) {
-            return;
-          }
-
-          if (Math.abs(spinVelocity) > 0.0001) {
-            phi += spinVelocity;
-            spinVelocity *= 0.96;
-          } else {
-            phi += 0.0022;
-          }
-        },
         opacity: 0.98,
         phi,
         scale: 1,
@@ -105,6 +103,7 @@ export default function TravelGlobe() {
       lastPointerY = event.clientY;
       canvas.setPointerCapture?.(event.pointerId);
       canvas.classList.add("cursor-grabbing");
+      syncAnimation();
     };
 
     const handlePointerMove = (event) => {
@@ -128,6 +127,7 @@ export default function TravelGlobe() {
         canvas.releasePointerCapture(event.pointerId);
       }
       canvas.classList.remove("cursor-grabbing");
+      syncAnimation();
     };
 
     canvas.addEventListener("pointerdown", handlePointerDown);
@@ -136,14 +136,45 @@ export default function TravelGlobe() {
     canvas.addEventListener("pointercancel", handlePointerUp);
     canvas.addEventListener("lostpointercapture", handlePointerUp);
 
-    const rotate = () => {
+    const rotate = (timestamp) => {
+      const elapsed = previousFrameTime ? timestamp - previousFrameTime : 0;
+      const frameScale = Math.min(elapsed / (1000 / 60), 3);
+      previousFrameTime = timestamp;
+      if (!(isDragging || motionPreference.matches)) {
+        if (Math.abs(spinVelocity) > 0.0001) {
+          phi += spinVelocity * frameScale;
+          spinVelocity *= 0.96 ** frameScale;
+        } else {
+          phi += 0.0022 * frameScale;
+        }
+      }
       globe?.update({ phi, theta });
       frameId = requestAnimationFrame(rotate);
     };
 
-    frameId = requestAnimationFrame(rotate);
+    const syncAnimation = () => {
+      cancelAnimationFrame(frameId);
+      previousFrameTime = undefined;
+      if (
+        isVisible &&
+        !document.hidden &&
+        (!motionPreference.matches || isDragging)
+      ) {
+        frameId = requestAnimationFrame(rotate);
+      }
+    };
+    const intersectionObserver = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+      syncAnimation();
+    });
+    intersectionObserver.observe(wrapper);
+    document.addEventListener("visibilitychange", syncAnimation);
+    motionPreference.addEventListener("change", syncAnimation);
 
     return () => {
+      intersectionObserver.disconnect();
+      document.removeEventListener("visibilitychange", syncAnimation);
+      motionPreference.removeEventListener("change", syncAnimation);
       resizeObserver.disconnect();
       cancelAnimationFrame(frameId);
       canvas.removeEventListener("pointerdown", handlePointerDown);

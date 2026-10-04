@@ -66,9 +66,12 @@ const Navigation = ({ searchPosts = [] }) => {
             </Link>
           </div>
 
+          <div className="mr-3 ml-auto md:ml-6">
+            <Search posts={searchPosts} />
+          </div>
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-6">
-            <Search posts={searchPosts} />
             <Link
               className={`inline-flex min-h-11 items-center px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
                 pathname === "/" ? "text-sorbus-600 dark:text-sorbus-400" : ""
@@ -260,9 +263,6 @@ const Navigation = ({ searchPosts = [] }) => {
         id="mobile-navigation"
       >
         <div className="space-y-1 border-t px-2 pt-2 pb-3 sm:px-3 dark:border-gray-700">
-          <div className="px-3 py-2">
-            <Search posts={searchPosts} />
-          </div>
           <Link
             className={`block min-h-11 rounded-md px-3 py-2 font-medium text-base ${
               pathname === "/"

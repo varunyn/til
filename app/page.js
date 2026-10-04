@@ -18,5 +18,11 @@ export async function generateMetadata() {
 export default function Home() {
   const allPosts = getAllPosts("blog");
 
-  return <HomeClient allPosts={allPosts} />;
+  const notes = allPosts.map(({ slug, title, tags }) => ({
+    slug,
+    tags,
+    title,
+  }));
+
+  return <HomeClient allPosts={notes} />;
 }

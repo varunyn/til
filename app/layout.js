@@ -34,7 +34,11 @@ export const viewport = {
 
 export default async function RootLayout({ children }) {
   const allPosts = getAllPosts("blog");
-  const searchPosts = allPosts.map(({ title, slug }) => ({ slug, title }));
+  const searchPosts = allPosts.map(({ title, slug, tags }) => ({
+    slug,
+    tags: tags ?? [],
+    title,
+  }));
 
   return (
     <html

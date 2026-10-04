@@ -41,9 +41,15 @@ export default async function TagPage({ params }) {
   }
 
   const filteredPosts = allPosts.filter(
-    (post) =>
-      post.draft !== true && post.tags?.map((t) => t).includes(decodedTag)
+    (post) => post.draft !== true && post.tags?.includes(decodedTag)
   );
 
-  return <TagPageClient posts={filteredPosts} tag={decodedTag} />;
+  const summaries = filteredPosts.map(({ slug, title, date, desc }) => ({
+    date,
+    desc: desc ?? null,
+    slug,
+    title,
+  }));
+
+  return <TagPageClient posts={summaries} tag={decodedTag} />;
 }
