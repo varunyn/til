@@ -1,11 +1,12 @@
 import Image from "next/image";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import {
   FaEnvelope,
   FaGithub,
   FaLinkedin,
   FaSquareXTwitter,
 } from "react-icons/fa6";
+import PageTransition from "@/components/page-transition";
 import IconCheck from "../../components/icon-check";
 import TravelGlobe from "../../components/travel-globe";
 
@@ -181,103 +182,106 @@ const socialLinks = [
 
 export default function About() {
   return (
-    <div className="py-10 sm:py-14 lg:py-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          {/* Hero Section */}
-          <div className="mb-8 grid items-end gap-6 md:grid-cols-[auto_1fr] md:text-left">
-            <div className="relative mx-auto inline-block md:mx-0">
-              <div className="rounded-full bg-sorbus-100 p-2 ring-1 ring-sorbus-200 dark:bg-sorbus-950/40 dark:ring-sorbus-900">
-                <Image
-                  alt="Varun Yadav"
-                  className="rounded-full shadow-lg"
-                  height={112}
-                  priority
-                  src="/avatar.png"
-                  width={112}
-                />
+    <PageTransition>
+      <div className="py-10 sm:py-14 lg:py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-6xl">
+            {/* Hero Section */}
+            <div className="mb-8 grid items-end gap-6 md:grid-cols-[auto_1fr] md:text-left">
+              <div className="relative mx-auto inline-block md:mx-0">
+                <div className="rounded-full bg-sorbus-100 p-2 ring-1 ring-sorbus-200 dark:bg-sorbus-950/40 dark:ring-sorbus-900">
+                  <Image
+                    alt="Varun Yadav"
+                    className="rounded-full shadow-lg"
+                    height={112}
+                    priority
+                    src="/avatar.png"
+                    width={112}
+                  />
+                </div>
+                <div className="absolute right-2 bottom-2 h-5 w-5 rounded-full border-3 border-page-bg bg-green-500 dark:border-darkgrey" />
               </div>
-              <div className="absolute right-2 bottom-2 h-5 w-5 rounded-full border-3 border-page-bg bg-green-500 dark:border-darkgrey" />
+
+              <div className="text-center md:text-left">
+                <p className="mb-2 font-semibold text-sm text-sorbus-700 dark:text-sorbus-300">
+                  Cloud Engineer
+                </p>
+                <h1 className="mb-3 font-bold text-4xl text-gray-950 tracking-normal sm:text-5xl dark:text-white">
+                  Hi, I&apos;m Varun Yadav
+                </h1>
+                <p className="mx-auto max-w-2xl text-gray-700 text-lg leading-relaxed md:mx-0 dark:text-gray-300">
+                  I build cloud systems, automation workflows, and practical
+                  demos that make complex infrastructure easier to use and
+                  explain.
+                </p>
+
+                {/* Social Links */}
+                <div className="relative z-10 mt-5 flex flex-wrap justify-center gap-2 md:justify-start">
+                  {socialLinks.map(({ href, Icon, label, preview }) => (
+                    <div className="group/social relative" key={href}>
+                      <Link
+                        className="inline-flex min-h-[44px] items-center gap-1.5 rounded-full bg-white/80 px-3.5 py-2 font-medium text-gray-700 text-sm shadow-sm ring-1 ring-gray-200 transition-[background-color,box-shadow,color,transform] duration-200 hover:-translate-y-0.5 hover:bg-white hover:text-gray-950 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-sorbus-500 focus-visible:ring-offset-2 dark:bg-gray-800/80 dark:text-gray-200 dark:ring-gray-700 dark:hover:bg-gray-800 dark:hover:text-white"
+                        href={href}
+                        rel={
+                          href.startsWith("http")
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
+                        target={href.startsWith("http") ? "_blank" : undefined}
+                      >
+                        <Icon aria-hidden="true" className="h-4 w-4" />
+                        <span>{label}</span>
+                      </Link>
+                      {preview ? (
+                        <div className="pointer-events-none fixed top-72 right-4 left-4 mt-2 flex origin-top translate-y-2 scale-95 justify-center overflow-hidden rounded-lg border border-gray-200 bg-white opacity-0 shadow-[0_16px_40px_rgba(0,0,0,0.14)] blur-sm transition-[opacity,transform,filter] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] group-focus-within/social:pointer-events-auto group-focus-within/social:translate-y-0 group-focus-within/social:scale-100 group-focus-within/social:opacity-100 group-focus-within/social:blur-none group-hover/social:pointer-events-auto group-hover/social:translate-y-0 group-hover/social:scale-100 group-hover/social:opacity-100 group-hover/social:blur-none sm:absolute sm:top-full sm:right-auto sm:left-1/2 sm:-translate-x-1/2 dark:border-gray-700 dark:bg-gray-900">
+                          {preview}
+                        </div>
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            <div className="text-center md:text-left">
-              <p className="mb-2 font-semibold text-sm text-sorbus-700 dark:text-sorbus-300">
-                Cloud Engineer
-              </p>
-              <h1 className="mb-3 font-bold text-4xl text-gray-950 tracking-normal sm:text-5xl dark:text-white">
-                Hi, I&apos;m Varun Yadav
-              </h1>
-              <p className="mx-auto max-w-2xl text-gray-700 text-lg leading-relaxed md:mx-0 dark:text-gray-300">
-                I build cloud systems, automation workflows, and practical demos
-                that make complex infrastructure easier to use and explain.
-              </p>
-
-              {/* Social Links */}
-              <div className="relative z-10 mt-5 flex flex-wrap justify-center gap-2 md:justify-start">
-                {socialLinks.map(({ href, Icon, label, preview }) => (
-                  <div className="group/social relative" key={href}>
-                    <Link
-                      className="inline-flex min-h-[44px] items-center gap-1.5 rounded-full bg-white/80 px-3.5 py-2 font-medium text-gray-700 text-sm shadow-sm ring-1 ring-gray-200 transition-[background-color,box-shadow,color,transform] duration-200 hover:-translate-y-0.5 hover:bg-white hover:text-gray-950 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-sorbus-500 focus-visible:ring-offset-2 dark:bg-gray-800/80 dark:text-gray-200 dark:ring-gray-700 dark:hover:bg-gray-800 dark:hover:text-white"
-                      href={href}
-                      rel={
-                        href.startsWith("http")
-                          ? "noopener noreferrer"
-                          : undefined
-                      }
-                      target={href.startsWith("http") ? "_blank" : undefined}
-                    >
-                      <Icon aria-hidden="true" className="h-4 w-4" />
-                      <span>{label}</span>
-                    </Link>
-                    {preview ? (
-                      <div className="pointer-events-none fixed top-72 right-4 left-4 mt-2 flex origin-top translate-y-2 scale-95 justify-center overflow-hidden rounded-lg border border-gray-200 bg-white opacity-0 shadow-[0_16px_40px_rgba(0,0,0,0.14)] blur-sm transition-[opacity,transform,filter] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] group-focus-within/social:pointer-events-auto group-focus-within/social:translate-y-0 group-focus-within/social:scale-100 group-focus-within/social:opacity-100 group-focus-within/social:blur-none group-hover/social:pointer-events-auto group-hover/social:translate-y-0 group-hover/social:scale-100 group-hover/social:opacity-100 group-hover/social:blur-none sm:absolute sm:top-full sm:right-auto sm:left-1/2 sm:-translate-x-1/2 dark:border-gray-700 dark:bg-gray-900">
-                        {preview}
-                      </div>
-                    ) : null}
+            <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,24rem)]">
+              <TravelGlobe />
+              {/* Bucket List Section */}
+              <div className="h-full rounded-lg border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                <h2 className="mb-3 flex items-center gap-2 font-bold text-gray-900 text-lg dark:text-white">
+                  <span className="h-2.5 w-2.5 rounded-full bg-green-500" />
+                  Bucket List
+                </h2>
+                <div className="space-y-2">
+                  <div className="flex min-h-[44px] items-center gap-2 rounded-md bg-green-50 px-3 py-2 dark:bg-green-900/20">
+                    <IconCheck />
+                    <span className="text-gray-700 text-sm line-through dark:text-gray-300">
+                      Travel to Japan
+                    </span>
+                    <span className="rounded-full bg-green-100 px-1.5 py-0.5 text-green-800 text-xs dark:bg-green-800 dark:text-green-200">
+                      ✓
+                    </span>
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,24rem)]">
-            <TravelGlobe />
-            {/* Bucket List Section */}
-            <div className="h-full rounded-lg border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-              <h2 className="mb-3 flex items-center gap-2 font-bold text-gray-900 text-lg dark:text-white">
-                <span className="h-2.5 w-2.5 rounded-full bg-green-500" />
-                Bucket List
-              </h2>
-              <div className="space-y-2">
-                <div className="flex min-h-[44px] items-center gap-2 rounded-md bg-green-50 px-3 py-2 dark:bg-green-900/20">
-                  <IconCheck />
-                  <span className="text-gray-700 text-sm line-through dark:text-gray-300">
-                    Travel to Japan
-                  </span>
-                  <span className="rounded-full bg-green-100 px-1.5 py-0.5 text-green-800 text-xs dark:bg-green-800 dark:text-green-200">
-                    ✓
-                  </span>
-                </div>
-                <div className="flex min-h-[44px] items-center gap-2 rounded-md bg-green-50 px-3 py-2 dark:bg-green-900/20">
-                  <IconCheck />
-                  <span className="text-gray-700 text-sm line-through dark:text-gray-300">
-                    Skydive Above Dubai
-                  </span>
-                  <span className="rounded-full bg-green-100 px-1.5 py-0.5 text-green-800 text-xs dark:bg-green-800 dark:text-green-200">
-                    ✓
-                  </span>
-                </div>
-                <div className="flex min-h-[44px] items-center gap-2 rounded-md px-3 py-2 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700">
-                  <div className="h-4 w-4 rounded border-2 border-gray-300 dark:border-gray-600" />
-                  <span className="text-gray-700 text-sm dark:text-gray-300">
-                    See Northern Lights
-                  </span>
+                  <div className="flex min-h-[44px] items-center gap-2 rounded-md bg-green-50 px-3 py-2 dark:bg-green-900/20">
+                    <IconCheck />
+                    <span className="text-gray-700 text-sm line-through dark:text-gray-300">
+                      Skydive Above Dubai
+                    </span>
+                    <span className="rounded-full bg-green-100 px-1.5 py-0.5 text-green-800 text-xs dark:bg-green-800 dark:text-green-200">
+                      ✓
+                    </span>
+                  </div>
+                  <div className="flex min-h-[44px] items-center gap-2 rounded-md px-3 py-2 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700">
+                    <div className="h-4 w-4 rounded border-2 border-gray-300 dark:border-gray-600" />
+                    <span className="text-gray-700 text-sm dark:text-gray-300">
+                      See Northern Lights
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </PageTransition>
   );
 }

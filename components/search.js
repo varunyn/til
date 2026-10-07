@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 const SearchIcon = () => (
@@ -186,8 +186,9 @@ export default function Search({ posts = [] }) {
                   <Link
                     className="block min-h-11 break-words px-4 py-3 text-sm hover:bg-gray-100 focus:bg-gray-100 focus:outline-none dark:focus:bg-gray-800 dark:hover:bg-gray-800"
                     href={`/blog/${post.slug}`}
-                    onClick={close}
+                    onNavigate={close}
                     prefetch={false}
+                    transitionTypes={["nav-forward"]}
                   >
                     <span className="block font-medium">{post.title}</span>
                     {post.tags?.length > 0 && (

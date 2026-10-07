@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import Blog from "@/components/blog";
 
 export default function TagPageClient({ posts, tag }) {
@@ -10,6 +10,7 @@ export default function TagPageClient({ posts, tag }) {
         <Link
           className="mb-4 inline-block text-sorbus-600 hover:underline dark:text-sorbus-400"
           href="/tags"
+          transitionTypes={["nav-back"]}
         >
           &larr; All Tags
         </Link>

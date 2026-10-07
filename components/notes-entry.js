@@ -1,4 +1,5 @@
-import { Link } from "next-view-transitions";
+import Link from "next/link";
+import { ViewTransition } from "react";
 
 import { categoryFromTags, primaryTagSlug } from "../lib/notes-category";
 import { tagChipClassName } from "../lib/tag-chip";
@@ -21,23 +22,24 @@ export default function NotesEntry({ slug, title, tags }) {
 
   return (
     <div className="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-      <h3 className="m-0 min-w-0 font-semibold text-[1.05rem] text-gray-900 leading-snug tracking-tight dark:text-gray-100">
-        <Link
-          className={`${TITLE_LINK} break-words`}
-          href={`/blog/${slug}`}
-          style={{
-            viewTransitionName: `blog-title-${slug}`,
-          }}
-        >
-          {title}
-        </Link>
-      </h3>
+      <ViewTransition default="none" name={`blog-title-${slug}`} share="morph">
+        <h3 className="m-0 min-w-0 font-semibold text-[1.05rem] text-gray-900 leading-snug tracking-tight dark:text-gray-100">
+          <Link
+            className={`${TITLE_LINK} break-words`}
+            href={`/blog/${slug}`}
+            transitionTypes={["nav-forward"]}
+          >
+            {title}
+          </Link>
+        </h3>
+      </ViewTransition>
       <Link
         aria-label={
           primary ? `View posts tagged ${primary}` : "Browse all tags"
         }
         className={`inline-flex w-fit shrink-0 ${chipClass}`}
         href={tagHref}
+        transitionTypes={["nav-forward"]}
       >
         {label}
       </Link>

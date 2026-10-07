@@ -1,10 +1,12 @@
 import { format, parseISO } from "date-fns";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
+import { ViewTransition } from "react";
 
 const Blog = ({ slug, title, date, desc }) => (
   <Link
     className="group block overflow-hidden rounded-2xl border border-gray-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-gray-200 hover:shadow-lg dark:border-gray-800 dark:bg-gray-800/50 dark:hover:border-gray-700"
     href={`/blog/${slug}`}
+    transitionTypes={["nav-forward"]}
   >
     <div className="p-6">
       <div className="mb-3 flex items-center justify-between">
@@ -14,16 +16,11 @@ const Blog = ({ slug, title, date, desc }) => (
           </time>
         )}
       </div>
-      <h2
-        className="mb-3 font-bold text-gray-900 text-xl transition-colors group-hover:text-sorbus-600 sm:text-2xl dark:text-gray-100 dark:group-hover:text-sorbus-400"
-        data-blog-title
-        style={{
-          "--blog-title-name": `blog-title-${slug}`,
-          viewTransitionName: `blog-title-${slug}`,
-        }}
-      >
-        {title}
-      </h2>
+      <ViewTransition default="none" name={`blog-title-${slug}`} share="morph">
+        <h2 className="mb-3 font-bold text-gray-900 text-xl transition-colors group-hover:text-sorbus-600 sm:text-2xl dark:text-gray-100 dark:group-hover:text-sorbus-400">
+          {title}
+        </h2>
+      </ViewTransition>
       {desc && (
         <p className="line-clamp-2 text-base text-gray-600 leading-relaxed dark:text-gray-400">
           {desc}

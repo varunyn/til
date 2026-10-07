@@ -1,7 +1,7 @@
 "use client";
 
-import { Link } from "next-view-transitions";
-import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { useEffect, useRef, useState, ViewTransition } from "react";
 import { FaArrowLeft, FaCalendar, FaTags, FaUser } from "react-icons/fa6";
 import { copyToClipboard } from "@/lib/clipboard";
 
@@ -180,6 +180,7 @@ export default function BlogPostClient({ post, htmlContent }) {
           <Link
             className="group mb-8 inline-flex items-center space-x-2 text-sorbus-600 transition-colors hover:text-sorbus-800 dark:text-sorbus-400 dark:hover:text-sorbus-200"
             href="/"
+            transitionTypes={["nav-back"]}
           >
             <FaArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
             <span>Back to Home</span>
@@ -189,14 +190,15 @@ export default function BlogPostClient({ post, htmlContent }) {
           <article className="overflow-hidden rounded-xl bg-white shadow-lg dark:bg-gray-800">
             {/* Header */}
             <div className="border-gray-200 border-b p-8 dark:border-gray-700">
-              <h1
-                className="mb-4 font-bold text-3xl text-gray-900 sm:text-4xl dark:text-white"
-                style={{
-                  viewTransitionName: `blog-title-${post.slug}`,
-                }}
+              <ViewTransition
+                default="none"
+                name={`blog-title-${post.slug}`}
+                share="morph"
               >
-                {post.title}
-              </h1>
+                <h1 className="mb-4 font-bold text-3xl text-gray-900 sm:text-4xl dark:text-white">
+                  {post.title}
+                </h1>
+              </ViewTransition>
 
               {/* Meta Information */}
               <div className="flex animate-fade-in-delayed flex-wrap items-center gap-4 text-gray-600 text-sm dark:text-gray-400">
@@ -237,6 +239,7 @@ export default function BlogPostClient({ post, htmlContent }) {
                           className="rounded-md bg-sorbus-100 px-2 py-1 font-medium text-sorbus-800 text-xs transition-colors hover:bg-sorbus-200 dark:bg-sorbus-900 dark:text-sorbus-200 dark:hover:bg-sorbus-800"
                           href={`/tags/${encodeURIComponent(tag)}`}
                           key={tag}
+                          transitionTypes={["nav-back"]}
                         >
                           {tag}
                         </Link>

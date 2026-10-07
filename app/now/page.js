@@ -1,3 +1,4 @@
+import PageTransition from "@/components/page-transition";
 import { getTimelineEntries } from "../../lib/timeline";
 import NowClient from "./now-client";
 
@@ -11,5 +12,9 @@ export const metadata = {
 
 export default async function Now() {
   const timelineEntries = getTimelineEntries();
-  return <NowClient timelineEntries={timelineEntries} />;
+  return (
+    <PageTransition>
+      <NowClient timelineEntries={timelineEntries} />
+    </PageTransition>
+  );
 }

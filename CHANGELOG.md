@@ -8,8 +8,10 @@
 
 ### Changed
 
+- Use native React transitions for article-title morphs, directional article navigation, and section fades, with reduced-motion support.
 - Send only the article summaries needed by homepage and tag listings to reduce page data.
 - Update all direct packages to their latest stable releases and apply compatible dependency security fixes.
+- Upgrade to Next.js 16.4 for its build and production bundle improvements while preserving static export.
 
 ### Fixed
 

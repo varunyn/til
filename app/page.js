@@ -1,3 +1,4 @@
+import PageTransition from "@/components/page-transition";
 import { getAllPosts } from "../lib/mdx";
 import HomeClient from "./home-client";
 
@@ -24,5 +25,9 @@ export default function Home() {
     title,
   }));
 
-  return <HomeClient allPosts={notes} />;
+  return (
+    <PageTransition>
+      <HomeClient allPosts={notes} />
+    </PageTransition>
+  );
 }

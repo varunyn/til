@@ -1,4 +1,5 @@
 import CopyButtonScript from "@/components/copy-button-script";
+import PageTransition from "@/components/page-transition";
 import { getAllPostIds, getPostData } from "@/lib/mdx";
 import BlogPostClient from "./blog-post-client";
 import WebmentionsClient from "./webmentions-client";
@@ -106,7 +107,7 @@ export default async function BlogPost({ params }) {
   };
 
   return (
-    <>
+    <PageTransition key={slug}>
       <script
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
         type="application/ld+json"
@@ -118,6 +119,6 @@ export default async function BlogPost({ params }) {
       <BlogPostClient htmlContent={postData.content} post={postData} />
       <CopyButtonScript />
       <WebmentionsClient slug={slug} />
-    </>
+    </PageTransition>
   );
 }

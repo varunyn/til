@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import PageTransition from "@/components/page-transition";
 import { getAllPosts } from "@/lib/mdx";
 import { getAllTags } from "@/lib/tags";
 import TagPageClient from "./tag-page-client";
@@ -51,5 +52,9 @@ export default async function TagPage({ params }) {
     title,
   }));
 
-  return <TagPageClient posts={summaries} tag={decodedTag} />;
+  return (
+    <PageTransition key={decodedTag}>
+      <TagPageClient posts={summaries} tag={decodedTag} />
+    </PageTransition>
+  );
 }
