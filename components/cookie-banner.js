@@ -36,7 +36,7 @@ export default function CookieBanner() {
   }
 
   return (
-    <div className="fixed right-4 bottom-4 z-50 max-w-md rounded-lg border border-gray-200 border-t-2 border-t-sorbus-500 bg-white shadow-lg dark:border-gray-700 dark:border-t-sorbus-500 dark:bg-gray-900">
+    <div className="fixed right-4 bottom-[calc(6rem+env(safe-area-inset-bottom))] left-4 z-[70] max-w-md rounded-lg border border-gray-200 bg-white shadow-lg md:bottom-4 md:left-auto dark:border-gray-700 dark:bg-gray-900">
       <div className="p-4">
         {showDetails ? (
           <div className="space-y-3">

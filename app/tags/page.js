@@ -1,29 +1,35 @@
+import Link from "next/link";
 import PageTransition from "@/components/page-transition";
-import Tag from "@/components/tag";
 import { getAllTags } from "@/lib/tags";
 
 export const metadata = {
-  alternates: {
-    canonical: "https://til.varunyadav.com/tags",
-  },
+  alternates: { canonical: "https://til.varunyadav.com/tags" },
   description: "Browse Varun Yadav's TIL notes by topic and technology tag.",
   title: "Tags - TIL",
 };
 
 export default function TagsPage() {
-  const tags = getAllTags("blog");
-
+  const tags = Object.entries(getAllTags("blog")).sort((a, b) => b[1] - a[1]);
   return (
     <PageTransition>
-      <div className="container mx-auto max-w-4xl px-4 py-8 sm:px-6">
-        <h1 className="mb-8 font-bold text-3xl text-gray-900 sm:text-4xl dark:text-gray-100">
-          Tags
-        </h1>
-        <div className="flex flex-wrap gap-2">
-          {Object.entries(tags).map(([tag, count]) => (
-            <Tag count={count} key={tag} tag={tag} />
+      <div className="topics-browser">
+        <h1>Topics</h1>
+        <p>Browse notes across {tags.length} topics.</p>
+        <nav aria-label="Topics" className="topics-grid">
+          {tags.map(([tag, count]) => (
+            <Link
+              className="topic-index-link"
+              href={`/tags/${encodeURIComponent(tag)}`}
+              key={tag}
+              transitionTypes={["nav-forward"]}
+            >
+              <span>{tag}</span>
+              <span>
+                {count} {count === 1 ? "note" : "notes"}
+              </span>
+            </Link>
           ))}
-        </div>
+        </nav>
       </div>
     </PageTransition>
   );

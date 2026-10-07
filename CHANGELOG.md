@@ -4,9 +4,14 @@
 
 ### Added
 
+- Filter homepage notes by popular topics without leaving the page.
+- Show published dates alongside compact orange topic labels on homepage notes.
+
 - Search articles by title or tag, including queries with multiple words, directly from the mobile header.
 
 ### Changed
+
+- Refine mobile browsing with a personal TIL identity, bottom navigation, compact titles and topic labels, a topic index, and wider article reading space.
 
 - Use native React transitions for article-title morphs, directional article navigation, and section fades, with reduced-motion support.
 - Send only the article summaries needed by homepage and tag listings to reduce page data.

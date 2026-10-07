@@ -1,0 +1,347 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-07T19:31:54.592195+00:00",
+  "title": "Design System: TIL",
+  "extensions": {
+    "colorMeta": {
+      "sorbus-50": {
+        "role": "primary",
+        "displayName": "Sorbus 50",
+        "tonalRamp": [
+          "#431507",
+          "#7c2e12",
+          "#9a3612",
+          "#c2440c",
+          "#eb5b0b",
+          "#fa8128",
+          "#fdbc74",
+          "#fff7ed"
+        ]
+      },
+      "sorbus-200": {
+        "role": "primary",
+        "displayName": "Sorbus 200",
+        "tonalRamp": [
+          "#431507",
+          "#7c2e12",
+          "#9a3612",
+          "#c2440c",
+          "#eb5b0b",
+          "#fa8128",
+          "#fdbc74",
+          "#fff7ed"
+        ]
+      },
+      "sorbus-300": {
+        "role": "primary",
+        "displayName": "Sorbus 300",
+        "tonalRamp": [
+          "#431507",
+          "#7c2e12",
+          "#9a3612",
+          "#c2440c",
+          "#eb5b0b",
+          "#fa8128",
+          "#fdbc74",
+          "#fff7ed"
+        ]
+      },
+      "sorbus-500": {
+        "role": "primary",
+        "displayName": "Sorbus 500",
+        "tonalRamp": [
+          "#431507",
+          "#7c2e12",
+          "#9a3612",
+          "#c2440c",
+          "#eb5b0b",
+          "#fa8128",
+          "#fdbc74",
+          "#fff7ed"
+        ]
+      },
+      "sorbus-700": {
+        "role": "primary",
+        "displayName": "Sorbus 700",
+        "tonalRamp": [
+          "#431507",
+          "#7c2e12",
+          "#9a3612",
+          "#c2440c",
+          "#eb5b0b",
+          "#fa8128",
+          "#fdbc74",
+          "#fff7ed"
+        ]
+      },
+      "sorbus-950": {
+        "role": "primary",
+        "displayName": "Sorbus 950",
+        "tonalRamp": [
+          "#431507",
+          "#7c2e12",
+          "#9a3612",
+          "#c2440c",
+          "#eb5b0b",
+          "#fa8128",
+          "#fdbc74",
+          "#fff7ed"
+        ]
+      },
+      "page-bg": {
+        "role": "neutral",
+        "displayName": "Page Bg"
+      },
+      "page-fg": {
+        "role": "neutral",
+        "displayName": "Page Fg"
+      },
+      "darkgrey": {
+        "role": "neutral",
+        "displayName": "Darkgrey"
+      },
+      "whitedarktheme": {
+        "role": "neutral",
+        "displayName": "Whitedarktheme"
+      },
+      "body-muted": {
+        "role": "neutral",
+        "displayName": "Body Muted"
+      },
+      "metadata-muted": {
+        "role": "neutral",
+        "displayName": "Metadata Muted"
+      },
+      "author-ink": {
+        "role": "neutral",
+        "displayName": "Author Ink"
+      },
+      "light-divider": {
+        "role": "neutral",
+        "displayName": "Light Divider"
+      },
+      "header-divider": {
+        "role": "neutral",
+        "displayName": "Header Divider"
+      },
+      "filter-surface": {
+        "role": "neutral",
+        "displayName": "Filter Surface"
+      },
+      "filter-hover": {
+        "role": "neutral",
+        "displayName": "Filter Hover"
+      },
+      "theme-hover": {
+        "role": "neutral",
+        "displayName": "Theme Hover"
+      },
+      "nav-muted": {
+        "role": "neutral",
+        "displayName": "Nav Muted"
+      },
+      "dark-divider": {
+        "role": "neutral",
+        "displayName": "Dark Divider"
+      },
+      "dark-muted": {
+        "role": "neutral",
+        "displayName": "Dark Muted"
+      },
+      "dark-filter-surface": {
+        "role": "neutral",
+        "displayName": "Dark Filter Surface"
+      },
+      "dark-filter-text": {
+        "role": "neutral",
+        "displayName": "Dark Filter Text"
+      },
+      "dark-filter-hover": {
+        "role": "neutral",
+        "displayName": "Dark Filter Hover"
+      },
+      "dark-nav-active": {
+        "role": "neutral",
+        "displayName": "Dark Nav Active"
+      },
+      "dark-theme-hover": {
+        "role": "neutral",
+        "displayName": "Dark Theme Hover"
+      },
+      "dark-index-divider": {
+        "role": "neutral",
+        "displayName": "Dark Index Divider"
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display"
+      },
+      "headline": {
+        "displayName": "Headline"
+      },
+      "section-title": {
+        "displayName": "Section Title"
+      },
+      "title": {
+        "displayName": "Title"
+      },
+      "ui-body": {
+        "displayName": "Ui Body"
+      },
+      "body": {
+        "displayName": "Body"
+      },
+      "label": {
+        "displayName": "Label"
+      },
+      "topic-label": {
+        "displayName": "Topic Label"
+      },
+      "nav-label": {
+        "displayName": "Nav Label"
+      },
+      "wordmark": {
+        "displayName": "Wordmark"
+      }
+    },
+    "motion": [
+      {
+        "name": "duration-exit",
+        "value": "150ms",
+        "purpose": "Existing route exit transitions."
+      },
+      {
+        "name": "duration-enter",
+        "value": "210ms",
+        "purpose": "Existing route entry transitions."
+      },
+      {
+        "name": "duration-move",
+        "value": "400ms",
+        "purpose": "Existing route and shared-title movement."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "search-label",
+        "value": "640px"
+      },
+      {
+        "name": "desktop-navigation-and-index",
+        "value": "768px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Wordmark",
+      "kind": "custom",
+      "refersTo": "wordmark",
+      "description": "Lowercase brand link with the orange full stop.",
+      "html": "<a class=\"ds-wordmark\" aria-label=\"TIL home\" href=\"#\">til<span aria-hidden=\"true\">.</span></a>",
+      "css": ".ds-wordmark {display: inline-flex;\n  min-height: 44px;\n  align-items: center;\n  font-family: var(--font-heading), sans-serif;\n  font-size: 34px;\n  font-weight: 800;\n  letter-spacing: -0.03em;}\n.ds-wordmark span {color: var(--color-sorbus-700);}\n.ds-wordmark:focus-visible {outline: 2px solid var(--color-sorbus-700);\n  outline-offset: 4px;}\n:host-context(.dark) .ds-wordmark span {color: var(--color-sorbus-300);}\n.ds-wordmark {color:var(--color-page-fg);text-decoration:none;}\n:host-context(.dark) .ds-wordmark {color:var(--color-whitedarktheme);}"
+    },
+    {
+      "name": "Theme control",
+      "kind": "button",
+      "refersTo": "theme-button",
+      "description": "Rounded icon control with a neutral hover surface.",
+      "html": "<button class=\"ds-theme-button\" aria-label=\"Switch color theme\"><svg aria-hidden=\"true\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z\"/></svg></button>",
+      "css": ".ds-theme-button {min-width: 44px;\n  min-height: 44px;\n  align-items: center;\n  justify-content: center;\n  border-radius: 12px;}\nbutton.ds-theme-button {display: inline-flex;}\n.ds-theme-button:hover {background: #ededee;}\n.ds-theme-button:focus-visible {outline: 2px solid var(--color-sorbus-700);\n  outline-offset: 4px;}\n:host-context(.dark) .ds-theme-button:hover {background: #2a2e35;}\n.ds-theme-button {font-family:var(--font-heading),ui-sans-serif,system-ui,sans-serif;background:transparent;color:var(--color-page-fg);border:none;}\n:host-context(.dark) .ds-theme-button {color:var(--color-whitedarktheme);}"
+    },
+    {
+      "name": "Topic filter",
+      "kind": "chip",
+      "refersTo": "topic-filter",
+      "description": "Pill filter with a pressed selection state.",
+      "html": "<div class=\"ds-topic-filter\"><button aria-pressed=\"false\" type=\"button\">React</button></div>",
+      "css": ".ds-topic-filter {min-inline-size: 0; max-inline-size: 100%; display: flex; gap: 8px; overflow-x: auto; padding: 10px 0 16px; scrollbar-width: thin; scrollbar-color: #d1d5db transparent;}\n.ds-topic-filter button {flex: none; min-height: 44px; padding: 8px 16px; border-radius: 999px; background: #eeeeef; color: #535963; font-size: 13px; font-weight: 600; cursor: pointer;}\n.ds-topic-filter button[aria-pressed=\"true\"] {background: #202124; color: #fafafa;}\n.ds-topic-filter button:hover {background: #e1e2e5; color: #202124;}\n.ds-topic-filter button[aria-pressed=\"true\"]:hover {background: #343942; color: #fafafa;}\n.ds-topic-filter button:focus-visible {outline: 2px solid var(--color-sorbus-700);\n  outline-offset: 4px;}\n:host-context(.dark) .ds-topic-filter button {background: #292d34; color: #bcc2cd;}\n:host-context(.dark) .ds-topic-filter button[aria-pressed=\"true\"] {background: #e0e0e0; color: #181a1e;}\n:host-context(.dark) .ds-topic-filter button:hover {background: #383e48; color: #fafafa;}\n:host-context(.dark) .ds-topic-filter button[aria-pressed=\"true\"]:hover {background: #ffffff; color: #181a1e;}\n.ds-topic-filter button {font-family:var(--font-heading),ui-sans-serif,system-ui,sans-serif;border:none;}"
+    },
+    {
+      "name": "Selected topic filter",
+      "kind": "chip",
+      "refersTo": "topic-filter-selected",
+      "description": "Selected pill reverses neutral foreground and surface.",
+      "html": "<div class=\"ds-topic-filter\"><button aria-pressed=\"true\" type=\"button\">All notes</button></div>",
+      "css": ".ds-topic-filter {min-inline-size: 0; max-inline-size: 100%; display: flex; gap: 8px; overflow-x: auto; padding: 10px 0 16px; scrollbar-width: thin; scrollbar-color: #d1d5db transparent;}\n.ds-topic-filter button {flex: none; min-height: 44px; padding: 8px 16px; border-radius: 999px; background: #eeeeef; color: #535963; font-size: 13px; font-weight: 600; cursor: pointer;}\n.ds-topic-filter button[aria-pressed=\"true\"] {background: #202124; color: #fafafa;}\n.ds-topic-filter button:hover {background: #e1e2e5; color: #202124;}\n.ds-topic-filter button[aria-pressed=\"true\"]:hover {background: #343942; color: #fafafa;}\n.ds-topic-filter button:focus-visible {outline: 2px solid var(--color-sorbus-700);\n  outline-offset: 4px;}\n:host-context(.dark) .ds-topic-filter button {background: #292d34; color: #bcc2cd;}\n:host-context(.dark) .ds-topic-filter button[aria-pressed=\"true\"] {background: #e0e0e0; color: #181a1e;}\n:host-context(.dark) .ds-topic-filter button:hover {background: #383e48; color: #fafafa;}\n:host-context(.dark) .ds-topic-filter button[aria-pressed=\"true\"]:hover {background: #ffffff; color: #181a1e;}\n.ds-topic-filter button {font-family:var(--font-heading),ui-sans-serif,system-ui,sans-serif;border:none;}"
+    },
+    {
+      "name": "Mobile navigation tab",
+      "kind": "nav",
+      "refersTo": "mobile-tab-current",
+      "description": "Current icon-and-label destination, presented without the fixed viewport container.",
+      "html": "<a class=\"ds-mobile-tab\" aria-current=\"page\" href=\"#\"><svg aria-hidden=\"true\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z\"/></svg><span>Notes</span></a>",
+      "css": ".ds-mobile-tab {min-height: 52px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 5px;\n  border-radius: 12px;\n  color: #555b65;\n  font-size: 11px;\n  font-weight: 600;}\n.ds-mobile-tab[aria-current] {color: var(--color-sorbus-700); background: var(--color-sorbus-50);}\n.ds-mobile-tab:focus-visible {outline: 2px solid var(--color-sorbus-700);\n  outline-offset: 4px;}\n:host-context(.dark) .ds-mobile-tab {color: #a7adb8;}\n:host-context(.dark) .ds-mobile-tab[aria-current] {color: var(--color-sorbus-300); background: #2d231e;}\n.ds-mobile-tab {font-family:var(--font-heading),ui-sans-serif,system-ui,sans-serif;text-decoration:none;}"
+    },
+    {
+      "name": "Note row",
+      "kind": "custom",
+      "refersTo": "note-title",
+      "description": "Flat note title and compact neutral topic link, without a per-note arrow.",
+      "html": "<div class=\"ds-note-row\"><h3 class=\"ds-note-title\"><a class=\"ds-note-title-link\" href=\"#\"><span>A practical code note</span></a></h3><a class=\"ds-note-topic\" href=\"#\">Web</a></div>",
+      "css": ".ds-note-row {border-top:1px solid #dfe1e5;padding:12px 0 8px;font-family:var(--font-heading),ui-sans-serif,system-ui,sans-serif;color:var(--color-page-fg);}\n.ds-note-title {margin:0;font-size:18px;line-height:1.4;font-weight:600;letter-spacing:-0.02em;}\n.ds-note-title-link {display:flex;min-height:44px;align-items:center;padding-block:4px;color:inherit;text-decoration:none;}\n.ds-note-title-link span {display:block;min-width:0;overflow-wrap:anywhere;}\n.ds-note-title-link:hover {color:var(--color-sorbus-700);}\n.ds-note-topic {display:inline-flex;min-height:28px;min-width:44px;align-items:center;color:#606671;font-family:var(--font-heading),sans-serif;font-size:12px;font-weight:500;text-decoration:none;}\n.ds-note-topic:hover {text-decoration:underline;text-underline-offset:3px;}\n.ds-note-title-link:focus-visible,.ds-note-topic:focus-visible {outline:2px solid var(--color-sorbus-700);outline-offset:4px;}\n:host-context(.dark) .ds-note-row {border-color:#32363d;color:var(--color-whitedarktheme);}\n:host-context(.dark) .ds-note-topic {color:#a7adb8;}\n:host-context(.dark) .ds-note-title-link:hover {color:var(--color-sorbus-300);}\n@media(min-width:768px){.ds-note-row {display:grid;grid-template-columns:1fr 120px;align-items:center;gap:28px;padding-block:14px;}.ds-note-topic {justify-self:end;}}"
+    },
+    {
+      "name": "Topic index entry",
+      "kind": "custom",
+      "refersTo": "topic-index-link",
+      "description": "Flat topic destination with a tabular count.",
+      "html": "<a class=\"ds-topic-index-link\" href=\"#\"><span>React</span><span>12 notes</span></a>",
+      "css": ".ds-topic-index-link {min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid #dfe1e5; font-size: 16px; font-weight: 600;}\n.ds-topic-index-link span:first-child {overflow-wrap: anywhere;}\n.ds-topic-index-link span:last-child {color: #606671; font-size: 13px; font-weight: 500; font-variant-numeric: tabular-nums;}\n.ds-topic-index-link:hover {color: var(--color-sorbus-700);}\n.ds-topic-index-link:focus-visible {outline: 2px solid var(--color-sorbus-700);\n  outline-offset: 4px;}\n:host-context(.dark) .ds-topic-index-link span:last-child {color: #a7adb8;}\n:host-context(.dark) .ds-topic-index-link {border-color: #32363d;}\n:host-context(.dark) .ds-topic-index-link:hover {color: var(--color-sorbus-300);}\n.ds-topic-index-link {font-family:var(--font-heading),ui-sans-serif,system-ui,sans-serif;color:var(--color-page-fg);text-decoration:none;}\n:host-context(.dark) .ds-topic-index-link {color:var(--color-whitedarktheme);}\n:host-context(.dark) .ds-topic-index-link:hover {color:var(--color-sorbus-300);}"
+    },
+    {
+      "name": "Search input",
+      "kind": "input",
+      "refersTo": "search-input",
+      "description": "Transparent field within the existing search dialog header.",
+      "html": "<input class=\"ds-search-input\" aria-label=\"Search by title or tag\" placeholder=\"Search by title or tag…\" type=\"search\">",
+      "css": ".ds-search-input {font-family:var(--font-heading),ui-sans-serif,system-ui,sans-serif;min-width:0;flex:1;background:transparent;padding-block:8px;font-size:16px;line-height:1.5;color:var(--color-page-fg);caret-color:var(--color-sorbus-700);border:none;}.ds-search-input:focus {outline:none;}.ds-search-input::placeholder {color:var(--color-gray-500);}:host-context(.dark) .ds-search-input::placeholder {color:var(--color-gray-400);}\n:host-context(.dark) .ds-search-input {color:var(--color-whitedarktheme);}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Solid Notes Index",
+    "overview": "The Solid Notes Index describes a quiet personal developer site: solid neutral light and dark surfaces, smaller DM Sans headings, a plain first-person introduction, and sparse Sorbus orange accents. The lowercase til. wordmark retains its orange full stop. Paper backgrounds, notebook styling, and decorative slogans are excluded by the approved direction.\n\nThe interface keeps attention on the notes through compact, separated rows and compact orange topic labels and published dates. Navigation, search, theme controls, and topic filters support direct browsing on touch and keyboard; long-form article copy retains Source Serif 4. This document records the current code rather than adding new visual decisions.",
+    "keyCharacteristics": [
+      "Solid neutral light and dark canvases.",
+      "Quiet sans-serif headings with sparse orange accents.",
+      "Compact rows with orange topic links and published dates.",
+      "Mobile bottom navigation with safe-area space.",
+      "Serif article text and monospace code."
+    ],
+    "rules": [
+      {
+        "name": "The Solid Surface Rule",
+        "body": "Use the solid page surfaces for the header and mobile navigation; paper textures and notebook styling are excluded by the approved direction.",
+        "section": "colors"
+      },
+      {
+        "name": "The Reading Pair Rule",
+        "body": "Use DM Sans for the interface and headings; preserve Source Serif 4 for article reading text.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Index Rule",
+        "body": "Keep note and topic lists flat, using separators and type hierarchy rather than card shadows.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use the existing light and dark colors and their state treatments.",
+      "Do keep the til. wordmark consistent and use orange sparingly.",
+      "Do preserve visible focus, semantic current/pressed states, and touch targets.",
+      "Do retain serif article text and monospace code.",
+      "Do account for safe-area insets and bottom navigation clearance."
+    ],
+    "donts": [
+      "Don't add paper textures, notebook rules, or simulated stationery.",
+      "Don't replace compact note rows with elevated cards.",
+      "Don't hide topics or essential navigation behind hover.",
+      "Don't add decorative slogans, colored headline emphasis, or per-note arrows."
+    ]
+  }
+}

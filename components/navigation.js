@@ -4,331 +4,116 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useCallback, useEffect, useState } from "react";
-import { FaGithub } from "react-icons/fa";
-import { FaRss, FaSquareXTwitter } from "react-icons/fa6";
+import {
+  FiBookOpen,
+  FiClock,
+  FiGithub,
+  FiHash,
+  FiMoon,
+  FiRss,
+  FiSun,
+  FiUser,
+} from "react-icons/fi";
 import Search from "./search";
 
-const SOCIAL_LINKS = [
-  {
-    href: "https://twitter.com/varun1_yadav",
-    icon: FaSquareXTwitter,
-    label: "X profile",
-    name: "X",
-  },
-  {
-    href: "https://github.com/varunyn",
-    icon: FaGithub,
-    label: "GitHub profile",
-    name: "GitHub",
-  },
-  { href: "/feed.xml", icon: FaRss, label: "RSS feed", name: "RSS" },
+const SECTIONS = [
+  { href: "/", icon: FiBookOpen, label: "Notes" },
+  { href: "/tags", icon: FiHash, label: "Topics" },
+  { href: "/about", icon: FiUser, label: "About" },
+  { href: "/now", icon: FiClock, label: "Now" },
 ];
 
-const Navigation = ({ searchPosts = [] }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const { resolvedTheme, setTheme } = useTheme();
+export default function Navigation({ searchPosts = [] }) {
   const pathname = usePathname();
-  const nextTheme = resolvedTheme === "dark" ? "light" : "dark";
-  const nextThemeLabel =
-    resolvedTheme === "dark" ? "Switch to light mode" : "Switch to dark mode";
-  // Avoid hydration mismatch: resolvedTheme is undefined until client hydration.
-  const themeToggleAriaLabel = mounted ? nextThemeLabel : "Toggle color theme";
-  const toggleTheme = useCallback(() => {
-    setTheme(nextTheme);
-  }, [nextTheme, setTheme]);
-  const toggleMenu = useCallback(() => {
-    setIsMenuOpen((currentValue) => !currentValue);
-  }, []);
-
-  // After mounting, we can safely show the UI
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
-
-  // Close menu when route changes
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [pathname]);
+  const dark = resolvedTheme === "dark";
+  const toggleTheme = useCallback(
+    () => setTheme(dark ? "light" : "dark"),
+    [dark, setTheme]
+  );
+  const ThemeIcon = mounted && dark ? FiSun : FiMoon;
+  const active = (href) =>
+    href === "/"
+      ? pathname === "/" || pathname.startsWith("/blog/")
+      : pathname.startsWith(href);
 
   return (
-    <nav
-      className="sticky top-0 z-50 border-gray-200/50 border-b bg-page-bg/90 shadow-sm backdrop-blur-md dark:border-gray-700/50 dark:bg-darkgrey/90"
-      style={{ viewTransitionName: "persistent-nav" }}
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo/Site Title */}
-          <div className="flex-shrink-0">
-            <Link
-              className="font-bold text-xl dark:text-whitedarktheme"
-              href="/"
-            >
-              TIL
-            </Link>
-          </div>
-
-          <div className="mr-3 ml-auto md:ml-6">
-            <Search posts={searchPosts} />
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:space-x-6">
-            <Link
-              className={`inline-flex min-h-11 items-center px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
-                pathname === "/" ? "text-sorbus-600 dark:text-sorbus-400" : ""
-              }`}
-              href="/"
-            >
-              Home
-            </Link>
-            <Link
-              className={`inline-flex min-h-11 items-center px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
-                pathname.startsWith("/tags")
-                  ? "text-sorbus-600 dark:text-sorbus-400"
-                  : ""
-              }`}
-              href="/tags"
-            >
-              Tags
-            </Link>
-            <Link
-              className={`inline-flex min-h-11 items-center px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
-                pathname === "/about"
-                  ? "text-sorbus-600 dark:text-sorbus-400"
-                  : ""
-              }`}
-              href="/about"
-            >
-              About
-            </Link>
-            <Link
-              className={`inline-flex min-h-11 items-center px-3 py-2 font-medium text-sm hover:text-sorbus-600 dark:text-whitedarktheme dark:hover:text-sorbus-400 ${
-                pathname === "/now"
-                  ? "text-sorbus-600 dark:text-sorbus-400"
-                  : ""
-              }`}
-              href="/now"
-            >
-              Now
-            </Link>
-
-            {/* Social links */}
-            <nav
-              aria-label="Connect"
-              className="ml-2 flex items-center gap-1 border-gray-200 border-l pl-4 dark:border-gray-700"
-            >
-              {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
-                <a
-                  aria-label={label}
-                  className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md p-2 transition-colors hover:bg-gray-100 hover:text-sorbus-600 focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2 dark:hover:bg-gray-800 dark:hover:text-sorbus-400"
-                  href={href}
-                  key={label}
-                  rel={
-                    href.startsWith("http") ? "noopener noreferrer" : undefined
-                  }
-                  target={href.startsWith("http") ? "_blank" : undefined}
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-              ))}
-            </nav>
-
-            {/* Dark Mode Toggle */}
-            <button
-              aria-label={themeToggleAriaLabel}
-              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2 dark:bg-gray-800/60 dark:hover:bg-gray-700/70"
-              onClick={toggleTheme}
-              type="button"
-            >
-              {mounted && (
-                <svg
-                  aria-hidden
-                  className="h-5 w-5 text-gray-800 dark:text-gray-200"
-                  fill="currentColor"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>{nextThemeLabel}</title>
-                  {resolvedTheme === "dark" ? (
-                    <path
-                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                    />
-                  ) : (
-                    <path
-                      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                    />
-                  )}
-                </svg>
-              )}
-            </button>
-          </div>
-
-          {/* Mobile Navigation Controls - Only show on mobile */}
-          <div className="flex items-center md:hidden">
-            {/* Dark Mode Toggle for Mobile */}
-            <button
-              aria-label={themeToggleAriaLabel}
-              className="mr-2 inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2 dark:bg-gray-800/60 dark:hover:bg-gray-700/70"
-              onClick={toggleTheme}
-              type="button"
-            >
-              {mounted && (
-                <svg
-                  aria-hidden
-                  className="h-5 w-5 text-gray-800 dark:text-gray-200"
-                  fill="currentColor"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>{nextThemeLabel}</title>
-                  {resolvedTheme === "dark" ? (
-                    <path
-                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                    />
-                  ) : (
-                    <path
-                      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                    />
-                  )}
-                </svg>
-              )}
-            </button>
-
-            {/* Hamburger Menu Button - Only show on mobile */}
-            <button
-              aria-controls="mobile-navigation"
-              aria-expanded={isMenuOpen}
-              aria-label={isMenuOpen ? "Close main menu" : "Open main menu"}
-              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-black focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-              onClick={toggleMenu}
-              type="button"
-            >
-              <span className="sr-only">
-                {isMenuOpen ? "Close main menu" : "Open main menu"}
-              </span>
-              {isMenuOpen ? (
-                <svg
-                  aria-hidden="true"
-                  className="block h-6 w-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M6 18L18 6M6 6l12 12"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  aria-hidden="true"
-                  className="block h-6 w-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4 6h16M4 12h16M4 18h16"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                  />
-                </svg>
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={`md:hidden ${isMenuOpen ? "block" : "hidden"}`}
-        id="mobile-navigation"
+    <>
+      <header
+        className="site-header"
+        style={{ viewTransitionName: "persistent-nav" }}
       >
-        <div className="space-y-1 border-t px-2 pt-2 pb-3 sm:px-3 dark:border-gray-700">
-          <Link
-            className={`block min-h-11 rounded-md px-3 py-2 font-medium text-base ${
-              pathname === "/"
-                ? "bg-sorbus-50 text-sorbus-600 dark:bg-sorbus-900 dark:text-sorbus-300"
-                : "text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
-            }`}
-            href="/"
-          >
-            Home
+        <div className="site-header-inner">
+          <Link aria-label="TIL home" className="site-wordmark" href="/">
+            til<span aria-hidden="true">.</span>
           </Link>
-          <Link
-            className={`block min-h-11 rounded-md px-3 py-2 font-medium text-base ${
-              pathname.startsWith("/tags")
-                ? "bg-sorbus-50 text-sorbus-600 dark:bg-sorbus-900 dark:text-sorbus-300"
-                : "text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
-            }`}
-            href="/tags"
+          <nav
+            aria-label="Main navigation"
+            className="hidden items-center gap-1 md:flex"
           >
-            Tags
-          </Link>
-          <Link
-            className={`block min-h-11 rounded-md px-3 py-2 font-medium text-base ${
-              pathname === "/about"
-                ? "bg-sorbus-50 text-sorbus-600 dark:bg-sorbus-900 dark:text-sorbus-300"
-                : "text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
-            }`}
-            href="/about"
-          >
-            About
-          </Link>
-          <Link
-            className={`block min-h-11 rounded-md px-3 py-2 font-medium text-base ${
-              pathname === "/now"
-                ? "bg-sorbus-50 text-sorbus-600 dark:bg-sorbus-900 dark:text-sorbus-300"
-                : "text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
-            }`}
-            href="/now"
-          >
-            Now
-          </Link>
-
-          <div className="mt-2 border-gray-200 border-t pt-4 dark:border-gray-700">
-            <p className="mb-2 px-3 font-medium text-gray-500 text-sm dark:text-gray-400">
-              Connect
-            </p>
-            <div className="flex gap-2 px-3">
-              {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
-                <a
-                  aria-label={label}
-                  className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md p-2 text-gray-700 transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-sorbus-500 focus:ring-offset-2 dark:text-gray-300 dark:hover:bg-gray-800"
-                  href={href}
-                  key={label}
-                  rel={
-                    href.startsWith("http") ? "noopener noreferrer" : undefined
-                  }
-                  target={href.startsWith("http") ? "_blank" : undefined}
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-              ))}
-            </div>
+            {SECTIONS.map(({ href, label }) => (
+              <Link
+                aria-current={active(href) ? "page" : undefined}
+                className="desktop-nav-link"
+                href={href}
+                key={href}
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
+          <div className="ml-auto flex items-center gap-2">
+            <Search posts={searchPosts} />
+            <button
+              aria-label={
+                mounted
+                  ? `Switch to ${dark ? "light" : "dark"} mode`
+                  : "Toggle color theme"
+              }
+              className="theme-button"
+              onClick={toggleTheme}
+              type="button"
+            >
+              <ThemeIcon aria-hidden="true" size={20} />
+            </button>
+            <a
+              aria-label="GitHub profile"
+              className="theme-button hidden md:inline-flex"
+              href="https://github.com/varunyn"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <FiGithub aria-hidden="true" size={20} />
+            </a>
+            <a
+              aria-label="RSS feed"
+              className="theme-button hidden md:inline-flex"
+              href="/feed.xml"
+            >
+              <FiRss aria-hidden="true" size={19} />
+            </a>
           </div>
         </div>
-      </div>
-    </nav>
+      </header>
+      <nav
+        aria-label="Mobile navigation"
+        className="mobile-tab-bar md:hidden"
+        style={{ viewTransitionName: "mobile-nav" }}
+      >
+        {SECTIONS.map(({ href, label, icon: Icon }) => (
+          <Link
+            aria-current={active(href) ? "page" : undefined}
+            className="mobile-tab"
+            href={href}
+            key={href}
+          >
+            <Icon aria-hidden="true" size={21} />
+            <span>{label}</span>
+          </Link>
+        ))}
+      </nav>
+    </>
   );
-};
-
-export default Navigation;
+}

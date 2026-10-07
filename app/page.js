@@ -2,6 +2,13 @@ import PageTransition from "@/components/page-transition";
 import { getAllPosts } from "../lib/mdx";
 import HomeClient from "./home-client";
 
+const noteDateFormat = new Intl.DateTimeFormat("en-US", {
+  day: "numeric",
+  month: "short",
+  timeZone: "UTC",
+  year: "numeric",
+});
+
 export async function generateMetadata() {
   return {
     alternates: {
@@ -19,7 +26,9 @@ export async function generateMetadata() {
 export default function Home() {
   const allPosts = getAllPosts("blog");
 
-  const notes = allPosts.map(({ slug, title, tags }) => ({
+  const notes = allPosts.map(({ slug, title, tags, date }) => ({
+    date,
+    dateLabel: noteDateFormat.format(new Date(date)),
     slug,
     tags,
     title,

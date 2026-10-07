@@ -187,21 +187,21 @@ export default function BlogPostClient({ post, htmlContent }) {
           </Link>
 
           {/* Article */}
-          <article className="overflow-hidden rounded-xl bg-white shadow-lg dark:bg-gray-800">
+          <article className="post-surface overflow-hidden sm:rounded-xl sm:bg-white sm:shadow-lg dark:sm:bg-gray-800">
             {/* Header */}
-            <div className="border-gray-200 border-b p-8 dark:border-gray-700">
+            <div className="border-gray-200 border-b px-1 py-6 sm:p-8 dark:border-gray-700">
               <ViewTransition
                 default="none"
                 name={`blog-title-${post.slug}`}
                 share="text-morph"
               >
-                <h1 className="mb-4 font-bold text-3xl text-gray-900 sm:text-4xl dark:text-white">
+                <h1 className="mb-5 text-balance font-bold text-[2rem] text-gray-900 leading-tight tracking-tight sm:text-4xl dark:text-white">
                   {post.title}
                 </h1>
               </ViewTransition>
 
               {/* Meta Information */}
-              <div className="flex animate-fade-in-delayed flex-wrap items-center gap-4 text-gray-600 text-sm dark:text-gray-400">
+              <div className="flex animate-fade-in-delayed flex-wrap items-center gap-x-4 gap-y-2 text-gray-600 text-sm dark:text-gray-400">
                 <div className="flex items-center space-x-2">
                   <FaUser className="h-4 w-4" />
                   <span>
@@ -233,10 +233,10 @@ export default function BlogPostClient({ post, htmlContent }) {
                 {post.tags && post.tags.length > 0 && (
                   <div className="flex items-center space-x-2">
                     <FaTags className="h-4 w-4" />
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-x-2 gap-y-1">
                       {post.tags.map((tag) => (
                         <Link
-                          className="rounded-md bg-sorbus-100 px-2 py-1 font-medium text-sorbus-800 text-xs transition-colors hover:bg-sorbus-200 dark:bg-sorbus-900 dark:text-sorbus-200 dark:hover:bg-sorbus-800"
+                          className="inline-flex min-h-7 items-center rounded px-1 py-1 font-medium text-sorbus-700 text-xs underline-offset-4 hover:underline dark:text-sorbus-300"
                           href={`/tags/${encodeURIComponent(tag)}`}
                           key={tag}
                           transitionTypes={["nav-back"]}
@@ -252,7 +252,7 @@ export default function BlogPostClient({ post, htmlContent }) {
 
             {/* On this page */}
             {tocItems.length > 1 && (
-              <div className="border-gray-200 border-b px-8 pb-4 dark:border-gray-700">
+              <div className="border-gray-200 border-b px-1 pb-4 sm:px-8 dark:border-gray-700">
                 <h3 className="mb-3 font-semibold text-gray-500 text-xs uppercase tracking-wide dark:text-gray-400">
                   On this page
                 </h3>
@@ -275,7 +275,10 @@ export default function BlogPostClient({ post, htmlContent }) {
             )}
 
             {/* Content */}
-            <div className="animate-fade-in-delayed p-8" ref={contentRef}>
+            <div
+              className="animate-fade-in-delayed px-1 py-6 sm:p-8"
+              ref={contentRef}
+            >
               <div
                 className={`prose prose-lg dark:prose-invert max-w-none prose-code:rounded prose-pre:border prose-pre:border-gray-200 prose-code:bg-gray-100 prose-pre:bg-gray-900 prose-code:px-1 prose-code:py-0.5 prose-a:text-sorbus-600 prose-code:text-sorbus-600 prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-a:no-underline prose-code:before:content-none prose-code:after:content-none hover:prose-a:underline dark:prose-pre:border-gray-700 dark:prose-code:bg-gray-800 dark:prose-pre:bg-gray-950 dark:prose-a:text-sorbus-400 dark:prose-code:text-sorbus-400 dark:prose-headings:text-white dark:prose-p:text-gray-300 dark:prose-strong:text-white ${
                   isLoaded ? "opacity-100" : "opacity-90"

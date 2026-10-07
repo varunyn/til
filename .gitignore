@@ -54,3 +54,5 @@ Thumbs.db
 
 # npm
 package-lock.json.bak
+# Local visual review captures
+.impeccable/review/

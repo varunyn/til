@@ -39,7 +39,7 @@ export default function BackToTop() {
       {isVisible && (
         <button
           aria-label="Back to top"
-          className="fixed right-4 bottom-4 z-50 rounded-full bg-sorbus-500 p-2 text-white shadow-lg transition-all duration-300 hover:bg-sorbus-600 focus:outline-none focus:ring-2 focus:ring-sorbus-400 sm:right-8 sm:bottom-8 sm:p-3 dark:bg-sorbus-600 dark:focus:ring-sorbus-500 dark:hover:bg-sorbus-700"
+          className="fixed right-4 bottom-[calc(6rem+env(safe-area-inset-bottom))] z-40 inline-flex min-h-11 min-w-11 items-center justify-center rounded-full bg-sorbus-700 p-2 text-white shadow-lg transition-all duration-300 hover:bg-sorbus-600 focus:outline-none focus:ring-2 focus:ring-sorbus-400 sm:right-8 sm:p-3 md:bottom-8 dark:bg-sorbus-600 dark:focus:ring-sorbus-500 dark:hover:bg-sorbus-700"
           onClick={scrollToTop}
           title="Back to top"
           type="button"
