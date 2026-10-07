@@ -22,7 +22,11 @@ export default function NotesEntry({ slug, title, tags }) {
 
   return (
     <div className="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-      <ViewTransition default="none" name={`blog-title-${slug}`} share="morph">
+      <ViewTransition
+        default="none"
+        name={`blog-title-${slug}`}
+        share="text-morph"
+      >
         <h3 className="m-0 min-w-0 font-semibold text-[1.05rem] text-gray-900 leading-snug tracking-tight dark:text-gray-100">
           <Link
             className={`${TITLE_LINK} break-words`}

@@ -16,7 +16,11 @@ const Blog = ({ slug, title, date, desc }) => (
           </time>
         )}
       </div>
-      <ViewTransition default="none" name={`blog-title-${slug}`} share="morph">
+      <ViewTransition
+        default="none"
+        name={`blog-title-${slug}`}
+        share="text-morph"
+      >
         <h2 className="mb-3 font-bold text-gray-900 text-xl transition-colors group-hover:text-sorbus-600 sm:text-2xl dark:text-gray-100 dark:group-hover:text-sorbus-400">
           {title}
         </h2>

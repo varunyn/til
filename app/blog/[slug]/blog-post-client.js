@@ -193,7 +193,7 @@ export default function BlogPostClient({ post, htmlContent }) {
               <ViewTransition
                 default="none"
                 name={`blog-title-${post.slug}`}
-                share="morph"
+                share="text-morph"
               >
                 <h1 className="mb-4 font-bold text-3xl text-gray-900 sm:text-4xl dark:text-white">
                   {post.title}

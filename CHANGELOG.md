@@ -15,5 +15,7 @@
 
 ### Fixed
 
+- Keep article titles crisp during list-to-post transitions instead of scaling and blurring overlapping text snapshots.
+- Prevent outgoing pages from reappearing during Home and Tags transitions, and use a short section fade without blur.
 - Keep search keyboard focus inside the dialog as results change, support Escape and a visible Close button, and prevent background scrolling.
 - Restore globe rotation, keep its speed consistent across refresh rates, and pause rendering when offscreen, in a hidden tab, or when reduced motion is requested.

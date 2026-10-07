@@ -470,8 +470,8 @@ pre[class*="language-"] {
 
 
 @keyframes fade {
-  from { filter: blur(3px); opacity: 0; }
-  to { filter: blur(0); opacity: 1; }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes slide {
@@ -485,11 +485,17 @@ pre[class*="language-"] {
 }
 
 
+@keyframes page-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Fade sections together and keep the old snapshot hidden until cleanup. */
 ::view-transition-old(.fade-out) {
-  animation: var(--duration-exit) ease-in fade reverse;
+  animation: 180ms ease-out both page-fade reverse;
 }
 ::view-transition-new(.fade-in) {
-  animation: var(--duration-enter) ease-out var(--duration-exit) both fade;
+  animation: 180ms ease-in both page-fade;
 }
 
 
@@ -559,16 +565,20 @@ pre[class*="language-"] {
 }
 
 
-::view-transition-group(.morph) {
+/* Keep title glyphs at their destination resolution while moving the box. */
+::view-transition-group(.text-morph) {
   animation-duration: var(--duration-move);
+  animation-timing-function: ease-in-out;
 }
 
-::view-transition-image-pair(.morph) {
-  animation-name: via-blur;
+::view-transition-old(.text-morph) {
+  display: none;
 }
 
-@keyframes via-blur {
-  30% { filter: blur(3px); }
+::view-transition-new(.text-morph) {
+  animation: none;
+  object-fit: none;
+  object-position: left top;
 }
 
 
