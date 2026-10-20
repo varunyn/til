@@ -4,12 +4,20 @@
 
 ### Added
 
+- Add year selection and links to dated entries to the Now-page journal heatmap.
+
+- Show published-post totals, yearly posts, topics, and recent articles from varunyadav.com on the Now page.
+
 - Filter homepage notes by popular topics without leaving the page.
 - Show published dates alongside compact orange topic labels on homepage notes.
 
 - Search articles by title or tag, including queries with multiple words, directly from the mobile header.
 
 ### Changed
+
+- Group Now-page stats, projects, writing, and journal updates into responsive bento panels for easier scanning.
+
+- Broaden the Now page with yearly writing and journal counts, recent notes, and a compact project list.
 
 - Refine mobile browsing with a personal TIL identity, bottom navigation, compact titles and topic labels, a topic index, and wider article reading space.
 

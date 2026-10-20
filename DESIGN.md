@@ -264,3 +264,7 @@ The shared index and navigation focus outline is 2px Sorbus deep orange with a 4
 - Don't add decorative slogans, colored headline emphasis, or per-note arrows.
 
 Source of truth: `styles/globals.css`, `app/fonts.js`, `app/home-client.js`, `app/tags/page.js`, `components/navigation.js`, `components/notes-entry.js`, `components/search.js`, `components/layout.js`, and `app/blog/[slug]/blog-post-client.js`. This record does not replace article-specific prose styles or unchanged legacy utility components.
+
+## Now page
+
+The Now page uses a bento layout requested by the user: a compact, softly orange TIL summary beside a wider projects panel, paired blog and TIL writing panels, and a full-width journal. Panels use neutral surfaces, 16px corners, a single border, 16px gaps, and 20–24px padding. At widths below 760px they stack in DOM reading order. This panel treatment is scoped to `/now`; the note index retains its compact editorial rows.

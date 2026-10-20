@@ -1,0 +1,332 @@
+.page {
+  max-width: 1080px;
+  padding-bottom: 32px;
+}
+.page > header {
+  padding-bottom: 28px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+.section {
+  min-width: 0;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e4e5e7;
+  border-radius: 16px;
+}
+.overview {
+  background: #fff7ed;
+  border-color: #fed8aa;
+}
+.section h2 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.heading {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+.heading > a {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  min-height: 44px;
+  font-size: 13px;
+}
+.page a {
+  text-underline-offset: 4px;
+}
+.page a:hover {
+  color: var(--color-sorbus-700);
+}
+.page a:focus-visible,
+.archive summary:focus-visible {
+  outline: 2px solid var(--color-sorbus-700);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+.context,
+.description,
+.footnote,
+.update time,
+.row time {
+  color: #606671;
+}
+.context {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 32px;
+  margin-top: 20px;
+}
+.stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.stats dt {
+  font-size: 13px;
+  color: #606671;
+}
+.stats dd {
+  order: -1;
+  font-size: 24px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.overview .stats {
+  gap: 28px 20px;
+}
+.overview .stats dt {
+  color: #7c4a31;
+}
+.blog .stats {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding-bottom: 16px;
+}
+.list {
+  margin-top: 8px;
+}
+.list li + li {
+  border-top: 1px solid #dfe1e5;
+}
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-height: 44px;
+  padding-block: 16px;
+  line-height: 1.5;
+}
+.row > span,
+.row strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.row strong {
+  font-size: 16px;
+  font-weight: 600;
+}
+.row time {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.description {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+}
+.footnote {
+  margin-top: 16px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.footnote a,
+.update a {
+  text-decoration: underline;
+}
+.update {
+  max-width: 70ch;
+  margin-top: 24px;
+  scroll-margin-top: 100px;
+}
+.update time {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.update h3 {
+  margin-block: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.update p {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.archive {
+  margin-top: 24px;
+}
+.archive summary {
+  display: list-item;
+  min-height: 44px;
+  padding-block: 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.journal h2 {
+  scroll-margin-top: 100px;
+}
+.heatmap {
+  margin-top: 24px;
+}
+.yearFilter {
+  padding-block: 0;
+}
+.heatmapScroll {
+  min-width: 0;
+  max-width: 100%;
+  padding: 4px 4px 12px;
+  overflow-x: auto;
+  scrollbar-color: #a7adb8 transparent;
+  scrollbar-width: thin;
+}
+.heatmapCalendar {
+  width: max-content;
+}
+.heatmapMonths {
+  display: grid;
+  grid-template-columns: repeat(53, 12px);
+  gap: 4px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #606671;
+}
+.heatmapMonths span {
+  overflow: visible;
+  white-space: nowrap;
+}
+.heatmapDays {
+  display: grid;
+  grid-template-rows: repeat(7, 12px);
+  grid-auto-columns: 12px;
+  grid-auto-flow: column;
+  gap: 4px;
+}
+.heatmapDays > * {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+.heatmapEmpty {
+  background: #eceef0;
+}
+.heatmapActive {
+  background: var(--color-sorbus-700);
+}
+.heatmapActive:hover {
+  outline: 2px solid var(--color-sorbus-700);
+  outline-offset: 2px;
+}
+.heatmapDays a:focus-visible,
+.heatmapScroll:focus-visible {
+  outline: 2px solid var(--color-sorbus-700);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+.update:target {
+  outline: 2px solid var(--color-sorbus-700);
+  outline-offset: 8px;
+  border-radius: 3px;
+}
+[class~="dark"] .heatmapMonths {
+  color: #a7adb8;
+}
+[class~="dark"] .heatmapEmpty {
+  background: #34383f;
+}
+[class~="dark"] .heatmapActive {
+  background: var(--color-sorbus-300);
+}
+[class~="dark"] .heatmapActive:hover,
+[class~="dark"] .heatmapDays a:focus-visible,
+[class~="dark"] [class~="dark"] .heatmapScroll:focus-visible,
+[class~="dark"] .update:target {
+  outline-color: var(--color-sorbus-300);
+}
+
+[class~="dark"] .section {
+  background: #202328;
+  border-color: #34383f;
+}
+[class~="dark"] .overview {
+  background: #2b241f;
+  border-color: #5a3c28;
+}
+[class~="dark"] .list li + li {
+  border-color: #34383f;
+}
+[class~="dark"] .context,
+[class~="dark"] .description,
+[class~="dark"] .footnote,
+[class~="dark"] .stats dt,
+[class~="dark"] .update time,
+[class~="dark"] .row time {
+  color: #a7adb8;
+}
+[class~="dark"] .page a:hover {
+  color: var(--color-sorbus-300);
+}
+[class~="dark"] .page a:focus-visible,
+[class~="dark"] .archive summary:focus-visible {
+  outline-color: var(--color-sorbus-300);
+}
+[class~="dark"] .overview .stats dt {
+  color: #c5ad9c;
+}
+@media (min-width: 760px) {
+  .grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+  .overview {
+    grid-column: span 4;
+  }
+  .projects {
+    grid-column: span 8;
+  }
+  .blog,
+  .notes {
+    grid-column: span 6;
+  }
+  .journal {
+    grid-column: 1 / -1;
+  }
+  .projects .row {
+    flex-direction: row;
+    gap: 20px;
+    align-items: baseline;
+  }
+  .journalEntries {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+}
+@media (max-width: 600px) {
+  .section {
+    padding: 20px;
+  }
+  .page {
+    padding-inline: 16px;
+  }
+}
+@media (max-width: 380px) {
+  .heading {
+    flex-wrap: wrap;
+  }
+  .heading > a {
+    min-height: 44px;
+  }
+}
+@media (max-width: 480px) {
+  .row {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
