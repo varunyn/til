@@ -71,3 +71,11 @@
 **Title**: Created symlink between md file in Nextjs and obsidian
 
 - It was task to update the markdown file everyday by opening the nextjs app and then updating the markdown file so I figured out it would be easy to create symlink and update the file from Obsidian. I am writing this from Obsidian :)
+
+## 2026-10-20
+
+**Title**: Refreshing the Now page
+
+- Updated the Now page with Codex, inspired by [Sindre Sorhus's Now page](https://sindresorhus.com/now). Grouped stats, projects, writing, and journal updates into a bento layout to make everything easier to scan on desktop and mobile.
+- Added post counts, topics, and recent articles from [my main blog](https://varunyadav.com), alongside TIL stats and a small list of recent GitHub projects. The blog data comes from Ghost's public Content API and refreshes when the site is built.
+- Kept the journal heatmap, added year switching with the site's existing filter buttons, and made highlighted days link to their entries. Committed the update after checking the layout, lint, and static export.
