@@ -28,6 +28,8 @@
 
 ### Fixed
 
+- Keep the Now-page blog stats visible with a dated snapshot when the blog cannot be reached during deployment, and retry temporary request failures.
+
 - Keep article titles crisp during list-to-post transitions instead of scaling and blurring overlapping text snapshots.
 - Prevent outgoing pages from reappearing during Home and Tags transitions, and use a short section fade without blur.
 - Keep search keyboard focus inside the dialog as results change, support Escape and a visible Close button, and prevent background scrolling.

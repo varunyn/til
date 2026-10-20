@@ -155,7 +155,9 @@ export default function NowOverview({
                 ))}
               </ul>
               <p className={styles.footnote}>
-                Blog stats refresh when this site is published.
+                {personalBlogData.isCached
+                  ? `Blog stats as of ${formatDate(personalBlogData.asOf)}. The latest update could not be fetched.`
+                  : "Blog stats refresh when this site is published."}
               </p>
             </>
           ) : (

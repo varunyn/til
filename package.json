@@ -17,7 +17,9 @@
     "format": "ultracite fix",
     "lint": "ultracite check",
     "prepare": "husky",
-    "start": "next start"
+    "refresh:blog-snapshot": "node scripts/refresh-blog-snapshot.mjs",
+    "start": "next start",
+    "test": "node --test tests/*.test.mjs"
   },
   "dependencies": {
     "cobe": "^2.0.1",

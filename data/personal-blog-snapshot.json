@@ -1,0 +1,24 @@
+{
+  "postsThisYear": 7,
+  "recentPosts": [
+    {
+      "date": "2026-07-30T22:03:35.000-05:00",
+      "title": "How to Run a Hermes AI Agent in Buzz",
+      "url": "https://varunyadav.com/self-hosting-hermes-inside-buzz/"
+    },
+    {
+      "date": "2026-06-21T11:43:02.000-05:00",
+      "title": "My Hermes Setup: Mini PC Orchestration with Mac-Hosted Inference",
+      "url": "https://varunyadav.com/hermes-home-ai-setup/"
+    },
+    {
+      "date": "2026-05-28T10:30:21.000-05:00",
+      "title": "The Prompt Said \"Process Every Document.\" The Agent Processed One.",
+      "url": "https://varunyadav.com/the-prompt-said-process-every-document-the-agent-processed-one/"
+    }
+  ],
+  "topics": 17,
+  "totalPosts": 41,
+  "year": 2026,
+  "asOf": "2026-10-20T20:45:24.980Z"
+}
