@@ -6,6 +6,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const nextConfig = {
   bundlePagesRouterDependencies: true,
   experimental: {
+    agentUpgrade: "security",
     mdxRs: true,
   },
   images: {
